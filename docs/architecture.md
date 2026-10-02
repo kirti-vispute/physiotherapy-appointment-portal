@@ -1,6 +1,6 @@
 # Task 3 — Architecture and Data Model
 
-**Status:** Design specification. Only the homepage and Actuator health endpoint exist in the Task 3 skeleton; the patient workflow and most APIs are planned for Tasks 5 and 6.
+**Status:** Application architecture implemented through Tasks 5–6: registration, Spring Security sessions/CSRF, provider/slot views, booking, confirmation/status, cancellation, and H2 persistence. The surrounding delivery architecture remains planned for Tasks 7–14.
 
 ## Technology choices
 
@@ -109,20 +109,21 @@ erDiagram
 
 | Table | Primary key | Attributes and constraints | Foreign keys |
 |---|---|---|---|
-| `patient` | `id` | `full_name` required; `email` required/unique; `password_hash` required; `created_at` required | — |
-| `physiotherapist` | `id` | `full_name`, `specialty`, `description` | — |
-| `slot` | `id` | `start_at < end_at`; future for new bookings; `available` defaults true; unique provider/start time | `physiotherapist_id → physiotherapist.id` |
-| `appointment` | `id` | `status ∈ {CONFIRMED, CANCELLED}`; `booked_at` required; `cancelled_at` for cancellation | `patient_id → patient.id`; `slot_id → slot.id` |
+| `patients` | `id` | `full_name` required; `email` required/unique; `password_hash` required; `created_at` required | — |
+| `physiotherapists` | `id` | Required `full_name` (unique seed key), `specialty`, `description` | — |
+| `slots` | `id` | Constructor validates `start_at < end_at`; future for bookings; `available` defaults true; database unique provider/start time | `physiotherapist_id → physiotherapists.id` |
+| `appointments` | `id` | `status ∈ {CONFIRMED, CANCELLED}`; `booked_at` required; `cancelled_at` for cancellation | `patient_id → patients.id`; `slot_id → slots.id` |
 
-**Relationships:** One patient has many appointments; one physiotherapist offers many slots; one slot can have multiple historical appointments but at most one active `CONFIRMED` appointment. Booking will lock the slot row in a transaction, check `available`, create the appointment, and set `available=false`. Cancellation will lock the slot, change the appointment status, and set `available=true`. This is the planned implementation strategy to avoid double booking; it is not yet coded or tested.
+**Relationships:** One patient has many appointments; one physiotherapist offers many slots; one slot can have multiple historical appointments but at most one active `CONFIRMED` appointment through the shared service. Booking locks the slot row in a transaction, checks availability/start time, creates the appointment, and sets `available=false`. Cancellation finds the owner's appointment, locks the same slot, refreshes the appointment after waiting, and then updates status/availability. Already-cancelled records return without changing the slot, including after someone else rebooks it. Concurrent booking/cancellation, ownership, and start-time tests passed in Task 6.
 
 **Time and persistence:** Store instants or UTC timestamps and render them in `Asia/Kolkata`. The local H2 database path defaults to `./data/physio`, relative to the process working directory. Task 11 will mount `/app/data` in the container so the database survives replacement. Schema changes must remain compatible with the rollback demonstration.
 
 ## Security and failure boundaries
 
-- Authentication will use a patient session. Passwords will be hashed, never stored or logged in plaintext.
-- Booking and status APIs will derive the patient identity from the session, not a caller-supplied patient ID.
-- Form and API validation will reject malformed values before persistence.
-- Missing or foreign appointment identifiers will return a non-revealing not-found response.
-- Expected conflicts will return a clear message and HTTP 409 where an API is used.
+- Authentication uses a Spring Security patient session and the existing salted PBKDF2 encoder. Sign-in rotates the session ID/CSRF token; logout invalidates the session. Session cookies are HttpOnly, SameSite=Lax, and never rewritten into URLs. Local HTTP is used for the college demonstration; cookies require Secure when a future deployment uses HTTPS.
+- Form and API mutations require CSRF, including registration/login/logout. `/api/auth/csrf` supplies the session's token. Thymeleaf forms insert it automatically. This follows [Spring Security CSRF guidance](https://docs.spring.io/spring-security/reference/servlet/exploits/csrf.html).
+- JSON login explicitly invokes session/CSRF strategies and saves the context for subsequent requests, following [Spring Security authentication persistence guidance](https://docs.spring.io/spring-security/reference/servlet/authentication/session-management.html).
+- Booking/status APIs derive patient identity from the session; form/API validation rejects malformed values before persistence.
+- Missing or foreign appointment identifiers return the same non-revealing `404` response.
+- Expected conflicts return clear messages and HTTP `409`; missing/invalid CSRF gives `403` and anonymous protected API access gives `401`.
 - `/actuator/health` is the only operational endpoint planned for public health checks; additional actuator details remain restricted.

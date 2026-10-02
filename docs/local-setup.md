@@ -31,13 +31,13 @@ Spring Boot 4.0.8 supports this Java/Maven combination; see [Spring Boot system 
    mvn clean package
    ```
 
-   Maven removes previous build output, compiles, runs available tests, and creates an executable JAR. Expected: `BUILD SUCCESS` and `target/physio-portal-0.1.0-SNAPSHOT.jar`. On the first run, dependency downloads may take time. If `mvn` is not recognized, check Maven on `PATH`; if a dependency cannot resolve, check network access to Maven Central; if compilation fails, inspect the first compiler error rather than reinstalling tools.
+   Maven removes previous build output, compiles, runs available tests, and creates an executable JAR. Expected: `BUILD SUCCESS` and `target/physio-portal-1.0.0.jar`. On the first run, dependency downloads may take time. If `mvn` is not recognized, check Maven on `PATH`; if a dependency cannot resolve, check network access to Maven Central; if compilation fails, inspect the first compiler error rather than reinstalling tools.
 
 3. **PowerShell, project root, keep this terminal open:**
 
    ```powershell
    $env:PORT='8081'
-   java -jar target/physio-portal-0.1.0-SNAPSHOT.jar
+   java -jar target/physio-portal-1.0.0.jar
    ```
 
    This sets the local demo port and starts embedded Tomcat. Expected: startup log showing the application ready on port 8081. Port 8080 was already occupied on this machine during Task 3. If 8081 is also occupied, choose another free port and use it in the checks below. If the H2 path cannot be written, check project-folder permissions; the app creates `data/` locally.
@@ -51,16 +51,17 @@ Spring Boot 4.0.8 supports this Java/Maven combination; see [Spring Boot system 
 
    The first request checks the home page; expected status `200`. The second checks health; expected `status : UP`. If connection is refused, confirm the application terminal is still running and the chosen port matches. If startup failed, read the first exception in that terminal.
 
-5. **Application terminal:** Press `Ctrl+C` to stop the local app. Expected: the Java process ends and port 8081 becomes free. Keep the `data/` directory; it is ignored by Git and will hold local H2 data when entities are added.
+5. **Application terminal:** Press `Ctrl+C` to stop the local app. Expected: the Java process ends and port 8081 becomes free. Keep the `data/` directory; it is ignored by Git and holds the patient and appointment data.
 
 ## Configurable values
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `PORT` | `8080` | Embedded Tomcat HTTP port |
+| `DEMO_SEED_ENABLED` | `true` | Seed fictional providers and next-three-day slots on startup; set `false` to disable |
 | `DB_URL` | `jdbc:h2:file:./data/physio;DB_CLOSE_ON_EXIT=FALSE` | H2 file path relative to the application working directory |
 
-In PowerShell, set a variable in the same terminal before `java -jar`, for example `$env:PORT='8081'`. Expected: startup on 8081. The values are for the local demo, not credentials. No patient feature endpoints are available at Task 3.
+In PowerShell, set a variable in the same terminal before `java -jar`, for example `$env:PORT='8081'`. Expected: startup on 8081. The values are for the local demo, not credentials. At the Task 3 baseline, patient routes did not yet exist. The current Task 6 MVP includes registration, sign-in, provider/slot views, booking, status, and cancellation.
 
 ## Verification record
 

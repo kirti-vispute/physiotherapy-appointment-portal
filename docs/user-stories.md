@@ -162,4 +162,4 @@ These stories describe outcomes. The specific screen and API design will be sett
 
 ## Story completion rule
 
-An acceptance criterion is checked only against actual implementation and evidence. US-01 registration criteria 1–4 are implemented and verified in Task 5 through UI checks and 14 integration tests. Its complete story DoD remains pending the Selenium registration journey in Task 9. US-02–US-11 remain planned. Sign-in is scheduled with the remaining MVP in Task 6; the approved functionality and scope are unchanged.
+An acceptance criterion is checked only against actual implementation and evidence. US-01–US-08 functionality is implemented and verified through Tasks 5–6: 34 integration tests, actual browser/API checks, and file-database persistence. US-02, US-03, and US-08 story DoD are verified. US-01 and US-04–US-07 retain the explicit Selenium journey gate in Task 9; they are not marked fully done before that run. US-09–US-11 remain planned for their CI/CD/reliability tasks. See `docs/task-06-mvp.md` and `docs/evidence/T06_*`. The approved functionality and frozen scope are unchanged.

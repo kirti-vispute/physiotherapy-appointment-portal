@@ -1,0 +1,93 @@
+**********************
+PowerShell transcript start
+Start time: 20261002203349
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; Start-Transcript -Path target/T06_git_conflict.txt -Force; Write-Output 'Feature branch edit: book and cancel an appointment'; $note=Get-Content -Raw docs/mvp-demo.md;$note=$note.Replace('Demo focus: patient registration.','Demo focus: book and cancel an appointment.');[IO.File]::WriteAllText((Join-Path $PWD 'docs/mvp-demo.md'),$note); git add docs/mvp-demo.md; git commit -m 'docs: focus MVP demonstration on booking and cancellation'; if($LASTEXITCODE -ne 0){throw 'First competing commit failed'}; git switch feature/demo-notes; if($LASTEXITCODE -ne 0){throw 'Switch failed'}; Write-Output 'Companion branch edit: view providers and available slots';$note=Get-Content -Raw docs/mvp-demo.md;$note=$note.Replace('Demo focus: patient registration.','Demo focus: view providers and available slots.');[IO.File]::WriteAllText((Join-Path $PWD 'docs/mvp-demo.md'),$note);git add docs/mvp-demo.md;git commit -m 'docs: focus MVP demonstration on providers and slots';if($LASTEXITCODE -ne 0){throw 'Second competing commit failed'};git switch feature/appointment-booking;if($LASTEXITCODE -ne 0){throw 'Switch failed'}; Write-Output 'Command: git merge feature/demo-notes';git merge feature/demo-notes;$conflictExit=$LASTEXITCODE;Write-Output ('Actual merge exit code: '+$conflictExit);if($conflictExit -ne 1){throw 'Expected conflict was not produced'};git status --short;Get-Content docs/mvp-demo.md;$unmerged=@(git diff --name-only --diff-filter=U);if($unmerged.Count -ne 1 -or $unmerged[0] -ne 'docs/mvp-demo.md'){throw 'Unexpected unmerged files'};Copy-Item docs/mvp-demo.md docs/evidence/T06_conflict_markers.txt;Stop-Transcript;Copy-Item target/T06_git_conflict.txt docs/evidence/T06_git_conflict.txt
+Process ID: 5256
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T06_git_conflict.txt
+Feature branch edit: book and cancel an appointment
+
+
+
+Companion branch edit: view providers and available slots
+
+
+
+Command: git merge feature/demo-notes
+
+Actual merge exit code: 1
+
+# MVP demonstration notes
+
+<<<<<<< HEAD
+Demo focus: book and cancel an appointment.
+=======
+Demo focus: view providers and available slots.
+>>>>>>> feature/demo-notes
+
+Use fictional accounts only. The clinic time zone is Asia/Kolkata (IST).
+
+The final demo starts at the homepage, creates an account, signs in, opens a provider's future slots, books one, checks CONFIRMED status, cancels it, checks CANCELLED status, verifies the slot is available again, and signs out.
+
+These notes also provide the document used for the controlled Task 6 merge-conflict exercise. The two branches will edit the same `Demo focus` line; resolution will retain the full MVP demonstration.
+**********************
+PowerShell transcript end
+End time: 20261002203350
+**********************
+**********************
+PowerShell transcript start
+Start time: 20261002203442
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; Start-Transcript -Path target/T06_git_conflict.txt -Append; Write-Output 'Resolved document:';Get-Content docs/mvp-demo.md;if(Select-String -Path docs/mvp-demo.md -Pattern '^(<<<<<<<|=======|>>>>>>>)'){throw 'Conflict markers remain'};Write-Output 'Command: git add docs/mvp-demo.md';git add docs/mvp-demo.md;Write-Output 'Command: git commit -m docs: resolve demo conflict with complete patient workflow';git commit -m 'docs: resolve demo conflict with complete patient workflow';if($LASTEXITCODE -ne 0){throw 'Conflict resolution commit failed'};Write-Output 'Command: git show --no-patch --format=fuller HEAD';git show --no-patch --format=fuller HEAD;Write-Output 'Command: git log --graph --oneline --decorate -n 8';git log --graph --oneline --decorate -n 8; $remaining=@(git diff --name-only --diff-filter=U);if($remaining.Count -ne 0){throw 'Unmerged files remain'};Stop-Transcript;Copy-Item target/T06_git_conflict.txt docs/evidence/T06_git_conflict.txt
+Process ID: 21192
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T06_git_conflict.txt
+Resolved document:
+# MVP demonstration notes
+
+Demo focus: register, sign in, view slots, book, check status, and cancel an appointment.
+
+Use fictional accounts only. The clinic time zone is Asia/Kolkata (IST).
+
+The final demo starts at the homepage, creates an account, signs in, opens a provider's future slots, books one, checks CONFIRMED status, cancels it, checks CANCELLED status, verifies the slot is available again, and signs out.
+
+These notes provided the document used for the controlled Task 6 merge-conflict exercise. Two branches edited the same `Demo focus` line. The resolved line retains the full MVP demonstration; the actual markers and command log are saved under `docs/evidence/T06_*`.
+Command: git add docs/mvp-demo.md
+
+Command: git commit -m docs: resolve demo conflict with complete patient workflow
+
+Command: git show --no-patch --format=fuller HEAD
+
+Command: git log --graph --oneline --decorate -n 8
+
+**********************
+PowerShell transcript end
+End time: 20261002203443
+**********************

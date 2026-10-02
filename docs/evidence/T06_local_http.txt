@@ -1,0 +1,60 @@
+Task 6 actual local HTTP checks — 2026-10-02T20:38:39.1550768+05:30
+GET /actuator/health => HTTP 200
+123 34 103 114 111 117 112 115 34 58 91 34 108 105 118 101 110 101 115 115 34 44 34 114 101 97 100 105 110 101 115 115 34 93 44 34 115 116 97 116 117 115 34 58 34 85 80 34 125
+GET /api/appointments => HTTP 401
+
+{
+  "error": "SIGN_IN_REQUIRED",
+  "message": "Please sign in to manage appointments."
+}
+POST /api/auth/login => HTTP 200
+{"id":33,"fullName":"Asha Patil","email":"asha.task6@example.test"}
+GET /api/physiotherapists => HTTP 200
+[{"id":1,"fullName":"Dr Asha Kulkarni","specialty":"Musculoskeletal rehabilitation","description":"Fictional demo provider for movement and joint rehabilitation."},{"id":2,"fullName":"Dr Rohan Deshmukh","specialty":"Sports physiotherapy","description":"Fictional demo provider for activity and sports rehabilitation."}]
+GET /api/physiotherapists/2/slots => HTTP 200
+[{"id":7,"physiotherapistId":2,"startAt":"2026-10-03T03:30:00Z","endAt":"2026-10-03T04:15:00Z","startLabel":"Sat, 03 Oct 2026 · 09:00 IST","endLabel":"Sat, 03 Oct 2026 · 09:45 IST"},{"id":8,"physiotherapistId":2,"startAt":"2026-10-03T05:30:00Z","endAt":"2026-10-03T06:15:00Z","startLabel":"Sat, 03 Oct 2026 · 11:00 IST","endLabel":"Sat, 03 Oct 2026 · 11:45 IST"},{"id":9,"physiotherapistId":2,"startAt":"2026-10-04T03:30:00Z","endAt":"2026-10-04T04:15:00Z","startLabel":"Sun, 04 Oct 2026 · 09:00 IST","endLabel":"Sun, 04 Oct 2026 · 09:45 IST"},{"id":10,"physiotherapistId":2,"startAt":"2026-10-04T05:30:00Z","endAt":"2026-10-04T06:15:00Z","startLabel":"Sun, 04 Oct 2026 · 11:00 IST","endLabel":"Sun, 04 Oct 2026 · 11:45 IST"},{"id":11,"physiotherapistId":2,"startAt":"2026-10-05T03:30:00Z","endAt":"2026-10-05T04:15:00Z","startLabel":"Mon, 05 Oct 2026 · 09:00 IST","endLabel":"Mon, 05 Oct 2026 · 09:45 IST"},{"id":12,"physiotherapistId":2,"startAt":"2026-10-05T05:30:00Z","endAt":"2026-10-05T06:15:00Z","startLabel":"Mon, 05 Oct 2026 · 11:00 IST","endLabel":"Mon, 05 Oct 2026 · 11:45 IST"}]
+POST /api/appointments => HTTP 403
+
+{
+  "error": "REQUEST_FORBIDDEN",
+  "message": "Refresh the page or CSRF token and try again."
+}
+POST /api/appointments => HTTP 201
+{"id":2,"slotId":7,"physiotherapistId":2,"physiotherapistName":"Dr Rohan Deshmukh","startAt":"2026-10-03T03:30:00Z","endAt":"2026-10-03T04:15:00Z","startLabel":"Sat, 03 Oct 2026 · 09:00 IST","endLabel":"Sat, 03 Oct 2026 · 09:45 IST","status":"CONFIRMED","bookedAt":"2026-10-02T15:08:40.565719200Z","cancelledAt":null,"cancellable":true}
+POST /api/appointments => HTTP 409
+
+{
+  "message": "This slot is no longer available. Please choose another.",
+  "error": "SLOT_UNAVAILABLE"
+}
+POST /api/auth/register => HTTP 201
+{"id":34,"fullName":"Dev Mehta","email":"dev.task6@example.test"}
+POST /api/auth/login => HTTP 200
+{"id":34,"fullName":"Dev Mehta","email":"dev.task6@example.test"}
+GET /api/appointments/2 => HTTP 404
+
+{
+  "message": "Appointment not found.",
+  "error": "APPOINTMENT_NOT_FOUND"
+}
+PATCH /api/appointments/2/cancel => HTTP 404
+
+{
+  "message": "Appointment not found.",
+  "error": "APPOINTMENT_NOT_FOUND"
+}
+PATCH /api/appointments/2/cancel => HTTP 200
+{"id":2,"slotId":7,"physiotherapistId":2,"physiotherapistName":"Dr Rohan Deshmukh","startAt":"2026-10-03T03:30:00Z","endAt":"2026-10-03T04:15:00Z","startLabel":"Sat, 03 Oct 2026 · 09:00 IST","endLabel":"Sat, 03 Oct 2026 · 09:45 IST","status":"CANCELLED","bookedAt":"2026-10-02T15:08:40.565719Z","cancelledAt":"2026-10-02T15:08:41.680769500Z","cancellable":false}
+PATCH /api/appointments/2/cancel => HTTP 200
+{"id":2,"slotId":7,"physiotherapistId":2,"physiotherapistName":"Dr Rohan Deshmukh","startAt":"2026-10-03T03:30:00Z","endAt":"2026-10-03T04:15:00Z","startLabel":"Sat, 03 Oct 2026 · 09:00 IST","endLabel":"Sat, 03 Oct 2026 · 09:45 IST","status":"CANCELLED","bookedAt":"2026-10-02T15:08:40.565719Z","cancelledAt":"2026-10-02T15:08:41.680770Z","cancellable":false}
+GET /api/physiotherapists/2/slots => HTTP 200
+[{"id":7,"physiotherapistId":2,"startAt":"2026-10-03T03:30:00Z","endAt":"2026-10-03T04:15:00Z","startLabel":"Sat, 03 Oct 2026 · 09:00 IST","endLabel":"Sat, 03 Oct 2026 · 09:45 IST"},{"id":8,"physiotherapistId":2,"startAt":"2026-10-03T05:30:00Z","endAt":"2026-10-03T06:15:00Z","startLabel":"Sat, 03 Oct 2026 · 11:00 IST","endLabel":"Sat, 03 Oct 2026 · 11:45 IST"},{"id":9,"physiotherapistId":2,"startAt":"2026-10-04T03:30:00Z","endAt":"2026-10-04T04:15:00Z","startLabel":"Sun, 04 Oct 2026 · 09:00 IST","endLabel":"Sun, 04 Oct 2026 · 09:45 IST"},{"id":10,"physiotherapistId":2,"startAt":"2026-10-04T05:30:00Z","endAt":"2026-10-04T06:15:00Z","startLabel":"Sun, 04 Oct 2026 · 11:00 IST","endLabel":"Sun, 04 Oct 2026 · 11:45 IST"},{"id":11,"physiotherapistId":2,"startAt":"2026-10-05T03:30:00Z","endAt":"2026-10-05T04:15:00Z","startLabel":"Mon, 05 Oct 2026 · 09:00 IST","endLabel":"Mon, 05 Oct 2026 · 09:45 IST"},{"id":12,"physiotherapistId":2,"startAt":"2026-10-05T05:30:00Z","endAt":"2026-10-05T06:15:00Z","startLabel":"Mon, 05 Oct 2026 · 11:00 IST","endLabel":"Mon, 05 Oct 2026 · 11:45 IST"}]
+POST /api/auth/logout => HTTP 204
+GET /api/appointments => HTTP 401
+
+{
+  "error": "SIGN_IN_REQUIRED",
+  "message": "Please sign in to manage appointments."
+}
+Actual browser checks: Asha Patil registered and signed in; provider #1 slot #1 disappeared after booking appointment #1, then returned after cancellation; own list displayed CANCELLED; logout redirected protected appointments to sign-in.
+Decoded health response: {"groups":["liveness","readiness"],"status":"UP"}

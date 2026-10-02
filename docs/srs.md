@@ -3,7 +3,7 @@
 **Project:** Selenium Testing for a Physiotherapy Appointment Portal  
 **Scope:** [Approved Task 1 MVP](problem-definition.md)  
 **Stories:** [Task 2 user stories](user-stories.md)  
-**Status:** Design specification; patient features are planned, not yet implemented.
+**Status:** Functional patient MVP implemented and verified through Tasks 5–6. Delivery, Selenium, CI/CD, provisioning, and reliability requirements retain their later task gates.
 
 ## Purpose and system boundary
 
