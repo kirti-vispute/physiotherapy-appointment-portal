@@ -7,14 +7,15 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–4 are complete. The Spring Boot skeleton builds and serves a setup page and health endpoint. The GitHub repository contains `main` and `develop`, initial commits, and contribution templates. Registration, booking, Selenium tests, Jenkins, Docker, and Ansible are planned for later tasks and are not yet running. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–4 are complete; Task 5 registration is implemented and verified, with its PR and merge being recorded. The app serves patient registration, a homepage, and health. All 14 registration integration tests pass. Sign-in and booking are planned for Task 6; Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
 | Feature | Current state |
 |---|---|
 | Homepage and health check | Verified locally in Task 3 |
-| Patient registration and sign-in | Planned for Tasks 5–6 |
+| Patient registration | Verified UI/API in Task 5; salted password hashes, validation, and duplicate-email protection |
+| Patient sign-in | Planned for Task 6 |
 | Physiotherapist and open-slot views | Planned for Task 6 |
 | Booking, confirmation, status, cancellation | Planned for Task 6 |
 | Validation and duplicate-booking protection | Planned for Task 6 |
@@ -44,7 +45,7 @@ docs/                     Scope, planning, architecture, API, setup, tracker
 screenshots/              Real demonstration images
 src/main/java/            Spring Boot application source
 src/main/resources/       Configuration and Thymeleaf pages
-src/test/java/            Unit/integration tests when added
+src/test/java/            JUnit integration tests
 pom.xml                   Maven build definition
 .gitignore                Local/build files excluded from Git
 ```
@@ -74,7 +75,9 @@ These check the homepage and health. Expected: HTTP 200 and `status: UP`. If the
 
 ## Testing
 
-**Current check:** `mvn clean package` packages the skeleton; there are no feature or Selenium tests yet. In later tasks, JUnit tests will live under `src/test/java`; five Selenium journeys will cover registration, open-slot view, booking, cancellation, and status. The [user stories](docs/user-stories.md) define their acceptance criteria. Actual pass/fail reports will be recorded only after execution.
+**Terminal:** PowerShell at the project root. Run `mvn clean verify` to execute JUnit integration tests and package the app. Expected: `Tests run: 14, Failures: 0, Errors: 0, Skipped: 0` and `BUILD SUCCESS`. This result was observed for registration in Task 5. Tests use an isolated H2 memory database; the app uses `data/physio.mv.db`. If a test fails, inspect `target/surefire-reports` before committing. See the [registration implementation guide and evidence](docs/task-05-registration.md).
+
+Selenium is planned for Task 9; no Selenium test has run yet. Its five journeys will cover registration, open-slot view, booking, cancellation, and status. The [user stories](docs/user-stories.md) define their acceptance criteria.
 
 ## Git and collaboration
 
@@ -107,6 +110,10 @@ Requirements → planning → architecture → feature branches/PRs → Maven/Je
 Task 4 also includes [branch evidence](screenshots/T04_branches.jpg) and [initial commit evidence](screenshots/T04_commits.jpg). These capture the initial publication before the subsequent evidence documentation commit.
 
 Additional images will be added only after the corresponding GitHub, Jenkins, Selenium, Docker, or Ansible step has actually been demonstrated. The screenshot checklist and final audit will link to them.
+
+![Task 5 registration success](screenshots/T05_registration_success.jpg)
+
+[Task 5 duplicate-email message](screenshots/T05_registration_duplicate.jpg)
 
 ## Contributors
 

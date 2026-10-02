@@ -13,8 +13,8 @@ Priority: **P0** is required for submission. The sequence is controlled by depen
 | PB-02 | Plan stories, acceptance criteria, board, sprints, DoD, lifecycle | P0 | US-01–US-11 | 02 | 0 | ✅ Complete |
 | PB-03 | Design SRS, use cases, data model, APIs, and local setup | P0 | US-01–US-08 | 03 | 0 | ✅ Complete |
 | PB-04 | Initialize GitHub repository, templates, branches, and README | P0 | US-09–US-11 | 04 | 1 | ✅ Complete |
-| PB-05 | Implement first feature on a branch and review PR | P0 | US-01, US-02 | 05 | 1 | ⬜ |
-| PB-06 | Finish physiotherapist, slot, booking, status, and cancellation flows; conflict and tag | P0 | US-03–US-08 | 06 | 1 | ⬜ |
+| PB-05 | Implement registration on a branch and review PR | P0 | US-01 | 05 | 1 | 🟡 |
+| PB-06 | Finish sign-in, physiotherapist, slot, booking, status, and cancellation flows; conflict and tag | P0 | US-02–US-08 | 06 | 1 | ⬜ |
 | PB-07 | Configure Jenkins checkout, build, unit tests, package, archive, trigger | P0 | US-09 | 07 | 2 | ⬜ |
 | PB-08 | Write parameterized pipeline and deploy runnable JAR | P0 | US-09 | 08 | 2 | ⬜ |
 | PB-09 | Implement five Selenium journeys, data, report, screenshot on failure | P0 | US-01, US-04–US-07 | 09 | 2 | ⬜ |

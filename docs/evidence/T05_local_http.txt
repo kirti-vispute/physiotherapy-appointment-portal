@@ -1,0 +1,8 @@
+Task 5 local HTTP verification — 2026-10-02T19:53:22.6011699+05:30
+GET /actuator/health
+{"groups":["liveness","readiness"],"status":"UP"}
+POST /api/auth/register => 201
+{"id":2,"fullName":"Dev Mehta","email":"dev.task5@example.test"}
+Repeated POST => 409
+Browser UI: account creation succeeded for asha.task5@example.test; uppercase duplicate rejected; password field cleared.
+After stop/restart: same email still rejected with HTTP 409; file-database persistence verified.

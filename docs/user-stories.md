@@ -162,4 +162,4 @@ These stories describe outcomes. The specific screen and API design will be sett
 
 ## Story completion rule
 
-An acceptance criterion is checked only against actual implementation and evidence. These are planned stories; none of the application, CI/CD, or recovery behaviors above has yet been implemented or tested.
+An acceptance criterion is checked only against actual implementation and evidence. US-01 registration criteria 1–4 are implemented and verified in Task 5 through UI checks and 14 integration tests. Its complete story DoD remains pending the Selenium registration journey in Task 9. US-02–US-11 remain planned. Sign-in is scheduled with the remaining MVP in Task 6; the approved functionality and scope are unchanged.

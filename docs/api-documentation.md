@@ -1,6 +1,6 @@
 # Task 3 — API and Page Contract
 
-**Status:** Contract for future implementation. In Task 3, only `GET /` and `GET /actuator/health` are implemented. All other rows are planned for Tasks 5 and 6. They must not be cited as working endpoints before verification.
+**Status:** `GET /`, `GET /actuator/health`, `GET /register`, `POST /register`, and `POST /api/auth/register` are implemented and verified through Task 5. Authentication and appointment routes remain planned for Task 6.
 
 All JSON requests use `Content-Type: application/json`. Patient-specific endpoints require a signed-in session cookie. Browser forms and state-changing requests will include CSRF protection when authentication is added. A standard error body is planned: `{"error":"CODE","message":"Readable explanation"}`. Dates in JSON use ISO 8601 with an offset; pages display `Asia/Kolkata` time.
 
@@ -9,7 +9,8 @@ All JSON requests use `Content-Type: application/json`. Patient-specific endpoin
 | Method and path | Purpose | Current state |
 |---|---|---|
 | `GET /` | Landing page | Implemented in Task 3 |
-| `GET /register` | Registration form | Planned |
+| `GET /register` | Registration form | Implemented in Task 5 |
+| `POST /register` | Submit HTML form | Implemented; 302 redirect on success, 200 with field errors on invalid/duplicate input |
 | `GET /login` | Sign-in form | Planned |
 | `GET /physiotherapists` | Browse physiotherapists | Planned |
 | `GET /physiotherapists/{id}/slots` | Browse one provider's open slots | Planned |
@@ -35,8 +36,18 @@ All JSON requests use `Content-Type: application/json`. Patient-specific endpoin
 
 ## Verification status
 
+### Registration behavior
+
+- Full name is required, limited to 100 characters, and stripped of surrounding whitespace.
+- Email is required, validated, limited to 254 characters, stripped and lowercased using `Locale.ROOT`. A database unique constraint protects concurrent registration.
+- Password is required and must have 8–128 characters. Whitespace is preserved. Spring Security Crypto PBKDF2 with a random salt stores a hash; neither password nor hash appears in the response. See [Spring's password-storage documentation](https://docs.spring.io/spring-security/reference/features/authentication/password-storage.html).
+- Invalid JSON fields return `400` with `error:VALIDATION_FAILED`, `message`, and a `fields` map of field messages. Malformed JSON returns `400` with `error:INVALID_REQUEST`. Duplicate email returns `409` with `error:EMAIL_IN_USE`.
+- HTML success redirects to `/register` with a one-time message, so refreshing does not repeat the POST. Invalid/duplicate input shows field messages and clears the password. Sessions use cookies only.
+- Registration creates an account. Sign-in, protected routes, and CSRF for the authenticated workflow are part of Task 6.
+
 | Endpoint | Planned check | Actual result |
 |---|---|---|
 | `GET /` | HTTP 200 and setup page | Passed on port 8081 on 2 October 2026; setup text present |
 | `GET /actuator/health` | HTTP 200 and `UP` | Passed on port 8081 on 2 October 2026; `UP` observed |
-| All patient endpoints | Implement and test in Tasks 5–6 | Not implemented |
+| Registration page/form/API | Valid, invalid, duplicate, persistence, concurrency, password protection | 14 JUnit integration tests passed; browser success and duplicate messages verified in Task 5 |
+| Remaining patient endpoints | Implement and test in Task 6 | Not implemented |
