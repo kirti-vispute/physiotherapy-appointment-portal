@@ -15,7 +15,7 @@ Priority: **P0** is required for submission. The sequence is controlled by depen
 | PB-04 | Initialize GitHub repository, templates, branches, and README | P0 | US-09–US-11 | 04 | 1 | ✅ Complete |
 | PB-05 | Implement registration on a branch and review PR | P0 | US-01 | 05 | 1 | ✅ Complete; PR #1 merged |
 | PB-06 | Finish sign-in, physiotherapist, slot, booking, status, and cancellation flows; conflict and tag | P0 | US-02–US-08 | 06 | 1 | ✅ Complete; PR #2 merged, v1.0.0 published |
-| PB-07 | Configure Jenkins checkout, build, unit tests, package, archive, trigger | P0 | US-09 | 07 | 2 | 🟡 Existing installation inspected; configuration pending |
+| PB-07 | Configure Jenkins checkout, build, unit tests, package, archive, trigger | P0 | US-09 | 07 | 2 | ✅ Builds #1/#2, 34 tests, archive/fingerprint and SCM trigger verified |
 | PB-08 | Write parameterized pipeline and deploy runnable JAR | P0 | US-09 | 08 | 2 | ⬜ |
 | PB-09 | Implement five Selenium journeys, data, report, screenshot on failure | P0 | US-01, US-04–US-07 | 09 | 2 | ⬜ |
 | PB-10 | Gate deployment on Selenium; demonstrate failure and corrected rerun | P0 | US-09 | 10 | 2 | ⬜ |

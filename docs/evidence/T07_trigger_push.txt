@@ -1,0 +1,43 @@
+**********************
+PowerShell transcript start
+Start time: 20261002231005
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$ErrorActionPreference='Stop'
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'
+git status --short --branch
+git diff --check -- docs/task-07-jenkins-ci.md docs/project-tracker.md docs/backlog.md docs/agile-plan.md
+if($LASTEXITCODE -ne 0){throw 'Documentation whitespace check failed'}
+git add docs screenshots
+if($LASTEXITCODE -ne 0){throw 'Staging failed'}
+git commit -m 'ci: document configured Jenkins job and verified Maven build'
+if($LASTEXITCODE -ne 0){throw 'Commit failed'}
+$triggerCommit=git rev-parse HEAD
+Start-Transcript -Path target/T07_trigger_push.txt
+Write-Output ('Actual trigger commit: '+$triggerCommit)
+git push origin develop
+if($LASTEXITCODE -ne 0){throw 'Push failed'}
+Stop-Transcript
+Copy-Item -LiteralPath target/T07_trigger_push.txt -Destination docs/evidence/T07_trigger_push.txt
+[ordered]@{pushed_at=(Get-Date -Format o);commit=$triggerCommit;branch='develop';job='http://localhost:8080/job/physio-portal-ci/';method='SCM polling H/2 * * * *';manual_build_request_sent=$false} | ConvertTo-Json | Set-Content -Encoding utf8 docs/evidence/T07_trigger_commit.json
+Process ID: 21476
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T07_trigger_push.txt
+Actual trigger commit: 9ccbbdcdc2eb3e506395a371961782e506e623f0
+
+**********************
+PowerShell transcript end
+End time: 20261002231010
+**********************

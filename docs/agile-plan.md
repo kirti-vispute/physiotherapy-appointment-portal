@@ -17,7 +17,7 @@ All tasks have one owner. `Done` requires the listed acceptance evidence; a docu
 | 04 | Git/GitHub | Initialize repo and collaboration rules | Kirti | ✅ Done | 03 | Repository, README, templates, branches | Remote URL, initial commits, `main`/`develop`, and evidence verified on GitHub |
 | 05 | Feature Development | First feature branch, PR, review, merge | Kirti | ✅ Done | 04 | Registration and PR #1 | 14 tests and UI/API/persistence verified; PR #1 reviewed with COMMENT self-review and merged into `develop` |
 | 06 | MVP Collaboration | Complete remaining features and Git exercise | Kirti | ✅ Done | 05 | Working MVP, second branch, conflict resolution, tag | 34 tests and UI/API/restart checks passed; real conflict resolved, PR #2 reviewed/merged, annotated `v1.0.0` published |
-| 07 | Jenkins CI | Configure job and repository trigger | Kirti | 🟡 In progress | 04, 06 | Jenkins job and archived JAR | Real checkout/build/test/package succeeds; artifact and trigger shown |
+| 07 | Jenkins CI | Configure job and repository trigger | Kirti | ✅ Done | 04, 06 | Jenkins job and archived JAR | Builds #1/#2 SUCCESS; 34 tests, archived JAR/fingerprint and actual SCM trigger evidenced |
 | 08 | Jenkins Pipeline | Parameterized stages and JAR deployment | Kirti | ⬜ To do | 07 | `Jenkinsfile`, deployed app | Successful stages, parameter, URL, and logs recorded |
 | 09 | Selenium | Design and run five critical browser journeys | Kirti | ⬜ To do | 06 | Test plan, scripts, local report | Five meaningful tests pass locally; screenshot-on-failure works |
 | 10 | Continuous Testing | Integrate Selenium and prove deployment gate | Kirti | ⬜ To do | 08, 09 | Failed and corrected Jenkins runs | Failure blocks deploy; correction commit and successful rerun recorded |

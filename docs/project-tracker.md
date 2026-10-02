@@ -14,7 +14,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
 | 06 | MVP Collaboration | ✅ | Full MVP, 34 passing tests, UI/API/restart checks, real conflict resolution, reviewed/merged PR #2, annotated v1.0.0 and main baseline verified |
-| 07 | Jenkins CI | 🟡 | Existing Jenkins 2.568.1 service found on 8080; Java/Maven/Git and required plugin files checked; authenticated configuration and build evidence pending |
+| 07 | Jenkins CI | ✅ | Existing Jenkins 2.568.1, active plugins/tools, GitHub checkout, builds #1/#2 SUCCESS with 34 tests; downloaded/fingerprinted JARs; actual SCM-triggered commit and logs/screenshots verified |
 | 08 | Jenkins Pipeline | ⬜ | Not started |
 | 09 | Selenium | ⬜ | Not started |
 | 10 | Continuous Testing | ⬜ | Not started |
@@ -27,13 +27,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Area | Current verified state |
 |---|---|
 | Application | Full patient MVP verified on port 8081; 34 passing registration/appointment/security tests, browser/API flow, booking concurrency, CSRF/ownership, and restart persistence; verification app stopped |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2 reviewed/merged into `develop`; `main` advanced; annotated v1.0.0 points to release f629e23; final documentation follows on both branches |
-| Jenkins | Existing Windows service running on 8080, version 2.568.1; sign-in required and credentials forgotten; job/build/trigger/archive not yet verified |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2 reviewed/merged; annotated v1.0.0 points to release f629e23; `main` retains the MVP and Task 6 evidence, `develop` adds Task 7 CI setup/evidence |
+| Jenkins | Windows service 2.568.1 running on 8080; admin access recovered with authorized existing credential; physio-portal-ci builds #1/#2 passed; H/2 SCM polling, JUnit reports, archives and fingerprints verified |
 | Selenium | Not implemented or run |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–6 complete; MVP guide, current API/setup/architecture, README, story/backlog/board/tracker updated; Selenium story DoD remains pending Task 9 |
-| Evidence | Tasks 3–5 retained; Task 6 initial failures/corrections, 34-test summaries, actual UI/API/restart evidence, conflict markers/transcripts, PR/review/merge JSON, annotated tag/remote hashes, JAR checksum, screenshots |
+| Documentation | Tasks 1–7 complete; Jenkins setup/reproduction/evidence guide added, README and backlog/board/tracker updated; Selenium story DoD remains pending Task 9 |
+| Evidence | Tasks 3–6 retained; Task 7 installation/plugins/job export, manual and SCM build console/API/JUnit reports, downloaded JAR checksums/fingerprints, trigger push/polling logs and actual screenshots |
 
 ## Task 1 evidence checklist
 
@@ -62,4 +62,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ `main` release baseline and remote annotated `v1.0.0`: object `ca2238a0338d4660d501843e2dee66a62f35fe54`, peeled release `f629e23`
 - ✅ Backlog/board and current documentation updated; actual screenshots and logs in [Task 6 guide](task-06-mvp.md)
 
-Tasks 1–6 are ✅. Task 7 is 🟡. Tasks 8–15 are ⬜. Jenkins installation has been inspected; its CI job is not yet verified. Selenium, Docker, and Ansible have not been executed.
+## Task 7 verification gate
+
+- ✅ Existing Jenkins installation and Java 21/Maven/Git configured and verified
+- ✅ Required Git/JUnit/dependency plugins active and enabled
+- ✅ `physio-portal-ci` checks out public GitHub `develop`; credentials none
+- ✅ Manual build #1 SUCCESS, source `9e1e2a6`; both Maven commands and 34 tests pass
+- ✅ Pushed `9ccbbdc`; actual polling found changes and automatic build #2 SUCCESS with SCM cause, exact source, 34 passing tests
+- ✅ Executable JARs downloaded, checksummed and fingerprinted; reports/logs/configuration/screenshots saved in [Task 7 guide](task-07-jenkins-ci.md)
+
+Tasks 1–7 are ✅. Tasks 8–15 are ⬜. Next: Task 8 Jenkins Pipeline. Selenium, Docker, and Ansible have not been executed.

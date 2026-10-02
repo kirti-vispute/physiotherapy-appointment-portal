@@ -1,0 +1,8 @@
+{
+  "pushed_at": "2026-10-02T23:10:10.6334544+05:30",
+  "commit": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+  "branch": "develop",
+  "job": "http://localhost:8080/job/physio-portal-ci/",
+  "method": "SCM polling H/2 * * * *",
+  "manual_build_request_sent": false
+}

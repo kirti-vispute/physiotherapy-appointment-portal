@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–6 are complete. Registration, sign-in/out, physiotherapists, future open slots, booking, own confirmation/status, and cancellation work through the browser and API. All 34 integration tests pass. A real documentation merge conflict was demonstrated and resolved; [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2) was self-reviewed and merged. The annotated [v1.0.0 tag](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) identifies the tested MVP baseline. Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–7 are complete. The patient MVP works through the browser/API with 34 passing integration tests. A real merge conflict was resolved; [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2) was self-reviewed and merged; [v1.0.0](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) identifies the tested MVP baseline. Local Jenkins builds #1/#2 passed, with GitHub checkout, Maven tests/package, JUnit reports, archived JARs and an actual SCM polling trigger. The pipeline, Selenium, Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -89,7 +89,9 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 ## Jenkins CI and pipeline
 
-**Planned for Tasks 7–10; not installed or verified yet.** Jenkins will check out this repository, run Maven build and unit tests, start the app, run Selenium, publish reports, archive the JAR, and deploy only when tests pass. A `Jenkinsfile` will be added in Task 8. The job trigger will use a practical GitHub webhook or SCM polling, with the chosen method documented. Plugin requirements and exact setup steps will be written and checked during Task 7.
+**Task 7 verified:** Jenkins 2.568.1 runs locally at `http://localhost:8080/`. The freestyle job [physio-portal-ci](http://localhost:8080/job/physio-portal-ci/) checks out public GitHub `develop`, runs `mvn clean test` then `mvn package`, publishes 34 JUnit tests, and archives/fingerprints `physio-portal-1.0.0.jar`. Manual build #1 and automatic SCM-triggered build #2 both succeeded. Poll SCM uses `H/2 * * * *`, avoiding a public webhook tunnel. The [Jenkins guide](docs/task-07-jenkins-ci.md) records exact tools/plugins/settings, commands, build/trigger evidence, and installation limitations. The existing unrelated Jenkins job was preserved.
+
+A parameterized `Jenkinsfile` and runnable deployment are Task 8. Selenium implementation/integration and its deployment gate remain Tasks 9–10. Jenkins runs as the existing Windows service; the application demo uses port 8081.
 
 ## Docker deployment
 
@@ -124,6 +126,10 @@ Task 5 GitHub evidence: [pull request](screenshots/T05_pull_request.jpg), [self-
 ![Task 6 cancellation](screenshots/T06_cancellation.jpg)
 
 Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](screenshots/T06_available_slots.jpg), [own appointment status](screenshots/T06_appointment_status.jpg), [released slot](screenshots/T06_slot_released.jpg), [sign-out](screenshots/T06_sign_out.jpg), [merged PR](screenshots/T06_merge.jpg), [self-review](screenshots/T06_review.jpg), and [release tag](screenshots/T06_release_tag.jpg). The [Task 6 guide](docs/task-06-mvp.md) links the real Git conflict, test results, and release evidence. The verification app was stopped after the restart check.
+
+![Task 7 successful automatic SCM build](screenshots/T07_scm_trigger.jpg)
+
+Task 7 also records [34 passing Jenkins tests](screenshots/T07_test_results.jpg), [artifact fingerprint](screenshots/T07_artifact.jpg), [polling change detection](screenshots/T07_polling.jpg), [configured tools](screenshots/T07_tools.jpg), and actual console/API evidence in the [Task 7 guide](docs/task-07-jenkins-ci.md).
 
 ## Contributors
 

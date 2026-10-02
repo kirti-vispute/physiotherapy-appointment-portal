@@ -1,0 +1,271 @@
+{
+  "_class": "hudson.model.FreeStyleBuild",
+  "actions": [
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.triggers.SCMTrigger$SCMTriggerCause",
+          "shortDescription": "Started by an SCM change"
+        }
+      ]
+    },
+    {},
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "refs/remotes/origin/develop": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 2,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+            "branch": [
+              {
+                "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+                "name": "refs/remotes/origin/develop"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+            "branch": [
+              {
+                "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+                "name": "refs/remotes/origin/develop"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+        "branch": [
+          {
+            "SHA1": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+            "name": "refs/remotes/origin/develop"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 34,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+      "artifactsUrl": "http://localhost:8080/job/physio-portal-ci/2/artifact",
+      "changesUrl": "http://localhost:8080/job/physio-portal-ci/changes",
+      "displayUrl": "http://localhost:8080/job/physio-portal-ci/2/",
+      "testsUrl": "http://localhost:8080/job/physio-portal-ci/2/testReport"
+    }
+  ],
+  "artifacts": [
+    {
+      "displayPath": "physio-portal-1.0.0.jar",
+      "fileName": "physio-portal-1.0.0.jar",
+      "relativePath": "target/physio-portal-1.0.0.jar"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#2",
+  "duration": 168003,
+  "estimatedDuration": 197718,
+  "executor": null,
+  "fullDisplayName": "physio-portal-ci #2",
+  "id": "2",
+  "inProgress": false,
+  "keepLog": false,
+  "number": 2,
+  "queueId": 2,
+  "result": "SUCCESS",
+  "timestamp": 1790962868356,
+  "url": "http://localhost:8080/job/physio-portal-ci/2/",
+  "builtOn": "",
+  "changeSet": {
+    "_class": "hudson.plugins.git.GitChangeSetList",
+    "items": [
+      {
+        "_class": "hudson.plugins.git.GitChangeSet",
+        "affectedPaths": [
+          "docs/evidence/T07_console_manual.txt",
+          "docs/evidence/T07_job_config.xml",
+          "docs/evidence/T07_installation.json",
+          "docs/evidence/T07_verified_manual.json",
+          "screenshots/T07_jenkins_installation.jpg",
+          "screenshots/T07_archive_config.jpg",
+          "screenshots/T07_junit_plugin.jpg",
+          "docs/task-07-jenkins-ci.md",
+          "screenshots/T07_plugins.jpg",
+          "docs/evidence/T07_tests_manual.json",
+          "docs/evidence/T07_plugins.json",
+          "screenshots/T07_test_results.jpg",
+          "docs/evidence/T07_build_manual.json",
+          "screenshots/T07_jenkins_success.jpg",
+          "docs/project-tracker.md",
+          "screenshots/T07_tools.jpg",
+          "docs/agile-plan.md",
+          "screenshots/T07_job_config.jpg",
+          "docs/backlog.md"
+        ],
+        "commitId": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+        "timestamp": 1790962805000,
+        "author": {
+          "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+          "fullName": "kirtisvispute2"
+        },
+        "authorEmail": "kirtisvispute2@gmail.com",
+        "comment": "ci: document configured Jenkins job and verified Maven build\n",
+        "date": "2026-10-02 23:10:05 +0530",
+        "id": "9ccbbdcdc2eb3e506395a371961782e506e623f0",
+        "msg": "ci: document configured Jenkins job and verified Maven build",
+        "paths": [
+          {
+            "editType": "add",
+            "file": "screenshots/T07_plugins.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "docs/task-07-jenkins-ci.md"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_console_manual.txt"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_jenkins_installation.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_jenkins_success.jpg"
+          },
+          {
+            "editType": "edit",
+            "file": "docs/project-tracker.md"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_tools.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_junit_plugin.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_archive_config.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_job_config.jpg"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_build_manual.json"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_plugins.json"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_verified_manual.json"
+          },
+          {
+            "editType": "add",
+            "file": "screenshots/T07_test_results.jpg"
+          },
+          {
+            "editType": "edit",
+            "file": "docs/backlog.md"
+          },
+          {
+            "editType": "edit",
+            "file": "docs/agile-plan.md"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_installation.json"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_job_config.xml"
+          },
+          {
+            "editType": "add",
+            "file": "docs/evidence/T07_tests_manual.json"
+          }
+        ]
+      }
+    ],
+    "kind": "git"
+  },
+  "culprits": [
+    {
+      "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+      "description": null,
+      "fullName": "kirtisvispute2",
+      "id": "kirtisvispute2",
+      "property": [
+        {
+          "_class": "io.jenkins.plugins.thememanager.ThemeUserProperty"
+        },
+        {
+          "_class": "jenkins.security.ApiTokenProperty"
+        },
+        {
+          "_class": "jenkins.console.ConsoleUrlProviderUserProperty"
+        },
+        {
+          "_class": "com.cloudbees.plugins.credentials.UserCredentialsProvider$UserCredentialsProperty"
+        },
+        {
+          "_class": "jenkins.views.ViewsTabBarUserProperty"
+        },
+        {
+          "_class": "hudson.plugins.emailext.watching.EmailExtWatchAction$UserProperty",
+          "triggers": []
+        },
+        {
+          "_class": "hudson.model.MyViewsProperty"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty"
+        },
+        {
+          "_class": "hudson.model.PaneStatusProperties"
+        },
+        {
+          "_class": "jenkins.security.seed.UserSeedProperty"
+        },
+        {
+          "_class": "hudson.search.UserSearchProperty",
+          "insensitiveSearch": true
+        },
+        {
+          "_class": "hudson.model.TimeZoneProperty"
+        },
+        {
+          "_class": "jenkins.model.experimentalflags.UserExperimentalFlagsProperty"
+        },
+        {
+          "_class": "hudson.tasks.Mailer$UserProperty",
+          "address": "kirtisvispute2@gmail.com"
+        }
+      ]
+    }
+  ]
+}

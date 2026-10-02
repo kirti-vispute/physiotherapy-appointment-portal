@@ -1,0 +1,20 @@
+{
+  "number": 2,
+  "url": "http://localhost:8080/job/physio-portal-ci/2/",
+  "result": "SUCCESS",
+  "building": false,
+  "causes": [
+    {
+      "_class": "hudson.triggers.SCMTrigger$SCMTriggerCause",
+      "shortDescription": "Started by an SCM change"
+    }
+  ],
+  "tests": 34,
+  "passed": 34,
+  "failed": 0,
+  "skipped": 0,
+  "artifact": "physio-portal-1.0.0.jar",
+  "artifact_bytes": 65083824,
+  "artifact_sha256": "CA502786C6DA131B82317040F64482C7DF0E10053DC7FCA6FB76511365BBA255",
+  "artifact_md5": "FDE0E1D0EC66405022D493402485F961"
+}

@@ -1,0 +1,23 @@
+{
+  "_class": "hudson.model.Fingerprint",
+  "fileName": "physio-portal-1.0.0.jar",
+  "hash": "fde0e1d0ec66405022d493402485f961",
+  "original": {
+    "name": "physio-portal-ci",
+    "number": 2
+  },
+  "timestamp": 1790963036275,
+  "usage": [
+    {
+      "name": "physio-portal-ci",
+      "ranges": {
+        "ranges": [
+          {
+            "end": 3,
+            "start": 2
+          }
+        ]
+      }
+    }
+  ]
+}
