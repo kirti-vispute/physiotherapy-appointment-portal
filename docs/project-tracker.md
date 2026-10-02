@@ -12,7 +12,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 02 | Agile Planning | ✅ | `user-stories.md`, `backlog.md`, and `agile-plan.md` created; 11 stories and 15 task rows verified |
 | 03 | Architecture | ✅ | SRS, diagrams, model, API contract, and setup created; Maven build, home/health, H2, and screenshot verified |
 | 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
-| 05 | Feature Development | ⬜ | Not started |
+| 05 | Feature Development | 🟡 | Registration implemented; verification and GitHub PR/review/merge in progress |
 | 06 | MVP Collaboration | ⬜ | Not started |
 | 07 | Jenkins CI | ⬜ | Not started |
 | 08 | Jenkins Pipeline | ⬜ | Not started |

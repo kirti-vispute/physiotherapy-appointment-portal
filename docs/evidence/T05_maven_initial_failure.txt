@@ -1,0 +1,507 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[INFO] Building physio-portal 0.1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/7.0.7/spring-security-crypto-7.0.7.pom
+Progress (1): 1.0 kB
+Progress (1): 2.1 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/7.0.7/spring-security-crypto-7.0.7.pom (2.1 kB at 1.1 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/7.0.7/spring-security-crypto-7.0.7.jar
+Progress (1): 0.9/118 kB
+Progress (1): 2.3/118 kB
+Progress (1): 3.6/118 kB
+Progress (1): 5.0/118 kB
+Progress (1): 6.4/118 kB
+Progress (1): 7.7/118 kB
+Progress (1): 9.1/118 kB
+Progress (1): 10/118 kB 
+Progress (1): 11/118 kB
+Progress (1): 13/118 kB
+Progress (1): 14/118 kB
+Progress (1): 15/118 kB
+Progress (1): 17/118 kB
+Progress (1): 18/118 kB
+Progress (1): 20/118 kB
+Progress (1): 21/118 kB
+Progress (1): 22/118 kB
+Progress (1): 24/118 kB
+Progress (1): 25/118 kB
+Progress (1): 26/118 kB
+Progress (1): 28/118 kB
+Progress (1): 29/118 kB
+Progress (1): 31/118 kB
+Progress (1): 32/118 kB
+Progress (1): 33/118 kB
+Progress (1): 35/118 kB
+Progress (1): 36/118 kB
+Progress (1): 37/118 kB
+Progress (1): 39/118 kB
+Progress (1): 40/118 kB
+Progress (1): 41/118 kB
+Progress (1): 43/118 kB
+Progress (1): 44/118 kB
+Progress (1): 46/118 kB
+Progress (1): 47/118 kB
+Progress (1): 48/118 kB
+Progress (1): 50/118 kB
+Progress (1): 51/118 kB
+Progress (1): 52/118 kB
+Progress (1): 57/118 kB
+Progress (1): 61/118 kB
+Progress (1): 65/118 kB
+Progress (1): 69/118 kB
+Progress (1): 74/118 kB
+Progress (1): 78/118 kB
+Progress (1): 82/118 kB
+Progress (1): 86/118 kB
+Progress (1): 90/118 kB
+Progress (1): 95/118 kB
+Progress (1): 99/118 kB
+Progress (1): 103/118 kB
+Progress (1): 107/118 kB
+Progress (1): 112/118 kB
+Progress (1): 116/118 kB
+Progress (1): 118 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/springframework/security/spring-security-crypto/7.0.7/spring-security-crypto-7.0.7.jar (118 kB at 401 kB/s)
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ physio-portal ---
+[INFO] Deleting D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 3 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 12 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ physio-portal ---
+[INFO] skip non existing resourceDirectory D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ physio-portal ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ physio-portal ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.5.6/surefire-junit-platform-3.5.6.pom
+Progress (1): 833 B
+Progress (1): 3.9 kB
+Progress (1): 5.2 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.5.6/surefire-junit-platform-3.5.6.pom (5.2 kB at 52 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/3.5.6/surefire-providers-3.5.6.pom
+Progress (1): 844 B
+Progress (1): 2.5 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-providers/3.5.6/surefire-providers-3.5.6.pom (2.5 kB at 26 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.5.6/common-java5-3.5.6.pom
+Progress (1): 844 B
+Progress (1): 2.8 kB
+Progress (1): 3.1 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.5.6/common-java5-3.5.6.pom (3.1 kB at 33 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.pom
+Progress (1): 957 B
+Progress (1): 3.2 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.pom (3.2 kB at 31 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.pom
+Progress (1): 966 B
+Progress (1): 2.8 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.pom (2.8 kB at 35 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.12.2/junit-platform-launcher-1.12.2.pom
+Progress (1): 967 B
+Progress (1): 3.0 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.12.2/junit-platform-launcher-1.12.2.pom (3.0 kB at 31 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.5.6/surefire-junit-platform-3.5.6.jar
+Progress (1): 3.8/35 kB
+Progress (1): 8.0/35 kB
+Progress (1): 11/35 kB 
+Progress (1): 16/35 kB
+Progress (1): 20/35 kB
+Progress (1): 24/35 kB
+Progress (1): 28/35 kB
+Progress (1): 32/35 kB
+Progress (1): 35 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/surefire-junit-platform/3.5.6/surefire-junit-platform-3.5.6.jar (35 kB at 331 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.5.6/common-java5-3.5.6.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.12.2/junit-platform-launcher-1.12.2.jar
+Progress (1): 3.8/18 kB
+Progress (1): 8.0/18 kB
+Progress (1): 12/18 kB 
+Progress (1): 18 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/surefire/common-java5/3.5.6/common-java5-3.5.6.jar (18 kB at 184 kB/s)
+Progress (1): 0.9/208 kB
+Progress (1): 2.3/208 kB
+Progress (1): 3.6/208 kB
+Progress (1): 5.0/208 kB
+Progress (1): 6.4/208 kB
+Progress (2): 6.4/208 kB | 0.9/152 kB
+Progress (3): 6.4/208 kB | 0.9/152 kB | 0.9/256 kB
+Progress (3): 6.4/208 kB | 0.9/152 kB | 2.3/256 kB
+Progress (3): 6.4/208 kB | 2.3/152 kB | 2.3/256 kB
+Progress (3): 7.7/208 kB | 2.3/152 kB | 2.3/256 kB
+Progress (3): 7.7/208 kB | 2.3/152 kB | 3.6/256 kB
+Progress (3): 7.7/208 kB | 3.6/152 kB | 3.6/256 kB
+Progress (3): 9.1/208 kB | 3.6/152 kB | 3.6/256 kB
+Progress (3): 9.1/208 kB | 3.6/152 kB | 5.0/256 kB
+Progress (3): 9.1/208 kB | 3.6/152 kB | 6.4/256 kB
+Progress (3): 9.1/208 kB | 3.6/152 kB | 7.7/256 kB
+Progress (3): 9.1/208 kB | 5.0/152 kB | 7.7/256 kB
+Progress (3): 10/208 kB | 5.0/152 kB | 7.7/256 kB 
+Progress (3): 10/208 kB | 6.4/152 kB | 7.7/256 kB
+Progress (3): 10/208 kB | 7.7/152 kB | 7.7/256 kB
+Progress (3): 12/208 kB | 7.7/152 kB | 7.7/256 kB
+Progress (3): 12/208 kB | 7.7/152 kB | 7.7/256 kB
+Progress (3): 12/208 kB | 9.1/152 kB | 7.7/256 kB
+Progress (3): 14/208 kB | 9.1/152 kB | 7.7/256 kB
+Progress (3): 14/208 kB | 9.1/152 kB | 9.1/256 kB
+Progress (3): 15/208 kB | 9.1/152 kB | 9.1/256 kB
+Progress (3): 15/208 kB | 10/152 kB | 9.1/256 kB 
+Progress (3): 15/208 kB | 10/152 kB | 10/256 kB 
+Progress (3): 15/208 kB | 12/152 kB | 10/256 kB
+Progress (3): 16/208 kB | 12/152 kB | 10/256 kB
+Progress (3): 16/208 kB | 12/152 kB | 12/256 kB
+Progress (3): 16/208 kB | 12/152 kB | 13/256 kB
+Progress (3): 18/208 kB | 12/152 kB | 13/256 kB
+Progress (3): 18/208 kB | 13/152 kB | 13/256 kB
+Progress (3): 18/208 kB | 13/152 kB | 15/256 kB
+Progress (3): 19/208 kB | 13/152 kB | 15/256 kB
+Progress (3): 19/208 kB | 15/152 kB | 15/256 kB
+Progress (3): 19/208 kB | 15/152 kB | 16/256 kB
+Progress (3): 21/208 kB | 15/152 kB | 16/256 kB
+Progress (3): 21/208 kB | 16/152 kB | 16/256 kB
+Progress (3): 22/208 kB | 16/152 kB | 16/256 kB
+Progress (3): 22/208 kB | 16/152 kB | 17/256 kB
+Progress (3): 22/208 kB | 17/152 kB | 17/256 kB
+Progress (3): 23/208 kB | 17/152 kB | 17/256 kB
+Progress (3): 23/208 kB | 17/152 kB | 19/256 kB
+Progress (3): 23/208 kB | 19/152 kB | 19/256 kB
+Progress (3): 25/208 kB | 19/152 kB | 19/256 kB
+Progress (3): 25/208 kB | 20/152 kB | 19/256 kB
+Progress (3): 26/208 kB | 20/152 kB | 19/256 kB
+Progress (3): 26/208 kB | 21/152 kB | 19/256 kB
+Progress (3): 27/208 kB | 21/152 kB | 19/256 kB
+Progress (3): 27/208 kB | 21/152 kB | 20/256 kB
+Progress (3): 27/208 kB | 23/152 kB | 20/256 kB
+Progress (3): 29/208 kB | 23/152 kB | 20/256 kB
+Progress (3): 29/208 kB | 23/152 kB | 21/256 kB
+Progress (3): 29/208 kB | 24/152 kB | 21/256 kB
+Progress (3): 30/208 kB | 24/152 kB | 21/256 kB
+Progress (3): 30/208 kB | 24/152 kB | 23/256 kB
+Progress (3): 30/208 kB | 25/152 kB | 23/256 kB
+Progress (3): 30/208 kB | 25/152 kB | 24/256 kB
+Progress (3): 30/208 kB | 27/152 kB | 24/256 kB
+Progress (3): 31/208 kB | 27/152 kB | 24/256 kB
+Progress (3): 31/208 kB | 27/152 kB | 26/256 kB
+Progress (3): 31/208 kB | 28/152 kB | 26/256 kB
+Progress (3): 33/208 kB | 28/152 kB | 26/256 kB
+Progress (3): 33/208 kB | 28/152 kB | 27/256 kB
+Progress (3): 33/208 kB | 30/152 kB | 27/256 kB
+Progress (3): 34/208 kB | 30/152 kB | 27/256 kB
+Progress (3): 34/208 kB | 30/152 kB | 28/256 kB
+Progress (3): 34/208 kB | 31/152 kB | 28/256 kB
+Progress (3): 34/208 kB | 31/152 kB | 30/256 kB
+Progress (3): 36/208 kB | 31/152 kB | 30/256 kB
+Progress (3): 36/208 kB | 32/152 kB | 30/256 kB
+Progress (3): 36/208 kB | 32/152 kB | 31/256 kB
+Progress (3): 37/208 kB | 32/152 kB | 31/256 kB
+Progress (3): 37/208 kB | 34/152 kB | 31/256 kB
+Progress (3): 38/208 kB | 34/152 kB | 31/256 kB
+Progress (3): 38/208 kB | 34/152 kB | 32/256 kB
+Progress (3): 38/208 kB | 35/152 kB | 32/256 kB
+Progress (3): 38/208 kB | 35/152 kB | 33/256 kB
+Progress (3): 38/208 kB | 36/152 kB | 33/256 kB
+Progress (3): 40/208 kB | 36/152 kB | 33/256 kB
+Progress (3): 40/208 kB | 36/152 kB | 35/256 kB
+Progress (3): 40/208 kB | 38/152 kB | 35/256 kB
+Progress (3): 41/208 kB | 38/152 kB | 35/256 kB
+Progress (3): 41/208 kB | 38/152 kB | 36/256 kB
+Progress (3): 41/208 kB | 39/152 kB | 36/256 kB
+Progress (3): 42/208 kB | 39/152 kB | 36/256 kB
+Progress (3): 42/208 kB | 41/152 kB | 36/256 kB
+Progress (3): 42/208 kB | 42/152 kB | 36/256 kB
+Progress (3): 42/208 kB | 42/152 kB | 37/256 kB
+Progress (3): 42/208 kB | 43/152 kB | 37/256 kB
+Progress (3): 42/208 kB | 45/152 kB | 37/256 kB
+Progress (3): 42/208 kB | 45/152 kB | 39/256 kB
+Progress (3): 42/208 kB | 46/152 kB | 39/256 kB
+Progress (3): 42/208 kB | 46/152 kB | 40/256 kB
+Progress (3): 42/208 kB | 47/152 kB | 40/256 kB
+Progress (3): 42/208 kB | 47/152 kB | 41/256 kB
+Progress (3): 44/208 kB | 47/152 kB | 41/256 kB
+Progress (3): 44/208 kB | 49/152 kB | 41/256 kB
+Progress (3): 44/208 kB | 49/152 kB | 43/256 kB
+Progress (3): 45/208 kB | 49/152 kB | 43/256 kB
+Progress (3): 45/208 kB | 49/152 kB | 44/256 kB
+Progress (3): 45/208 kB | 50/152 kB | 44/256 kB
+Progress (3): 47/208 kB | 50/152 kB | 44/256 kB
+Progress (3): 47/208 kB | 51/152 kB | 44/256 kB
+Progress (3): 47/208 kB | 51/152 kB | 46/256 kB
+Progress (3): 47/208 kB | 53/152 kB | 46/256 kB
+Progress (3): 48/208 kB | 53/152 kB | 46/256 kB
+Progress (3): 48/208 kB | 54/152 kB | 46/256 kB
+Progress (3): 49/208 kB | 54/152 kB | 46/256 kB
+Progress (3): 49/208 kB | 56/152 kB | 46/256 kB
+Progress (3): 51/208 kB | 56/152 kB | 46/256 kB
+Progress (3): 52/208 kB | 56/152 kB | 46/256 kB
+Progress (3): 52/208 kB | 56/152 kB | 47/256 kB
+Progress (3): 52/208 kB | 60/152 kB | 47/256 kB
+Progress (3): 52/208 kB | 60/152 kB | 48/256 kB
+Progress (3): 52/208 kB | 64/152 kB | 48/256 kB
+Progress (3): 52/208 kB | 64/152 kB | 50/256 kB
+Progress (3): 53/208 kB | 64/152 kB | 50/256 kB
+Progress (3): 53/208 kB | 64/152 kB | 51/256 kB
+Progress (3): 55/208 kB | 64/152 kB | 51/256 kB
+Progress (3): 55/208 kB | 64/152 kB | 52/256 kB
+Progress (3): 55/208 kB | 64/152 kB | 54/256 kB
+Progress (3): 59/208 kB | 64/152 kB | 54/256 kB
+Progress (3): 59/208 kB | 68/152 kB | 54/256 kB
+Progress (3): 63/208 kB | 68/152 kB | 54/256 kB
+Progress (3): 63/208 kB | 68/152 kB | 55/256 kB
+Progress (3): 63/208 kB | 73/152 kB | 55/256 kB
+Progress (3): 67/208 kB | 73/152 kB | 55/256 kB
+Progress (3): 67/208 kB | 73/152 kB | 59/256 kB
+Progress (3): 67/208 kB | 77/152 kB | 59/256 kB
+Progress (3): 67/208 kB | 77/152 kB | 64/256 kB
+Progress (3): 72/208 kB | 77/152 kB | 64/256 kB
+Progress (3): 72/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 76/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 80/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 84/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 89/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 93/208 kB | 81/152 kB | 64/256 kB
+Progress (3): 93/208 kB | 85/152 kB | 64/256 kB
+Progress (3): 93/208 kB | 85/152 kB | 68/256 kB
+Progress (3): 93/208 kB | 89/152 kB | 68/256 kB
+Progress (3): 97/208 kB | 89/152 kB | 68/256 kB
+Progress (3): 97/208 kB | 89/152 kB | 72/256 kB
+Progress (3): 97/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 101/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 105/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 110/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 114/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 118/208 kB | 94/152 kB | 72/256 kB
+Progress (3): 118/208 kB | 98/152 kB | 72/256 kB
+Progress (3): 122/208 kB | 98/152 kB | 72/256 kB
+Progress (3): 122/208 kB | 98/152 kB | 76/256 kB
+Progress (3): 122/208 kB | 98/152 kB | 80/256 kB
+Progress (3): 127/208 kB | 98/152 kB | 80/256 kB
+Progress (3): 127/208 kB | 102/152 kB | 80/256 kB
+Progress (3): 127/208 kB | 102/152 kB | 85/256 kB
+Progress (3): 127/208 kB | 106/152 kB | 85/256 kB
+Progress (3): 131/208 kB | 106/152 kB | 85/256 kB
+Progress (3): 135/208 kB | 106/152 kB | 85/256 kB
+Progress (3): 135/208 kB | 106/152 kB | 89/256 kB
+Progress (3): 135/208 kB | 111/152 kB | 89/256 kB
+Progress (3): 139/208 kB | 111/152 kB | 89/256 kB
+Progress (3): 139/208 kB | 111/152 kB | 93/256 kB
+Progress (3): 143/208 kB | 111/152 kB | 93/256 kB
+Progress (3): 143/208 kB | 111/152 kB | 97/256 kB
+Progress (3): 143/208 kB | 115/152 kB | 97/256 kB
+Progress (3): 148/208 kB | 115/152 kB | 97/256 kB
+Progress (3): 148/208 kB | 115/152 kB | 102/256 kB
+Progress (3): 148/208 kB | 115/152 kB | 106/256 kB
+Progress (3): 152/208 kB | 115/152 kB | 106/256 kB
+Progress (3): 152/208 kB | 119/152 kB | 106/256 kB
+Progress (3): 152/208 kB | 123/152 kB | 106/256 kB
+Progress (3): 152/208 kB | 123/152 kB | 110/256 kB
+Progress (3): 152/208 kB | 127/152 kB | 110/256 kB
+Progress (3): 152/208 kB | 127/152 kB | 114/256 kB
+Progress (3): 152/208 kB | 127/152 kB | 119/256 kB
+Progress (3): 152/208 kB | 132/152 kB | 119/256 kB
+Progress (3): 152/208 kB | 132/152 kB | 123/256 kB
+Progress (3): 152/208 kB | 136/152 kB | 123/256 kB
+Progress (3): 152/208 kB | 136/152 kB | 127/256 kB
+Progress (3): 152/208 kB | 136/152 kB | 130/256 kB
+Progress (3): 152/208 kB | 140/152 kB | 130/256 kB
+Progress (3): 152/208 kB | 140/152 kB | 134/256 kB
+Progress (3): 152/208 kB | 144/152 kB | 134/256 kB
+Progress (3): 152/208 kB | 144/152 kB | 139/256 kB
+Progress (3): 152/208 kB | 144/152 kB | 143/256 kB
+Progress (3): 152/208 kB | 144/152 kB | 147/256 kB
+Progress (3): 152/208 kB | 144/152 kB | 151/256 kB
+Progress (3): 156/208 kB | 144/152 kB | 151/256 kB
+Progress (3): 156/208 kB | 149/152 kB | 151/256 kB
+Progress (3): 156/208 kB | 149/152 kB | 156/256 kB
+Progress (3): 160/208 kB | 149/152 kB | 156/256 kB
+Progress (3): 160/208 kB | 152 kB | 156/256 kB    
+Progress (3): 160/208 kB | 152 kB | 160/256 kB
+Progress (3): 165/208 kB | 152 kB | 160/256 kB
+Progress (3): 165/208 kB | 152 kB | 164/256 kB
+Progress (3): 169/208 kB | 152 kB | 164/256 kB
+Progress (3): 169/208 kB | 152 kB | 168/256 kB
+Progress (3): 173/208 kB | 152 kB | 168/256 kB
+Progress (3): 173/208 kB | 152 kB | 172/256 kB
+Progress (3): 177/208 kB | 152 kB | 172/256 kB
+Progress (3): 177/208 kB | 152 kB | 177/256 kB
+Progress (3): 177/208 kB | 152 kB | 181/256 kB
+Progress (3): 177/208 kB | 152 kB | 185/256 kB
+Progress (3): 177/208 kB | 152 kB | 189/256 kB
+Progress (3): 177/208 kB | 152 kB | 194/256 kB
+Progress (3): 181/208 kB | 152 kB | 194/256 kB
+Progress (3): 181/208 kB | 152 kB | 198/256 kB
+Progress (3): 186/208 kB | 152 kB | 198/256 kB
+Progress (3): 186/208 kB | 152 kB | 202/256 kB
+Progress (3): 186/208 kB | 152 kB | 206/256 kB
+Progress (3): 190/208 kB | 152 kB | 206/256 kB
+Progress (3): 194/208 kB | 152 kB | 206/256 kB
+Progress (3): 194/208 kB | 152 kB | 210/256 kB
+Progress (3): 194/208 kB | 152 kB | 215/256 kB
+Progress (3): 198/208 kB | 152 kB | 215/256 kB
+Progress (3): 198/208 kB | 152 kB | 219/256 kB
+Progress (3): 203/208 kB | 152 kB | 219/256 kB
+Progress (3): 207/208 kB | 152 kB | 219/256 kB
+Progress (3): 208 kB | 152 kB | 219/256 kB    
+Progress (3): 208 kB | 152 kB | 223/256 kB
+                                          
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.12.2/junit-platform-commons-1.12.2.jar (152 kB at 389 kB/s)
+Progress (2): 208 kB | 240/256 kB
+Progress (2): 208 kB | 256 kB    
+                             
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/1.12.2/junit-platform-launcher-1.12.2.jar (208 kB at 531 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.12.2/junit-platform-engine-1.12.2.jar (256 kB at 649 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.pom
+Progress (1): 971 B
+Progress (1): 3.2 kB
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.pom (3.2 kB at 35 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.jar
+Progress (1): 7.7/246 kB
+Progress (1): 16/246 kB 
+Progress (1): 24/246 kB
+Progress (1): 40/246 kB
+Progress (1): 57/246 kB
+Progress (1): 73/246 kB
+Progress (1): 90/246 kB
+Progress (1): 106/246 kB
+Progress (1): 122/246 kB
+Progress (1): 139/246 kB
+Progress (1): 155/246 kB
+Progress (1): 172/246 kB
+Progress (1): 188/246 kB
+Progress (1): 204/246 kB
+Progress (1): 221/246 kB
+Progress (1): 237/246 kB
+Progress (1): 246 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.jar (246 kB at 1.5 MB/s)
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.kirtivispute.physio.patient.RegistrationIntegrationTest
+19:48:11.497 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:48:11.695 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+19:48:11.826 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:48:11.830 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-02T19:48:12.366+05:30  INFO 1492 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Starting RegistrationIntegrationTest using Java 21.0.11 with PID 1492 (started by kirti in D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project)
+2026-10-02T19:48:12.369+05:30  INFO 1492 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T19:48:15.008+05:30  INFO 1492 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T19:48:15.245+05:30  INFO 1492 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 190 ms. Found 1 JPA repository interface.
+2026-10-02T19:48:18.943+05:30  INFO 1492 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-02T19:48:19.037+05:30  INFO 1492 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-02T19:48:19.040+05:30  INFO 1492 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-02T19:48:19.472+05:30  INFO 1492 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 7057 ms
+2026-10-02T19:48:20.942+05:30  INFO 1492 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-02T19:48:21.402+05:30  INFO 1492 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.24.Final
+2026-10-02T19:48:23.717+05:30  INFO 1492 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T19:48:23.846+05:30  INFO 1492 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T19:48:24.530+05:30  INFO 1492 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:registration-tests user=SA
+2026-10-02T19:48:24.537+05:30  INFO 1492 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T19:48:24.772+05:30  INFO 1492 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:registration-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: REGISTRATION-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T19:48:28.420+05:30  INFO 1492 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T19:48:28.562+05:30  INFO 1492 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T19:48:28.983+05:30  INFO 1492 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-02T19:48:30.422+05:30  INFO 1492 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-02T19:48:33.045+05:30  INFO 1492 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-02T19:48:33.583+05:30  INFO 1492 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 56324 (http) with context path '/'
+2026-10-02T19:48:33.623+05:30  INFO 1492 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Started RegistrationIntegrationTest in 21.695 seconds (process running for 23.426)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\kirti\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-10-02T19:48:37.806+05:30  INFO 1492 --- [physio-portal] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-02T19:48:37.808+05:30  INFO 1492 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-02T19:48:37.813+05:30  INFO 1492 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2026-10-02T19:48:46.338+05:30  WARN 1492 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+2026-10-02T19:48:46.340+05:30  WARN 1492 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 4 */ 'asha@example.test' )"; SQL statement:
+insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+2026-10-02T19:48:48.293+05:30  WARN 1492 --- [physio-portal] [o-auto-1-exec-8] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+2026-10-02T19:48:48.295+05:30  WARN 1492 --- [physio-portal] [o-auto-1-exec-8] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 9 */ 'race@example.test' )"; SQL statement:
+insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 37.21 s <<< FAILURE! -- in com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[ERROR] com.kirtivispute.physio.patient.RegistrationIntegrationTest.formSuccessRedirectsAndRefreshDoesNotSubmitAgain -- Time elapsed: 0.425 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting actual:
+  Optional[http://localhost:56324/register;jsessionid=[redacted]]
+to contain:
+  "http://localhost:56324/register"
+but did not.
+	at com.kirtivispute.physio.patient.RegistrationIntegrationTest.formSuccessRedirectsAndRefreshDoesNotSubmitAgain(RegistrationIntegrationTest.java:112)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   RegistrationIntegrationTest.formSuccessRedirectsAndRefreshDoesNotSubmitAgain:112 
+Expecting actual:
+  Optional[http://localhost:56324/register;jsessionid=[redacted]]
+to contain:
+  "http://localhost:56324/register"
+but did not.
+[INFO] 
+[ERROR] Tests run: 14, Failures: 1, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:06 min
+[INFO] Finished at: 2026-10-02T19:48:49+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project physio-portal: There are test failures.
+[ERROR] 
+[ERROR] See D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
