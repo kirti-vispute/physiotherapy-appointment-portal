@@ -2,7 +2,7 @@
 
 **Owner:** Kirti Vispute (23102C0078)  
 **Project:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Status:** 🟡 Execution and evidence collection in progress
+**Status:** ✅ Verified on 2 October 2026
 
 ## Objective and deliverables
 
@@ -99,9 +99,21 @@ Get-FileHash 'C:\ProgramData\Jenkins\physio-portal-demo\test-8082\releases\3\phy
 
 ## Actual execution record
 
+**Git terminal:** PowerShell, project root. The feature was published from `feature/jenkins-pipeline`, reviewed through PR #3, and synchronized after merge with `git fetch origin`, `git switch develop`, and `git merge --ff-only origin/develop`. Expected: a clean fast-forward to the merge; if local changes or divergence prevent it, inspect them instead of resetting. `git log --oneline -n 5` records the actual branch/fix/evidence/merge history. Final evidence-only additions on `develop` do not change the deployed Jenkinsfile, deployment script, application source or Maven configuration.
+
 Initial run #1 checked out `2afdb87248f55f7a0bafc8a3fbba45497bb2508e`, passed 34 tests, packaged and started a healthy demo on 8081. The deployment's Windows wrapper kept waiting after startup. The run was explicitly stopped and finished **ABORTED**, not SUCCESS. Its [console](evidence/T08_console_initial.txt) and [build metadata](evidence/T08_build_initial.json) are retained. Correction commit `6af1dfd` replaces `Start-Process` with the documented Windows detached launcher.
 
-Corrected [feature run #2](http://localhost:8080/job/physio-portal-pipeline/2/) completed **SUCCESS** on source `6af1dfdd4b49b7387a5f0ea426ac78c826e34460`, with 34 passing tests and all five stages. Parameters `demo`/`8081` started PID 16344; an independent post-build health check returned UP and the provider API returned two providers. The archived and deployed JAR SHA256 matched `D11F11B143FDBB4EFDAFD9AC9D74FDFA3C7A230203A564939D234F176639350F`. [Summary](evidence/T08_verified_feature.json), [console](evidence/T08_console_feature.txt), [JUnit report](evidence/T08_tests_feature.json), [metadata](evidence/T08_feature_deployment.json), [startup log](evidence/T08_feature_deploy-application.log), [job configuration](evidence/T08_job_feature.xml), and [screenshot](../screenshots/T08_feature_success.jpg) are saved. Final PR/integration verification is pending.
+Corrected [feature run #2](http://localhost:8080/job/physio-portal-pipeline/2/) completed **SUCCESS** on source `6af1dfdd4b49b7387a5f0ea426ac78c826e34460`, with 34 passing tests and all five stages. Parameters `demo`/`8081` started PID 16344; an independent post-build health check returned UP and the provider API returned two providers. The archived and deployed JAR SHA256 matched `D11F11B143FDBB4EFDAFD9AC9D74FDFA3C7A230203A564939D234F176639350F`. [Summary](evidence/T08_verified_feature.json), [console](evidence/T08_console_feature.txt), [JUnit report](evidence/T08_tests_feature.json), [metadata](evidence/T08_feature_deployment.json), [startup log](evidence/T08_feature_deploy-application.log), [job configuration](evidence/T08_job_feature.xml), and [screenshot](../screenshots/T08_feature_success.jpg) are saved. Final integration results follow below.
+
+[PR #3](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3) was merged into `develop` at `7f973000a94840c7a91d17e7ce68218df607f3f1` after a [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3#pullrequestreview-5395175094). This is a single-owner review assisted by Codex, not independent peer approval. PR-head documentation/evidence additions did not change the runtime verified in run #2. The [review/merge record](evidence/T08_github_pr.json), [Git log](evidence/T08_git_publication.txt), and [merged PR screenshot](../screenshots/T08_pull_request.jpg) record the real identifiers.
+
+Final [develop run #3](http://localhost:8080/job/physio-portal-pipeline/3/) completed **SUCCESS** in 2 min 52 sec on that exact merge SHA. All five stages succeeded; 34 tests passed with zero failures/errors/skips. Nondefault parameters `APP_ENV=test`, `PORT=8082` started PID 23396. Startup logs confirm active profile `test` and embedded Tomcat on 8082. The application URL is **[http://localhost:8082/](http://localhost:8082/)**. After build completion, home/providers pages returned HTTP 200, health returned UP, and the API/browser showed two fictional providers. The downloaded Jenkins archive, deployment metadata and live deployed JAR all match SHA256 `4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09`.
+
+Evidence: [final summary](evidence/T08_verified_develop.json), [raw console](evidence/T08_console_develop.txt), [build API](evidence/T08_build_develop.json), [JUnit report](evidence/T08_tests_develop.json), [deployment metadata](evidence/T08_develop_deployment.json), [startup log](evidence/T08_develop_deploy-application.log), [empty error log](evidence/T08_develop_deploy-error.log), [final job export](evidence/T08_job_develop.xml), and [live HTTP/hash/profile checks](evidence/T08_live_http.json). Raw Jenkins logs retain their original formatting.
+
+The [final evidence gate](evidence/T08_gate.json) checks the successful build, 34 tests, five stages, exact PR merge source, nondefault parameters, HTTP/health, live/archive hash equality, and local documentation links.
+
+The successful demo on 8081 and test deployment on 8082 remain running in separate directories. Jenkins remains Running on 8080. The demo processes do not start automatically after a computer reboot; rerun **Build with Parameters** to redeploy. `main`/`v1.0.0` remain the earlier MVP release baseline; Task 8 configuration/evidence is published on `develop`.
 
 ## Evidence and screenshot instructions
 
@@ -118,16 +130,18 @@ Screenshots are required. Capture real Jenkins/application pages after readiness
 
 Additional machine-readable proof: build API, raw console, JUnit report, deployed metadata and startup logs, downloaded archive checksum, independent HTTP check, final Git/PR record. No credentials are included.
 
+Actual saved views: [stages](../screenshots/T08_pipeline_stages.jpg), [successful build](../screenshots/T08_pipeline_success.jpg), [parameters](../screenshots/T08_parameters.jpg), [SCM settings](../screenshots/T08_job_config.jpg), [deployed home](../screenshots/T08_deployed_application.jpg), and [deployed providers](../screenshots/T08_deployed_providers.jpg).
+
 ## Completion checklist
 
 - [x] Versioned Jenkinsfile with five required stages
 - [x] APP_ENV and PORT parameters affect server startup and deployment paths
 - [x] Pipeline syntax validated by Jenkins
 - [x] Successful feature pipeline with 34 passing tests and archived JAR
-- [ ] Reviewed PR merged into develop
-- [ ] Successful pipeline from develop with nondefault parameters
-- [ ] Application survives build completion and responds at the selected URL
-- [ ] Archived/deployed JAR hashes, configuration, logs and screenshots verified
-- [ ] README, backlog, board and tracker updated
+- [x] Reviewed PR merged into develop
+- [x] Successful pipeline from develop with nondefault parameters
+- [x] Application survives build completion and responds at the selected URL
+- [x] Archived/deployed JAR hashes, configuration, logs and screenshots verified
+- [x] README, backlog, board and tracker updated
 
 Task 9 Selenium browser automation begins only after the user asks to continue.

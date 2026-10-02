@@ -1,0 +1,5 @@
+7f97300 Merge verified Jenkins pipeline into develop
+aedb844 docs: record successful pipeline and Windows deployment correction
+6af1dfd fix: detach deployment handles from Windows Jenkins wrapper
+2afdb87 ci: add parameterized Jenkins pipeline and local deployment
+d7a92a4 docs: complete Task 7 with automatic Jenkins build and archive evidence

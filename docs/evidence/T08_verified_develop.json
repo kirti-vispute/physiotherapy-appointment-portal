@@ -1,0 +1,50 @@
+{
+  "number": 3,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/3/",
+  "result": "SUCCESS",
+  "parameters": [
+    {
+      "_class": "hudson.model.StringParameterValue",
+      "name": "APP_ENV",
+      "value": "test"
+    },
+    {
+      "_class": "hudson.model.StringParameterValue",
+      "name": "PORT",
+      "value": "8082"
+    }
+  ],
+  "tests": 34,
+  "passed": 34,
+  "failed": 0,
+  "skipped": 0,
+  "health_after_build": "UP",
+  "providers": 2,
+  "deployment": {
+    "app_env": "test",
+    "port": 8082,
+    "url": "http://localhost:8082/",
+    "health": "UP",
+    "pid": 23396,
+    "process_created_utc": "2026-10-02T18:15:21.541763Z",
+    "build_number": "3",
+    "build_url": "http://localhost:8080/job/physio-portal-pipeline/3/",
+    "git_commit": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+    "jar": "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\physio-portal-1.0.0.jar",
+    "sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+    "deployed_at": "2026-10-02T23:45:56.781486+05:30",
+    "stdout": "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\application.log",
+    "stderr": "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\application-error.log",
+    "deployment_home": "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082"
+  },
+  "archive_sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+  "archive_md5": "07768168BB1F90746FB853F2C1AF033F",
+  "stages": [
+    "Checkout",
+    "Build",
+    "Unit Test",
+    "Package",
+    "Deploy"
+  ],
+  "captured_at": "2026-10-02T23:47:14.8592794+05:30"
+}

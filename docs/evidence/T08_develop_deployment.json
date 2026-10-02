@@ -1,0 +1,17 @@
+﻿{
+    "app_env":  "test",
+    "port":  8082,
+    "url":  "http://localhost:8082/",
+    "health":  "UP",
+    "pid":  23396,
+    "process_created_utc":  "2026-10-02T18:15:21.5417630Z",
+    "build_number":  "3",
+    "build_url":  "http://localhost:8080/job/physio-portal-pipeline/3/",
+    "git_commit":  "7f973000a94840c7a91d17e7ce68218df607f3f1",
+    "jar":  "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\physio-portal-1.0.0.jar",
+    "sha256":  "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+    "deployed_at":  "2026-10-02T23:45:56.7814860+05:30",
+    "stdout":  "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\application.log",
+    "stderr":  "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\releases\\3\\application-error.log",
+    "deployment_home":  "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082"
+}

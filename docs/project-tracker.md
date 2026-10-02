@@ -15,7 +15,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
 | 06 | MVP Collaboration | ✅ | Full MVP, 34 passing tests, UI/API/restart checks, real conflict resolution, reviewed/merged PR #2, annotated v1.0.0 and main baseline verified |
 | 07 | Jenkins CI | ✅ | Existing Jenkins 2.568.1, active plugins/tools, GitHub checkout, builds #1/#2 SUCCESS with 34 tests; downloaded/fingerprinted JARs; actual SCM-triggered commit and logs/screenshots verified |
-| 08 | Jenkins Pipeline | 🟡 | Jenkinsfile and deployment script created; actual pipeline/deployment verification in progress |
+| 08 | Jenkins Pipeline | ✅ | Five stages; feature #2/develop #3 SUCCESS, 34 tests each; test/8082 HTTP 200/UP and live/archive hash match; PR #3 merged, logs/configuration/screenshots saved |
 | 09 | Selenium | ⬜ | Not started |
 | 10 | Continuous Testing | ⬜ | Not started |
 | 11 | Docker | ⬜ | Not started |
@@ -26,14 +26,14 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 
 | Area | Current verified state |
 |---|---|
-| Application | Full patient MVP verified on port 8081; 34 passing registration/appointment/security tests, browser/API flow, booking concurrency, CSRF/ownership, and restart persistence; verification app stopped |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2 reviewed/merged; annotated v1.0.0 points to release f629e23; `main` retains the MVP and Task 6 evidence, `develop` adds Task 7 CI setup/evidence |
-| Jenkins | Windows service 2.568.1 running on 8080; admin access recovered with authorized existing credential; physio-portal-ci builds #1/#2 passed; H/2 SCM polling, JUnit reports, archives and fingerprints verified |
+| Application | Full patient MVP and 34 tests verified; healthy Task 8 test deployment at localhost:8082 and demo at 8081; embedded Tomcat, separate persistent databases, live/archive JAR hashes matched |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2/#3 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes CI/pipeline/deployment evidence |
+| Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; physio-portal-pipeline #2/#3 SUCCESS with 34 tests, JAR/log/metadata archives and parameterized deployment; initial hung #1 ABORTED and correction recorded |
 | Selenium | Not implemented or run |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–7 complete; Jenkins setup/reproduction/evidence guide added, README and backlog/board/tracker updated; Selenium story DoD remains pending Task 9 |
-| Evidence | Tasks 3–6 retained; Task 7 installation/plugins/job export, manual and SCM build console/API/JUnit reports, downloaded JAR checksums/fingerprints, trigger push/polling logs and actual screenshots |
+| Documentation | Tasks 1–8 complete; CI/pipeline/deployment guides, README, backlog, board and tracker updated; Selenium gates remain pending Tasks 9–10 |
+| Evidence | Tasks 3–7 retained; Task 8 failure/fix/success runs, JUnit, archive/deployment hashes, live HTTP/profile/port checks, job XML, PR/review/merge and actual screenshots |
 
 ## Task 1 evidence checklist
 
@@ -71,4 +71,15 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Pushed `9ccbbdc`; actual polling found changes and automatic build #2 SUCCESS with SCM cause, exact source, 34 passing tests
 - ✅ Executable JARs downloaded, checksummed and fingerprinted; reports/logs/configuration/screenshots saved in [Task 7 guide](task-07-jenkins-ci.md)
 
-Tasks 1–7 are ✅. Task 8 is 🟡. Tasks 9–15 are ⬜. Selenium, Docker, and Ansible have not been executed.
+## Task 8 verification gate
+
+- ✅ Jenkinsfile from GitHub with Checkout → Build → Unit Test → Package → Deploy
+- ✅ Required Pipeline plugins active; syntax validated and tool names verified
+- ✅ Initial wrapper hang recorded as ABORTED #1; detached Windows launcher correction committed
+- ✅ Feature #2 SUCCESS on `6af1dfd`, 34 tests, demo/8081 healthy after build
+- ✅ PR #3 self-reviewed and merged at `7f973000a94840c7a91d17e7ce68218df607f3f1`
+- ✅ Develop #3 SUCCESS on that merge, 34 tests, nondefault test/8082; five stages and archives
+- ✅ Home/providers HTTP 200, health UP, profile/port log and live/archive SHA256 verified
+- ✅ Screenshots, configuration, console/JUnit/build/deployment/PR evidence and [Task 8 guide](task-08-pipeline-deployment.md) published
+
+Tasks 1–8 are ✅. Tasks 9–15 are ⬜. Next: Task 9 Selenium. Selenium, Docker, and Ansible have not been executed.

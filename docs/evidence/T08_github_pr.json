@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-02T23:48:37.8670652+05:30",
+  "number": 3,
+  "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3",
+  "title": "ci: add Jenkins pipeline and parameterized server deployment",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2026-10-02T18:11:48Z",
+  "merge_commit_sha": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "base": "develop",
+  "head": "feature/jenkins-pipeline",
+  "head_sha": "aedb844017b659b84f07b92ac07be1d4db8c34c2",
+  "reviews": [
+    {
+      "body": "Single-owner COMMENT review by Kirti Vispute, assisted by Codex; this is not independent peer approval.\n\nReviewed Jenkinsfile/deploy-local.ps1: choice parameters validated before process replacement; Maven/JUnit gate precedes packaging/deploy; only the saved owned Java process may be replaced; unrelated occupied ports rejected; packaged and deployed hashes checked; local bind, persistent data outside Maven workspace, hidden launch, logs and readiness timeout present.\n\nVerified [Jenkins build #2](http://localhost:8080/job/physio-portal-pipeline/2/) SUCCESS with 34 passing tests, deployment surviving build completion, health UP, two providers and matching archived/deployed SHA256 on 6af1dfdd4b49b7387a5f0ea426ac78c826e34460. The initial hung run and correcting commit remain documented. Reviewed PR head differs from that verified runtime only in documentation/evidence; no application/Jenkinsfile/deployment-script changes.\n\nLocal Windows built-in node and non-service demo process are stated in the guide. Final develop deployment uses nondefault test/8082. Selenium gate remains explicitly pending Tasks 9–10.\n",
+      "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3#pullrequestreview-5395175094",
+      "author": "kirti-vispute",
+      "state": "COMMENTED",
+      "submitted_at": "2026-10-02T18:11:42Z",
+      "commit_id": "aedb844017b659b84f07b92ac07be1d4db8c34c2",
+      "id": 5395175094
+    }
+  ]
+}

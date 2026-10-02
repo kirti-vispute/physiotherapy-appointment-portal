@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-10-02T23:49:05.7222709+05:30",
+  "home_status": 200,
+  "providers_page_status": 200,
+  "url": "http://localhost:8082/",
+  "health": "UP",
+  "app_env": "test",
+  "port": 8082,
+  "pid": 23396,
+  "build_number": "3",
+  "source": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "live_jar_sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+  "active_profile_log": "2026-10-02T23:45:23.185+05:30  INFO 23396 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : The following 1 profile is active: \"test\"",
+  "server_log": "2026-10-02T23:45:49.647+05:30  INFO 23396 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8082 (http) with context path '/'",
+  "jenkins_service": "Running"
+}

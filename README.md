@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–7 are complete. The patient MVP works through the browser/API with 34 passing integration tests. A real merge conflict was resolved; [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2) was self-reviewed and merged; [v1.0.0](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) identifies the tested MVP baseline. Local Jenkins builds #1/#2 passed, with GitHub checkout, Maven tests/package, JUnit reports, archived JARs and an actual SCM polling trigger. The pipeline, Selenium, Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–8 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. The versioned pipeline's final [build #3](http://localhost:8080/job/physio-portal-pipeline/3/) passed all five stages and deployed the healthy portal at **[localhost:8082](http://localhost:8082/)** using `APP_ENV=test`, `PORT=8082`. Selenium, Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -47,10 +47,12 @@ src/main/java/            Spring Boot application source
 src/main/resources/       Configuration and Thymeleaf pages
 src/test/java/            JUnit integration tests
 pom.xml                   Maven build definition
+Jenkinsfile               Parameterized build/test/package/deploy pipeline
+scripts/deploy-local.ps1   Owned local Windows demo deployment
 .gitignore                Local/build files excluded from Git
 ```
 
-`Jenkinsfile`, `Dockerfile`, `ansible/`, and deployment scripts will be added in their assigned tasks. Empty placeholder files are not used as proof of implementation.
+`Dockerfile` and `ansible/` will be added in their assigned tasks. Empty placeholder files are not used as proof of implementation.
 
 ## Local setup and running
 
@@ -58,22 +60,22 @@ pom.xml                   Maven build definition
 
 ```powershell
 mvn clean package
-$env:PORT='8081'
+$env:PORT='8083'
 java -jar target/physio-portal-1.0.0.jar
 ```
 
-The build creates the `1.0.0` executable JAR; the second command sets a local port because 8080 was occupied during Task 3 verification; the third starts the app. Expected: Maven `BUILD SUCCESS` and Spring Boot startup on port 8081. Open `http://localhost:8081/`, register a fictional account, sign in, and book a slot. If Maven cannot download dependencies, check network access to Maven Central. If the port is occupied, choose another free `PORT` in the same terminal. Press `Ctrl+C` to stop the app.
+The build creates the `1.0.0` executable JAR; the second command chooses port 8083 because Jenkins uses 8080 and Task 8 deployments use 8081/8082; the third starts a separate manual app. Expected: Maven `BUILD SUCCESS` and Spring Boot startup on 8083. Open `http://localhost:8083/`, register a fictional account, sign in, and book a slot. If Maven cannot download dependencies, check Maven Central connectivity. If the port is occupied, choose another free `PORT` in the same terminal. Press `Ctrl+C` to stop this manual app. The live Task 8 portal is already available at [localhost:8082](http://localhost:8082/) without starting a manual copy.
 
 The H2 file `data/physio.mv.db` retains patient/appointment data across restarts. `DEMO_SEED_ENABLED` defaults to `true`: startup seeds two fictional providers and 12 slots across the next three days, preserving existing availability. An unbooked slot must start in the future to appear. Set `$env:DEMO_SEED_ENABLED='false'` to disable seeding. Clean checkouts contain no patient accounts or passwords; create one through the UI. All mutation routes require CSRF; API session/token instructions are in the [API guide](docs/api-documentation.md).
 
 In a **second PowerShell terminal, from any location**, run:
 
 ```powershell
-Invoke-WebRequest -Uri 'http://localhost:8081/' -UseBasicParsing | Select-Object StatusCode
-Invoke-RestMethod -Uri 'http://localhost:8081/actuator/health'
+Invoke-WebRequest -Uri 'http://localhost:8083/' -UseBasicParsing | Select-Object StatusCode
+Invoke-RestMethod -Uri 'http://localhost:8083/actuator/health'
 ```
 
-These check the homepage and health. Expected: HTTP 200 and `status: UP`. If the connection is refused, check that the application is still running and that the port matches. The Task 3 run produced those results; the app is not left running.
+These check the manually started homepage and health. Expected: HTTP 200 and `status: UP`. If the connection is refused, check that the manual application is running and the port matches. Task 3 historically verified these endpoints on 8081; Task 8 verified and retained the Jenkins deployment on 8082.
 
 ## Testing
 
@@ -91,7 +93,7 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 **Task 7 verified:** Jenkins 2.568.1 runs locally at `http://localhost:8080/`. The freestyle job [physio-portal-ci](http://localhost:8080/job/physio-portal-ci/) checks out public GitHub `develop`, runs `mvn clean test` then `mvn package`, publishes 34 JUnit tests, and archives/fingerprints `physio-portal-1.0.0.jar`. Manual build #1 and automatic SCM-triggered build #2 both succeeded. Poll SCM uses `H/2 * * * *`, avoiding a public webhook tunnel. The [Jenkins guide](docs/task-07-jenkins-ci.md) records exact tools/plugins/settings, commands, build/trigger evidence, and installation limitations. The existing unrelated Jenkins job was preserved.
 
-A parameterized `Jenkinsfile` and runnable deployment are Task 8. Selenium implementation/integration and its deployment gate remain Tasks 9–10. Jenkins runs as the existing Windows service; the application demo uses port 8081.
+**Task 8 verified:** [Jenkinsfile](Jenkinsfile) runs Checkout → Build → Unit Test → Package → Deploy. [PR #3](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3) was self-reviewed and merged into `develop`. Corrected pipeline #2 (`demo`/8081) and final #3 (`test`/8082) passed all 34 tests, archived the JAR/logs/metadata, and deployed with embedded Tomcat. The [live portal](http://localhost:8082/) returned HTTP 200 and health UP after build completion; archived/live JAR hashes match. The initial Windows wrapper hang, correction, exact commands/configuration, parameters and evidence are in the [Task 8 guide](docs/task-08-pipeline-deployment.md). Both demo processes remain running; redeploy after reboot. Selenium implementation/integration and its browser deployment gate remain Tasks 9–10.
 
 ## Docker deployment
 
@@ -130,6 +132,10 @@ Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](s
 ![Task 7 successful automatic SCM build](screenshots/T07_scm_trigger.jpg)
 
 Task 7 also records [34 passing Jenkins tests](screenshots/T07_test_results.jpg), [artifact fingerprint](screenshots/T07_artifact.jpg), [polling change detection](screenshots/T07_polling.jpg), [configured tools](screenshots/T07_tools.jpg), and actual console/API evidence in the [Task 7 guide](docs/task-07-jenkins-ci.md).
+
+![Task 8 successful parameterized pipeline](screenshots/T08_pipeline_stages.jpg)
+
+Task 8 also records [actual parameters](screenshots/T08_parameters.jpg), [SCM configuration](screenshots/T08_job_config.jpg), [successful final build](screenshots/T08_pipeline_success.jpg), [deployed home](screenshots/T08_deployed_application.jpg), and [deployed providers](screenshots/T08_deployed_providers.jpg).
 
 ## Contributors
 

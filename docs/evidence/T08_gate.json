@@ -1,0 +1,42 @@
+{
+  "task": 8,
+  "gate": "PASS",
+  "build": 3,
+  "result": "SUCCESS",
+  "source": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "parameters": {
+    "APP_ENV": "test",
+    "PORT": 8082
+  },
+  "tests": 34,
+  "home_http": 200,
+  "providers_http": 200,
+  "health": "UP",
+  "stages": [
+    {
+      "present": true,
+      "name": "Checkout"
+    },
+    {
+      "present": true,
+      "name": "Build"
+    },
+    {
+      "present": true,
+      "name": "Unit Test"
+    },
+    {
+      "present": true,
+      "name": "Package"
+    },
+    {
+      "present": true,
+      "name": "Deploy"
+    }
+  ],
+  "live_archive_hash_match": true,
+  "sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+  "pr_merged": true,
+  "documentation_links": "PASS",
+  "captured_at": "2026-10-02T23:55:20.5389293+05:30"
+}
