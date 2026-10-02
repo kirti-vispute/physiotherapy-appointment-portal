@@ -4,6 +4,12 @@
 **Owner:** Kirti Vispute (23102C0078)  
 **Current remote URL:** Pending authenticated GitHub repository creation.
 
+## Actual local initialization record
+
+**Terminal:** PowerShell. **Location:** Project root. On 2 October 2026, Git 2.53.0 initialized this folder with `main`. The first commit, `4d5536d`, recorded the verified application and Task 1–3 documents. The second, `a9a8762`, added the README, branch policy, and issue/PR templates. A `develop` branch was created from the second commit and checked out. `git status --short --branch` showed `## develop` with no file changes at that point. `git remote -v` produced no URL. These are observed local facts, not GitHub publication evidence.
+
+Git reported a repository ownership difference because the sandbox account created `.git` in Kirti's folder. For local setup commands, a process-scoped `safe.directory` setting was used. The global Git configuration was not changed. This environment detail is not a required step for an ordinary single-user Git installation.
+
 ## Branch policy
 
 | Branch | Purpose | Merge rule |
@@ -64,3 +70,11 @@ The diagram shows the intended branch connections; feature commits, PRs, merges,
 - [ ] Capture repository/branch/commit evidence without exposing credentials.
 
 GitHub branch protection or required review rules will be set only if available for the account and compatible with a single-student project. A self-authored review is not presented as an independent peer review.
+
+## Task 4 evidence instructions
+
+- **Screenshot required?** Yes, once the GitHub repository is published.
+- **What should be visible?** GitHub repository name and URL, `README.md`, `.github/ISSUE_TEMPLATE`, two initial commit messages, and both `main` and `develop` branches. Capture the repository page and branch/commit views as needed; do not crop away the repository identity.
+- **Command for local proof:** PowerShell at project root: `git status --short --branch`, `git branch -v`, `git log --oneline --decorate -n 3`, and `git remote -v`. These show a clean branch, branch tips, initial commits, and the configured remote. A blank remote output means publication is still pending; a missing branch means it has not been created or pushed.
+- **Expected published result:** A verified `origin` URL and both branches visible on GitHub, with no secret, `target/`, or `data/` files committed.
+- **Suggested filenames:** `screenshots/T04_repository.png`, `screenshots/T04_branches.png`, and `screenshots/T04_commits.png` after the real GitHub views exist. The actual local Git transcript is in this document until then.
