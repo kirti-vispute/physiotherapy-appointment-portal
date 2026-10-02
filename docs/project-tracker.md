@@ -14,7 +14,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
 | 06 | MVP Collaboration | ✅ | Full MVP, 34 passing tests, UI/API/restart checks, real conflict resolution, reviewed/merged PR #2, annotated v1.0.0 and main baseline verified |
-| 07 | Jenkins CI | ⬜ | Not started |
+| 07 | Jenkins CI | 🟡 | Existing Jenkins 2.568.1 service found on 8080; Java/Maven/Git and required plugin files checked; authenticated configuration and build evidence pending |
 | 08 | Jenkins Pipeline | ⬜ | Not started |
 | 09 | Selenium | ⬜ | Not started |
 | 10 | Continuous Testing | ⬜ | Not started |
@@ -28,7 +28,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 |---|---|
 | Application | Full patient MVP verified on port 8081; 34 passing registration/appointment/security tests, browser/API flow, booking concurrency, CSRF/ownership, and restart persistence; verification app stopped |
 | GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2 reviewed/merged into `develop`; `main` advanced; annotated v1.0.0 points to release f629e23; final documentation follows on both branches |
-| Jenkins | Not checked or configured |
+| Jenkins | Existing Windows service running on 8080, version 2.568.1; sign-in required and credentials forgotten; job/build/trigger/archive not yet verified |
 | Selenium | Not implemented or run |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
@@ -62,4 +62,4 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ `main` release baseline and remote annotated `v1.0.0`: object `ca2238a0338d4660d501843e2dee66a62f35fe54`, peeled release `f629e23`
 - ✅ Backlog/board and current documentation updated; actual screenshots and logs in [Task 6 guide](task-06-mvp.md)
 
-Tasks 1–6 are ✅. Tasks 7–15 are ⬜. Next: Task 7 Jenkins CI. Selenium, Jenkins, Docker, and Ansible have not been executed.
+Tasks 1–6 are ✅. Task 7 is 🟡. Tasks 8–15 are ⬜. Jenkins installation has been inspected; its CI job is not yet verified. Selenium, Docker, and Ansible have not been executed.

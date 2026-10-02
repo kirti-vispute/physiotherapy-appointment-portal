@@ -1,0 +1,22 @@
+{
+  "captured_at": "2026-10-02T23:06:24.2555679+05:30",
+  "url": "http://localhost:8080/",
+  "version": "2.568.1",
+  "service_name": "Jenkins",
+  "service_state": "Running",
+  "service_start_mode": "Auto",
+  "service_account": "LocalSystem",
+  "service_executable": "\"C:\\Program Files\\Jenkins\\jenkins.exe\"",
+  "java_executable": "C:\\Program Files\\DevTools\\jdk-21.0.11\\bin\\java.exe",
+  "jenkins_home": "C:\\ProgramData\\Jenkins\\.jenkins",
+  "java_version": "21.0.11",
+  "maven_version": "3.9.16",
+  "git_version": "2.53.0",
+  "tools": {
+    "Maven3": "C:\\Program Files\\DevTools\\apache-maven-3.9.16",
+    "JDK21": "C:\\Program Files\\DevTools\\jdk-21.0.11",
+    "Git": "C:\\Program Files\\Git\\cmd\\git.exe"
+  },
+  "authentication": "Existing admin setup credential verified with explicit user authorization; no reset",
+  "existing_job_preserved": "Selenium-Maven-Test"
+}

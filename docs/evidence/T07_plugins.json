@@ -1,0 +1,38 @@
+[
+  {
+    "shortName": "credentials",
+    "version": "1511.v2e3cb_0008ef0",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "git-client",
+    "version": "6.6.1",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "git",
+    "version": "5.10.1",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "junit",
+    "version": "1424.vc64a_edde7777",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "mailer",
+    "version": "534.v1b_36f5864073",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "scm-api",
+    "version": "728.vc30dcf7a_0df5",
+    "active": true,
+    "enabled": true
+  }
+]

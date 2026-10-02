@@ -1,0 +1,104 @@
+{
+  "_class": "hudson.model.FreeStyleBuild",
+  "actions": [
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user admin",
+          "userId": "admin",
+          "userName": "admin"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "refs/remotes/origin/develop": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 1,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+            "branch": [
+              {
+                "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+                "name": "refs/remotes/origin/develop"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+            "branch": [
+              {
+                "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+                "name": "refs/remotes/origin/develop"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+        "branch": [
+          {
+            "SHA1": "9e1e2a61139d70b825b398254b6d4064a0ac892e",
+            "name": "refs/remotes/origin/develop"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 34,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+      "artifactsUrl": "http://localhost:8080/job/physio-portal-ci/1/artifact",
+      "changesUrl": "http://localhost:8080/job/physio-portal-ci/changes",
+      "displayUrl": "http://localhost:8080/job/physio-portal-ci/1/",
+      "testsUrl": "http://localhost:8080/job/physio-portal-ci/1/testReport"
+    }
+  ],
+  "artifacts": [
+    {
+      "displayPath": "physio-portal-1.0.0.jar",
+      "fileName": "physio-portal-1.0.0.jar",
+      "relativePath": "target/physio-portal-1.0.0.jar"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#1",
+  "duration": 227432,
+  "estimatedDuration": 227432,
+  "executor": null,
+  "fullDisplayName": "physio-portal-ci #1",
+  "id": "1",
+  "inProgress": false,
+  "keepLog": false,
+  "number": 1,
+  "queueId": 1,
+  "result": "SUCCESS",
+  "timestamp": 1790962430462,
+  "url": "http://localhost:8080/job/physio-portal-ci/1/",
+  "builtOn": "",
+  "changeSet": {
+    "_class": "hudson.plugins.git.GitChangeSetList",
+    "items": [],
+    "kind": "git"
+  },
+  "culprits": []
+}

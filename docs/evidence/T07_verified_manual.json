@@ -1,0 +1,20 @@
+{
+  "number": 1,
+  "url": "http://localhost:8080/job/physio-portal-ci/1/",
+  "result": "SUCCESS",
+  "building": false,
+  "causes": [
+    {
+      "_class": "hudson.model.Cause$UserIdCause",
+      "shortDescription": "Started by user admin"
+    }
+  ],
+  "tests": 34,
+  "failed": 0,
+  "skipped": 0,
+  "artifact": "physio-portal-1.0.0.jar",
+  "artifact_bytes": 65083824,
+  "artifact_sha256": "815F24ACFAB5B9AE9A728482E78385662B3FA440BAFC6116F8317D352CE48017",
+  "artifact_md5": "F77C0EAE763DAAD76A3D9653E843306E",
+  "passed": 34
+}
