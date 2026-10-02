@@ -1,0 +1,42 @@
+COMMAND: git status --short
+ M README.md
+ M docs/agile-plan.md
+ M docs/backlog.md
+ M docs/project-tracker.md
+ M docs/user-stories.md
+ M pom.xml
+?? docs/evidence/T09_browser_metadata/
+?? docs/evidence/T09_git_workflow.txt
+?? docs/evidence/T09_local/
+?? docs/evidence/T09_maven_local.txt
+?? docs/evidence/T09_maven_repeat.txt
+?? docs/evidence/T09_probe_command_error.txt
+?? docs/evidence/T09_probe_exit.json
+?? docs/evidence/T09_repeat/
+?? docs/evidence/T09_report/
+?? docs/evidence/T09_report_generation.txt
+?? docs/evidence/T09_results.json
+?? docs/evidence/T09_screenshot_probe.txt
+?? docs/evidence/T09_screenshot_probe.xml
+?? docs/selenium-test-plan.md
+?? docs/task-09-selenium.md
+?? screenshots/T09_SEL01-registration.png
+?? screenshots/T09_SEL02-available-slot.png
+?? screenshots/T09_SEL03-booking.png
+?? screenshots/T09_SEL04-cancellation.png
+?? screenshots/T09_SEL05-status.png
+?? screenshots/T09_failure_capture.png
+?? screenshots/T09_selenium_report.jpg
+?? src/test/java/com/kirtivispute/physio/selenium/
+?? src/test/resources/
+COMMAND: git add pom.xml src/test/java/com/kirtivispute/physio/selenium src/test/resources/selenium
+COMMAND: git commit -m test: add five Selenium patient journeys and failure capture
+[feature/selenium-tests 2cdc86b] test: add five Selenium patient journeys and failure capture
+ 6 files changed, 313 insertions(+)
+ create mode 100644 src/test/java/com/kirtivispute/physio/selenium/FailureScreenshotExtension.java
+ create mode 100644 src/test/java/com/kirtivispute/physio/selenium/PortalSeleniumIT.java
+ create mode 100644 src/test/java/com/kirtivispute/physio/selenium/ScreenshotCaptureProbeIT.java
+ create mode 100644 src/test/java/com/kirtivispute/physio/selenium/SeleniumSupport.java
+ create mode 100644 src/test/resources/selenium/test-data.properties
+COMMAND: git add README.md docs screenshots/T09_*
+COMMAND: git commit -m docs: record Selenium runs reports and screenshot evidence

@@ -1,0 +1,113 @@
+{
+  "captured_at": "2026-10-03T00:11:49.9012247+05:30",
+  "command": "mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8082' verify",
+  "maven_exit": 0,
+  "result": "BUILD SUCCESS",
+  "selenium_version": "4.49.0",
+  "browser": "Chrome 154.0.8037.95",
+  "driver": "ChromeDriver 154.0.8037.92",
+  "base_url": "http://localhost:8082",
+  "deployed_app_source": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "journeys": {
+    "seconds": 56.056,
+    "cases": [
+      {
+        "method": "registration",
+        "seconds": 30.357,
+        "result": "PASS"
+      },
+      {
+        "method": "cancellation",
+        "seconds": 7.985,
+        "result": "PASS"
+      },
+      {
+        "method": "appointmentStatus",
+        "seconds": 9.414,
+        "result": "PASS"
+      },
+      {
+        "method": "booking",
+        "seconds": 5.855,
+        "result": "PASS"
+      },
+      {
+        "method": "availableSlot",
+        "seconds": 2.334,
+        "result": "PASS"
+      }
+    ],
+    "skipped": 0,
+    "failures": 0,
+    "tests": 5,
+    "errors": 0
+  },
+  "integration_suites": [
+    {
+      "suite": "com.kirtivispute.physio.appointment.PortalIntegrationTest",
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "suite": "com.kirtivispute.physio.patient.RegistrationIntegrationTest",
+      "tests": 14,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "html_report": "docs/evidence/T09_report/selenium.html",
+  "failure_probe": {
+    "intentional_diagnostic": true,
+    "command_exit": 1,
+    "tests": 1,
+    "failures": 1,
+    "message": "Intentional Task 9 local failure: verify screenshot capture before browser teardown",
+    "screenshot": "screenshots/T09_failure_capture.png",
+    "screenshot_bytes": 33926,
+    "captured_at": "2026-10-03T00:10:31.3706046+05:30"
+  },
+  "focused_repeat": {
+    "command": "mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8082' '-DskipUnitTests=true' verify",
+    "result": "BUILD SUCCESS",
+    "maven_exit": 0,
+    "finished_at": "2026-10-03T00:13:28+05:30",
+    "maven_seconds": 52.259,
+    "tests": 5,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 36.272,
+    "cases": [
+      {
+        "method": "registration",
+        "seconds": 5.799,
+        "result": "PASS"
+      },
+      {
+        "method": "cancellation",
+        "seconds": 8.586,
+        "result": "PASS"
+      },
+      {
+        "method": "appointmentStatus",
+        "seconds": 10.884,
+        "result": "PASS"
+      },
+      {
+        "method": "booking",
+        "seconds": 8.119,
+        "result": "PASS"
+      },
+      {
+        "method": "availableSlot",
+        "seconds": 2.799,
+        "result": "PASS"
+      }
+    ]
+  },
+  "html_report_run": "focused_repeat; report-only regeneration corrected project URL without rerunning tests",
+  "checkpoint_screenshots_run": "initial normal run; matching metadata preserved in T09_browser_metadata"
+}

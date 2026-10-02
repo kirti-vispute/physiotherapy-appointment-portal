@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–8 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. The versioned pipeline's final [build #3](http://localhost:8080/job/physio-portal-pipeline/3/) passed all five stages and deployed the healthy portal at **[localhost:8082](http://localhost:8082/)** using `APP_ENV=test`, `PORT=8082`. Selenium, Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–9 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. The versioned pipeline's final [build #3](http://localhost:8080/job/physio-portal-pipeline/3/) passed all five stages and deployed the healthy portal at **[localhost:8082](http://localhost:8082/)** using `APP_ENV=test`, `PORT=8082`. Five local Selenium journeys passed twice, alongside the 34 backend tests; failure screenshot capture is verified. Jenkins browser gating, Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -45,7 +45,8 @@ docs/                     Scope, planning, architecture, API, setup, tracker
 screenshots/              Real demonstration images
 src/main/java/            Spring Boot application source
 src/main/resources/       Configuration and Thymeleaf pages
-src/test/java/            JUnit integration tests
+src/test/java/            JUnit integration and Selenium browser tests
+src/test/resources/       Fictional Selenium fixture
 pom.xml                   Maven build definition
 Jenkinsfile               Parameterized build/test/package/deploy pipeline
 scripts/deploy-local.ps1   Owned local Windows demo deployment
@@ -81,7 +82,13 @@ These check the manually started homepage and health. Expected: HTTP 200 and `st
 
 **Terminal:** PowerShell at the project root. Run `mvn clean verify` to execute JUnit integration tests and package the app. Expected: `Tests run: 34, Failures: 0, Errors: 0, Skipped: 0` and `BUILD SUCCESS`. This result was observed in Task 6: 14 registration cases and 20 appointment/security cases. Tests use isolated H2 memory databases and a fixed clock for appointment time boundaries; the running app uses `data/physio.mv.db`. If a test fails, inspect `target/surefire-reports` before committing. See the [MVP implementation, Git conflict, and release guide](docs/task-06-mvp.md).
 
-Selenium is planned for Task 9; no Selenium test has run yet. Its five journeys will cover registration, open-slot view, booking, cancellation, and status. The [user stories](docs/user-stories.md) define their acceptance criteria.
+**Task 9 verified:** Selenium 4.49.0 uses real Chrome WebDriver, explicit waits and assertions for registration, open-slot view, booking, cancellation and status. The initial run passed **34 backend + 5 browser tests**; a focused repeat passed **5/5**. An isolated intentional failure produced a screenshot and Maven exit 1. Each booking fixture is cancelled through the UI during teardown.
+
+```powershell
+mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8082' verify
+```
+
+Expected: 34 Surefire and five Failsafe cases pass, followed by BUILD SUCCESS. The app must be running with a future free fixture slot. Default `mvn test` continues to run only backend tests; the Selenium profile is opt-in. See the [five-case test plan](docs/selenium-test-plan.md), [execution guide](docs/task-09-selenium.md), [preserved HTML report](docs/evidence/T09_report/selenium.html), or [local report preview](http://localhost:8084/selenium.html). Task 10 will add the Jenkins browser deployment gate.
 
 ## Git and collaboration
 
@@ -93,7 +100,7 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 **Task 7 verified:** Jenkins 2.568.1 runs locally at `http://localhost:8080/`. The freestyle job [physio-portal-ci](http://localhost:8080/job/physio-portal-ci/) checks out public GitHub `develop`, runs `mvn clean test` then `mvn package`, publishes 34 JUnit tests, and archives/fingerprints `physio-portal-1.0.0.jar`. Manual build #1 and automatic SCM-triggered build #2 both succeeded. Poll SCM uses `H/2 * * * *`, avoiding a public webhook tunnel. The [Jenkins guide](docs/task-07-jenkins-ci.md) records exact tools/plugins/settings, commands, build/trigger evidence, and installation limitations. The existing unrelated Jenkins job was preserved.
 
-**Task 8 verified:** [Jenkinsfile](Jenkinsfile) runs Checkout → Build → Unit Test → Package → Deploy. [PR #3](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3) was self-reviewed and merged into `develop`. Corrected pipeline #2 (`demo`/8081) and final #3 (`test`/8082) passed all 34 tests, archived the JAR/logs/metadata, and deployed with embedded Tomcat. The [live portal](http://localhost:8082/) returned HTTP 200 and health UP after build completion; archived/live JAR hashes match. The initial Windows wrapper hang, correction, exact commands/configuration, parameters and evidence are in the [Task 8 guide](docs/task-08-pipeline-deployment.md). Both demo processes remain running; redeploy after reboot. Selenium implementation/integration and its browser deployment gate remain Tasks 9–10.
+**Task 8 verified:** [Jenkinsfile](Jenkinsfile) runs Checkout → Build → Unit Test → Package → Deploy. [PR #3](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3) was self-reviewed and merged into `develop`. Corrected pipeline #2 (`demo`/8081) and final #3 (`test`/8082) passed all 34 tests, archived the JAR/logs/metadata, and deployed with embedded Tomcat. The [live portal](http://localhost:8082/) returned HTTP 200 and health UP after build completion; archived/live JAR hashes match. The initial Windows wrapper hang, correction, exact commands/configuration, parameters and evidence are in the [Task 8 guide](docs/task-08-pipeline-deployment.md). Both demo processes remain running; redeploy after reboot. Task 9 local Selenium execution is verified; Jenkins integration and its browser deployment gate remain Task 10.
 
 ## Docker deployment
 
@@ -136,6 +143,10 @@ Task 7 also records [34 passing Jenkins tests](screenshots/T07_test_results.jpg)
 ![Task 8 successful parameterized pipeline](screenshots/T08_pipeline_stages.jpg)
 
 Task 8 also records [actual parameters](screenshots/T08_parameters.jpg), [SCM configuration](screenshots/T08_job_config.jpg), [successful final build](screenshots/T08_pipeline_success.jpg), [deployed home](screenshots/T08_deployed_application.jpg), and [deployed providers](screenshots/T08_deployed_providers.jpg).
+
+![Task 9 five passing Selenium journeys](screenshots/T09_selenium_report.jpg)
+
+Task 9 also preserves the five [journey screenshots](docs/task-09-selenium.md), [failure capture](screenshots/T09_failure_capture.png), XML results and actual execution logs.
 
 ## Contributors
 

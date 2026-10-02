@@ -1,0 +1,26 @@
+[
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\pom.xml",
+    "Hash": "AD808DA26AE49F95034EB5DA98B6B06331D20E57AFC5B67F14EC5DA6BD9011D2"
+  },
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\src\\test\\java\\com\\kirtivispute\\physio\\selenium\\FailureScreenshotExtension.java",
+    "Hash": "F5D1ADDABEEE00EFAA44D70EAD147743F05BA1A41EBCB2CFC4047AA8952FA1CC"
+  },
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\src\\test\\java\\com\\kirtivispute\\physio\\selenium\\PortalSeleniumIT.java",
+    "Hash": "AC29DF574CB2CE81C923F27486D743A5A27144A8E48C1F0E82B4DBE422803A63"
+  },
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\src\\test\\java\\com\\kirtivispute\\physio\\selenium\\ScreenshotCaptureProbeIT.java",
+    "Hash": "3E49D19FAA46E0DA8286780E5BD7F402B38579A924858C1BDB235F9479BDC6F9"
+  },
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\src\\test\\java\\com\\kirtivispute\\physio\\selenium\\SeleniumSupport.java",
+    "Hash": "765FEA436A224B178591D8749BDE3A50296D106190DF3F968A62A025878E362F"
+  },
+  {
+    "Path": "D:\\Kirti\\__VIT RELATED\\Lab Experiments\\DEVOPS\\DevOps Project\\src\\test\\resources\\selenium\\test-data.properties",
+    "Hash": "92941E1FC706CDD6378D7DB0D254DA3124B30C1CDA1D08FB85E30D83B0FAA391"
+  }
+]
