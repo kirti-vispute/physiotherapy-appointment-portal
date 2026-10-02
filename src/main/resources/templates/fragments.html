@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<header th:fragment="header">
+    <nav aria-label="Main navigation">
+        <a th:href="@{/}">Physiotherapy Appointment Portal</a>
+        <a th:href="@{/physiotherapists}">Physiotherapists</a>
+        <a th:if="${currentPatient != null}" th:href="@{/appointments}" data-testid="my-appointments">My appointments</a>
+        <span th:if="${currentPatient != null}" th:text="${currentPatient.fullName}" data-testid="signed-in-patient"></span>
+        <form th:if="${currentPatient != null}" th:action="@{/logout}" method="post">
+            <button type="submit" class="nav-button" data-testid="logout">Sign out</button>
+        </form>
+        <a th:if="${currentPatient == null}" th:href="@{/login}" data-testid="login-link">Sign in</a>
+        <a th:if="${currentPatient == null}" th:href="@{/register}">Create account</a>
+    </nav>
+</header>
+</body>
+</html>

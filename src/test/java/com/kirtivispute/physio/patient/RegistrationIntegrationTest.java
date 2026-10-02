@@ -20,7 +20,7 @@ import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, properties = {
         "spring.datasource.url=jdbc:h2:mem:registration-tests;DB_CLOSE_DELAY=-1",
-        "spring.jpa.hibernate.ddl-auto=create-drop"
+        "spring.jpa.hibernate.ddl-auto=create-drop", "portal.demo.seed-enabled=false"
 })
 class RegistrationIntegrationTest {
     @LocalServerPort int port;
@@ -29,14 +29,19 @@ class RegistrationIntegrationTest {
     HttpClient client;
 
     @BeforeEach
-    void reset() {
+    void reset() throws Exception {
         patients.deleteAll();
         client = HttpClient.newBuilder().cookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ALL)).build();
+        // Establish one browser session before parallel form/API submissions obtain their tokens.
+        assertThat(get("/api/auth/csrf").statusCode()).isEqualTo(200);
     }
 
     HttpResponse<String> post(String path, String body, String contentType) throws Exception {
+        var csrfResponse = get("/api/auth/csrf");
+        var token = java.util.regex.Pattern.compile("\"token\":\"([^\"]+)\"").matcher(csrfResponse.body());
+        assertThat(token.find()).as("CSRF token returned").isTrue();
         return client.send(HttpRequest.newBuilder(URI.create("http://localhost:" + port + path))
-                .header("Content-Type", contentType).POST(HttpRequest.BodyPublishers.ofString(body)).build(),
+                .header("Content-Type", contentType).header("X-CSRF-TOKEN", token.group(1)).POST(HttpRequest.BodyPublishers.ofString(body)).build(),
                 HttpResponse.BodyHandlers.ofString());
     }
 

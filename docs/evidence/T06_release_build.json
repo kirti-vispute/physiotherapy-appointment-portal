@@ -1,0 +1,11 @@
+{
+  "built_at": "2026-10-02T20:30:23.2496901+05:30",
+  "artifact": "target/physio-portal-1.0.0.jar",
+  "bytes": 65083827,
+  "sha256": "8027667458146A383B30F322AEDC67267D56FEE23F9D6E37DB69E4AA1C15A683",
+  "tests": 34,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "tested_source_commit": "16c17afb8d341cc7a43c822101d21c63a981c3b6"
+}

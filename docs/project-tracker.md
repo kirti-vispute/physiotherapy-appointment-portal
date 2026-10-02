@@ -13,7 +13,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 03 | Architecture | ✅ | SRS, diagrams, model, API contract, and setup created; Maven build, home/health, H2, and screenshot verified |
 | 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
-| 06 | MVP Collaboration | ⬜ | Not started |
+| 06 | MVP Collaboration | 🟡 | Sign-in and remaining appointment workflow, tests, conflict demonstration, and release in progress |
 | 07 | Jenkins CI | ⬜ | Not started |
 | 08 | Jenkins Pipeline | ⬜ | Not started |
 | 09 | Selenium | ⬜ | Not started |

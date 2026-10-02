@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Available slots | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <a th:href="@{/physiotherapists}">← All physiotherapists</a>
+    <h1 th:text="${provider.fullName}"></h1>
+    <p th:text="${provider.specialty}"></p>
+    <h2>Available appointments</h2>
+    <p>Times are shown in the clinic time zone: Asia/Kolkata (IST). Each appointment lasts 45 minutes.</p>
+    <p th:if="${#lists.isEmpty(slots)}" class="card" data-testid="slots-empty">No future slots are available. Please choose another physiotherapist.</p>
+    <article class="card slot-card" th:each="slot : ${slots}" data-testid="slot-card" th:attr="data-slot-id=${slot.id}">
+        <div><strong th:text="${slot.startLabel}" data-testid="slot-start"></strong><p th:text="'Ends ' + ${slot.endLabel}"></p></div>
+        <form th:if="${currentPatient != null}" th:action="@{/appointments}" method="post">
+            <input type="hidden" name="slotId" th:value="${slot.id}">
+            <button class="button" type="submit" data-testid="book-slot">Book appointment</button>
+        </form>
+        <a th:if="${currentPatient == null}" class="button" th:href="@{/login}">Sign in to book</a>
+    </article>
+</main>
+</body>
+</html>

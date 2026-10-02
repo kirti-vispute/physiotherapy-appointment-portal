@@ -1,0 +1,201 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[INFO] Building physio-portal 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ physio-portal ---
+[INFO] Deleting D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 10 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 29 source files with javac [debug parameters release 21] to target\classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ physio-portal ---
+[INFO] skip non existing resourceDirectory D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ physio-portal ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 2 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ physio-portal ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.kirtivispute.physio.appointment.PortalIntegrationTest
+20:23:07.012 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.appointment.PortalIntegrationTest
+20:23:07.129 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.appointment.PortalIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-02T20:23:07.658+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : Starting PortalIntegrationTest using Java 21.0.11 with PID 16584 (started by kirti in D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project)
+2026-10-02T20:23:07.660+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T20:23:11.039+05:30  INFO 16584 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T20:23:11.302+05:30  INFO 16584 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 220 ms. Found 4 JPA repository interfaces.
+2026-10-02T20:23:15.593+05:30  INFO 16584 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-02T20:23:15.689+05:30  INFO 16584 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-02T20:23:15.693+05:30  INFO 16584 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-02T20:23:16.060+05:30  INFO 16584 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 8358 ms
+2026-10-02T20:23:17.606+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-02T20:23:18.062+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.24.Final
+2026-10-02T20:23:20.543+05:30  INFO 16584 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T20:23:20.739+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-02T20:23:21.464+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:portal-tests user=SA
+2026-10-02T20:23:21.474+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-02T20:23:21.680+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:portal-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PORTAL-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T20:23:25.631+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T20:23:25.888+05:30  INFO 16584 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T20:23:26.339+05:30  INFO 16584 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-02T20:23:31.233+05:30  INFO 16584 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-02T20:23:32.196+05:30  INFO 16584 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-02T20:23:34.286+05:30  INFO 16584 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-02T20:23:34.670+05:30  INFO 16584 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 52619 (http) with context path '/'
+2026-10-02T20:23:34.704+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : Started PortalIntegrationTest in 27.487 seconds (process running for 29.479)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (C:\Users\kirti\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+2026-10-02T20:23:38.280+05:30  INFO 16584 --- [physio-portal] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-02T20:23:38.281+05:30  INFO 16584 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-02T20:23:38.295+05:30  INFO 16584 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 12 ms
+[ERROR] Tests run: 20, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 53.37 s <<< FAILURE! -- in com.kirtivispute.physio.appointment.PortalIntegrationTest
+[ERROR] com.kirtivispute.physio.appointment.PortalIntegrationTest.logoutEndsSessionAndProtectsAppointmentPagesAgain -- Time elapsed: 0.978 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting actual:
+  Optional[http://localhost:52619/login]
+to contain:
+  "/login"
+but did not.
+	at com.kirtivispute.physio.appointment.PortalIntegrationTest.logoutEndsSessionAndProtectsAppointmentPagesAgain(PortalIntegrationTest.java:267)
+
+[ERROR] com.kirtivispute.physio.appointment.PortalIntegrationTest.anonymousUsersCanBrowseButCannotManageAppointments -- Time elapsed: 0.455 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: 
+
+Expecting actual:
+  Optional[http://localhost:52619/login]
+to contain:
+  "/login"
+but did not.
+	at com.kirtivispute.physio.appointment.PortalIntegrationTest.anonymousUsersCanBrowseButCannotManageAppointments(PortalIntegrationTest.java:120)
+
+[INFO] Running com.kirtivispute.physio.patient.RegistrationIntegrationTest
+2026-10-02T20:23:59.761+05:30  INFO 16584 --- [physio-portal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-02T20:23:59.816+05:30  INFO 16584 --- [physio-portal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+2026-10-02T20:23:59.827+05:30  INFO 16584 --- [physio-portal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-10-02T20:23:59.831+05:30  INFO 16584 --- [physio-portal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-02T20:23:59.988+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Starting RegistrationIntegrationTest using Java 21.0.11 with PID 16584 (started by kirti in D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project)
+2026-10-02T20:23:59.989+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+2026-10-02T20:24:00.977+05:30  INFO 16584 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-02T20:24:01.038+05:30  INFO 16584 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 4 JPA repository interfaces.
+2026-10-02T20:24:01.500+05:30  INFO 16584 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+2026-10-02T20:24:01.504+05:30  INFO 16584 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-02T20:24:01.505+05:30  INFO 16584 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-02T20:24:01.750+05:30  INFO 16584 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1753 ms
+2026-10-02T20:24:01.982+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-02T20:24:02.111+05:30  INFO 16584 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-02T20:24:02.114+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2026-10-02T20:24:02.122+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:registration-tests user=SA
+2026-10-02T20:24:02.123+05:30  INFO 16584 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2026-10-02T20:24:02.125+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:mem:registration-tests]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: REGISTRATION-TESTS/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-02T20:24:02.424+05:30  INFO 16584 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-02T20:24:02.484+05:30  INFO 16584 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-02T20:24:02.983+05:30  INFO 16584 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-02T20:24:03.131+05:30  INFO 16584 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-02T20:24:03.565+05:30  INFO 16584 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-02T20:24:03.663+05:30  INFO 16584 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 51320 (http) with context path '/'
+2026-10-02T20:24:03.674+05:30  INFO 16584 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Started RegistrationIntegrationTest in 3.821 seconds (process running for 58.45)
+2026-10-02T20:24:03.725+05:30  INFO 16584 --- [physio-portal] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-02T20:24:03.726+05:30  INFO 16584 --- [physio-portal] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-02T20:24:03.731+05:30  INFO 16584 --- [physio-portal] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2026-10-02T20:24:06.342+05:30  WARN 16584 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+2026-10-02T20:24:06.344+05:30  WARN 16584 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 4 */ 'asha@example.test' )"; SQL statement:
+insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+2026-10-02T20:24:08.134+05:30  WARN 16584 --- [physio-portal] [o-auto-2-exec-1] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+2026-10-02T20:24:08.134+05:30  WARN 16584 --- [physio-portal] [o-auto-2-exec-1] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 9 */ 'race@example.test' )"; SQL statement:
+insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.402 s -- in com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   PortalIntegrationTest.anonymousUsersCanBrowseButCannotManageAppointments:120 
+Expecting actual:
+  Optional[http://localhost:52619/login]
+to contain:
+  "/login"
+but did not.
+[ERROR]   PortalIntegrationTest.logoutEndsSessionAndProtectsAppointmentPagesAgain:267 
+Expecting actual:
+  Optional[http://localhost:52619/login]
+to contain:
+  "/login"
+but did not.
+[INFO] 
+[ERROR] Tests run: 34, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:25 min
+[INFO] Finished at: 2026-10-02T20:24:09+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project physio-portal: There are test failures.
+[ERROR] 
+[ERROR] See D:\Kirti\__VIT RELATED\Lab Experiments\DEVOPS\DevOps Project\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

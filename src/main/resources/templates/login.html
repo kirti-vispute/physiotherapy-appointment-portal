@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign in | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main><section class="card form-card">
+    <h1>Welcome back</h1>
+    <p>Sign in to book and manage your appointments.</p>
+    <p th:if="${param.error}" class="error" role="alert" data-testid="login-error">Invalid email or password.</p>
+    <p th:if="${param.logout}" class="success" role="status" data-testid="logout-success">You have signed out.</p>
+    <form th:action="@{/login}" method="post">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" autocomplete="username" required maxlength="254">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="128">
+        <button class="button" type="submit" data-testid="login-submit">Sign in</button>
+    </form>
+    <p>New here? <a th:href="@{/register}">Create an account</a></p>
+</section></main>
+</body>
+</html>

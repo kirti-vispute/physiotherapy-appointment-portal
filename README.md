@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–5 are complete. The app serves patient registration, a homepage, and health. All 14 registration integration tests pass; [PR #1](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) has been self-reviewed and merged into `develop`. Sign-in and booking are planned for Task 6; Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–5 are complete; the Task 6 functional MVP is verified and its release publication is in progress. Registration, sign-in/out, physiotherapists, future open slots, booking, own confirmation/status, and cancellation work through the browser and API. All 34 integration tests pass. A real documentation merge conflict has been demonstrated and resolved. Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -15,10 +15,10 @@ A small clinic can lose track of appointment requests made by phone or message. 
 |---|---|
 | Homepage and health check | Verified locally in Task 3 |
 | Patient registration | Verified UI/API in Task 5; salted password hashes, validation, and duplicate-email protection |
-| Patient sign-in | Planned for Task 6 |
-| Physiotherapist and open-slot views | Planned for Task 6 |
-| Booking, confirmation, status, cancellation | Planned for Task 6 |
-| Validation and duplicate-booking protection | Planned for Task 6 |
+| Patient sign-in/out | Verified sessions, rotation, CSRF, and logout in Task 6 |
+| Physiotherapist and open-slot views | Two fictional providers; future available slots displayed in IST |
+| Booking, confirmation, status, cancellation | Verified through UI/API with owner-only access and cancellation before start |
+| Validation and duplicate-booking protection | 34 passing tests include concurrent booking, ownership, invalid/stale data, repeat cancellation, CSRF |
 
 The [approved scope](docs/problem-definition.md) excludes payments, medical records, clinician accounts, and a complex administration dashboard.
 
@@ -59,10 +59,12 @@ pom.xml                   Maven build definition
 ```powershell
 mvn clean package
 $env:PORT='8081'
-java -jar target/physio-portal-0.1.0-SNAPSHOT.jar
+java -jar target/physio-portal-1.0.0.jar
 ```
 
-The build creates an executable JAR; the second command sets a local port because 8080 was occupied during Task 3 verification; the third starts the app. Expected: Maven `BUILD SUCCESS` and Spring Boot startup on port 8081. If Maven cannot download dependencies, check network access to Maven Central. If the port is occupied, choose another free `PORT` in the same terminal. Press `Ctrl+C` to stop the app.
+The build creates the `1.0.0` executable JAR; the second command sets a local port because 8080 was occupied during Task 3 verification; the third starts the app. Expected: Maven `BUILD SUCCESS` and Spring Boot startup on port 8081. Open `http://localhost:8081/`, register a fictional account, sign in, and book a slot. If Maven cannot download dependencies, check network access to Maven Central. If the port is occupied, choose another free `PORT` in the same terminal. Press `Ctrl+C` to stop the app.
+
+The H2 file `data/physio.mv.db` retains patient/appointment data across restarts. `DEMO_SEED_ENABLED` defaults to `true`: startup seeds two fictional providers and 12 slots across the next three days, preserving existing availability. An unbooked slot must start in the future to appear. Set `$env:DEMO_SEED_ENABLED='false'` to disable seeding. Clean checkouts contain no patient accounts or passwords; create one through the UI. All mutation routes require CSRF; API session/token instructions are in the [API guide](docs/api-documentation.md).
 
 In a **second PowerShell terminal, from any location**, run:
 
@@ -75,7 +77,7 @@ These check the homepage and health. Expected: HTTP 200 and `status: UP`. If the
 
 ## Testing
 
-**Terminal:** PowerShell at the project root. Run `mvn clean verify` to execute JUnit integration tests and package the app. Expected: `Tests run: 14, Failures: 0, Errors: 0, Skipped: 0` and `BUILD SUCCESS`. This result was observed for registration in Task 5. Tests use an isolated H2 memory database; the app uses `data/physio.mv.db`. If a test fails, inspect `target/surefire-reports` before committing. See the [registration implementation guide and evidence](docs/task-05-registration.md).
+**Terminal:** PowerShell at the project root. Run `mvn clean verify` to execute JUnit integration tests and package the app. Expected: `Tests run: 34, Failures: 0, Errors: 0, Skipped: 0` and `BUILD SUCCESS`. This result was observed in Task 6: 14 registration cases and 20 appointment/security cases. Tests use isolated H2 memory databases and a fixed clock for appointment time boundaries; the running app uses `data/physio.mv.db`. If a test fails, inspect `target/surefire-reports` before committing. See the [MVP implementation, Git conflict, and release guide](docs/task-06-mvp.md).
 
 Selenium is planned for Task 9; no Selenium test has run yet. Its five journeys will cover registration, open-slot view, booking, cancellation, and status. The [user stories](docs/user-stories.md) define their acceptance criteria.
 
@@ -116,6 +118,12 @@ Additional images will be added only after the corresponding GitHub, Jenkins, Se
 [Task 5 duplicate-email message](screenshots/T05_registration_duplicate.jpg)
 
 Task 5 GitHub evidence: [pull request](screenshots/T05_pull_request.jpg), [self-review](screenshots/T05_review.jpg), and [merged PR](screenshots/T05_merge.jpg). Commands, test results, actual SHAs, and screenshot instructions are in the [Task 5 guide](docs/task-05-registration.md).
+
+![Task 6 booking confirmation](screenshots/T06_booking_confirmation.jpg)
+
+![Task 6 cancellation](screenshots/T06_cancellation.jpg)
+
+Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](screenshots/T06_available_slots.jpg), [own appointment status](screenshots/T06_appointment_status.jpg), [released slot](screenshots/T06_slot_released.jpg), and [sign-out](screenshots/T06_sign_out.jpg). The [Task 6 guide](docs/task-06-mvp.md) links the real Git conflict, test results, and release evidence.
 
 ## Contributors
 

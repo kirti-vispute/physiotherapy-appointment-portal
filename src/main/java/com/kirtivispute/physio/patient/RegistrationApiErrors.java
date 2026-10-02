@@ -6,8 +6,13 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.TreeMap;
+import com.kirtivispute.physio.appointment.PortalException;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
-@RestControllerAdvice(assignableTypes = RegistrationApiController.class)
+@Order(0)
+@RestControllerAdvice(annotations = RestController.class)
 public class RegistrationApiErrors {
     @ExceptionHandler(DuplicateEmailException.class)
     public ResponseEntity<?> duplicate(DuplicateEmailException failure) {
@@ -25,6 +30,19 @@ public class RegistrationApiErrors {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<?> unreadable() {
-        return ResponseEntity.badRequest().body(Map.of("error", "INVALID_REQUEST", "message", "Send a valid JSON registration request."));
+        return ResponseEntity.badRequest().body(Map.of("error", "INVALID_REQUEST", "message", "Send a valid JSON request."));
+    }
+
+    @ExceptionHandler(PortalException.class)
+    public ResponseEntity<?> expected(PortalException failure) {
+        return ResponseEntity.status(failure.getStatus()).body(Map.of("error", failure.getCode(), "message", failure.getMessage()));
+    }
+    @ExceptionHandler(AuthenticationException.class)
+    public ResponseEntity<?> badLogin() {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Map.of("error", "INVALID_CREDENTIALS", "message", "Invalid email or password."));
+    }
+    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
+    public ResponseEntity<?> invalidId() {
+        return ResponseEntity.badRequest().body(Map.of("error", "INVALID_REQUEST", "message", "Use a valid numeric identifier."));
     }
 }

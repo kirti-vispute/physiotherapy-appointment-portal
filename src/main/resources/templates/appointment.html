@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appointment status | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main><section class="card">
+    <p th:if="${notice}" class="success" role="status" th:text="${notice}" data-testid="appointment-notice"></p>
+    <h1 th:text="'Appointment #' + ${appointment.id}" data-testid="appointment-id"></h1>
+    <span class="badge" th:text="${appointment.status}" data-testid="appointment-status"></span>
+    <h2 th:text="${appointment.physiotherapistName}"></h2>
+    <dl>
+        <dt>Starts</dt><dd th:text="${appointment.startLabel}" data-testid="appointment-start"></dd>
+        <dt>Ends</dt><dd th:text="${appointment.endLabel}"></dd>
+    </dl>
+    <p class="hint">Clinic time zone: Asia/Kolkata (IST).</p>
+    <form th:if="${appointment.cancellable}" th:action="@{/appointments/{id}/cancel(id=${appointment.id})}" method="post">
+        <button class="button danger" type="submit" data-testid="cancel-appointment">Cancel appointment</button>
+    </form>
+    <p th:if="${appointment.status.name() == 'CONFIRMED' and !appointment.cancellable}" data-testid="cancellation-closed">This appointment has started. Cancellation is closed.</p>
+    <p th:if="${appointment.status.name() == 'CANCELLED'}" data-testid="cancelled-message">This appointment is cancelled.</p>
+    <p><a th:href="@{/appointments}">My appointments</a> · <a th:href="@{/physiotherapists}">Find another slot</a></p>
+</section></main>
+</body>
+</html>
