@@ -7,12 +7,12 @@
     <link rel="stylesheet" th:href="@{/css/portal.css}">
 </head>
 <body>
-<header><a th:href="@{/}">Physiotherapy Appointment Portal</a></header>
+<header th:replace="~{fragments :: header}"></header>
 <main>
     <section class="card form-card">
         <h1>Create your patient account</h1>
         <p>Keep your physiotherapy appointments in one place.</p>
-        <p th:if="${registered}" class="success" role="status" data-testid="registration-success">Your account has been created. Sign-in and booking will be available in the next project update.</p>
+        <p th:if="${registered}" class="success" role="status" data-testid="registration-success">Your account has been created. <a th:href="@{/login}">Sign in to book an appointment</a>.</p>
         <form method="post" th:action="@{/register}" th:object="${registration}">
             <label for="fullName">Full name</label>
             <input id="fullName" th:field="*{fullName}" autocomplete="name" required maxlength="100" aria-describedby="fullName-error">

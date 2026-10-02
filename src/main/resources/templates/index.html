@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,13 +7,14 @@
     <link rel="stylesheet" href="/css/portal.css">
 </head>
 <body>
-<header><strong>Physiotherapy Appointment Portal</strong></header>
+<header th:replace="~{fragments :: header}"></header>
 <main>
     <section class="card">
-        <span class="badge" data-testid="setup-status">Patient registration is available</span>
+        <span class="badge" data-testid="setup-status">Physiotherapy appointments</span>
         <h1>Your next step towards better movement</h1>
-        <p>Create your patient account. Physiotherapist availability and appointment booking will be available in the next project update.</p>
-        <a class="button" href="/register" data-testid="register-link">Create an account</a>
+        <p>Find a physiotherapist, choose an available slot, and manage your appointments in one place.</p>
+        <a class="button" href="/physiotherapists" data-testid="browse-providers">Find a physiotherapist</a>
+        <p th:if="${currentPatient == null}">New here? <a href="/register" data-testid="register-link">Create an account</a>.</p>
     </section>
 </main>
 </body>

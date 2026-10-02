@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Physiotherapists | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+</head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <h1>Find a physiotherapist</h1>
+    <p>Choose a specialist and see available appointments. All providers and schedules here are fictional demo data.</p>
+    <p th:if="${#lists.isEmpty(providers)}" class="card" data-testid="providers-empty">No physiotherapists are available right now.</p>
+    <div class="grid">
+        <article class="card" th:each="provider : ${providers}" data-testid="physiotherapist-card" th:attr="data-provider-id=${provider.id}">
+            <h2 th:text="${provider.fullName}"></h2>
+            <strong th:text="${provider.specialty}"></strong>
+            <p th:text="${provider.description}"></p>
+            <a class="button" th:href="@{/physiotherapists/{id}/slots(id=${provider.id})}" data-testid="view-slots">View available slots</a>
+        </article>
+    </div>
+</main>
+</body>
+</html>

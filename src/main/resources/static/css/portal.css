@@ -16,3 +16,17 @@ input:focus, a:focus-visible, button:focus-visible { outline: 3px solid #59c4c5;
 .error { color: #a02232; display: block; margin: .4rem 0; }
 .success { background: #e1f5f2; border-left: 4px solid #087e82; padding: 1rem; }
 .hint { font-size: .9rem; color: #496175; }
+nav { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+nav a:first-child { margin-right: auto; }
+nav form { margin: 0; }
+.nav-button { font: inherit; color: white; background: transparent; border: 1px solid #ffffff80; border-radius: 5px; padding: .35rem .6rem; cursor: pointer; }
+button.button { display: block; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 1.5rem; }
+.slot-card { display: flex; gap: 1rem; align-items: center; justify-content: space-between; margin: 1rem 0; }
+.slot-card .button { margin: 0; }
+.slot-card p { margin-bottom: 0; }
+.appointment-card { margin: 1rem 0; }
+.danger { background: #a02232; }
+dt { font-weight: 700; margin-top: 1rem; }
+dd { margin: .35rem 0; }
+@media (max-width: 600px) { .slot-card { align-items: stretch; flex-direction: column; } .card { padding: 1.4rem; } }
