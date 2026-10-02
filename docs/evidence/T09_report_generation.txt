@@ -1,0 +1,16 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[INFO] Building physio-portal 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- surefire-report:3.5.6:failsafe-report-only (default-cli) @ physio-portal ---
+[WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[INFO] Rendering content with org.apache.maven.skins:maven-fluido-skin:jar:2.0.0-M9 skin
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.787 s
+[INFO] Finished at: 2026-10-03T00:19:49+05:30
+[INFO] ------------------------------------------------------------------------

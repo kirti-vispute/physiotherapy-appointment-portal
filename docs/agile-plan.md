@@ -2,7 +2,7 @@
 
 **Project:** Selenium Testing for a Physiotherapy Appointment Portal  
 **Owner for all tasks:** Kirti Vispute (23102C0078)  
-**Updated:** 2 October 2026  
+**Updated:** 3 October 2026
 **Method:** A single-owner, sequential Kanban board grouped into short milestone sprints. Status represents verified progress, not elapsed time.
 
 ## 15-task Kanban board
@@ -19,7 +19,7 @@ All tasks have one owner. `Done` requires the listed acceptance evidence; a docu
 | 06 | MVP Collaboration | Complete remaining features and Git exercise | Kirti | ✅ Done | 05 | Working MVP, second branch, conflict resolution, tag | 34 tests and UI/API/restart checks passed; real conflict resolved, PR #2 reviewed/merged, annotated `v1.0.0` published |
 | 07 | Jenkins CI | Configure job and repository trigger | Kirti | ✅ Done | 04, 06 | Jenkins job and archived JAR | Builds #1/#2 SUCCESS; 34 tests, archived JAR/fingerprint and actual SCM trigger evidenced |
 | 08 | Jenkins Pipeline | Parameterized stages and JAR deployment | Kirti | ✅ Done | 07 | Jenkinsfile, PR #3, pipeline #2/#3, deployed 8082 | Five stages, 34 tests, test/8082, HTTP 200/UP, hashes/logs/screenshots verified |
-| 09 | Selenium | Design and run five critical browser journeys | Kirti | ⬜ To do | 06 | Test plan, scripts, local report | Five meaningful tests pass locally; screenshot-on-failure works |
+| 09 | Selenium | Design and run five critical browser journeys | Kirti | ✅ Done | 06 | Test plan, WebDriver suite, XML/HTML, screenshots | Five cases passed twice; 34 backend tests passed; intentional failure saved screenshot and returned exit 1 |
 | 10 | Continuous Testing | Integrate Selenium and prove deployment gate | Kirti | ⬜ To do | 08, 09 | Failed and corrected Jenkins runs | Failure blocks deploy; correction commit and successful rerun recorded |
 | 11 | Docker | Build image and demonstrate container lifecycle | Kirti | ⬜ To do | 06, 10 | Dockerfile, versioned image, command log | Image/container IDs, mapping, logs, start/stop/restart/remove shown |
 | 12 | Docker CD | Publish image and deploy automatically | Kirti | ⬜ To do | 10, 11 | Registry image and Jenkins deployment | Versioned push, fresh container, health, and commit-to-container trace shown |

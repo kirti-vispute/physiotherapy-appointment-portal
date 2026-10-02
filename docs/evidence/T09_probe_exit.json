@@ -1,0 +1,10 @@
+{
+  "intentional_diagnostic": true,
+  "command_exit": 1,
+  "tests": 1,
+  "failures": 1,
+  "message": "Intentional Task 9 local failure: verify screenshot capture before browser teardown",
+  "screenshot": "screenshots/T09_failure_capture.png",
+  "screenshot_bytes": 33926,
+  "captured_at": "2026-10-03T00:10:31.3706046+05:30"
+}
