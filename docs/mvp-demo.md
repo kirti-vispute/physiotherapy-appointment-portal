@@ -1,6 +1,6 @@
 # MVP demonstration notes
 
-Demo focus: patient registration.
+Demo focus: book and cancel an appointment.
 
 Use fictional accounts only. The clinic time zone is Asia/Kolkata (IST).
 
