@@ -1,6 +1,6 @@
 # MVP demonstration notes
 
-Demo focus: patient registration.
+Demo focus: view providers and available slots.
 
 Use fictional accounts only. The clinic time zone is Asia/Kolkata (IST).
 
