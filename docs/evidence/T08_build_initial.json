@@ -1,0 +1,431 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "APP_ENV",
+          "value": "demo"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "PORT",
+          "value": "8081"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user admin",
+          "userId": "admin",
+          "userName": "admin"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "refs/remotes/origin/feature/jenkins-pipeline": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 1,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+            "branch": [
+              {
+                "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+                "name": "refs/remotes/origin/feature/jenkins-pipeline"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+            "branch": [
+              {
+                "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+                "name": "refs/remotes/origin/feature/jenkins-pipeline"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+        "branch": [
+          {
+            "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+            "name": "refs/remotes/origin/feature/jenkins-pipeline"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction",
+      "libraries": []
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 34,
+      "urlName": "testReport"
+    },
+    {},
+    {
+      "_class": "jenkins.model.InterruptedBuildAction",
+      "causes": [
+        {
+          "_class": "jenkins.model.CauseOfInterruption$UserInterruption"
+        }
+      ]
+    },
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+      "artifactsUrl": "http://localhost:8080/job/physio-portal-pipeline/1/artifact",
+      "changesUrl": "http://localhost:8080/job/physio-portal-pipeline/changes",
+      "displayUrl": "http://localhost:8080/job/physio-portal-pipeline/1/stages",
+      "testsUrl": "http://localhost:8080/job/physio-portal-pipeline/1/testReport"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction",
+      "restartEnabled": true,
+      "restartableStages": [
+        "Checkout",
+        "Build",
+        "Unit Test",
+        "Package",
+        "Deploy"
+      ]
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction",
+      "nodes": [
+        {
+          "_class": "org.jenkinsci.plugins.workflow.graph.FlowStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.graph.FlowEndNode"
+        }
+      ]
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "physio-portal-1.0.0.jar",
+      "fileName": "physio-portal-1.0.0.jar",
+      "relativePath": "target/physio-portal-1.0.0.jar"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#1",
+  "duration": 416869,
+  "estimatedDuration": -1,
+  "executor": null,
+  "fullDisplayName": "physio-portal-pipeline #1",
+  "id": "1",
+  "keepLog": false,
+  "number": 1,
+  "queueId": 4,
+  "result": "ABORTED",
+  "timestamp": 1790963929672,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/1/",
+  "changeSets": [],
+  "culprits": [],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": null
+}

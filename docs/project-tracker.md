@@ -72,4 +72,3 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Executable JARs downloaded, checksummed and fingerprinted; reports/logs/configuration/screenshots saved in [Task 7 guide](task-07-jenkins-ci.md)
 
 Tasks 1–7 are ✅. Task 8 is 🟡. Tasks 9–15 are ⬜. Selenium, Docker, and Ansible have not been executed.
-
