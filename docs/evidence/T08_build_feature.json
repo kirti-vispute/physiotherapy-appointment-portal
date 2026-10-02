@@ -1,0 +1,2477 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "APP_ENV",
+          "value": "demo"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "PORT",
+          "value": "8081"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction",
+      "causes": [
+        {
+          "_class": "hudson.model.Cause$UserIdCause",
+          "shortDescription": "Started by user admin",
+          "userId": "admin",
+          "userName": "admin"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.plugins.git.util.BuildData",
+      "buildsByBranchName": {
+        "refs/remotes/origin/feature/jenkins-pipeline": {
+          "_class": "hudson.plugins.git.util.Build",
+          "buildNumber": 2,
+          "buildResult": null,
+          "marked": {
+            "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+            "branch": [
+              {
+                "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                "name": "refs/remotes/origin/feature/jenkins-pipeline"
+              }
+            ]
+          },
+          "revision": {
+            "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+            "branch": [
+              {
+                "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                "name": "refs/remotes/origin/feature/jenkins-pipeline"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+        "branch": [
+          {
+            "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+            "name": "refs/remotes/origin/feature/jenkins-pipeline"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+      ],
+      "scmName": ""
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction",
+      "libraries": []
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction",
+      "failCount": 0,
+      "skipCount": 0,
+      "totalCount": 34,
+      "urlName": "testReport"
+    },
+    {},
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+      "artifactsUrl": "http://localhost:8080/job/physio-portal-pipeline/2/artifact",
+      "changesUrl": "http://localhost:8080/job/physio-portal-pipeline/changes",
+      "displayUrl": "http://localhost:8080/job/physio-portal-pipeline/2/stages",
+      "testsUrl": "http://localhost:8080/job/physio-portal-pipeline/2/testReport"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction",
+      "restartEnabled": true,
+      "restartableStages": [
+        "Checkout",
+        "Build",
+        "Unit Test",
+        "Package",
+        "Deploy"
+      ]
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction",
+      "nodes": [
+        {
+          "_class": "org.jenkinsci.plugins.workflow.graph.FlowStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Start of Pipeline",
+          "iconColor": "blue",
+          "id": "2",
+          "parents": [],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/2/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Allocate node : Start",
+          "iconColor": "blue",
+          "id": "3",
+          "parents": [
+            "2"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/3/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Allocate node : Body : Start",
+          "iconColor": "blue",
+          "id": "4",
+          "parents": [
+            "3"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/4/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Timestamps : Start",
+          "iconColor": "blue",
+          "id": "5",
+          "parents": [
+            "4"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/5/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Timestamps : Body : Start",
+          "iconColor": "blue",
+          "id": "6",
+          "parents": [
+            "5"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/6/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Enforce time limit : Start",
+          "iconColor": "blue",
+          "id": "7",
+          "parents": [
+            "6"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/7/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Enforce time limit : Body : Start",
+          "iconColor": "blue",
+          "id": "8",
+          "parents": [
+            "7"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/8/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "9",
+          "parents": [
+            "8"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/9/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Declarative: Tool Install",
+          "iconColor": "blue",
+          "id": "10",
+          "parents": [
+            "9"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/10/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "11",
+          "parents": [
+            "10"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/11/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "12",
+          "parents": [
+            "11"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/12/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "13",
+          "parents": [
+            "12"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/13/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "14",
+          "parents": [
+            "13"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/14/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "15",
+          "parents": [
+            "14"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/15/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "16",
+          "parents": [
+            "15"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/16/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "17",
+          "parents": [
+            "16"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/17/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "18",
+          "parents": [
+            "17"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/18/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "19",
+          "parents": [
+            "18"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/19/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Checkout",
+          "iconColor": "blue",
+          "id": "20",
+          "parents": [
+            "19"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/20/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "21",
+          "parents": [
+            "20"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/21/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "22",
+          "parents": [
+            "21"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/22/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "23",
+          "parents": [
+            "22"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/23/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "24",
+          "parents": [
+            "23"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/24/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "25",
+          "parents": [
+            "24"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/25/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "26",
+          "parents": [
+            "25"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/26/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Check out from version control",
+          "iconColor": "blue",
+          "id": "27",
+          "parents": [
+            "26"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/27/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Windows Batch Script",
+          "iconColor": "blue",
+          "id": "28",
+          "parents": [
+            "27"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/28/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "29",
+          "parents": [
+            "28"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/29/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "30",
+          "parents": [
+            "29"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/30/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "31",
+          "parents": [
+            "30"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/31/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "32",
+          "parents": [
+            "31"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/32/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "33",
+          "parents": [
+            "32"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/33/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Build",
+          "iconColor": "blue",
+          "id": "34",
+          "parents": [
+            "33"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/34/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "35",
+          "parents": [
+            "34"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/35/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "36",
+          "parents": [
+            "35"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/36/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "37",
+          "parents": [
+            "36"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/37/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "38",
+          "parents": [
+            "37"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/38/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "39",
+          "parents": [
+            "38"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/39/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "40",
+          "parents": [
+            "39"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/40/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Windows Batch Script",
+          "iconColor": "blue",
+          "id": "41",
+          "parents": [
+            "40"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/41/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "42",
+          "parents": [
+            "41"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/42/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "43",
+          "parents": [
+            "42"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/43/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "44",
+          "parents": [
+            "43"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/44/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "45",
+          "parents": [
+            "44"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/45/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "46",
+          "parents": [
+            "45"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/46/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Unit Test",
+          "iconColor": "blue",
+          "id": "47",
+          "parents": [
+            "46"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/47/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "48",
+          "parents": [
+            "47"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/48/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "49",
+          "parents": [
+            "48"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/49/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "50",
+          "parents": [
+            "49"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/50/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "51",
+          "parents": [
+            "50"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/51/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "52",
+          "parents": [
+            "51"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/52/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "53",
+          "parents": [
+            "52"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/53/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Windows Batch Script",
+          "iconColor": "blue",
+          "id": "54",
+          "parents": [
+            "53"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/54/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Archive JUnit-formatted test results",
+          "iconColor": "blue",
+          "id": "55",
+          "parents": [
+            "54"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/55/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "56",
+          "parents": [
+            "55"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/56/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "57",
+          "parents": [
+            "56"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/57/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "58",
+          "parents": [
+            "57"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/58/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "59",
+          "parents": [
+            "58"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/59/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "60",
+          "parents": [
+            "59"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/60/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Package",
+          "iconColor": "blue",
+          "id": "61",
+          "parents": [
+            "60"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/61/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "62",
+          "parents": [
+            "61"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/62/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "63",
+          "parents": [
+            "62"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/63/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "64",
+          "parents": [
+            "63"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/64/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "65",
+          "parents": [
+            "64"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/65/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "66",
+          "parents": [
+            "65"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/66/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "67",
+          "parents": [
+            "66"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/67/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Windows Batch Script",
+          "iconColor": "blue",
+          "id": "68",
+          "parents": [
+            "67"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/68/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Archive the artifacts",
+          "iconColor": "blue",
+          "id": "69",
+          "parents": [
+            "68"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/69/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "70",
+          "parents": [
+            "69"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/70/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "71",
+          "parents": [
+            "70"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/71/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "72",
+          "parents": [
+            "71"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/72/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "73",
+          "parents": [
+            "72"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/73/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "74",
+          "parents": [
+            "73"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/74/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Deploy",
+          "iconColor": "blue",
+          "id": "75",
+          "parents": [
+            "74"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/75/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "76",
+          "parents": [
+            "75"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/76/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "77",
+          "parents": [
+            "76"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/77/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Use a tool from a predefined Tool Installation",
+          "iconColor": "blue",
+          "id": "78",
+          "parents": [
+            "77"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/78/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Fetches the environment variables for a given tool in a list of 'FOO=bar' strings suitable for the withEnv step.",
+          "iconColor": "blue",
+          "id": "79",
+          "parents": [
+            "78"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/79/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Start",
+          "iconColor": "blue",
+          "id": "80",
+          "parents": [
+            "79"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/80/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : Start",
+          "iconColor": "blue",
+          "id": "81",
+          "parents": [
+            "80"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/81/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Windows PowerShell Script",
+          "iconColor": "blue",
+          "id": "82",
+          "parents": [
+            "81"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/82/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Archive the artifacts",
+          "iconColor": "blue",
+          "id": "83",
+          "parents": [
+            "82"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/83/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "84",
+          "parents": [
+            "83"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/84/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "85",
+          "parents": [
+            "84"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/85/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "86",
+          "parents": [
+            "85"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/86/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "87",
+          "parents": [
+            "86"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/87/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Stage : Start",
+          "iconColor": "blue",
+          "id": "88",
+          "parents": [
+            "87"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/88/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode",
+          "actions": [
+            {},
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Declarative: Post Actions",
+          "iconColor": "blue",
+          "id": "89",
+          "parents": [
+            "88"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/89/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode",
+          "actions": [
+            {},
+            {},
+            {}
+          ],
+          "displayName": "Print Message",
+          "iconColor": "blue",
+          "id": "90",
+          "parents": [
+            "89"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/90/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Stage : Body : End",
+          "iconColor": "blue",
+          "id": "91",
+          "parents": [
+            "90"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/91/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Stage : End",
+          "iconColor": "blue",
+          "id": "92",
+          "parents": [
+            "91"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/92/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Set environment variables : Body : End",
+          "iconColor": "blue",
+          "id": "93",
+          "parents": [
+            "92"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/93/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Set environment variables : End",
+          "iconColor": "blue",
+          "id": "94",
+          "parents": [
+            "93"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/94/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Enforce time limit : Body : End",
+          "iconColor": "blue",
+          "id": "95",
+          "parents": [
+            "94"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/95/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Enforce time limit : End",
+          "iconColor": "blue",
+          "id": "96",
+          "parents": [
+            "95"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/96/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Timestamps : Body : End",
+          "iconColor": "blue",
+          "id": "97",
+          "parents": [
+            "96"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/97/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Timestamps : End",
+          "iconColor": "blue",
+          "id": "98",
+          "parents": [
+            "97"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/98/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {},
+            {}
+          ],
+          "displayName": "Allocate node : Body : End",
+          "iconColor": "blue",
+          "id": "99",
+          "parents": [
+            "98"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/99/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "Allocate node : End",
+          "iconColor": "blue",
+          "id": "100",
+          "parents": [
+            "99"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/100/"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.workflow.graph.FlowEndNode",
+          "actions": [
+            {}
+          ],
+          "displayName": "End of Pipeline",
+          "iconColor": "blue",
+          "id": "101",
+          "parents": [
+            "100"
+          ],
+          "running": false,
+          "url": "job/physio-portal-pipeline/2/execution/node/101/"
+        }
+      ]
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "displayPath": "deploy-application.log",
+      "fileName": "deploy-application.log",
+      "relativePath": "target/deploy-application.log"
+    },
+    {
+      "displayPath": "deploy-error.log",
+      "fileName": "deploy-error.log",
+      "relativePath": "target/deploy-error.log"
+    },
+    {
+      "displayPath": "deployment.json",
+      "fileName": "deployment.json",
+      "relativePath": "target/deployment.json"
+    },
+    {
+      "displayPath": "physio-portal-1.0.0.jar",
+      "fileName": "physio-portal-1.0.0.jar",
+      "relativePath": "target/physio-portal-1.0.0.jar"
+    }
+  ],
+  "building": false,
+  "description": null,
+  "displayName": "#2",
+  "duration": 130690,
+  "estimatedDuration": 130690,
+  "executor": null,
+  "fingerprint": [
+    {
+      "fileName": "deploy-application.log",
+      "hash": "dc66615dd6234c833860156929ad4d41",
+      "original": {
+        "name": "physio-portal-pipeline",
+        "number": 2
+      },
+      "timestamp": 1790964503114,
+      "usage": [
+        {
+          "name": "physio-portal-pipeline",
+          "ranges": {
+            "ranges": [
+              {
+                "end": 3,
+                "start": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fileName": "deploy-error.log",
+      "hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "original": {
+        "name": "physio-portal-pipeline",
+        "number": 2
+      },
+      "timestamp": 1790964503142,
+      "usage": [
+        {
+          "name": "physio-portal-pipeline",
+          "ranges": {
+            "ranges": [
+              {
+                "end": 3,
+                "start": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fileName": "deployment.json",
+      "hash": "4e4ec5991ee93752314b96a3d4cf4bf5",
+      "original": {
+        "name": "physio-portal-pipeline",
+        "number": 2
+      },
+      "timestamp": 1790964503168,
+      "usage": [
+        {
+          "name": "physio-portal-pipeline",
+          "ranges": {
+            "ranges": [
+              {
+                "end": 3,
+                "start": 2
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "fileName": "physio-portal-1.0.0.jar",
+      "hash": "5c77be4f35e2ffc464e57e70d27f9398",
+      "original": {
+        "name": "physio-portal-pipeline",
+        "number": 2
+      },
+      "timestamp": 1790964469809,
+      "usage": [
+        {
+          "name": "physio-portal-pipeline",
+          "ranges": {
+            "ranges": [
+              {
+                "end": 3,
+                "start": 2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "fullDisplayName": "physio-portal-pipeline #2",
+  "id": "2",
+  "keepLog": false,
+  "number": 2,
+  "queueId": 6,
+  "result": "SUCCESS",
+  "timestamp": 1790964374122,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/2/",
+  "changeSets": [
+    {
+      "_class": "hudson.plugins.git.GitChangeSetList",
+      "items": [
+        {
+          "_class": "hudson.plugins.git.GitChangeSet",
+          "affectedPaths": [
+            "scripts/deploy-local.ps1"
+          ],
+          "commitId": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+          "timestamp": 1790964370000,
+          "author": {
+            "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+            "fullName": "kirtisvispute2"
+          },
+          "authorEmail": "kirtisvispute2@gmail.com",
+          "comment": "fix: detach deployment handles from Windows Jenkins wrapper\n",
+          "date": "2026-10-02 23:36:10 +0530",
+          "id": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+          "msg": "fix: detach deployment handles from Windows Jenkins wrapper",
+          "paths": [
+            {
+              "editType": "edit",
+              "file": "scripts/deploy-local.ps1"
+            }
+          ]
+        }
+      ],
+      "kind": "git"
+    }
+  ],
+  "culprits": [
+    {
+      "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+      "description": null,
+      "fullName": "kirtisvispute2",
+      "id": "kirtisvispute2",
+      "property": [
+        {
+          "_class": "io.jenkins.plugins.thememanager.ThemeUserProperty"
+        },
+        {
+          "_class": "jenkins.security.ApiTokenProperty"
+        },
+        {
+          "_class": "jenkins.console.ConsoleUrlProviderUserProperty"
+        },
+        {
+          "_class": "com.cloudbees.plugins.credentials.UserCredentialsProvider$UserCredentialsProperty"
+        },
+        {
+          "_class": "jenkins.views.ViewsTabBarUserProperty"
+        },
+        {
+          "_class": "hudson.plugins.emailext.watching.EmailExtWatchAction$UserProperty",
+          "triggers": []
+        },
+        {
+          "_class": "hudson.model.MyViewsProperty"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty"
+        },
+        {
+          "_class": "hudson.model.PaneStatusProperties"
+        },
+        {
+          "_class": "jenkins.security.seed.UserSeedProperty"
+        },
+        {
+          "_class": "hudson.search.UserSearchProperty",
+          "insensitiveSearch": true
+        },
+        {
+          "_class": "hudson.model.TimeZoneProperty"
+        },
+        {
+          "_class": "jenkins.model.experimentalflags.UserExperimentalFlagsProperty"
+        },
+        {
+          "_class": "hudson.tasks.Mailer$UserProperty",
+          "address": "kirtisvispute2@gmail.com"
+        }
+      ]
+    }
+  ],
+  "inProgress": false,
+  "nextBuild": null,
+  "previousBuild": {
+    "actions": [
+      {
+        "_class": "hudson.model.ParametersAction",
+        "parameters": [
+          {
+            "_class": "hudson.model.StringParameterValue",
+            "name": "APP_ENV",
+            "value": "demo"
+          },
+          {
+            "_class": "hudson.model.StringParameterValue",
+            "name": "PORT",
+            "value": "8081"
+          }
+        ]
+      },
+      {
+        "_class": "hudson.model.CauseAction",
+        "causes": [
+          {
+            "_class": "hudson.model.Cause$UserIdCause",
+            "shortDescription": "Started by user admin",
+            "userId": "admin",
+            "userName": "admin"
+          }
+        ]
+      },
+      {
+        "_class": "hudson.plugins.git.util.BuildData",
+        "buildsByBranchName": {
+          "refs/remotes/origin/feature/jenkins-pipeline": {
+            "_class": "hudson.plugins.git.util.Build",
+            "buildNumber": 1,
+            "buildResult": null,
+            "marked": {
+              "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+              "branch": [
+                {
+                  "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+                  "name": "refs/remotes/origin/feature/jenkins-pipeline"
+                }
+              ]
+            },
+            "revision": {
+              "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+              "branch": [
+                {
+                  "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+                  "name": "refs/remotes/origin/feature/jenkins-pipeline"
+                }
+              ]
+            }
+          }
+        },
+        "lastBuiltRevision": {
+          "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+          "branch": [
+            {
+              "SHA1": "2afdb87248f55f7a0bafc8a3fbba45497bb2508e",
+              "name": "refs/remotes/origin/feature/jenkins-pipeline"
+            }
+          ]
+        },
+        "remoteUrls": [
+          "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+        ],
+        "scmName": ""
+      },
+      {},
+      {
+        "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction",
+        "libraries": []
+      },
+      {},
+      {
+        "_class": "hudson.tasks.junit.TestResultAction",
+        "failCount": 0,
+        "skipCount": 0,
+        "totalCount": 34,
+        "urlName": "testReport"
+      },
+      {},
+      {
+        "_class": "jenkins.model.InterruptedBuildAction",
+        "causes": [
+          {
+            "_class": "jenkins.model.CauseOfInterruption$UserInterruption"
+          }
+        ]
+      },
+      {},
+      {},
+      {},
+      {
+        "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction",
+        "artifactsUrl": "http://localhost:8080/job/physio-portal-pipeline/1/artifact",
+        "changesUrl": "http://localhost:8080/job/physio-portal-pipeline/changes",
+        "displayUrl": "http://localhost:8080/job/physio-portal-pipeline/1/stages",
+        "testsUrl": "http://localhost:8080/job/physio-portal-pipeline/1/testReport"
+      },
+      {
+        "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction",
+        "restartEnabled": true,
+        "restartableStages": [
+          "Checkout",
+          "Build",
+          "Unit Test",
+          "Package",
+          "Deploy"
+        ]
+      },
+      {},
+      {
+        "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction",
+        "nodes": [
+          {
+            "_class": "org.jenkinsci.plugins.workflow.graph.FlowStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepStartNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepAtomNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.cps.nodes.StepEndNode"
+          },
+          {
+            "_class": "org.jenkinsci.plugins.workflow.graph.FlowEndNode"
+          }
+        ]
+      },
+      {},
+      {}
+    ],
+    "artifacts": [
+      {
+        "displayPath": "physio-portal-1.0.0.jar",
+        "fileName": "physio-portal-1.0.0.jar",
+        "relativePath": "target/physio-portal-1.0.0.jar"
+      }
+    ],
+    "building": false,
+    "description": null,
+    "displayName": "#1",
+    "duration": 416869,
+    "estimatedDuration": 130690,
+    "executor": null,
+    "fullDisplayName": "physio-portal-pipeline #1",
+    "id": "1",
+    "keepLog": false,
+    "number": 1,
+    "queueId": 4,
+    "result": "ABORTED",
+    "timestamp": 1790963929672,
+    "url": "http://localhost:8080/job/physio-portal-pipeline/1/",
+    "changeSets": [],
+    "culprits": [],
+    "inProgress": false,
+    "nextBuild": {
+      "actions": [
+        {
+          "_class": "hudson.model.ParametersAction",
+          "parameters": [
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "APP_ENV",
+              "value": "demo"
+            },
+            {
+              "_class": "hudson.model.StringParameterValue",
+              "name": "PORT",
+              "value": "8081"
+            }
+          ]
+        },
+        {
+          "_class": "hudson.model.CauseAction",
+          "causes": [
+            {
+              "_class": "hudson.model.Cause$UserIdCause",
+              "shortDescription": "Started by user admin",
+              "userId": "admin",
+              "userName": "admin"
+            }
+          ]
+        },
+        {
+          "_class": "hudson.plugins.git.util.BuildData",
+          "buildsByBranchName": {
+            "refs/remotes/origin/feature/jenkins-pipeline": {
+              "_class": "hudson.plugins.git.util.Build",
+              "buildNumber": 2,
+              "buildResult": null,
+              "marked": {
+                "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                "branch": [
+                  {
+                    "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                    "name": "refs/remotes/origin/feature/jenkins-pipeline"
+                  }
+                ]
+              },
+              "revision": {
+                "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                "branch": [
+                  {
+                    "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                    "name": "refs/remotes/origin/feature/jenkins-pipeline"
+                  }
+                ]
+              }
+            }
+          },
+          "lastBuiltRevision": {
+            "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+            "branch": [
+              {
+                "SHA1": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+                "name": "refs/remotes/origin/feature/jenkins-pipeline"
+              }
+            ]
+          },
+          "remoteUrls": [
+            "https://github.com/kirti-vispute/physiotherapy-appointment-portal.git"
+          ],
+          "scmName": ""
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+        },
+        {},
+        {
+          "_class": "hudson.tasks.junit.TestResultAction",
+          "failCount": 0,
+          "skipCount": 0,
+          "totalCount": 34,
+          "urlName": "testReport"
+        },
+        {},
+        {},
+        {},
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+        },
+        {
+          "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+        },
+        {},
+        {
+          "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+        },
+        {},
+        {}
+      ],
+      "artifacts": [
+        {
+          "displayPath": "deploy-application.log",
+          "fileName": "deploy-application.log",
+          "relativePath": "target/deploy-application.log"
+        },
+        {
+          "displayPath": "deploy-error.log",
+          "fileName": "deploy-error.log",
+          "relativePath": "target/deploy-error.log"
+        },
+        {
+          "displayPath": "deployment.json",
+          "fileName": "deployment.json",
+          "relativePath": "target/deployment.json"
+        },
+        {
+          "displayPath": "physio-portal-1.0.0.jar",
+          "fileName": "physio-portal-1.0.0.jar",
+          "relativePath": "target/physio-portal-1.0.0.jar"
+        }
+      ],
+      "building": false,
+      "description": null,
+      "displayName": "#2",
+      "duration": 130690,
+      "estimatedDuration": 130690,
+      "executor": null,
+      "fullDisplayName": "physio-portal-pipeline #2",
+      "id": "2",
+      "keepLog": false,
+      "number": 2,
+      "queueId": 6,
+      "result": "SUCCESS",
+      "timestamp": 1790964374122,
+      "url": "http://localhost:8080/job/physio-portal-pipeline/2/",
+      "changeSets": [
+        {
+          "_class": "hudson.plugins.git.GitChangeSetList",
+          "items": [
+            {
+              "_class": "hudson.plugins.git.GitChangeSet",
+              "affectedPaths": [
+                "scripts/deploy-local.ps1"
+              ],
+              "commitId": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+              "timestamp": 1790964370000,
+              "author": {
+                "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+                "fullName": "kirtisvispute2"
+              },
+              "authorEmail": "kirtisvispute2@gmail.com",
+              "comment": "fix: detach deployment handles from Windows Jenkins wrapper\n",
+              "date": "2026-10-02 23:36:10 +0530",
+              "id": "6af1dfdd4b49b7387a5f0ea426ac78c826e34460",
+              "msg": "fix: detach deployment handles from Windows Jenkins wrapper",
+              "paths": [
+                {
+                  "editType": "edit",
+                  "file": "scripts/deploy-local.ps1"
+                }
+              ]
+            }
+          ],
+          "kind": "git"
+        }
+      ],
+      "culprits": [
+        {
+          "absoluteUrl": "http://localhost:8080/user/kirtisvispute2",
+          "fullName": "kirtisvispute2"
+        }
+      ],
+      "inProgress": false,
+      "nextBuild": null,
+      "previousBuild": {
+        "number": 1,
+        "url": "http://localhost:8080/job/physio-portal-pipeline/1/"
+      }
+    },
+    "previousBuild": null
+  }
+}

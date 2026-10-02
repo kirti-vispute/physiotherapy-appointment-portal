@@ -15,7 +15,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
 | 06 | MVP Collaboration | ✅ | Full MVP, 34 passing tests, UI/API/restart checks, real conflict resolution, reviewed/merged PR #2, annotated v1.0.0 and main baseline verified |
 | 07 | Jenkins CI | ✅ | Existing Jenkins 2.568.1, active plugins/tools, GitHub checkout, builds #1/#2 SUCCESS with 34 tests; downloaded/fingerprinted JARs; actual SCM-triggered commit and logs/screenshots verified |
-| 08 | Jenkins Pipeline | ⬜ | Not started |
+| 08 | Jenkins Pipeline | 🟡 | Jenkinsfile and deployment script created; actual pipeline/deployment verification in progress |
 | 09 | Selenium | ⬜ | Not started |
 | 10 | Continuous Testing | ⬜ | Not started |
 | 11 | Docker | ⬜ | Not started |
@@ -71,4 +71,4 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Pushed `9ccbbdc`; actual polling found changes and automatic build #2 SUCCESS with SCM cause, exact source, 34 passing tests
 - ✅ Executable JARs downloaded, checksummed and fingerprinted; reports/logs/configuration/screenshots saved in [Task 7 guide](task-07-jenkins-ci.md)
 
-Tasks 1–7 are ✅. Tasks 8–15 are ⬜. Next: Task 8 Jenkins Pipeline. Selenium, Docker, and Ansible have not been executed.
+Tasks 1–7 are ✅. Task 8 is 🟡. Tasks 9–15 are ⬜. Selenium, Docker, and Ansible have not been executed.
