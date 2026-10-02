@@ -13,9 +13,11 @@
     <artifactId>physio-portal</artifactId>
     <version>1.0.0</version>
     <name>physio-portal</name>
+    <url>https://github.com/kirti-vispute/physiotherapy-appointment-portal</url>
     <description>Physiotherapy Appointment Portal college DevOps project</description>
     <properties>
         <java.version>21</java.version>
+        <selenium.version>4.49.0</selenium.version>
     </properties>
     <dependencies>
         <dependency>
@@ -52,6 +54,12 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -61,4 +69,52 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>selenium</id>
+            <properties>
+                <selenium.baseUrl>http://localhost:8082</selenium.baseUrl>
+                <selenium.headless>true</selenium.headless>
+                <selenium.reportsDirectory>${project.build.directory}/failsafe-reports</selenium.reportsDirectory>
+                <skipUnitTests>false</skipUnitTests>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration><skipTests>${skipUnitTests}</skipTests></configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.5.6</version>
+                        <configuration>
+                            <includes><include>**/PortalSeleniumIT.java</include></includes>
+                            <failIfNoTests>true</failIfNoTests>
+                            <reportsDirectory>${selenium.reportsDirectory}</reportsDirectory>
+                            <summaryFile>${selenium.reportsDirectory}/failsafe-summary.xml</summaryFile>
+                            <systemPropertyVariables>
+                                <selenium.baseUrl>${selenium.baseUrl}</selenium.baseUrl>
+                                <selenium.headless>${selenium.headless}</selenium.headless>
+                            </systemPropertyVariables>
+                        </configuration>
+                        <executions><execution><goals><goal>integration-test</goal><goal>verify</goal></goals></execution></executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                        <version>3.5.6</version>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/selenium-report</outputDirectory>
+                            <outputName>selenium</outputName>
+                            <reportsDirectories><reportsDirectory>${selenium.reportsDirectory}</reportsDirectory></reportsDirectories>
+                            <linkXRef>false</linkXRef>
+                        </configuration>
+                        <executions><execution><phase>verify</phase><goals><goal>failsafe-report-only</goal></goals></execution></executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
