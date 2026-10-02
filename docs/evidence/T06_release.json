@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-02T20:56:36.7915365+05:30",
+  "tag": "v1.0.0",
+  "tag_object": "ca2238a0338d4660d501843e2dee66a62f35fe54",
+  "release_commit": "f629e232ee99a18ce5eb49d7bcc36f20a0f0742b",
+  "pull_request": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2",
+  "reviewed_head": "790a5e8fcb102ca10a7dea69a736cce8307d7da2",
+  "tested_source": "16c17afb8d341cc7a43c822101d21c63a981c3b6",
+  "source_unchanged": true,
+  "build": {
+    "built_at": "2026-10-02T20:30:23.2496901+05:30",
+    "artifact": "target/physio-portal-1.0.0.jar",
+    "bytes": 65083827,
+    "sha256": "8027667458146A383B30F322AEDC67267D56FEE23F9D6E37DB69E4AA1C15A683",
+    "tests": 34,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "tested_source_commit": "16c17afb8d341cc7a43c822101d21c63a981c3b6"
+  }
+}

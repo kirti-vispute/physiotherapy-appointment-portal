@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–5 are complete; the Task 6 functional MVP is verified and its release publication is in progress. Registration, sign-in/out, physiotherapists, future open slots, booking, own confirmation/status, and cancellation work through the browser and API. All 34 integration tests pass. A real documentation merge conflict has been demonstrated and resolved. Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–6 are complete. Registration, sign-in/out, physiotherapists, future open slots, booking, own confirmation/status, and cancellation work through the browser and API. All 34 integration tests pass. A real documentation merge conflict was demonstrated and resolved; [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2) was self-reviewed and merged. The annotated [v1.0.0 tag](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) identifies the tested MVP baseline. Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -123,7 +123,7 @@ Task 5 GitHub evidence: [pull request](screenshots/T05_pull_request.jpg), [self-
 
 ![Task 6 cancellation](screenshots/T06_cancellation.jpg)
 
-Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](screenshots/T06_available_slots.jpg), [own appointment status](screenshots/T06_appointment_status.jpg), [released slot](screenshots/T06_slot_released.jpg), and [sign-out](screenshots/T06_sign_out.jpg). The [Task 6 guide](docs/task-06-mvp.md) links the real Git conflict, test results, and release evidence.
+Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](screenshots/T06_available_slots.jpg), [own appointment status](screenshots/T06_appointment_status.jpg), [released slot](screenshots/T06_slot_released.jpg), [sign-out](screenshots/T06_sign_out.jpg), [merged PR](screenshots/T06_merge.jpg), [self-review](screenshots/T06_review.jpg), and [release tag](screenshots/T06_release_tag.jpg). The [Task 6 guide](docs/task-06-mvp.md) links the real Git conflict, test results, and release evidence. The verification app was stopped after the restart check.
 
 ## Contributors
 

@@ -17,9 +17,9 @@ Complete the patient workflow and create a tested release baseline, while demons
 | Validation/errors | Friendly form/API errors, ownership, CSRF, time boundaries | ✅ Verified |
 | Second feature branch | `feature/appointment-booking` | ✅ Created |
 | Actual merge conflict and resolution | Opposing edits to `docs/mvp-demo.md` on two branches; real merge output and resolved commit | ✅ Verified |
-| Push and successful integration | Feature/conflict branches pushed; integration into `develop` | 🟡 Pending |
-| Git tag and release baseline | Version `1.0.0`, annotated `v1.0.0`, `main` release baseline | 🟡 Pending |
-| Updated backlog | Stories, board, backlog, tracker, current API/setup | 🟡 In progress |
+| Push and successful integration | Feature/conflict branches pushed; PR #2 reviewed and merged into `develop` | ✅ Verified |
+| Git tag and release baseline | Version `1.0.0`, remote annotated `v1.0.0`, `main` release baseline | ✅ Verified |
+| Updated backlog | Stories, board, backlog, tracker, current API/setup | ✅ Updated |
 
 ## Step-by-step implementation
 
@@ -30,7 +30,7 @@ Complete the patient workflow and create a tested release baseline, while demons
 5. Implemented shared services for page/API behavior. Booking locks the slot in a transaction, rejects occupied/started slots, records CONFIRMED, and occupies the slot. Cancellation checks ownership, locks that same slot, refreshes the appointment after waiting, rejects started appointments, records CANCELLED, and releases the slot. Repeating an old cancellation does not release a subsequent booking.
 6. Added provider/slot views, own appointment list/detail, clear empty states, confirmation/cancellation notices, signed-in navigation, and stable `data-testid` locators.
 7. Added 20 appointment/security integration tests and extended 14 registration tests to send CSRF. Tests use isolated memory databases and a fixed clock for appointment start boundaries. First run: two assertions expected relative redirects, while Tomcat correctly returned absolute URLs. Second run: concurrent registration used two freshly created sessions; established one shared session before the threads. Both failures are retained as evidence. The final full run is recorded below.
-8. Verify the packaged app through the full browser journey and save actual screenshots. Then commit, demonstrate/resolve the documentation conflict, publish a reviewed PR, integrate the release, and tag it. Actual identifiers and results will replace the pending gates.
+8. Verified the packaged app through the browser journey and saved actual screenshots. Demonstrated and resolved the documentation conflict, published and self-reviewed PR #2, merged it into `develop`, advanced `main`, and published annotated `v1.0.0`. Saved returned identifiers and final screenshots, then stopped the verification app.
 
 ## Files to create/change
 
@@ -146,16 +146,18 @@ If this checkout reports dubious ownership, use the process-only trust settings 
 | Restart persistence | Browser/API appointments #1/#2 remained CANCELLED; two providers and 12 open slots remained; health HTTP 200/UP |
 | Real conflict | `git merge feature/demo-notes` returned exit 1, `CONFLICT (content)`, `UU docs/mvp-demo.md`; original markers saved |
 | Resolution | `dceeb892f30dc5e76a990785248d2ea1204980a4`, parents `9901333` and `124907f`; complete demo line retained; no unmerged files |
-| Publication/tag | Pending; actual PR/merge/tag identifiers will be added after GitHub returns them |
+| Publication | [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2), head `790a5e8fcb102ca10a7dea69a736cce8307d7da2`; [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2#pullrequestreview-5393574270), ID `5393574270`; merged at `f629e232ee99a18ce5eb49d7bcc36f20a0f0742b` |
+| Release/tag | Annotated `v1.0.0` object `ca2238a0338d4660d501843e2dee66a62f35fe54`, peeled release `f629e232ee99a18ce5eb49d7bcc36f20a0f0742b`; main advanced, both remote hashes verified, GitHub tag captured |
+| Packaged artifact | `target/physio-portal-1.0.0.jar`, 65,083,827 bytes; SHA-256 `8027667458146A383B30F322AEDC67267D56FEE23F9D6E37DB69E4AA1C15A683` |
 
-App verification is complete; the publication gate remains open. No application source changed during the documentation conflict. The later release source will be compared with tested source commit `16c17af` before publication. The verification app is stopped at the end of this task.
+All Task 6 gates are complete. `git diff --exit-code 16c17af HEAD -- pom.xml src` verified unchanged tested source before tagging. The verification app (PID 31136 on 8081) was stopped and its process absence checked. The tag records the reviewed MVP baseline. Final documentation on `develop` and `main` adds returned identifiers, screenshots, and the completed tracker; it leaves the tag on its original release commit.
 
 The suite covers normalized sign-in, generic invalid-credential errors, session and CSRF rotation, logout, visitor/protected-route boundaries, provider/slot filtering and empty states, IST display, confirmation/persistence, ownership attacks, malformed/missing/stale/start-time selections, concurrent booking, repeat/concurrent cancellation, cancellation after rebooking, started appointment read-only behavior, CSRF rejection, HTML form flow, and repeatable seed data.
 
 ## Evidence and screenshot guidance
 
 - Build logs: `T06_compile.txt`, `T06_maven_initial_failure.txt`, `T06_maven_csrf_fixture_failure.txt`, and final `T06_maven_verify.txt` under `docs/evidence/`.
-- Surefire results: `target/surefire-reports/`; summaries will be copied into `docs/evidence/` after a passing run.
+- Surefire results: `target/surefire-reports/`; summaries were copied into `docs/evidence/` after the passing run.
 - Browser images: provider list, available slots, confirmation, cancellation, own status list, and sign-out. Keep the portal heading, provider name, appointment identifier/status, and relevant success message visible. Use `Win+Shift+S` to save manual images under `screenshots/T06_*_manual.png`. Never capture passwords or session/CSRF values.
 - Git conflict proof: save the terminal merge output, `UU` status, original conflict markers, resolved file, two-parent commit, pushes, and branch graph in `docs/evidence/T06_git_conflict.txt` and `T06_conflict_markers.txt`. A hand-typed example of markers is not evidence.
 - GitHub proof: capture actual merged PR/feature labels, review comment, and tag page. Git/REST logs record actual hashes. No independent peer approval is claimed for this single-owner exercise.
@@ -172,6 +174,10 @@ The suite covers normalized sign-in, generic invalid-credential errors, session 
 | `screenshots/T06_booking_confirmation.jpg`, `T06_slot_occupied.jpg` | CONFIRMED appointment #1; selected slot absent |
 | `screenshots/T06_cancellation.jpg`, `T06_appointment_status.jpg`, `T06_slot_released.jpg` | CANCELLED appointment and released original slot |
 | `screenshots/T06_sign_out.jpg` | Real sign-out success message |
+| `docs/evidence/T06_github_pr.json` | Actual merged PR, reviewed head, COMMENT review, merge commit/time |
+| `docs/evidence/T06_release.json`, `T06_release_build.json` | Actual tag/source identifiers, JAR size/checksum |
+| `docs/evidence/T06_git_publication.txt`, `T06_release_git.txt` | Actual feature pushes, integration, annotated tag and remote hashes; initial switch blocked on generated log, then identical backup verified and restored before switching |
+| `screenshots/T06_merge.jpg`, `T06_review.jpg`, `T06_release_tag.jpg` | Actual merged PR, single-owner review, and annotated tag |
 
 ## Checklist
 
@@ -179,5 +185,7 @@ The suite covers normalized sign-in, generic invalid-credential errors, session 
 - ✅ Full regression/security/concurrency verification and browser proof
 - ✅ Second feature branch
 - ✅ Demonstrated and resolved merge conflict
-- 🟡 Published integration and annotated release tag
-- 🟡 Updated backlog and saved evidence
+- ✅ Published integration and annotated release tag
+- ✅ Updated backlog and saved evidence
+
+Tasks 1–6 are complete. Task 7 (Jenkins CI) is next; Jenkins and Selenium execution remain pending.

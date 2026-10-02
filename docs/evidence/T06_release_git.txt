@@ -1,0 +1,134 @@
+**********************
+PowerShell transcript start
+Start time: 20261002205514
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$ErrorActionPreference='Stop'
+$env:GIT_CONFIG_COUNT='1'; $env:GIT_CONFIG_KEY_0='safe.directory'; $env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'
+Start-Transcript -Path target/T06_release_git.txt
+function RunGit([string[]]$GitArgs) { Write-Output ('Command: git '+($GitArgs -join ' ')); & git @GitArgs; if($LASTEXITCODE -ne 0){throw 'Git command failed'} }
+RunGit @('fetch','origin')
+RunGit @('switch','develop')
+RunGit @('pull','--ff-only','origin','develop')
+RunGit @('diff','--exit-code','16c17af','HEAD','--','pom.xml','src')
+RunGit @('switch','main')
+RunGit @('merge','--ff-only','develop')
+$existingTag=git tag --list v1.0.0
+if($existingTag){throw 'Tag already exists; inspect before continuing'}
+RunGit @('tag','-a','v1.0.0','-m','Physiotherapy portal MVP 1.0.0: verified patient workflow')
+RunGit @('push','origin','main')
+RunGit @('push','origin','v1.0.0')
+RunGit @('show','--no-patch','v1.0.0')
+RunGit @('ls-remote','origin','refs/tags/v1.0.0','refs/tags/v1.0.0^{}')
+$tagObject=git rev-parse v1.0.0
+$releaseCommit=git rev-parse 'v1.0.0^{}'
+$build=Get-Content -Raw docs/evidence/T06_release_build.json | ConvertFrom-Json
+[ordered]@{captured_at=(Get-Date -Format o);tag='v1.0.0';tag_object=$tagObject;release_commit=$releaseCommit;pull_request='https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2';reviewed_head='790a5e8fcb102ca10a7dea69a736cce8307d7da2';tested_source=(git rev-parse 16c17af);source_unchanged=$true;build=$build} | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 docs/evidence/T06_release.json
+RunGit @('switch','develop')
+Stop-Transcript
+Copy-Item -LiteralPath target/T06_release_git.txt -Destination docs/evidence/T06_release_git.txt
+Process ID: 7000
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T06_release_git.txt
+Command: git fetch origin
+
+Command: git switch develop
+
+PS>TerminatingError(): "Git command failed"
+>> TerminatingError(): "Git command failed"
+Exception:
+Line |
+   5 |  … & git @GitArgs; if($LASTEXITCODE -ne 0){throw 'Git command failed'} }
+     |                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Git command failed
+PS>$global:?
+False
+**********************
+PowerShell transcript end
+End time: 20261002205517
+**********************
+**********************
+PowerShell transcript start
+Start time: 20261002205624
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$ErrorActionPreference='Stop'
+$env:GIT_CONFIG_COUNT='1'; $env:GIT_CONFIG_KEY_0='safe.directory'; $env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'
+if((Get-FileHash docs/evidence/T06_git_publication.txt).Hash -ne (Get-FileHash target/T06_git_publication.txt).Hash){throw 'Publication log backup differs'}
+git restore -- docs/evidence/T06_git_publication.txt
+if($LASTEXITCODE -ne 0){throw 'Restore failed'}
+Start-Transcript -Path target/T06_release_git.txt -Append
+function RunGit([string[]]$GitArgs) { Write-Output ('Command: git '+($GitArgs -join ' ')); & git @GitArgs; if($LASTEXITCODE -ne 0){throw 'Git command failed'} }
+RunGit @('switch','develop')
+RunGit @('pull','--ff-only','origin','develop')
+RunGit @('diff','--exit-code','16c17af','HEAD','--','pom.xml','src')
+RunGit @('switch','main')
+RunGit @('merge','--ff-only','develop')
+$existingTag=git tag --list v1.0.0
+if($existingTag){throw 'Tag already exists; inspect before continuing'}
+RunGit @('tag','-a','v1.0.0','-m','Physiotherapy portal MVP 1.0.0: verified patient workflow')
+RunGit @('push','origin','main')
+RunGit @('push','origin','v1.0.0')
+RunGit @('show','--no-patch','v1.0.0')
+RunGit @('ls-remote','origin','refs/tags/v1.0.0','refs/tags/v1.0.0^{}')
+$tagObject=git rev-parse v1.0.0
+$releaseCommit=git rev-parse 'v1.0.0^{}'
+$build=Get-Content -Raw docs/evidence/T06_release_build.json | ConvertFrom-Json
+[ordered]@{captured_at=(Get-Date -Format o);tag='v1.0.0';tag_object=$tagObject;release_commit=$releaseCommit;pull_request='https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2';reviewed_head='790a5e8fcb102ca10a7dea69a736cce8307d7da2';tested_source=(git rev-parse 16c17af);source_unchanged=$true;build=$build} | ConvertTo-Json -Depth 8 | Set-Content -Encoding utf8 docs/evidence/T06_release.json
+RunGit @('switch','develop')
+Stop-Transcript
+Copy-Item -LiteralPath target/T06_release_git.txt -Destination docs/evidence/T06_release_git.txt
+Copy-Item -LiteralPath target/T06_git_publication.txt -Destination docs/evidence/T06_git_publication.txt
+Process ID: 22120
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T06_release_git.txt
+Command: git switch develop
+
+Command: git pull --ff-only origin develop
+
+Command: git diff --exit-code 16c17af HEAD -- pom.xml src
+
+Command: git switch main
+
+Command: git merge --ff-only develop
+
+Command: git tag -a v1.0.0 -m Physiotherapy portal MVP 1.0.0: verified patient workflow
+
+Command: git push origin main
+
+Command: git push origin v1.0.0
+
+Command: git show --no-patch v1.0.0
+
+Command: git ls-remote origin refs/tags/v1.0.0 refs/tags/v1.0.0^{}
+
+Command: git switch develop
+
+**********************
+PowerShell transcript end
+End time: 20261002205637
+**********************

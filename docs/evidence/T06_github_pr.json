@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-02T20:54:07.2017401+05:30",
+  "number": 2,
+  "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2",
+  "title": "feat: complete physiotherapy appointment MVP",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2026-10-02T15:24:03Z",
+  "merge_commit_sha": "f629e232ee99a18ce5eb49d7bcc36f20a0f0742b",
+  "base": "develop",
+  "head": "feature/appointment-booking",
+  "head_sha": "790a5e8fcb102ca10a7dea69a736cce8307d7da2",
+  "reviews": [
+    {
+      "state": "COMMENTED",
+      "body": "Single-owner self-review by Kirti Vispute, assisted by Codex. This COMMENT records the review; it is not independent peer approval.\n\nReviewed head: 790a5e8fcb102ca10a7dea69a736cce8307d7da2.\n\n- Authentication uses the existing salted password hashes. JSON login saves its security context and rotates the session identifier and CSRF token. HTML and JSON logout are POST-only and CSRF-protected.\n- All appointment reads and cancellation derive ownership from the authenticated email. Responses exclude passwords and hashes. Foreign appointment requests return 404.\n- Booking and cancellation share a transactional slot lock. Booking rejects occupied or started slots. Cancellation refreshes after acquiring the lock; repeats do not release a slot occupied by a later booking.\n- Future slots and cancellability use the server clock. Display labels use Asia/Kolkata. Seed data is fictional and repeated startup preserves rows and occupied slots.\n- Final Maven verification: 34 tests (20 appointment/security + 14 registration), zero failures/errors/skips. Earlier assertion/fixture failures and their corrections are retained in evidence.\n- Real browser registration, sign-in, booking, confirmation, cancellation, status, slot release, and sign-out were observed and captured. Live API ownership/CSRF checks and restart persistence passed.\n- The actual two-branch documentation conflict was resolved in dceeb892f30dc5e76a990785248d2ea1204980a4. Application source and pom.xml match tested commit 16c17af. Local patient data, build output, and credentials are excluded from Git.\n\nNo unresolved review findings. Ready to merge into develop and create the annotated v1.0.0 MVP baseline. Jenkins and Selenium execution remain later tasks.\n",
+      "submitted_at": "2026-10-02T15:23:59Z",
+      "id": 5393574270,
+      "commit_id": "790a5e8fcb102ca10a7dea69a736cce8307d7da2",
+      "author": "kirti-vispute",
+      "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2#pullrequestreview-5393574270"
+    }
+  ]
+}

@@ -25,3 +25,31 @@ Command: git push -u origin feature/demo-notes
 PowerShell transcript end
 End time: 20261002204822
 **********************
+**********************
+PowerShell transcript start
+Start time: 20261002204823
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; $jar=Get-FileHash target/physio-portal-1.0.0.jar -Algorithm SHA256; [ordered]@{built_at=(Get-Item target/physio-portal-1.0.0.jar).LastWriteTime.ToString('o');artifact='target/physio-portal-1.0.0.jar';bytes=(Get-Item target/physio-portal-1.0.0.jar).Length;sha256=$jar.Hash;tests=34;failures=0;errors=0;skipped=0;tested_source_commit=(git rev-parse 16c17af)}|ConvertTo-Json|Set-Content docs/evidence/T06_release_build.json; git diff --exit-code 16c17af HEAD -- pom.xml src; if($LASTEXITCODE -ne 0){throw 'Source differs from tested implementation'}; git ls-files data target .env; git diff --check -- . ':(exclude)docs/evidence/*'; if($LASTEXITCODE -ne 0){throw 'Source/docs whitespace check failed'}; Start-Transcript -Path target/T06_git_publication.txt -Force; Write-Output 'Command: git push -u origin feature/demo-notes';git push -u origin feature/demo-notes;if($LASTEXITCODE -ne 0){throw 'Companion push failed'};Stop-Transcript;Copy-Item target/T06_git_publication.txt docs/evidence/T06_git_publication.txt;git add README.md docs screenshots;git commit -m 'docs: record verified MVP browser API and conflict evidence';if($LASTEXITCODE -ne 0){throw 'Documentation commit failed'};Start-Transcript -Path target/T06_git_publication.txt -Append;Write-Output 'Command: git push -u origin feature/appointment-booking';git push -u origin feature/appointment-booking;if($LASTEXITCODE -ne 0){throw 'MVP feature push failed'};git log --graph --oneline --decorate -n 9;Stop-Transcript;Copy-Item target/T06_git_publication.txt docs/evidence/T06_git_publication.txt; & ./target/task6-github.ps1 -Action create
+Process ID: 29080
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T06_git_publication.txt
+Command: git push -u origin feature/appointment-booking
+
+
+**********************
+PowerShell transcript end
+End time: 20261002204828
+**********************

@@ -13,7 +13,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 03 | Architecture | ✅ | SRS, diagrams, model, API contract, and setup created; Maven build, home/health, H2, and screenshot verified |
 | 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
 | 05 | Feature Development | ✅ | Registration UI/API/persistence and 14 tests verified; feature commits, PR #1, COMMENT self-review, merge `f7713f0`, Git logs and screenshots saved |
-| 06 | MVP Collaboration | 🟡 | Sign-in and remaining appointment workflow, tests, conflict demonstration, and release in progress |
+| 06 | MVP Collaboration | ✅ | Full MVP, 34 passing tests, UI/API/restart checks, real conflict resolution, reviewed/merged PR #2, annotated v1.0.0 and main baseline verified |
 | 07 | Jenkins CI | ⬜ | Not started |
 | 08 | Jenkins Pipeline | ⬜ | Not started |
 | 09 | Selenium | ⬜ | Not started |
@@ -26,14 +26,14 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 
 | Area | Current verified state |
 |---|---|
-| Application | Registration UI/API, validation, salted password hashes, duplicates/concurrency, persistence, homepage/health verified on port 8081; verification app stopped |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PR #1 merged into `develop`; `main` retains the Task 4 baseline |
+| Application | Full patient MVP verified on port 8081; 34 passing registration/appointment/security tests, browser/API flow, booking concurrency, CSRF/ownership, and restart persistence; verification app stopped |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2 reviewed/merged into `develop`; `main` advanced; annotated v1.0.0 points to release f629e23; final documentation follows on both branches |
 | Jenkins | Not checked or configured |
 | Selenium | Not implemented or run |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–5 complete; registration guide, API, README, story/backlog/board/tracker updated; US-01 Selenium DoD remains pending Task 9 |
-| Evidence | Tasks 3–4 evidence plus Task 5 failure/correction logs, 14-test summary, local HTTP/persistence, Git transcripts, PR/review/merge JSON and screenshots |
+| Documentation | Tasks 1–6 complete; MVP guide, current API/setup/architecture, README, story/backlog/board/tracker updated; Selenium story DoD remains pending Task 9 |
+| Evidence | Tasks 3–5 retained; Task 6 initial failures/corrections, 34-test summaries, actual UI/API/restart evidence, conflict markers/transcripts, PR/review/merge JSON, annotated tag/remote hashes, JAR checksum, screenshots |
 
 ## Task 1 evidence checklist
 
@@ -53,4 +53,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Merged into `develop` at `f7713f0406c93747c7909041482f3682267edd0c`; local synchronization and unchanged tested source verified
 - ✅ Screenshot/log evidence and reproduction instructions in `docs/task-05-registration.md`
 
-Task 6 remains ⬜. No remaining MVP, Selenium, Jenkins, Docker, or Ansible execution is claimed.
+## Task 6 verification gate
+
+- ✅ Registration, sign-in/out, providers, future slots, booking, confirmation/status, cancellation, and errors
+- ✅ 34 passing tests; real browser/API checks and stored appointments after restart
+- ✅ `feature/appointment-booking` and `feature/demo-notes` pushed; actual conflict and two-parent resolution recorded
+- ✅ [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2), [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2#pullrequestreview-5393574270), merge `f629e232ee99a18ce5eb49d7bcc36f20a0f0742b`
+- ✅ `main` release baseline and remote annotated `v1.0.0`: object `ca2238a0338d4660d501843e2dee66a62f35fe54`, peeled release `f629e23`
+- ✅ Backlog/board and current documentation updated; actual screenshots and logs in [Task 6 guide](task-06-mvp.md)
+
+Tasks 1–6 are ✅. Tasks 7–15 are ⬜. Next: Task 7 Jenkins CI. Selenium, Jenkins, Docker, and Ansible have not been executed.

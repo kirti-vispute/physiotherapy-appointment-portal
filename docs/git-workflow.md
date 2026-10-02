@@ -40,7 +40,9 @@ gitGraph
     merge develop tag: "v1.0.0"
 ```
 
-The diagram shows the intended branch connections. Task 5 has now demonstrated `feature/user-registration`, three feature/test/docs commits, a COMMENT self-review, and [PR #1](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) merged into `develop` at `f7713f0`. The booking branch, conflict, and release tag remain Task 6 work. See [actual Task 5 evidence](task-05-registration.md).
+The diagram shows the branch connections. Task 5 demonstrated `feature/user-registration`, three feature/test/docs commits, a COMMENT self-review, and [PR #1](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) merged into `develop` at `f7713f0`. Task 6 demonstrated `feature/appointment-booking`, an actual conflict with `feature/demo-notes`, resolution `dceeb89` with both parents, and [PR #2](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/2) merged at `f629e232ee99a18ce5eb49d7bcc36f20a0f0742b`. The annotated `v1.0.0` tag points to that release baseline after fast-forwarding `main`. See [Task 5 evidence](task-05-registration.md) and [Task 6 evidence and commands](task-06-mvp.md).
+
+The release tag is immutable. A later documentation-only commit records the returned PR/tag identifiers, final screenshots, and completed tracker on `develop` and `main`; it does not move the tag or change tested application source. Both reviews are actual single-owner COMMENT reviews assisted by Codex, not independent peer approvals.
 
 ## Commit and PR rules
 
