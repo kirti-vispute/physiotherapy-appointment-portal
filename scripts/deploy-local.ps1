@@ -55,12 +55,23 @@ $oldCookie = $env:JENKINS_NODE_COOKIE
 $env:JENKINS_NODE_COOKIE = "physio-$AppEnv-$Port"
 $process = $null
 try {
-    $arguments = @('"'+$marker+'"', '-jar', '"'+$deployedJar+'"',
+    $arguments = @(('"'+$marker+'"'), '-jar', ('"'+$deployedJar+'"'),
         "--server.port=$Port", '--server.address=127.0.0.1', "--spring.profiles.active=$AppEnv")
-    $process = Start-Process -FilePath $java -ArgumentList $arguments -WorkingDirectory $deploymentHome `
-        -WindowStyle Hidden -RedirectStandardInput $stdin -RedirectStandardOutput $stdout `
-        -RedirectStandardError $stderr -PassThru
-    $processInfo = Get-CimInstance Win32_Process -Filter "ProcessId = $($process.Id)"
+    # WScript.Shell.Run detaches Windows handles from Jenkins' PowerShell wrapper.
+    # Start-Process with redirected streams still inherited a wrapper pipe in run #1.
+    $launcher = New-Object -ComObject WScript.Shell
+    $launcher.CurrentDirectory = $deploymentHome
+    $command = '"' + $java + '" ' + ($arguments -join ' ') + ' < "' + $stdin + '" > "' + $stdout + '" 2> "' + $stderr + '"'
+    $null = $launcher.Run(('"' + $env:ComSpec + '" /d /s /c "' + $command + '"'), 0, $false)
+    $launchDeadline = (Get-Date).AddSeconds(15)
+    do {
+        $processInfo = Get-CimInstance Win32_Process -Filter "Name = 'java.exe'" | Where-Object {
+            $_.CommandLine -and $_.CommandLine.Contains($marker) -and $_.CommandLine.Contains($deployedJar)
+        }
+        if (!$processInfo) { Start-Sleep -Milliseconds 300 }
+    } while (!$processInfo -and (Get-Date) -lt $launchDeadline)
+    if (@($processInfo).Count -ne 1) { throw 'Detached Java launch did not produce exactly one owned process; inspect logs.' }
+    $process = Get-Process -Id $processInfo.ProcessId
     $deadline = (Get-Date).AddSeconds(90)
     $ready = $false
     do {
