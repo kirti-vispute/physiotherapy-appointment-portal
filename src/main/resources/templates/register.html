@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create an account | Physio Portal</title>
+    <link rel="stylesheet" th:href="@{/css/portal.css}">
+</head>
+<body>
+<header><a th:href="@{/}">Physiotherapy Appointment Portal</a></header>
+<main>
+    <section class="card form-card">
+        <h1>Create your patient account</h1>
+        <p>Keep your physiotherapy appointments in one place.</p>
+        <p th:if="${registered}" class="success" role="status" data-testid="registration-success">Your account has been created. Sign-in and booking will be available in the next project update.</p>
+        <form method="post" th:action="@{/register}" th:object="${registration}">
+            <label for="fullName">Full name</label>
+            <input id="fullName" th:field="*{fullName}" autocomplete="name" required maxlength="100" aria-describedby="fullName-error">
+            <span id="fullName-error" class="error" th:errors="*{fullName}" data-testid="name-error"></span>
+            <label for="email">Email address</label>
+            <input id="email" type="email" th:field="*{email}" autocomplete="email" required maxlength="254" aria-describedby="email-error">
+            <span id="email-error" class="error" th:errors="*{email}" data-testid="email-error"></span>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="new-password" required minlength="8" maxlength="128" aria-describedby="password-hint password-error">
+            <span id="password-hint" class="hint">Use 8 to 128 characters.</span>
+            <span id="password-error" class="error" th:errors="*{password}" data-testid="password-error"></span>
+            <button class="button" type="submit" data-testid="register-submit">Create account</button>
+        </form>
+        <p><a th:href="@{/}">Back to home</a></p>
+    </section>
+</main>
+</body>
+</html>

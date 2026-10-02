@@ -1,0 +1,18 @@
+:root { font-family: system-ui, sans-serif; color: #17324d; background: #f5fafb; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+header { background: #087e82; color: white; padding: 1.2rem max(1.5rem, calc((100vw - 900px)/2)); }
+header a { color: white; text-decoration: none; font-weight: 700; }
+main { max-width: 900px; margin: 3rem auto; padding: 0 1.5rem; }
+.card { background: white; border: 1px solid #d8e7e9; border-radius: 14px; padding: 2rem; box-shadow: 0 8px 30px #17324d0d; }
+.form-card { max-width: 570px; margin: auto; }
+h1 { margin-top: 0; font-size: clamp(1.8rem, 5vw, 2.6rem); }
+p { line-height: 1.6; }
+.badge { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: #e1f5f2; color: #086b67; font-weight: 700; margin-bottom: 1rem; }
+label { display: block; font-weight: 600; margin-top: 1.2rem; }
+input { display: block; width: 100%; font: inherit; padding: .7rem; margin-top: .4rem; border: 1px solid #91a7b8; border-radius: 6px; }
+input:focus, a:focus-visible, button:focus-visible { outline: 3px solid #59c4c5; outline-offset: 3px; }
+.button { display: inline-block; font: inherit; font-weight: 600; background: #087e82; color: white; border: 0; border-radius: 6px; padding: .75rem 1.2rem; margin-top: 1.5rem; text-decoration: none; cursor: pointer; }
+.error { color: #a02232; display: block; margin: .4rem 0; }
+.success { background: #e1f5f2; border-left: 4px solid #087e82; padding: 1rem; }
+.hint { font-size: .9rem; color: #496175; }

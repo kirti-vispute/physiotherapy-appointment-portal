@@ -4,24 +4,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Physiotherapy Appointment Portal</title>
-    <style>
-        :root { font-family: system-ui, sans-serif; color: #17324d; background: #f5fafb; }
-        body { margin: 0; }
-        header { background: #087e82; color: white; padding: 1.2rem max(1.5rem, calc((100vw - 900px)/2)); }
-        main { max-width: 900px; margin: 4rem auto; padding: 0 1.5rem; }
-        .card { background: white; border: 1px solid #d8e7e9; border-radius: 14px; padding: 2rem; box-shadow: 0 8px 30px #17324d0d; }
-        h1 { margin-top: 0; font-size: clamp(2rem, 5vw, 3rem); }
-        p { line-height: 1.6; }
-        .badge { display: inline-block; padding: .35rem .7rem; border-radius: 999px; background: #e1f5f2; color: #086b67; font-weight: 700; }
-    </style>
+    <link rel="stylesheet" href="/css/portal.css">
 </head>
 <body>
 <header><strong>Physiotherapy Appointment Portal</strong></header>
 <main>
     <section class="card">
-        <span class="badge" data-testid="setup-status">Local setup</span>
-        <h1>Appointment booking is being built</h1>
-        <p>The application is running. Patient registration, physiotherapists, slots, booking, and cancellation will be added in later project tasks.</p>
+        <span class="badge" data-testid="setup-status">Patient registration is available</span>
+        <h1>Your next step towards better movement</h1>
+        <p>Create your patient account. Physiotherapist availability and appointment booking will be available in the next project update.</p>
+        <a class="button" href="/register" data-testid="register-link">Create an account</a>
     </section>
 </main>
 </body>
