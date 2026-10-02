@@ -2,7 +2,8 @@
 
 **Repository:** Physiotherapy Appointment Portal  
 **Owner:** Kirti Vispute (23102C0078)  
-**Current remote URL:** Pending authenticated GitHub repository creation.
+**Verified remote URL:** [https://github.com/kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)  
+**Git remote:** `origin`, using the HTTPS `.git` URL.
 
 ## Actual local initialization record
 
@@ -63,11 +64,11 @@ The diagram shows the intended branch connections; feature commits, PRs, merges,
 
 ## GitHub configuration checklist
 
-- [ ] Create repository under Kirti's GitHub account and record its verified URL.
-- [ ] Push `main` and `develop` without rewriting history.
-- [ ] Confirm the repository shows `README.md`, `.gitignore`, `.github/ISSUE_TEMPLATE`, and screenshots.
-- [ ] Confirm the issue templates and pull request template appear in GitHub.
-- [ ] Capture repository/branch/commit evidence without exposing credentials.
+- [x] Kirti supplied the repository URL; its initial remote had no refs, and the repository was verified under `kirti-vispute`.
+- [x] Pushed `main` and `develop` without rewriting history; both now track `origin`.
+- [x] Confirmed GitHub shows `README.md`, `.gitignore`, `.github/ISSUE_TEMPLATE`, and screenshots.
+- [x] Verified the bug, feature, and pull request template files on GitHub. The issue creation chooser itself requires browser sign-in and was not exercised.
+- [x] Captured repository/branch/commit screenshots without credentials.
 
 GitHub branch protection or required review rules will be set only if available for the account and compatible with a single-student project. A self-authored review is not presented as an independent peer review.
 
@@ -77,4 +78,4 @@ GitHub branch protection or required review rules will be set only if available 
 - **What should be visible?** GitHub repository name and URL, `README.md`, `.github/ISSUE_TEMPLATE`, two initial commit messages, and both `main` and `develop` branches. Capture the repository page and branch/commit views as needed; do not crop away the repository identity.
 - **Command for local proof:** PowerShell at project root: `git status --short --branch`, `git branch -v`, `git log --oneline --decorate -n 3`, and `git remote -v`. These show a clean branch, branch tips, initial commits, and the configured remote. A blank remote output means publication is still pending; a missing branch means it has not been created or pushed.
 - **Expected published result:** A verified `origin` URL and both branches visible on GitHub, with no secret, `target/`, or `data/` files committed.
-- **Suggested filenames:** `screenshots/T04_repository.png`, `screenshots/T04_branches.png`, and `screenshots/T04_commits.png` after the real GitHub views exist. The actual local Git transcript is in this document until then.
+- **Actual evidence files:** `screenshots/T04_repository.jpg`, `screenshots/T04_branches.jpg`, `screenshots/T04_commits.jpg`, and `docs/evidence/T04_git_remote.txt`. The screenshots show the initial publication; later evidence documentation commits are not included in those initial snapshots.

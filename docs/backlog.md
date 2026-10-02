@@ -12,7 +12,7 @@ Priority: **P0** is required for submission. The sequence is controlled by depen
 | PB-01 | Define and freeze problem, stakeholders, success criteria, and MVP scope | P0 | All | 01 | 0 | ✅ Approved |
 | PB-02 | Plan stories, acceptance criteria, board, sprints, DoD, lifecycle | P0 | US-01–US-11 | 02 | 0 | ✅ Complete |
 | PB-03 | Design SRS, use cases, data model, APIs, and local setup | P0 | US-01–US-08 | 03 | 0 | ✅ Complete |
-| PB-04 | Initialize GitHub repository, templates, branches, and README | P0 | US-09–US-11 | 04 | 1 | 🟡 In progress |
+| PB-04 | Initialize GitHub repository, templates, branches, and README | P0 | US-09–US-11 | 04 | 1 | ✅ Complete |
 | PB-05 | Implement first feature on a branch and review PR | P0 | US-01, US-02 | 05 | 1 | ⬜ |
 | PB-06 | Finish physiotherapist, slot, booking, status, and cancellation flows; conflict and tag | P0 | US-03–US-08 | 06 | 1 | ⬜ |
 | PB-07 | Configure Jenkins checkout, build, unit tests, package, archive, trigger | P0 | US-09 | 07 | 2 | ⬜ |

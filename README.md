@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–3 are complete. The Spring Boot skeleton builds and serves a setup page and health endpoint. Registration, booking, Selenium tests, Jenkins, Docker, and Ansible are planned for later tasks and are not yet running. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–4 are complete. The Spring Boot skeleton builds and serves a setup page and health endpoint. The GitHub repository contains `main` and `develop`, initial commits, and contribution templates. Registration, booking, Selenium tests, Jenkins, Docker, and Ansible are planned for later tasks and are not yet running. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -78,9 +78,9 @@ These check the homepage and health. Expected: HTTP 200 and `status: UP`. If the
 
 ## Git and collaboration
 
-The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature/<short-name>`, meaningful commit messages, PR review, conflict demonstration, and tagging. The GitHub URL will be recorded here after the remote repository is created and verified. Never force-push or commit credentials or the H2 data directory.
+The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature/<short-name>`, meaningful commit messages, PR review, conflict demonstration, and tagging. Both baseline branches have been pushed and verified. Never force-push or commit credentials or the H2 data directory.
 
-**GitHub repository URL:** Pending repository creation and authenticated publication.
+**GitHub repository URL:** [kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)
 
 ## Jenkins CI and pipeline
 
@@ -101,6 +101,10 @@ Requirements → planning → architecture → feature branches/PRs → Maven/Je
 ### Screenshots
 
 ![Task 3 local application](screenshots/T03_local_application.png)
+
+![Task 4 initial GitHub publication](screenshots/T04_repository.jpg)
+
+Task 4 also includes [branch evidence](screenshots/T04_branches.jpg) and [initial commit evidence](screenshots/T04_commits.jpg). These capture the initial publication before the subsequent evidence documentation commit.
 
 Additional images will be added only after the corresponding GitHub, Jenkins, Selenium, Docker, or Ansible step has actually been demonstrated. The screenshot checklist and final audit will link to them.
 

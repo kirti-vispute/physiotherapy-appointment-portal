@@ -11,7 +11,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 01 | Problem Definition | ✅ | Kirti approved scope in chat on 2 October 2026; `docs/problem-definition.md` records frozen scope |
 | 02 | Agile Planning | ✅ | `user-stories.md`, `backlog.md`, and `agile-plan.md` created; 11 stories and 15 task rows verified |
 | 03 | Architecture | ✅ | SRS, diagrams, model, API contract, and setup created; Maven build, home/health, H2, and screenshot verified |
-| 04 | Git/GitHub | 🟡 | Local `main`/`develop` and two meaningful commits verified; GitHub URL, push, and screenshots pending sign-in |
+| 04 | Git/GitHub | ✅ | Verified repository URL, pushed `main`/`develop`, README/templates/policy, initial commits, remote log and GitHub screenshots |
 | 05 | Feature Development | ⬜ | Not started |
 | 06 | MVP Collaboration | ⬜ | Not started |
 | 07 | Jenkins CI | ⬜ | Not started |
@@ -27,13 +27,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Area | Current verified state |
 |---|---|
 | Application | Task 3 skeleton built; homepage and health responded on port 8081; app stopped after verification |
-| GitHub | Local repository on `develop`; two commits on `main`/`develop`; no verified remote; publication pending sign-in |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; `main` and `develop` pushed and verified |
 | Jenkins | Not checked or configured |
 | Selenium | Not implemented or run |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–3 complete; Task 4 README, policy, and templates prepared |
-| Evidence | Task 3 build/HTTP and screenshot verified; Task 4 local commit/branch transcript in `docs/git-workflow.md`, GitHub screenshots pending |
+| Documentation | Tasks 1–4 complete; README, branch policy, templates, and trackers published |
+| Evidence | Task 3 local build/HTTP and image; Task 4 GitHub repository/branch/commit screenshots and remote transcript |
 
 ## Task 1 evidence checklist
 

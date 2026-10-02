@@ -1,0 +1,19 @@
+Actual Task 4 initial publication verification
+Captured in PowerShell at the project root on 2 October 2026
+
+git remote -v
+origin	https://github.com/kirti-vispute/physiotherapy-appointment-portal.git (fetch)
+origin	https://github.com/kirti-vispute/physiotherapy-appointment-portal.git (push)
+
+git ls-remote --heads origin
+abfa2e6fe677f201d37a072bf7dc43df8b0facfc	refs/heads/develop
+a9a87625d1cb8ccaf0a8d64901b01a9161b8a7d5	refs/heads/main
+
+git log --oneline --decorate -n 4
+abfa2e6 (HEAD -> develop, origin/develop) docs: record local Git setup evidence
+a9a8762 (origin/main, main) docs: add repository workflow and contribution templates
+4d5536d chore: add verified application and planning baseline
+
+git branch -vv
+* develop abfa2e6 [origin/develop] docs: record local Git setup evidence
+  main    a9a8762 [origin/main] docs: add repository workflow and contribution templates
