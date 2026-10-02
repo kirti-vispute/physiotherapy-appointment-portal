@@ -40,7 +40,7 @@ gitGraph
     merge develop tag: "v1.0.0"
 ```
 
-The diagram shows the intended branch connections; feature commits, PRs, merges, and tag are not yet claimed as actual history.
+The diagram shows the intended branch connections. Task 5 has now demonstrated `feature/user-registration`, three feature/test/docs commits, a COMMENT self-review, and [PR #1](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) merged into `develop` at `f7713f0`. The booking branch, conflict, and release tag remain Task 6 work. See [actual Task 5 evidence](task-05-registration.md).
 
 ## Commit and PR rules
 

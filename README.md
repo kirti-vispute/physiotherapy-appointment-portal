@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–4 are complete; Task 5 registration is implemented and verified, with its PR and merge being recorded. The app serves patient registration, a homepage, and health. All 14 registration integration tests pass. Sign-in and booking are planned for Task 6; Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–5 are complete. The app serves patient registration, a homepage, and health. All 14 registration integration tests pass; [PR #1](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) has been self-reviewed and merged into `develop`. Sign-in and booking are planned for Task 6; Selenium, Jenkins, Docker, and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -114,6 +114,8 @@ Additional images will be added only after the corresponding GitHub, Jenkins, Se
 ![Task 5 registration success](screenshots/T05_registration_success.jpg)
 
 [Task 5 duplicate-email message](screenshots/T05_registration_duplicate.jpg)
+
+Task 5 GitHub evidence: [pull request](screenshots/T05_pull_request.jpg), [self-review](screenshots/T05_review.jpg), and [merged PR](screenshots/T05_merge.jpg). Commands, test results, actual SHAs, and screenshot instructions are in the [Task 5 guide](docs/task-05-registration.md).
 
 ## Contributors
 

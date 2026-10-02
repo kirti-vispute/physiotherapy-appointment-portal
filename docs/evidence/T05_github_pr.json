@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-02T20:04:17.8637101+05:30",
+  "number": 1,
+  "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1",
+  "title": "feat: add patient registration",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2026-10-02T14:34:13Z",
+  "merge_commit_sha": "f7713f0406c93747c7909041482f3682267edd0c",
+  "base": "develop",
+  "head": "feature/user-registration",
+  "head_sha": "aa8cae957e64de27e9b3b54fc23eee1e4c40d9b4",
+  "reviews": [
+    {
+      "author": "kirti-vispute",
+      "state": "COMMENTED",
+      "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1#pullrequestreview-5393019879",
+      "commit_id": "aa8cae957e64de27e9b3b54fc23eee1e4c40d9b4",
+      "submitted_at": "2026-10-02T14:31:51Z",
+      "body": "### Task 5 single-owner self-review, assisted by Codex\n\nThis is a COMMENT review by the repository owner. It does not represent independent peer approval.\n\nReviewed the registration source, Thymeleaf form, integration tests, build evidence, and staged-file list at this PR head.\n\n1. **Duplicate handling:** `RegistrationService` checks normalized email and handles the database unique constraint after `saveAndFlush`. The concurrent HTTP test returned one 201 and one 409, with exactly one stored patient. The direct repository test also verifies the database guard.\n2. **Password handling:** `PasswordConfiguration` uses salted PBKDF2. Tests verify correct/incorrect password matching and different hashes for equal passwords. `PatientResponse` exposes only id/name/email, and form-error tests verify that passwords are not rendered back to the browser.\n3. **Validation and UI:** Blank/missing fields, malformed email/JSON, and password bounds create no account. HTML escaping and duplicate field errors passed. Browser screenshots show actual success and duplicate outcomes.\n4. **Correction checked:** The initial redirect test exposed URL session rewriting. Cookie-only session tracking fixes it; the complete `mvn clean verify` rerun passed all 14 tests (zero failures/errors/skips).\n5. **Evidence and scope:** Local file-database persistence survived an app restart. Git excludes `data/`, `target/`, and credentials. Sign-in/CSRF belong to Task 6; Selenium belongs to Task 9. Those tasks are still pending and are not claimed as complete.\n\nNo blocking Task 5 findings remain. The registration feature is ready to merge into `develop`; later tasks retain their own verification gates.\n",
+      "id": 5393019879
+    }
+  ]
+}

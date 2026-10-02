@@ -1,0 +1,75 @@
+**********************
+PowerShell transcript start
+Start time: 20261002195839
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; Start-Transcript -Path target/T05_git_workflow.txt -Force; Write-Output 'Command: git status --short --branch'; git status --short --branch; Write-Output 'Command: git add README.md docs screenshots'; git add README.md docs screenshots; Write-Output 'Command: git diff --cached --check'; git diff --cached --check; if($LASTEXITCODE -ne 0){throw 'Staged whitespace check failed'}; Write-Output 'Command: git commit -m docs: record verified registration workflow and evidence'; git commit -m 'docs: record verified registration workflow and evidence'; if($LASTEXITCODE -ne 0){throw 'Documentation commit failed'}; Write-Output 'Command: git push -u origin feature/user-registration'; git push -u origin feature/user-registration; if($LASTEXITCODE -ne 0){throw 'Feature push failed'}; Write-Output 'Command: git log --oneline --decorate -n 6'; git log --oneline --decorate -n 6; Write-Output 'Command: git status --short --branch'; git status --short --branch; Stop-Transcript; Copy-Item target/T05_git_workflow.txt docs/evidence/T05_git_workflow.txt; & ./target/task5-github.ps1 -Action create
+Process ID: 15608
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T05_git_workflow.txt
+Command: git status --short --branch
+
+Command: git add README.md docs screenshots
+
+Command: git diff --cached --check
+
+PS>TerminatingError(): "Staged whitespace check failed"
+Exception:
+Line |
+   2 |  … f($LASTEXITCODE -ne 0){throw 'Staged whitespace check failed'}; Write …
+     |                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Staged whitespace check failed
+PS>$global:?
+False
+**********************
+PowerShell transcript end
+End time: 20261002195840
+**********************
+**********************
+PowerShell transcript start
+Start time: 20261002195909
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; Start-Transcript -Path target/T05_git_workflow.txt -Append; Write-Output 'Raw Maven logs preserve original trailing whitespace. Source/document whitespace check excludes execution logs.'; Write-Output 'Command: git diff --cached --check -- . :(exclude)docs/evidence/*'; git diff --cached --check -- . ':(exclude)docs/evidence/*'; if($LASTEXITCODE -ne 0){throw 'Source whitespace check failed'}; Write-Output 'Command: git commit -m docs: record verified registration workflow and evidence'; git commit -m 'docs: record verified registration workflow and evidence'; if($LASTEXITCODE -ne 0){throw 'Documentation commit failed'}; Write-Output 'Command: git push -u origin feature/user-registration'; git push -u origin feature/user-registration; if($LASTEXITCODE -ne 0){throw 'Feature push failed'}; Write-Output 'Command: git log --oneline --decorate -n 6'; git log --oneline --decorate -n 6; Write-Output 'Command: git status --short --branch'; git status --short --branch; Stop-Transcript; Copy-Item target/T05_git_workflow.txt docs/evidence/T05_git_workflow.txt; & ./target/task5-github.ps1 -Action create
+Process ID: 26784
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T05_git_workflow.txt
+Raw Maven logs preserve original trailing whitespace. Source/document whitespace check excludes execution logs.
+Command: git diff --cached --check -- . :(exclude)docs/evidence/*
+
+Command: git commit -m docs: record verified registration workflow and evidence
+
+Command: git push -u origin feature/user-registration
+
+Command: git log --oneline --decorate -n 6
+
+Command: git status --short --branch
+
+**********************
+PowerShell transcript end
+End time: 20261002195914
+**********************

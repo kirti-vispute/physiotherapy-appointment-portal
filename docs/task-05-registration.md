@@ -10,10 +10,10 @@ Implement US-01 patient registration on `feature/user-registration`, test it, pu
 |---|---|---|
 | Working Feature 1 | Registration form, API, H2 persistence, validation, salted password hashes | ✅ Verified |
 | Feature branch | `feature/user-registration` from `develop` | ✅ Created |
-| Demonstrate status/add/commit/push/log | Meaningful feature and test commits with saved Git transcript | 🟡 Publication in progress |
-| Pull request title/description/changes/testing/screenshots | GitHub PR into `develop` | 🟡 Pending |
-| Review comments | Explicitly labeled single-owner self-review | 🟡 Pending |
-| Merge evidence | GitHub merged PR, merge SHA, local `develop` sync | 🟡 Pending |
+| Demonstrate status/add/commit/push/log | Meaningful feature and test commits with saved Git transcript | ✅ Published |
+| Pull request title/description/changes/testing/screenshots | GitHub PR #1 into `develop` | ✅ Created and verified |
+| Review comments | Explicitly labeled single-owner self-review | ✅ COMMENT review published |
+| Merge evidence | GitHub merged PR, merge SHA, local `develop` sync | ✅ Verified |
 | Screenshot guidance | Instructions and real registration screenshots below | ✅ Created |
 
 The first feature is registration. Sign-in (US-02) is implemented with the remaining MVP in Task 6. This changes the task allocation only; the frozen scope is unchanged. US-01's Selenium DoD will be verified in Task 9.
@@ -102,7 +102,19 @@ Expected: startup on port 8081. Open `http://localhost:8081/register`. A refused
 
 ## Pull request, review, and merge
 
-Publication evidence is pending. This section will record the actual PR URL, review comment, reviewed head SHA, and merge SHA after GitHub returns them.
+| Item | Actual result |
+|---|---|
+| PR | [#1 — feat: add patient registration](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1) |
+| Feature commit | `6b980264a4d7ba3f33f3b037531eb651738b64e4` |
+| Test commit | `d6b3a68381690b9c696ec6bfceecba6ab476fb55` |
+| Documentation / reviewed head | `aa8cae957e64de27e9b3b54fc23eee1e4c40d9b4` |
+| Review | [5393019879 — COMMENTED](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/1#pullrequestreview-5393019879), by `kirti-vispute`, assisted by Codex |
+| Merge into `develop` | `f7713f0406c93747c7909041482f3682267edd0c`, 2 October 2026 14:34:13 UTC |
+| Local verification | Fetched and fast-forwarded `develop`; diff of `pom.xml` and `src` against tested feature is empty |
+
+The review checked duplicate/concurrent protection, password hashes/non-disclosure, UI validation/escaping, cookie-only redirect correction, and scope/evidence. No blocking Task 5 findings remained. GitHub shows **Merged**. No independent peer approval or automated GitHub check is claimed. The PR was created, reviewed, and merged through GitHub's REST API using the existing Git Credential Manager sign-in; the public browser page was used for verification/screenshots. Credentials were held in memory and never printed or saved.
+
+The final completion tracker and PR/review/merge artifacts are published in a subsequent documentation commit on `develop`, since the merge's own SHA and final screenshots exist only after merging. The registration feature's reviewed source remains unchanged.
 
 To reproduce through the GitHub UI: choose base `develop`, compare `feature/user-registration`; title the PR `feat: add patient registration`; describe purpose/changes/tests and link the two screenshots. Inspect Files changed and test logs, add a review with `Comment` labeled self-review, then use **Create a merge commit**. An author cannot give their own PR independent approval.
 
@@ -128,6 +140,12 @@ Expected: clean `develop` at the merge commit, with both feature parents in hist
 | `docs/evidence/T05_local_http.txt` | Real API, health, UI, and persistence observations |
 | `screenshots/T05_registration_success.jpg` | Actual account-created message |
 | `screenshots/T05_registration_duplicate.jpg` | Actual duplicate field error and empty password |
+| `docs/evidence/T05_git_workflow.txt` | Actual status/add/commit/push/log transcript; raw log whitespace excluded from source whitespace check |
+| `docs/evidence/T05_github_pr.json` | Actual PR URL, review body/state/author, head and merge SHAs returned by GitHub |
+| `docs/evidence/T05_merge_sync.txt` | Actual fetch/switch/fast-forward and merge graph; tested source unchanged |
+| `screenshots/T05_pull_request.jpg` | Open PR title and feature-to-develop branch labels |
+| `screenshots/T05_review.jpg` | Published self-review comment with inspected behavior |
+| `screenshots/T05_merge.jpg` | GitHub **Merged** badge and target/source branches |
 
 **Screenshot required:** Yes, for the registration UI and GitHub PR/review/merge. These are actual app/browser captures.
 
@@ -141,6 +159,6 @@ For GitHub proof, open the recorded PR URL. Capture the title, feature → `deve
 - ✅ Feature branch created
 - ✅ 14 tests and local browser/API checks passed
 - ✅ Screenshot guidance and UI evidence saved
-- 🟡 Commit/push transcript and GitHub PR
-- 🟡 Self-review comments
-- 🟡 Merge into `develop` and merged-state evidence
+- ✅ Commit/push transcript and GitHub PR
+- ✅ Self-review comments
+- ✅ Merge into `develop` and merged-state evidence

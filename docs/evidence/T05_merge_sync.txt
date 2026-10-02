@@ -1,0 +1,37 @@
+**********************
+PowerShell transcript start
+Start time: 20261002200530
+Username: KIRTI\kirti
+RunAs User: KIRTI\kirti
+Configuration Name: 
+Machine: KIRTI (Microsoft Windows NT 10.0.26200.0)
+Host Application: C:\Users\kirti\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell\pwsh.dll -Command try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}
+$env:GIT_CONFIG_COUNT='1';$env:GIT_CONFIG_KEY_0='safe.directory';$env:GIT_CONFIG_VALUE_0='D:/Kirti/__VIT RELATED/Lab Experiments/DEVOPS/DevOps Project'; Start-Transcript -Path target/T05_merge_sync.txt -Force; Write-Output 'Command: git fetch origin'; git fetch origin; if($LASTEXITCODE -ne 0){throw 'Fetch failed'}; Write-Output 'Command: git switch develop'; git switch develop; if($LASTEXITCODE -ne 0){throw 'Switch failed'}; Write-Output 'Command: git pull --ff-only origin develop'; git pull --ff-only origin develop; if($LASTEXITCODE -ne 0){throw 'Pull failed'}; Write-Output 'Command: git log --graph --oneline --decorate -n 8'; git log --graph --oneline --decorate -n 8; Write-Output 'Command: git diff feature/user-registration HEAD -- pom.xml src'; git diff feature/user-registration HEAD -- pom.xml src; if($LASTEXITCODE -ne 0){throw 'Diff failed'}; Write-Output 'Command: git rev-parse HEAD'; git rev-parse HEAD; Stop-Transcript; Copy-Item target/T05_merge_sync.txt docs/evidence/T05_merge_sync.txt; Get-Process -Name java -ErrorAction SilentlyContinue | Select-Object Id,ProcessName
+Process ID: 14972
+PSVersion: 7.6.5
+PSEdition: Core
+GitCommitId: 7.6.5
+OS: Microsoft Windows 10.0.26200
+Platform: Win32NT
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1, 6.0, 7.0
+PSRemotingProtocolVersion: 2.4
+SerializationVersion: 1.1.0.1
+WSManStackVersion: 3.0
+**********************
+Transcript started, output file is target/T05_merge_sync.txt
+Command: git fetch origin
+
+Command: git switch develop
+
+Command: git pull --ff-only origin develop
+
+Command: git log --graph --oneline --decorate -n 8
+
+Command: git diff feature/user-registration HEAD -- pom.xml src
+
+Command: git rev-parse HEAD
+
+**********************
+PowerShell transcript end
+End time: 20261002200535
+**********************
