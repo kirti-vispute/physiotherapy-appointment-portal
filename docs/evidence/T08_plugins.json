@@ -1,0 +1,134 @@
+[
+  {
+    "shortName": "pipeline-build-step",
+    "version": "599.v4b_67ea_11b_152",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-github-lib",
+    "version": "65.v203688e7727e",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-graph-view",
+    "version": "998.vc30deece0e36",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-groovy-lib",
+    "version": "798.v5cc688825312",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-input-step",
+    "version": "560.v56198a_642157",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-milestone-step",
+    "version": "152.v6e22b_8cfc66c",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-model-api",
+    "version": "2.2293.v6e7193cec599",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-model-definition",
+    "version": "2.2293.v6e7193cec599",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-model-extensions",
+    "version": "2.2293.v6e7193cec599",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-stage-step",
+    "version": "345.va_96187909426",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "pipeline-stage-tags-metadata",
+    "version": "2.2293.v6e7193cec599",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "timestamper",
+    "version": "1.30",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-aggregator",
+    "version": "608.v67378e9d3db_1",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-api",
+    "version": "1413.v2ff1a_5e720fa_",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-basic-steps",
+    "version": "1098.v808b_fd7f8cf4",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-cps",
+    "version": "4370.v49a_6937566b_6",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-durable-task-step",
+    "version": "1479.v56e587f413a_7",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-job",
+    "version": "1595.v0ee1a_de2c0a_3",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-multibranch",
+    "version": "841.vec5b_9e1806ec",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-scm-step",
+    "version": "466.va_d69e602552b_",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-step-api",
+    "version": "724.v538c2362b_dfb_",
+    "active": true,
+    "enabled": true
+  },
+  {
+    "shortName": "workflow-support",
+    "version": "1015.v785e5a_b_b_8b_22",
+    "active": true,
+    "enabled": true
+  }
+]
