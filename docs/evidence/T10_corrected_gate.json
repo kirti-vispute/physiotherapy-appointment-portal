@@ -1,0 +1,21 @@
+{
+  "captured_at": "2026-10-03T14:52:33.4634879+05:30",
+  "build": 5,
+  "result": "SUCCESS",
+  "source": "8ff53a57bd550fe634a18af38acc2cfe4f043d36",
+  "backend_passed": 34,
+  "selenium_tests": 5,
+  "selenium_failures": 0,
+  "jenkins_passed": 39,
+  "jenkins_failed": 0,
+  "health": "UP",
+  "providers": 2,
+  "deploy_build": "5",
+  "deploy_port": 8082,
+  "listener_pid": 26780,
+  "deployment_pid": 26780,
+  "deployed_sha256": "17E94AEACCC35A57780321DD78478F2907E0BB82CABB9357CC5574262ED948A2",
+  "archive_sha256": "17E94AEACCC35A57780321DD78478F2907E0BB82CABB9357CC5574262ED948A2",
+  "live_jar_sha256": "17E94AEACCC35A57780321DD78478F2907E0BB82CABB9357CC5574262ED948A2",
+  "temporary_test_port_stopped": true
+}

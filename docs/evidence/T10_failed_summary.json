@@ -1,0 +1,12 @@
+{
+  "build": 4,
+  "result": "FAILURE",
+  "source": "67b5d20f884620c0e5c62d5b33bbdec09c2de8be",
+  "tests": 5,
+  "failures": 1,
+  "errors": 0,
+  "skipped": 0,
+  "report": true,
+  "artifact_count": 53,
+  "captured_at": "2026-10-03T14:42:39.2192756+05:30"
+}
