@@ -18,7 +18,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 08 | Jenkins Pipeline | ✅ | Five stages; feature #2/develop #3 SUCCESS, 34 tests each; test/8082 HTTP 200/UP and live/archive hash match; PR #3 merged, logs/configuration/screenshots saved |
 | 09 | Selenium | ✅ | Five actual Chrome WebDriver cases passed twice, 34 backend tests passed; HTML/XML, fixture cleanup, failure screenshot and exit 1 verified; Task 9 guide/evidence published |
 | 10 | Continuous Testing | ✅ | Jenkins #4 deliberate Selenium FAILURE skipped Deploy; old deployment unchanged/UP; correction #5 and merged #6 passed 39 tests and deployed; reports, screenshots and PR #5 saved |
-| 11 | Docker | ⬜ | Not started |
+| 11 | Docker | 🟡 | Dockerfile/context and 34-test JAR prepared; Docker Desktop engine blocked by inaccessible stale socket. Image, IDs, lifecycle, logs, and health still pending. See [Task 11 guide](task-11-docker.md). |
 | 12 | Docker CD | ⬜ | Not started |
 | 13 | Ansible | ⬜ | Not started |
 | 14 | Provisioning/Reliability | ⬜ | Not started |
@@ -30,10 +30,10 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#5 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes the Jenkins Selenium gate and evidence |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; physio-portal-pipeline #4 deliberate browser FAILURE with Deploy skipped; #5 corrected SUCCESS and #6 merged SUCCESS, each passing run with 39 tests and healthy deployment; earlier #1–#3 evidence retained |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Not checked or configured |
+| Docker | Dockerfile and versioned-image plan prepared; local Linux engine cannot start due inaccessible stale socket, so build and lifecycle remain unverified |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–10 complete; Jenkins continuous-testing guide, failure/recovery reports, screenshots, README, backlog, board, stories and tracker updated |
-| Evidence | Tasks 3–7 retained; Task 8 pipeline/deployment evidence; Task 9 local proof; Task 10 Jenkins #4 failure, #5 correction and #6 merged run, 39-test JUnit, failed/success HTML/XML, deployment hash/health, PR/review and screenshots |
+| Documentation | Tasks 1–10 complete; Task 11 Docker guide and startup blocker recorded; remaining Task 11 evidence awaits a working engine |
+| Evidence | Tasks 3–7 retained; Task 8 pipeline/deployment evidence; Task 9 local proof; Task 10 Jenkins #4 failure, #5 correction and #6 merged run, 39-test JUnit, failed/success HTML/XML, deployment hash/health, PR/review and screenshots; Task 11 JAR/test result and Docker startup error |
 
 ## Task 1 evidence checklist
 
@@ -101,4 +101,4 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [PR #5](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5) COMMENT self-review and merge `d48aacfbfb9118c68afcbb518847a8f626ddd545`; final develop #6 SUCCESS
 - ✅ [Task 10 guide](task-10-continuous-testing.md), console/API/XML/HTML, job config and real failed/successful Jenkins screenshots published
 
-Tasks 1–10 are ✅. Tasks 11–15 are ⬜. Next: Task 11 Docker image and container lifecycle. Docker and Ansible have not been executed.
+Tasks 1–10 are ✅. Task 11 is 🟡 pending Docker Desktop recovery and the real image/container lifecycle. Tasks 12–15 are ⬜. No Docker image/container or Ansible run is claimed.
