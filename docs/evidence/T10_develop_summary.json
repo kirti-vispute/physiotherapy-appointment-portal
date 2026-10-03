@@ -1,0 +1,12 @@
+{
+  "build": 6,
+  "result": "SUCCESS",
+  "source": "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+  "tests": 5,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "report": true,
+  "artifact_count": 56,
+  "captured_at": "2026-10-03T15:03:07.9888379+05:30"
+}

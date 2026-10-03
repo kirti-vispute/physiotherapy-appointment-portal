@@ -1,0 +1,23 @@
+{
+  "captured_at": "2026-10-03T15:03:15.9151418+05:30",
+  "build": 6,
+  "result": "SUCCESS",
+  "source": "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+  "expected_merge": "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+  "source_matches_merge": true,
+  "jenkins_passed": 39,
+  "jenkins_failed": 0,
+  "backend_passed": 34,
+  "selenium_tests": 5,
+  "selenium_failures": 0,
+  "health": "UP",
+  "providers": 2,
+  "deployment_build": "6",
+  "deployment_port": 8082,
+  "deployment_pid": 22264,
+  "listener_pid": 22264,
+  "archive_sha256": "C417BBA70F200A9D8E0813F94BBA202C67002E19CBF9BC3BDC0B84668EB8636F",
+  "live_sha256": "C417BBA70F200A9D8E0813F94BBA202C67002E19CBF9BC3BDC0B84668EB8636F",
+  "archive_live_hash_match": true,
+  "temporary_test_port_stopped": true
+}

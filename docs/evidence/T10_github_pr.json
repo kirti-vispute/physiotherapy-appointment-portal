@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-03T14:57:07.6927553+05:30",
+  "number": 5,
+  "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5",
+  "title": "ci: gate Jenkins deployment on Selenium",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2026-10-03T09:27:04Z",
+  "merge_commit_sha": "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+  "base": "develop",
+  "head": "feature/jenkins-selenium-gate",
+  "head_sha": "2657e4003392638ecad9be82cd67b5242b61e131",
+  "reviews": [
+    {
+      "submitted_at": "2026-10-03T09:26:59Z",
+      "author": "kirti-vispute",
+      "commit_id": "2657e4003392638ecad9be82cd67b5242b61e131",
+      "id": 5399992714,
+      "state": "COMMENTED",
+      "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5#pullrequestreview-5399992714",
+      "body": "### Task 10 assisted self-review\n\nReviewed the exact PR head and the two implementation commits. This is a single-owner COMMENT self-review assisted by Codex; no independent approval is claimed.\n\n- The temporary test app serves the newly packaged JAR on 127.0.0.1:8091, uses an isolated workspace database and verifies readiness/PID ownership. Pipeline cleanup stops only its recorded process.\n- The Selenium command returns failure to Jenkins; its `post` section still publishes XML, HTML and screenshots. The failed build's console explicitly skipped Deploy, and the old live PID/source/hash remained unchanged and healthy.\n- The deliberate wrong registration assertion is visible in commit 67b5d20. Jenkins #4 failed for that exact expected-versus-actual value, with four other Selenium cases passing. Commit 8ff53a5 restored the real assertion; Jenkins #5 passed 34 backend and five browser tests and deployed.\n- The successful archived and live JAR SHA matched. Pipeline syntax passed Jenkins validation. The approved MVP application source is unchanged.\n- The guide distinguishes failed/successful evidence and keeps Task 11 Docker work pending.\n\nNo blocking issue found for the Task 10 scope. Final merge-source verification will be captured after this PR lands on develop.\n"
+    }
+  ]
+}

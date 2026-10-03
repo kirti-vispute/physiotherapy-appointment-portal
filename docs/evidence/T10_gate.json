@@ -1,0 +1,22 @@
+{
+  "task": 10,
+  "gate": "PASS",
+  "checks": {
+    "failed_build_result": true,
+    "deliberate_selenium_assertion": true,
+    "backend_passed_before_failure": true,
+    "deploy_skipped": true,
+    "old_deployment_unchanged": true,
+    "failure_report_archived": true,
+    "corrected_success": true,
+    "pr_reviewed_merged": true,
+    "develop_job_restored": true,
+    "final_merged_success": true,
+    "required_screenshots": true
+  },
+  "failure_build": 4,
+  "corrected_build": 5,
+  "final_develop_build": 6,
+  "final_merge": "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+  "archive_live_sha256": "C417BBA70F200A9D8E0813F94BBA202C67002E19CBF9BC3BDC0B84668EB8636F"
+}

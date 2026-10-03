@@ -1,0 +1,26 @@
+# Task 10 Git and Jenkins publication record
+Base develop after Task 9: c5495941ff20baa6efa2d077ff611e9760543eed
+Created feature/jenkins-selenium-gate from that clean base.
+Commit 67b5d20f884620c0e5c62d5b33bbdec09c2de8be: Jenkinsfile + isolated app helper + deliberate wrong Selenium assertion; pushed feature.
+Configured existing physio-portal-pipeline SCM to */feature/jenkins-selenium-gate; Jenkins #4 FAILURE from exactly 67b5d20, Deploy skipped.
+Commit 8ff53a57bd550fe634a18af38acc2cfe4f043d36: restored real patient-name assertion; pushed feature. Jenkins #5 SUCCESS from exactly 8ff53a5 with 39 passing tests and deployment.
+Commit 2657e4003392638ecad9be82cd67b5242b61e131: actual Task 10 reports/logs/screenshots/guide; pushed feature. Runtime implementation unchanged from 8ff53a5.
+PR #5 https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5
+COMMENT self-review 5399992714 on exact PR head 2657e4003392638ecad9be82cd67b5242b61e131; no independent approval claimed.
+Merged into develop: d48aacfbfb9118c68afcbb518847a8f626ddd545.
+Fetched origin; switched to develop; fast-forwarded local develop to exact merge.
+Restored Jenkins SCM to */develop and verified saved config. Final Jenkins #6 SUCCESS from exact merge, 39 passed, deployed healthy test/8082.
+Actual final Git log follows:
+d48aacfbfb9118c68afcbb518847a8f626ddd545 Merge verified Selenium Jenkins gate into develop
+2657e4003392638ecad9be82cd67b5242b61e131 docs: preserve Jenkins Selenium failure and recovery evidence
+8ff53a57bd550fe634a18af38acc2cfe4f043d36 test: correct registration assertion after failed gate proof
+67b5d20f884620c0e5c62d5b33bbdec09c2de8be ci: run Selenium before deploy with deliberate failing assertion
+c5495941ff20baa6efa2d077ff611e9760543eed docs: publish Task 9 reviewed merge and final evidence
+6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd Merge verified Selenium journeys into develop
+31dd48c78175af5e592bccbf457cbe13f6b30b65 docs: record Selenium runs reports and screenshot evidence
+Current branch:
+develop
+origin/develop before final documentation follow-up:
+d48aacfbfb9118c68afcbb518847a8f626ddd545	refs/heads/develop
+Production source/pom changes since Task 9:
+No diff above.

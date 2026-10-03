@@ -1,0 +1,14 @@
+﻿{
+    "build_number":  "6",
+    "git_commit":  "d48aacfbfb9118c68afcbb518847a8f626ddd545",
+    "marker":  "-Dphysio.seleniumRun=physio-portal-pipeline-6",
+    "pid":  14324,
+    "process_created_utc":  "2026-10-03T09:29:24.5313920Z",
+    "jar":  "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\physio-portal-pipeline\\target\\physio-portal-1.0.0.jar",
+    "port":  8091,
+    "url":  "http://127.0.0.1:8091/",
+    "health":  "UP",
+    "started_at":  "2026-10-03T14:59:51.2019735+05:30",
+    "stdout":  "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\physio-portal-pipeline\\target\\selenium-app\\application.log",
+    "stderr":  "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\physio-portal-pipeline\\target\\selenium-app\\application-error.log"
+}

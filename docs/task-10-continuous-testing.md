@@ -2,7 +2,7 @@
 
 **Owner:** Kirti Vispute (23102C0078)  
 **Date:** 3 October 2026  
-**Status:** Jenkins failure/correction demonstrated; final `develop` integration recorded below after PR review
+**Status:** ✅ Complete; reviewed PR #5 and final `develop` build #6 verified
 
 ## Objective and changed files
 
@@ -35,7 +35,7 @@ The first three commands compile, run the 34 isolated backend tests and package 
 
 The first feature commit, `67b5d20f884620c0e5c62d5b33bbdec09c2de8be`, deliberately replaced the registration journey's expected patient name with `TASK10_INTENTIONALLY_WRONG_NAME`. [Jenkins build #4](http://localhost:8080/job/physio-portal-pipeline/4/) checked out that SHA, passed **34/34 backend tests**, started its healthy temporary app, then ran all five browser journeys. Registration failed exactly as designed: expected the wrong name, observed `Selenium Demo registration`; **four browser cases passed, one failed, zero errors/skips**. Maven printed `BUILD FAILURE` and Jenkins finished **FAILURE**.
 
-The console explicitly says **“Stage \"Deploy\" skipped due to earlier failure(s)”**. The failure HTML report, XML and a real 37,216-byte `registration-failure.png` were archived. The test app was stopped. The independently checked live 8082 deployment remained **build #3, source `7f973000a94840c7a91d17e7ce68218df607f3f1`, PID 23396, unchanged JAR SHA256 `4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09`, health UP**. See the [before](evidence/T10_deployment_before.json) and [after](evidence/T10_failed_gate.json) records.
+The console explicitly says **“Stage "Deploy" skipped due to earlier failure(s)”**. The failure HTML report, XML and a real 37,216-byte `registration-failure.png` were archived. The test app was stopped. The independently checked live 8082 deployment remained **build #3, source `7f973000a94840c7a91d17e7ce68218df607f3f1`, PID 23396, unchanged JAR SHA256 `4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09`, health UP**. See the [before](evidence/T10_deployment_before.json) and [after](evidence/T10_failed_gate.json) records.
 
 Evidence: [actual failed Jenkins screenshot](../screenshots/T10_failed_pipeline.png), [captured browser failure](../screenshots/T10_failed_registration.png), [console](evidence/T10_console_failed.txt), [build API](evidence/T10_build_failed.json), [JUnit](evidence/T10_tests_failed.json), [Failsafe XML](evidence/T10_failed_selenium.xml), [HTML report](evidence/T10_failed_report/selenium.html), [source/test-app metadata](evidence/T10_failed_test_app.json), and [summary](evidence/T10_failed_summary.json). The failed report was generated in the Selenium stage's `post` block because the named Publish stage correctly did not run after a failure.
 
@@ -49,7 +49,9 @@ Evidence: [actual success screenshot](../screenshots/T10_successful_rerun.png), 
 
 ## Review, final integration and evidence gate
 
-PR/review/merge identifiers and the final `develop` build are recorded here after completion. This is a single-owner project, so a COMMENT self-review is not an independent peer approval. The original deliberately broken commit remains visible in Git history; the corrected branch head is the one reviewed for merging.
+[PR #5](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5) received a [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5#pullrequestreview-5399992714) on exact head `2657e4003392638ecad9be82cd67b5242b61e131` and merged into `develop` at `d48aacfbfb9118c68afcbb518847a8f626ddd545`. This is a single-owner review assisted by Codex, not independent peer approval. The original deliberately broken commit remains visible in Git history; the corrected branch head was reviewed and merged. The [GitHub API record](evidence/T10_github_pr.json) preserves the review and merge identities.
+
+The existing Jenkins job's SCM branch was restored to `*/develop`; its [actual configuration](evidence/T10_job_develop.xml) was fetched back after saving. [Final build #6](http://localhost:8080/job/physio-portal-pipeline/6/) checked out the **exact merge SHA**, passed 34 backend and five Selenium cases with zero failures/errors/skips, published HTML/XML, deployed and finished **SUCCESS**. The live `test/8082` app returned health **UP**, two fictional providers and the same SHA in its deployment metadata. The archived and live JAR SHA256 matched `C417BBA70F200A9D8E0813F94BBA202C67002E19CBF9BC3BDC0B84668EB8636F`; 8091 was stopped. See the [final gate](evidence/T10_develop_gate.json), [console](evidence/T10_console_develop.txt), [Jenkins test result](evidence/T10_tests_develop.json), [five-case XML](evidence/T10_develop_selenium.xml), [HTML report](evidence/T10_develop_report/selenium.html), and [actual merged success screenshot](../screenshots/T10_merged_success.png).
 
 Screenshots are actual Jenkins pages after completion. `T10_failed_pipeline.png` shows failed build #4, its revision and one Selenium failure. `T10_successful_rerun.png` shows successful build #5, corrected revision and no test failures. The console and before/after deployment state prove that the failed build did not deploy. Neither screenshot contains credentials.
 
@@ -58,4 +60,6 @@ Screenshots are actual Jenkins pages after completion. `T10_failed_pipeline.png`
 - [x] Deliberate assertion failure commit and Jenkins FAILURE with Deploy skipped
 - [x] Existing live deployment unchanged/healthy after failure
 - [x] Separate correction commit, 39 passing Jenkins tests and successful deployment
-- [ ] Reviewed PR merged, final `develop` build verified, project records updated
+- [x] Reviewed PR merged, final `develop` build verified, project records updated
+
+Task 11 Docker image work begins on the next user continuation.

@@ -132,4 +132,4 @@ Screenshots are required. Preserve the actual Maven report view with project ide
 - [x] Final report view, rerun, reviewed PR and evidence publication recorded
 - [x] README/backlog/board/story/tracker updated
 
-Task 10 begins only after the user asks to continue. Task 9's local diagnostic is not the Task 10 Jenkins deployment-blocking defect demonstration.
+Task 10 subsequently added the Jenkins browser gate. Its real failure/correction demonstration is documented in [the continuous testing guide](task-10-continuous-testing.md).
