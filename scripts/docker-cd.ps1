@@ -10,6 +10,12 @@ if (!$DockerPort) { $DockerPort = '8087' }
 $dockerExe = 'C:\Users\kirti\AppData\Local\Programs\DockerDesktop\resources\bin\docker.exe'
 if (!(Test-Path -LiteralPath $dockerExe)) { throw "Docker CLI missing: $dockerExe" }
 $env:DOCKER_HOST = 'npipe:////./pipe/dockerDesktopLinuxEngine'
+$dockerConfigDir = Join-Path (Get-Location).Path 'target/docker-cli'
+New-Item -ItemType Directory -Force -Path $dockerConfigDir | Out-Null
+$dockerConfigJson = @{ cliPluginsExtraDirs = @('C:\Users\kirti\AppData\Local\Programs\DockerDesktop\resources\cli-plugins') } | ConvertTo-Json
+[IO.File]::WriteAllText((Join-Path $dockerConfigDir 'config.json'),$dockerConfigJson,[Text.UTF8Encoding]::new($false))
+$env:DOCKER_CONFIG = $dockerConfigDir
+$env:DOCKER_BUILDKIT = '1'
 $registry = 'localhost:5000'
 $repository = "$registry/physio-portal"
 $containerName = "physio-portal-cd-$AppEnv"
@@ -25,8 +31,12 @@ function Write-Record([string]$message) {
 
 function Invoke-Docker([string[]]$arguments) {
     Write-Record ('docker ' + ($arguments -join ' '))
-    $output = @(& $script:dockerExe @arguments 2>&1)
-    $exitCode = $LASTEXITCODE
+    $previousPreference = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $output = @(& $script:dockerExe @arguments 2>&1)
+        $exitCode = $LASTEXITCODE
+    } finally { $ErrorActionPreference = $previousPreference }
     $lines = @($output | ForEach-Object { [string]$_ })
     foreach ($line in $lines) { Write-Record $line }
     Write-Record "exit=$exitCode"
@@ -35,16 +45,16 @@ function Invoke-Docker([string[]]$arguments) {
 }
 
 function Get-ExactContainerId {
-    $matches = @(& $script:dockerExe ps -a --filter "name=^/$script:containerName`$" --format '{{.ID}}')
-    if ($LASTEXITCODE -ne 0) { throw 'Could not inspect existing containers.' }
-    if ($matches.Count -gt 1) { throw 'More than one exact container match.' }
-    if ($matches.Count -eq 0) { return $null }
-    return [string]$matches[0]
+    $containerIds = @(Invoke-Docker @('ps','-a','--filter',"name=^/$script:containerName`$",'--format','{{.ID}}'))
+    if ($containerIds.Count -gt 1) { throw 'More than one exact container match.' }
+    if ($containerIds.Count -eq 0) { return $null }
+    return [string]$containerIds[0]
 }
 
 if ($Action -eq 'preflight') {
     $serverVersion = @(Invoke-Docker @('version','--format','{{.Server.Version}}'))[-1]
     $osType = @(Invoke-Docker @('info','--format','{{.OSType}}'))[-1]
+    $null = Invoke-Docker @('buildx','version')
     if ($osType -ne 'linux') { throw "Expected Docker Linux engine; found $osType" }
     $response = Invoke-WebRequest -Uri "http://127.0.0.1:5000/v2/" -UseBasicParsing -TimeoutSec 5
     if ($response.StatusCode -ne 200) { throw 'Local registry is not healthy.' }
@@ -63,6 +73,7 @@ Write-Record "commit=$env:GIT_COMMIT build=$env:BUILD_NUMBER image=$registryImag
 switch ($Action) {
     'build' {
         if (!(Test-Path -LiteralPath 'target/physio-portal-1.0.0.jar')) { throw 'Tested JAR missing.' }
+        $null = Invoke-Docker @('buildx','version')
         $null = Invoke-Docker @('build','--pull','-t',$localImage,'.')
         $null = Invoke-Docker @('image','inspect',$localImage,'--format','image_id={{.Id}}')
     }
