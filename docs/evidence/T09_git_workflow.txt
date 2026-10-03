@@ -40,3 +40,13 @@ COMMAND: git commit -m test: add five Selenium patient journeys and failure capt
  create mode 100644 src/test/resources/selenium/test-data.properties
 COMMAND: git add README.md docs screenshots/T09_*
 COMMAND: git commit -m docs: record Selenium runs reports and screenshot evidence
+COMMAND: git push -u origin feature/selenium-tests
+Result: remote feature head 31dd48c78175af5e592bccbf457cbe13f6b30b65; PR #4 created, COMMENT self-review 5395602129, merged 6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd
+COMMAND: git fetch origin; git switch develop; git merge --ff-only origin/develop
+Initial switch stopped to preserve the newly appended workflow evidence; stashed only that task-owned file, then restored it after synchronization.
+COMMAND: git rev-parse HEAD after fast-forward
+6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd
+COMMAND: git diff 7aa088a HEAD -- src/main Jenkinsfile scripts
+Result: no production application or pipeline/deployment script changes in Task 9.
+COMMAND: GitHub PR #4 COMMENT review and merge
+Review 5395602129 COMMENTED exact head 31dd48c78175af5e592bccbf457cbe13f6b30b65; merge SHA 6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd.

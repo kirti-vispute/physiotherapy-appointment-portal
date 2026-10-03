@@ -84,6 +84,8 @@ These check the manually started homepage and health. Expected: HTTP 200 and `st
 
 **Task 9 verified:** Selenium 4.49.0 uses real Chrome WebDriver, explicit waits and assertions for registration, open-slot view, booking, cancellation and status. The initial run passed **34 backend + 5 browser tests**; a focused repeat passed **5/5**. An isolated intentional failure produced a screenshot and Maven exit 1. Each booking fixture is cancelled through the UI during teardown.
 
+[PR #4](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4) was self-reviewed with a COMMENT review and merged into `develop`.
+
 ```powershell
 mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8082' verify
 ```

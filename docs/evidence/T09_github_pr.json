@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-03T00:25:11.6650396+05:30",
+  "number": 4,
+  "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4",
+  "title": "test: add five Selenium patient journeys",
+  "state": "closed",
+  "merged": true,
+  "merged_at": "2026-10-02T18:55:08Z",
+  "merge_commit_sha": "6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd",
+  "base": "develop",
+  "head": "feature/selenium-tests",
+  "head_sha": "31dd48c78175af5e592bccbf457cbe13f6b30b65",
+  "reviews": [
+    {
+      "body": "### Task 9 assisted self-review\n\nReviewed the current PR head's Maven profile, all four Selenium classes, fictional fixture, test plan, guide and evidence. This is a single-owner COMMENT self-review assisted by Codex; no independent approval is claimed.\n\n- All five journeys assert meaningful user outcomes; booking and cancellation also check availability changes, status persists after reauthentication, and fixture cancellation is asserted during teardown.\n- Explicit waits and stable scoped locators replace fixed sleeps. Accounts are unique, each browser is fresh, and `quit` runs in `finally`.\n- The failure extension captures before cleanup and rethrows the original error. An actual isolated intentional failure returned Maven exit 1 and wrote the preserved screenshot.\n- Initial Maven verification passed 34 backend and five browser tests; the focused repeat passed five again. Normal Failsafe includes only PortalSeleniumIT; the probe requires explicit test/flag selection.\n- Selenium is test scoped and opt-in; application source, Jenkinsfile and deployment scripts are unchanged. The final POM metadata correction was verified by successful report-only generation.\n- Saved HTML/AX/screenshot shows five cases, zero failures/errors/skips and 100%. Initial checkpoint screenshots retain matching initial metadata, while HTML reports the focused rerun. Execution dates come from logs, not the inherited report header.\n- Jenkins browser integration/deployment gating remains Task 10, with Docker/Ansible tasks pending.\n\nNo blocking issue found for the Task 9 scope.\n",
+      "id": 5395602129,
+      "state": "COMMENTED",
+      "submitted_at": "2026-10-02T18:55:03Z",
+      "commit_id": "31dd48c78175af5e592bccbf457cbe13f6b30b65",
+      "author": "kirti-vispute",
+      "url": "https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4#pullrequestreview-5395602129"
+    }
+  ]
+}

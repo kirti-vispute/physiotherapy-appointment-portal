@@ -27,13 +27,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Area | Current verified state |
 |---|---|
 | Application | Full patient MVP and 34 tests verified; healthy Task 8 test deployment at localhost:8082 and demo at 8081; embedded Tomcat, separate persistent databases, live/archive JAR hashes matched |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1/#2/#3 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes CI/pipeline/deployment evidence |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#4 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes local Selenium evidence |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; physio-portal-pipeline #2/#3 SUCCESS with 34 tests, JAR/log/metadata archives and parameterized deployment; initial hung #1 ABORTED and correction recorded |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice, report on 8084; intentional local failure captured; Jenkins gate remains Task 10 |
 | Docker | Not checked or configured |
 | Ansible | Not checked or configured |
 | Documentation | Tasks 1–9 complete; five-case test plan, Selenium guide, reports, README, backlog, board, stories and tracker updated; Jenkins Selenium gate remains Task 10 |
-| Evidence | Tasks 3–7 retained; Task 8 failure/fix/success runs, JUnit, archive/deployment hashes, live HTTP/profile/port checks, job XML, PR/review/merge and actual screenshots |
+| Evidence | Tasks 3–7 retained; Task 8 pipeline/deployment evidence; Task 9 initial/repeat tests, XML/HTML, screenshot probe, real report/PR screenshots and merge records |
 
 ## Task 1 evidence checklist
 
@@ -90,6 +90,6 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Focused repeat: five cases, zero failures/errors/skips; XML/text/HTML preserved
 - ✅ Intentional local probe: one assertion failure, Maven exit 1 and real failure PNG before quit
 - ✅ Actual browser report/checkpoint screenshots and [Task 9 guide](task-09-selenium.md)
-- GitHub PR/review/merge details are recorded in the guide after publication
+- ✅ [PR #4](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4), [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4#pullrequestreview-5395602129), merge `6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd` and synchronized local `develop`
 
 Tasks 1–9 are ✅. Tasks 10–15 are ⬜. Next: Task 10 Jenkins continuous testing and deployment gate. Docker and Ansible have not been executed.

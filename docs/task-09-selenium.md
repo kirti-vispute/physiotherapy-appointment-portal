@@ -2,7 +2,7 @@
 
 **Owner:** Kirti Vispute (23102C0078)  
 **Date:** 3 October 2026  
-**Status:** 🟡 Final evidence/publication in progress
+**Status:** ✅ Complete; PR #4 merged into `develop`
 
 ## Objective and deliverables
 
@@ -100,7 +100,9 @@ Initial normal Maven execution on 3 October 2026 completed **BUILD SUCCESS**, ex
 
 The corrected screenshot diagnostic ran **one intentional failed case**, zero errors/skips, returned exit **1**, and wrote a real **33,926-byte** failure PNG before closing Chrome. The actual exception message is retained in the XML and [probe result](evidence/T09_probe_exit.json).
 
-The focused rerun also passed **5/5** with zero failures/errors/skips in **36.272 sec** (Maven total 52.259 sec), completing at **00:13:28 IST on 3 October 2026**. Its XML/text/summary are preserved separately in `T09_repeat`; the HTML report renders this rerun. The five checkpoint screenshots and paired metadata retain the initial run. A successful report-only regeneration corrected the project header link to this GitHub repository. PR publication is recorded below after completion. The generated report's header is not the run timestamp authority; use the dated CLI log and capture metadata for the actual IST execution time.
+The focused rerun also passed **5/5** with zero failures/errors/skips in **36.272 sec** (Maven total 52.259 sec), completing at **00:13:28 IST on 3 October 2026**. Its XML/text/summary are preserved separately in `T09_repeat`; the HTML report renders this rerun. The five checkpoint screenshots and paired metadata retain the initial run. A successful report-only regeneration corrected the project header link to this GitHub repository. The generated report's header is not the run timestamp authority; use the dated CLI log and capture metadata for the actual IST execution time.
+
+[PR #4](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4) merged the two Task 9 commits into `develop` at `6a7ec38fe8fe713e73a3d4964fd7a009a357b7cd`. [The COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4#pullrequestreview-5395602129) checks the exact PR head and is explicitly a single-owner review. The merged page, review and SHA were verified in GitHub and recorded in [API evidence](evidence/T09_github_pr.json), [Git workflow](evidence/T09_git_workflow.txt) and an [actual screenshot](../screenshots/T09_pull_request.jpg). Local `develop` was fast-forwarded to the merge before this documentation follow-up.
 
 | Evidence | Contents |
 |---|---|
@@ -110,6 +112,7 @@ The focused rerun also passed **5/5** with zero failures/errors/skips in **36.27
 | [HTML report](evidence/T09_report/selenium.html) / [report screenshot](../screenshots/T09_selenium_report.jpg) | Maven-generated focused-rerun report and its assets; actual browser view |
 | [Focused rerun log](evidence/T09_maven_repeat.txt) / [XML](evidence/T09_repeat/TEST-com.kirtivispute.physio.selenium.PortalSeleniumIT.xml) | Five repeated journeys passed, including booking cleanup |
 | [Report generation](evidence/T09_report_generation.txt) | Successful report-only regeneration from the rerun XML |
+| [PR evidence](evidence/T09_github_pr.json) / [screenshot](../screenshots/T09_pull_request.jpg) | Reviewed and merged PR #4 into `develop` |
 | [T09_screenshot_probe.txt](evidence/T09_screenshot_probe.txt) / [XML](evidence/T09_screenshot_probe.xml) | Actual intentional assertion failure, not a Jenkins run |
 | [Failure screenshot](../screenshots/T09_failure_capture.png) | Portal captured before diagnostic teardown |
 | `docs/evidence/T09_browser_metadata/` | Actual fictional emails, dynamic IDs, URLs, capture times and driver details; no password |
@@ -126,7 +129,7 @@ Screenshots are required. Preserve the actual Maven report view with project ide
 - [x] Screenshot-on-failure and failing exit verified by actual local probe
 - [x] Normal Maven execution: 34 backend + 5 browser tests passed
 - [x] Real XML/HTML report and checkpoint screenshots generated
-- [ ] Final report view, rerun, reviewed PR and evidence publication recorded
-- [ ] README/backlog/board/story/tracker updated
+- [x] Final report view, rerun, reviewed PR and evidence publication recorded
+- [x] README/backlog/board/story/tracker updated
 
 Task 10 begins only after the user asks to continue. Task 9's local diagnostic is not the Task 10 Jenkins deployment-blocking defect demonstration.
