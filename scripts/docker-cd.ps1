@@ -104,7 +104,11 @@ switch ($Action) {
     }
     'run' {
         if (Get-ExactContainerId) { throw "Container name $containerName is still occupied." }
-        $listeners = @(Get-NetTCPConnection -LocalPort ([int]$DockerPort) -State Listen -ErrorAction SilentlyContinue)
+        for ($attempt = 0; $attempt -lt 10; $attempt++) {
+            $listeners = @(Get-NetTCPConnection -LocalPort ([int]$DockerPort) -State Listen -ErrorAction SilentlyContinue)
+            if ($listeners.Count -eq 0) { break }
+            Start-Sleep -Seconds 1
+        }
         if ($listeners.Count -gt 0) { throw "Host port $DockerPort is occupied." }
         $null = Invoke-Docker @('pull',$registryImage)
         $null = Invoke-Docker @('volume','create',$volumeName)
