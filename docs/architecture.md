@@ -1,6 +1,6 @@
 # Task 3 — Architecture and Data Model
 
-**Status:** Application architecture implemented through Tasks 5–6: registration, Spring Security sessions/CSRF, provider/slot views, booking, confirmation/status, cancellation, and H2 persistence. The surrounding delivery architecture remains planned for Tasks 7–14.
+**Status:** Application architecture and the delivery path were implemented and verified through Tasks 5–14. The final delivery components and their separate hosts are shown below.
 
 ## Technology choices
 
@@ -53,22 +53,25 @@ flowchart TD
 
 **Connections:** Browser → backend/API → service → repository → H2. The health endpoint checks application/database readiness. Patient pages and JSON APIs use the same service rules. A single Spring Boot JAR includes embedded Tomcat.
 
-## Delivery architecture planned for Tasks 7–14
+## Verified delivery architecture
 
 ```mermaid
 flowchart LR
-    GitHub[GitHub repository] -->|checkout/poll trigger| Jenkins[Jenkins in WSL Ubuntu]
+    GitHub[GitHub develop branch] -->|Poll SCM and checkout| Jenkins[Jenkins on Windows host]
     Jenkins --> Maven[Maven build and unit tests]
-    Maven --> Selenium[Selenium browser tests]
+    Maven --> Selenium[Chrome Selenium tests on temporary Windows app]
     Selenium -->|pass only| Image[Docker versioned image]
-    Image --> Registry[Docker Hub or local registry]
-    Registry --> Container[Application container via Docker Desktop]
-    Ansible[Ansible in WSL Ubuntu] -->|configure target| Container
+    Image --> Registry[Local registry on port 5000]
+    Registry --> Container[Docker Desktop container on port 8087]
+    Registry --> Ubuntu[Separate Ubuntu WSL Docker Engine]
+    Ansible[Ansible on Ubuntu WSL] -->|configure and deploy| Ubuntu
+    Ubuntu --> Target[Application container on port 8089]
     Container -->|HTTP GET| Health[Actuator health check]
-    Health -->|failure| Rollback[Restore known good image]
+    Target -->|HTTP GET| Health
+    Health -->|failure during Task 14 simulation| Rollback[Reapply known good Ansible configuration]
 ```
 
-**Connections and labels:** GitHub → Jenkins → build/test → Docker → deployment. Ansible configures the documented Linux target. The health check gates successful deployment; failure invokes documented recovery. This diagram is a plan, not evidence those systems are installed or running.
+**Connections and labels:** GitHub `develop` → Windows Jenkins → Maven/JUnit → Selenium → versioned image → local registry → Docker Desktop deployment on 8087. Separately, Ansible configures Ubuntu WSL and pulls the pinned image into Ubuntu's own Docker Engine on 8089. Task 14's deliberate port mismatch failed Ansible's health gate; rerunning the playbook with versioned good settings recovered the container while retaining its image and data volume. The two Docker Engines are distinct.
 
 ## Data model
 
@@ -116,7 +119,7 @@ erDiagram
 
 **Relationships:** One patient has many appointments; one physiotherapist offers many slots; one slot can have multiple historical appointments but at most one active `CONFIRMED` appointment through the shared service. Booking locks the slot row in a transaction, checks availability/start time, creates the appointment, and sets `available=false`. Cancellation finds the owner's appointment, locks the same slot, refreshes the appointment after waiting, and then updates status/availability. Already-cancelled records return without changing the slot, including after someone else rebooks it. Concurrent booking/cancellation, ownership, and start-time tests passed in Task 6.
 
-**Time and persistence:** Store instants or UTC timestamps and render them in `Asia/Kolkata`. The local H2 database path defaults to `./data/physio`, relative to the process working directory. Task 11 will mount `/app/data` in the container so the database survives replacement. Schema changes must remain compatible with the rollback demonstration.
+**Time and persistence:** Store instants or UTC timestamps and render them in `Asia/Kolkata`. The local H2 database path defaults to `./data/physio`, relative to the process working directory. Tasks 11–14 mounted `/app/data` in containers so the database survives replacement. Schema changes must remain compatible with the rollback demonstration.
 
 ## Security and failure boundaries
 
