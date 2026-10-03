@@ -20,14 +20,14 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 10 | Continuous Testing | ✅ | Jenkins #4 deliberate Selenium FAILURE skipped Deploy; old deployment unchanged/UP; correction #5 and merged #6 passed 39 tests and deployed; reports, screenshots and PR #5 saved |
 | 11 | Docker | ✅ | 34-test JAR; Docker image `physio-portal:1.0.0`; versioned image/container IDs, 8086→8080 mapping, logs, stop/start/restart/rm, final healthy container and screenshot verified in [Task 11 guide](task-11-docker.md). |
 | 12 | Docker CD | ✅ | PR #7 COMMENT self-reviewed and merged; develop Jenkins #9 passed 39 tests, pushed versioned image, removed prior owned container and deployed a new healthy 8087 container. See [Task 12 guide](task-12-docker-cd.md). |
-| 13 | Ansible | ✅ | Ubuntu 24.04 WSL target configured by Ansible; first run `ok=10 changed=5 failed=0`, Docker active/enabled, user/folder/config permissions and registry manifest verified. See [Task 13 guide](../ansible/README.md). |
+| 13 | Ansible | ✅ | Ubuntu 24.04 WSL configured by Ansible; first run `ok=10 changed=5 failed=0`, Docker/account/files/registry verified; PR #8 COMMENT self-reviewed and merged. See [Task 13 guide](../ansible/README.md). |
 | 14 | Provisioning/Reliability | ⬜ | Not started |
 | 15 | Final Validation | ⬜ | Not started |
 
 | Area | Current verified state |
 |---|---|
 | Application | Full patient MVP verified; healthy Task 10 merged build #6 on localhost:8082 and earlier demo on 8081; embedded Tomcat, separate persistent databases, live/archive JAR hashes matched |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#7 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 12 Docker CD |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#8 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 13 Ansible configuration |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
 | Docker | Task 11 local image/lifecycle verified on 8086; Task 12 Jenkins #9 pushed `1.0.0-b9-180b726bc020` to loopback registry, removed build #8 container, deployed new container on 8087 and verified health UP |
@@ -127,5 +127,6 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ First real run completed `ok=10 changed=5 unreachable=0 failed=0`; [execution log](evidence/T13_ansible_first_run.txt) retained
 - ✅ Independent check confirms Docker active/enabled, `physio` UID/GID 10001, folder mode `750`, environment file mode `640`, registry HTTP 200 and [versioned manifest](evidence/T13_registry_manifest.json)
 - ✅ [Task 13 guide](../ansible/README.md) explains every task, Windows/WSL commands, expected/actual results, errors and [screenshot](../screenshots/T13_ansible_execution.png)
+- ✅ [PR #8](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8#pullrequestreview-5401355533) and merged at `4f1c1858bd61e397ba005634136c08295b0d6634`; tested playbook blob matches merged source
 
 Tasks 1–13 are ✅. Tasks 14–15 are ⬜. The Ubuntu application container, second Ansible run, health check and rollback remain Task 14 work.

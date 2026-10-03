@@ -5,6 +5,8 @@
 **Date:** 3 October 2026
 **Status:** ✅ First configuration run verified; deployment and second run are Task 14
 
+[PR #8](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8) received an honest [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8#pullrequestreview-5401355533) and was merged into `develop` at `4f1c1858bd61e397ba005634136c08295b0d6634`. This is a single-contributor review, not independent approval. The merged playbook blob matches the tested feature version.
+
 ## Objective and target
 
 Ansible prepares Ubuntu 24.04 in WSL for the physiotherapy portal container. This Ubuntu distribution is both the Ansible control node and the managed node, using a local connection. It has its own Linux Docker Engine, separate from the Docker Desktop engine that Jenkins uses on Windows. Task 13 configures the machine and application settings. Task 14 will deploy a container, repeat the playbook, check health, and demonstrate recovery.
