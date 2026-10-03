@@ -121,4 +121,3 @@ docker logs --tail 12 physio-portal-task11-final
 exit=0
 Final HTTP checks: GET / = 200; GET /physiotherapists = 200; GET /actuator/health = UP
 Final volume file: /app/data/physio.mv.db, 53248 bytes, owner UID 10001
-
