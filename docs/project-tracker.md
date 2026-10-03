@@ -27,7 +27,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Area | Current verified state |
 |---|---|
 | Application | Full patient MVP verified; Jenkins deployment on 8082 and Task 12 Docker CD on 8087 retained; Task 14 Ubuntu WSL container on 8089 restored to health UP after bad-port simulation, with separate persistent database volume |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#8 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 13 Ansible configuration |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#9 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 14 Ansible provisioning |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
 | Docker | Task 11 local lifecycle verified on 8086; Task 12 Jenkins versioned image and healthy 8087 deployment retained; Task 14 Ubuntu engine pulled the same pinned image, deployed on 8089 and preserved its named volume through recovery |
@@ -138,5 +138,6 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Bad configuration](evidence/T14_bad_release.txt) changed `PORT` to 8099 while mapping to 8080; health gate failed with exit 2 and `failed=1`; [state check](evidence/T14_bad_release_state.json) showed the good image and volume intact
 - ✅ [Rollback](evidence/T14_rollback.txt) restored the known good port and container; [recovery check](evidence/T14_recovered_state.json) verified bad container removal, retained H2 volume/database file, health UP and three HTTP 200 responses
 - ✅ [Task 14 guide](task-14-provisioning.md) and idempotency, health and rollback screenshots saved
+- ✅ [PR #9](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9#pullrequestreview-5401462270) and merged at `955e6b93c740fd1fc550b9c33f89e78fa7b0ef3e`; local `develop` synchronized
 
 Tasks 1–14 are ✅. Task 15 is ⬜ pending final requirement audit and viva sequence.

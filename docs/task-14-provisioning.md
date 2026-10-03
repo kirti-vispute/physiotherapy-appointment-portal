@@ -120,3 +120,7 @@ These are real run records. The two log screenshots are readable renderings of s
 - ✅ Intentional bad port produced a real Ansible health failure; image and data volume remained intact
 - ✅ Known good configuration reapplied; bad container removed and health/home/providers returned HTTP 200
 - ✅ Actual logs, state checks and screenshots saved
+
+## Review and merge
+
+[PR #9](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9) received an honest [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9#pullrequestreview-5401462270) and was merged into `develop` at `955e6b93c740fd1fc550b9c33f89e78fa7b0ef3e`. This is a single-contributor review record, not independent approval. The tested Ansible files in the feature commit were included in the merge.
