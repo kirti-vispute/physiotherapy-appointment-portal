@@ -20,7 +20,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 10 | Continuous Testing | ✅ | Jenkins #4 deliberate Selenium FAILURE skipped Deploy; old deployment unchanged/UP; correction #5 and merged #6 passed 39 tests and deployed; reports, screenshots and PR #5 saved |
 | 11 | Docker | ✅ | 34-test JAR; Docker image `physio-portal:1.0.0`; versioned image/container IDs, 8086→8080 mapping, logs, stop/start/restart/rm, final healthy container and screenshot verified in [Task 11 guide](task-11-docker.md). |
 | 12 | Docker CD | ✅ | PR #7 COMMENT self-reviewed and merged; develop Jenkins #9 passed 39 tests, pushed versioned image, removed prior owned container and deployed a new healthy 8087 container. See [Task 12 guide](task-12-docker-cd.md). |
-| 13 | Ansible | ⬜ | Not started |
+| 13 | Ansible | ✅ | Ubuntu 24.04 WSL target configured by Ansible; first run `ok=10 changed=5 failed=0`, Docker active/enabled, user/folder/config permissions and registry manifest verified. See [Task 13 guide](../ansible/README.md). |
 | 14 | Provisioning/Reliability | ⬜ | Not started |
 | 15 | Final Validation | ⬜ | Not started |
 
@@ -31,9 +31,9 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
 | Docker | Task 11 local image/lifecycle verified on 8086; Task 12 Jenkins #9 pushed `1.0.0-b9-180b726bc020` to loopback registry, removed build #8 container, deployed new container on 8087 and verified health UP |
-| Ansible | Not checked or configured |
-| Documentation | Tasks 1–12 complete; Task 12 guide records feature #7 failure, corrected #8 and merged #9, registry digest, container replacement, health, logs and screenshot |
-| Evidence | Tasks 3–11 retained; Task 12 Jenkins #8/#9 consoles, API/tests, six stage logs per successful build, deployment metadata, before/after checks, registry digest, PR review/merge and live container screenshot |
+| Ansible | Ubuntu 24.04 WSL control/target configured; inventory, variables, template and playbook verified; first run `ok=10 changed=5 failed=0`; Ubuntu Docker Engine active/enabled, registry manifest reachable. Task 14 container deployment and second run remain. |
+| Documentation | Tasks 1–13 complete; Task 13 guide specifies packages, users, folders, files, ports, services and each Ansible task with exact commands and results |
+| Evidence | Tasks 3–12 retained; Task 13 first-run log, independent target-state check, registry manifest and screenshot saved |
 
 ## Task 1 evidence checklist
 
@@ -120,4 +120,12 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Build #8 container was stopped and removed; build #9 container `692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b` runs on `127.0.0.1:8087`, health UP and home/providers HTTP 200
 - ✅ Jenkins archive JAR and container JAR hashes match; console, stage logs, metadata, before/after checks and screenshot saved in [Task 12 guide](task-12-docker-cd.md)
 
-Tasks 1–12 are ✅. Tasks 13–15 are ⬜. No Ansible run is claimed yet.
+## Task 13 verification gate
+
+- ✅ Ubuntu 24.04.5 WSL installed as the Ansible control and managed node; Ansible core 2.16.3 available
+- ✅ Inventory, group variables, environment template and playbook pass syntax and inventory checks
+- ✅ First real run completed `ok=10 changed=5 unreachable=0 failed=0`; [execution log](evidence/T13_ansible_first_run.txt) retained
+- ✅ Independent check confirms Docker active/enabled, `physio` UID/GID 10001, folder mode `750`, environment file mode `640`, registry HTTP 200 and [versioned manifest](evidence/T13_registry_manifest.json)
+- ✅ [Task 13 guide](../ansible/README.md) explains every task, Windows/WSL commands, expected/actual results, errors and [screenshot](../screenshots/T13_ansible_execution.png)
+
+Tasks 1–13 are ✅. Tasks 14–15 are ⬜. The Ubuntu application container, second Ansible run, health check and rollback remain Task 14 work.

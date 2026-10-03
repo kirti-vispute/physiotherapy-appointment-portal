@@ -1,0 +1,14 @@
+---
+# Task 13 prepares the node. Task 14 uses these values to deploy the container.
+portal_user: physio
+portal_group: physio
+portal_uid: 10001
+portal_gid: 10001
+portal_directory: /opt/physio-portal
+portal_environment: test
+portal_image: localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+portal_container_name: physio-portal-ansible
+portal_volume_name: physio-portal-ansible-data
+portal_bind_address: 127.0.0.1
+portal_host_port: 8089
+portal_container_port: 8080
