@@ -85,7 +85,7 @@ switch ($Action) {
         $response = Invoke-WebRequest -Uri "http://127.0.0.1:5000/v2/" -UseBasicParsing -TimeoutSec 5
         if ($response.StatusCode -ne 200) { throw 'Local registry is not healthy.' }
         $null = Invoke-Docker @('push',$registryImage)
-        $null = Invoke-Docker @('manifest','inspect',$registryImage)
+        $null = Invoke-Docker @('manifest','inspect','--insecure',$registryImage)
         Write-Record "Registry manifest verified: $registryImage"
     }
     'stop' {
