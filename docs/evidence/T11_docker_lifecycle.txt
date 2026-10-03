@@ -1,0 +1,124 @@
+Task 11 Docker lifecycle - 2026-10-03
+docker version --format Client={{.Client.Version}} Server={{.Server.Version}}
+Client=29.7.2 Server=29.7.2
+exit=0
+
+docker build --pull -t physio-portal:1.0.0 .
+Result: build completed; image ID sha256:c260571b57675bd2aae05ccdd25b604e57a40c5407aa4d93459f5f59b0d2ae34
+Base image: eclipse-temurin:21-jre@sha256:cff19e6215689161eb6162c11b86b0c60ddf802164f2eaf48d570f8fb79a36c5
+exit=0
+
+docker volume create physio-portal-task11-data
+physio-portal-task11-data
+exit=0
+
+docker run -d --name physio-portal-task11 --label project=physio-portal-task11 -p 127.0.0.1:8086:8080 --mount type=volume,source=physio-portal-task11-data,target=/app/data physio-portal:1.0.0
+256457adc2c1eecf3a1235acac625900d3f30d57afb715830a560e47e6b6e6ad
+exit=0
+
+docker images physio-portal --format repository={{.Repository}} tag={{.Tag}} image_id={{.ID}} size={{.Size}}
+repository=physio-portal tag=1.0.0 image_id=c260571b5767 size=590MB
+exit=0
+
+docker ps --filter name=^/physio-portal-task11$ --format id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}}
+id=256457adc2c1 image=physio-portal:1.0.0 status=Up 2 minutes ports=127.0.0.1:8086->8080/tcp
+exit=0
+
+docker inspect physio-portal-task11 --format container_id={{.Id}} image_id={{.Image}} user={{.Config.User}} ports={{json .NetworkSettings.Ports}} mount={{range .Mounts}}{{.Name}}:{{.Destination}}{{end}}
+container_id=256457adc2c1eecf3a1235acac625900d3f30d57afb715830a560e47e6b6e6ad image_id=sha256:c260571b57675bd2aae05ccdd25b604e57a40c5407aa4d93459f5f59b0d2ae34 user=10001:10001 ports={"8080/tcp":[{"HostIp":"127.0.0.1","HostPort":"8086"}]} mount=physio-portal-task11-data:/app/data
+exit=0
+
+docker logs --tail 12 physio-portal-task11
+	Maximum pool size: undefined/unknown
+2026-10-03T10:02:38.102Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-03T10:02:38.242Z  INFO 1 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-03T10:02:38.480Z  INFO 1 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-03T10:02:40.591Z  INFO 1 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-03T10:02:41.120Z  INFO 1 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-03T10:02:42.934Z  INFO 1 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-03T10:02:43.136Z  INFO 1 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-03T10:02:43.155Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : Started PhysioPortalApplication in 16.708 seconds (process running for 18.638)
+2026-10-03T10:02:46.131Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-03T10:02:46.132Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-03T10:02:46.136Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+exit=0
+
+initial run health=http://localhost:8086/actuator/health status=UP
+docker stop physio-portal-task11
+physio-portal-task11
+exit=0
+
+docker ps -a --filter name=^/physio-portal-task11$ --format id={{.ID}} status={{.Status}}
+id=256457adc2c1 status=Exited (143) Less than a second ago
+exit=0
+
+docker start physio-portal-task11
+physio-portal-task11
+exit=0
+
+after start health=http://localhost:8086/actuator/health status=UP
+docker ps --filter name=^/physio-portal-task11$ --format id={{.ID}} status={{.Status}} ports={{.Ports}}
+id=256457adc2c1 status=Up 19 seconds ports=127.0.0.1:8086->8080/tcp
+exit=0
+
+docker restart physio-portal-task11
+physio-portal-task11
+exit=0
+
+after restart health=http://localhost:8086/actuator/health status=UP
+docker logs --tail 12 physio-portal-task11
+	Maximum pool size: undefined/unknown
+2026-10-03T10:05:01.971Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-03T10:05:02.074Z  INFO 1 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-03T10:05:02.218Z  INFO 1 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-03T10:05:03.815Z  INFO 1 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-03T10:05:04.100Z  INFO 1 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-03T10:05:04.876Z  INFO 1 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-03T10:05:05.005Z  INFO 1 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-03T10:05:05.025Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : Started PhysioPortalApplication in 10.317 seconds (process running for 11.655)
+2026-10-03T10:05:07.682Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-03T10:05:07.683Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-03T10:05:07.687Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+exit=0
+
+docker stop physio-portal-task11
+physio-portal-task11
+exit=0
+
+docker rm physio-portal-task11
+physio-portal-task11
+exit=0
+
+docker ps -a --filter name=^/physio-portal-task11$ --format id={{.ID}} status={{.Status}}
+exit=0
+
+docker run -d --name physio-portal-task11-final --label project=physio-portal-task11 -p 127.0.0.1:8086:8080 --mount type=volume,source=physio-portal-task11-data,target=/app/data physio-portal:1.0.0
+b3ec7ce3aac79450fee7c7267e57a656d1125f705857be3890da47ca4eef99e1
+exit=0
+
+final run health=http://localhost:8086/actuator/health status=UP
+docker ps --filter name=^/physio-portal-task11-final$ --format id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}}
+id=b3ec7ce3aac7 image=physio-portal:1.0.0 status=Up 14 seconds ports=127.0.0.1:8086->8080/tcp
+exit=0
+
+docker inspect physio-portal-task11-final --format container_id={{.Id}} image_id={{.Image}} user={{.Config.User}} ports={{json .NetworkSettings.Ports}} mount={{range .Mounts}}{{.Name}}:{{.Destination}}{{end}}
+container_id=b3ec7ce3aac79450fee7c7267e57a656d1125f705857be3890da47ca4eef99e1 image_id=sha256:c260571b57675bd2aae05ccdd25b604e57a40c5407aa4d93459f5f59b0d2ae34 user=10001:10001 ports={"8080/tcp":[{"HostIp":"127.0.0.1","HostPort":"8086"}]} mount=physio-portal-task11-data:/app/data
+exit=0
+
+docker logs --tail 12 physio-portal-task11-final
+	Maximum pool size: undefined/unknown
+2026-10-03T10:05:18.665Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-03T10:05:18.793Z  INFO 1 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-03T10:05:18.927Z  INFO 1 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-03T10:05:20.463Z  INFO 1 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-03T10:05:20.847Z  INFO 1 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-03T10:05:21.670Z  INFO 1 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-03T10:05:21.795Z  INFO 1 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-03T10:05:21.808Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : Started PhysioPortalApplication in 9.955 seconds (process running for 11.125)
+2026-10-03T10:05:25.020Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-03T10:05:25.021Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-03T10:05:25.025Z  INFO 1 --- [physio-portal] [nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+exit=0
+Final HTTP checks: GET / = 200; GET /physiotherapists = 200; GET /actuator/health = UP
+Final volume file: /app/data/physio.mv.db, 53248 bytes, owner UID 10001
+
