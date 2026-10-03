@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–10 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. The versioned pipeline's [build #4](http://localhost:8080/job/physio-portal-pipeline/4/) deliberately failed one Selenium assertion and skipped deployment; [build #5](http://localhost:8080/job/physio-portal-pipeline/5/) passed all **39 tests** and deployed after the correction. Final merged `develop` build #6 also passed and serves the healthy portal at **[localhost:8082](http://localhost:8082/)** using `APP_ENV=test`, `PORT=8082`. Docker and Ansible remain for later tasks. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–11 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. The versioned pipeline's [build #4](http://localhost:8080/job/physio-portal-pipeline/4/) deliberately failed one Selenium assertion and skipped deployment; [build #5](http://localhost:8080/job/physio-portal-pipeline/5/) passed all **39 tests** and deployed after the correction. Final merged `develop` build #6 also passed and serves the healthy portal at **[localhost:8082](http://localhost:8082/)** using `APP_ENV=test`, `PORT=8082`. Task 11 built and ran the versioned Docker image, demonstrated the full container lifecycle, and serves the healthy container at **[localhost:8086](http://localhost:8086/)**. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -53,7 +53,7 @@ scripts/deploy-local.ps1   Owned local Windows demo deployment
 .gitignore                Local/build files excluded from Git
 ```
 
-`Dockerfile` and `ansible/` will be added in their assigned tasks. Empty placeholder files are not used as proof of implementation.
+`Dockerfile` is verified for Task 11; `ansible/` will be added in its assigned task. Empty placeholder files are not used as proof of implementation.
 
 ## Local setup and running
 
@@ -108,7 +108,7 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 ## Docker deployment
 
-**Planned for Tasks 11–12; no image or container exists yet.** A root `Dockerfile` will package the executable JAR. The image will receive a versioned tag, be pushed to a registry, and be deployed by Jenkins only after tests pass. The container will map a host port to its application port and mount a persistent H2 data location. Lifecycle commands, IDs, logs, and health results will be added to `docs/docker.md` when actually run.
+**Task 11 verified.** The root [Dockerfile](Dockerfile) packages the tested executable JAR as a Java 21 image tagged `physio-portal:1.0.0`. Docker `build`, `images`, `run`, `ps`, `logs`, `stop`, `start`, `restart`, and `rm` were executed. The final container maps `127.0.0.1:8086` → `8080/tcp`, keeps H2 data in a named volume, and returns HTTP 200/health `UP`. The [Task 11 guide](docs/task-11-docker.md) records exact commands, image/container IDs, logs, health, startup recovery, and screenshot. Registry publication and Jenkins container deployment are Task 12.
 
 ## Ansible configuration and reliability
 
@@ -155,6 +155,8 @@ Task 9 also preserves the five [journey screenshots](docs/task-09-selenium.md), 
 ![Task 10 failed Jenkins browser gate](screenshots/T10_failed_pipeline.png)
 
 ![Task 10 corrected Jenkins rerun](screenshots/T10_successful_rerun.png)
+
+![Task 11 portal served from Docker](screenshots/T11_docker_running.png)
 
 ## Contributors
 

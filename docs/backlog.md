@@ -19,7 +19,7 @@ Priority: **P0** is required for submission. The sequence is controlled by depen
 | PB-08 | Write parameterized pipeline and deploy runnable JAR | P0 | US-09 | 08 | 2 | ✅ Pipeline #2/#3, 34 tests, test/8082 deployment/health/hash, PR #3 verified |
 | PB-09 | Implement five Selenium journeys, data, report, screenshot on failure | P0 | US-01, US-04–US-07 | 09 | 2 | ✅ Five cases passed twice; 34 backend tests, HTML/XML and failure capture verified |
 | PB-10 | Gate deployment on Selenium; demonstrate failure and corrected rerun | P0 | US-09 | 10 | 2 | ✅ Jenkins #4 failed/skipped Deploy; correction #5 and merged #6 passed 39 tests/deployed; PR #5 reviewed/merged |
-| PB-11 | Build versioned Docker image and demonstrate lifecycle commands | P0 | US-10 | 11 | 3 | ⬜ |
+| PB-11 | Build versioned Docker image and demonstrate lifecycle commands | P0 | US-10 | 11 | 3 | ✅ Image, IDs, mapping, logs, lifecycle, health and screenshot verified |
 | PB-12 | Publish image and deploy new container from passing Jenkins pipeline | P0 | US-10 | 12 | 3 | ⬜ |
 | PB-13 | Specify configuration and create Ansible inventory/playbook | P0 | US-11 | 13 | 3 | ⬜ |
 | PB-14 | Provision target, prove idempotency, health, rollback, and recovery | P0 | US-11 | 14 | 3 | ⬜ |
