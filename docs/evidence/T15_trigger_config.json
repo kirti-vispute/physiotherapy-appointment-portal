@@ -1,0 +1,7 @@
+{
+  "checkedAt": "2026-10-03T22:37:31.9681706+05:30",
+  "job": "physio-portal-pipeline",
+  "sourceBranch": "develop",
+  "triggerInstalled": true,
+  "pollSchedule": "H/2 * * * *"
+}

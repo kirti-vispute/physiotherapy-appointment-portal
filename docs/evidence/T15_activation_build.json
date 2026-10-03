@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-03T22:37:32.0172508+05:30",
+  "number": 10,
+  "result": "ABORTED",
+  "building": false,
+  "durationMs": 1322311,
+  "startedAtEpochMs": 1791045859536,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/10/",
+  "cause": [
+    "Started by user admin",
+    "Timeout has been exceeded"
+  ],
+  "testTotal": [
+    34
+  ]
+}
