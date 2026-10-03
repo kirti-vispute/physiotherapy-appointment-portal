@@ -1,0 +1,68 @@
+﻿Task 12 Docker push at 2026-10-03T16:43:09.9733009+05:30
+commit=180b726bc020aaa534f65f69283f30b9bb04abeb build=9 image=localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+docker push localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+The push refers to repository [localhost:5000/physio-portal]
+283ba2406731: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+4e07a0f12b2c: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+4e07a0f12b2c: Waiting
+283ba2406731: Waiting
+4e07a0f12b2c: Waiting
+283ba2406731: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+4e07a0f12b2c: Waiting
+283ba2406731: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+283ba2406731: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+4e07a0f12b2c: Waiting
+283ba2406731: Waiting
+44136fa355b3: Waiting
+06ad70e463aa: Waiting
+4e07a0f12b2c: Waiting
+44136fa355b3: Already exists
+06ad70e463aa: Layer already exists
+4e07a0f12b2c: Layer already exists
+5d8dab7db274: Layer already exists
+550bcd7b9380: Layer already exists
+127518135c6f: Layer already exists
+c7aa16259f07: Layer already exists
+9d8d42fbc560: Layer already exists
+3b4157e3a962: Layer already exists
+283ba2406731: Pushed
+4485fb08a59f: Pushed
+1.0.0-b9-180b726bc020: digest: sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5 size: 856
+exit=0
+docker manifest inspect --insecure localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+{
+   "schemaVersion": 2,
+   "mediaType": "application/vnd.oci.image.index.v1+json",
+   "manifests": [
+      {
+         "mediaType": "application/vnd.oci.image.manifest.v1+json",
+         "size": 2002,
+         "digest": "sha256:5cf1934042cc9326582fdafe06848d2596b561a3056a237bba041b5afdc5331e",
+         "platform": {
+            "architecture": "amd64",
+            "os": "linux"
+         }
+      },
+      {
+         "mediaType": "application/vnd.oci.image.manifest.v1+json",
+         "size": 837,
+         "digest": "sha256:5b4bcd4c77a95563c94bcf533010f2e95f89b967a2904b17fc21ba8b6b3b1460",
+         "platform": {
+            "architecture": "unknown",
+            "os": "unknown"
+         }
+      }
+   ]
+}
+exit=0
+Registry manifest verified: localhost:5000/physio-portal:1.0.0-b9-180b726bc020

@@ -1,0 +1,30 @@
+{
+  "verified_at": "2026-10-03T16:45:06.2984540+05:30",
+  "jenkins_build": 9,
+  "source_commit": "180b726bc020aaa534f65f69283f30b9bb04abeb",
+  "image_tag": "localhost:5000/physio-portal:1.0.0-b9-180b726bc020",
+  "image_id": "sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5",
+  "container_id": "692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b",
+  "previous_container_id": "618b9216e9346bac9a3da3a8c4c637697d4c159b7fb89fa367ba69c3938487bf",
+  "previous_container_removed": true,
+  "running": true,
+  "port": {
+    "HostIp": "127.0.0.1",
+    "HostPort": "8087"
+  },
+  "volume": "physio-portal-cd-test-data",
+  "registry_tags": [
+    "1.0.0-b9-180b726bc020",
+    "1.0.0-b8-7abc4c2fbe53",
+    "1.0.0-registry-preflight"
+  ],
+  "registry_digest": [
+    "physio-portal@sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5",
+    "localhost:5000/physio-portal@sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5"
+  ],
+  "health": "UP",
+  "home_http": 200,
+  "providers_http": 200,
+  "jenkins_jar_sha256": "f856abda697babe7851295e108b62b892839ef1251a6b253380cb0a96eb9ecc5",
+  "container_jar_sha256": "f856abda697babe7851295e108b62b892839ef1251a6b253380cb0a96eb9ecc5"
+}

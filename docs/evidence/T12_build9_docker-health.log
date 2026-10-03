@@ -1,0 +1,51 @@
+﻿Task 12 Docker health at 2026-10-03T16:43:23.2476283+05:30
+commit=180b726bc020aaa534f65f69283f30b9bb04abeb build=9 image=localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+docker ps -a --filter name=^/physio-portal-cd-test$ --format {{.ID}}
+692075d7910a
+exit=0
+docker inspect physio-portal-cd-test --format {{json .Config.Labels}}
+{"app.env":"test","jenkins.build":"9","managed-by":"jenkins","org.opencontainers.image.created":"2026-09-27T10:25:52.887617+00:00","org.opencontainers.image.description":"The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n","org.opencontainers.image.title":"ubuntu","org.opencontainers.image.version":"26.04","project":"physio-portal-cd","source.commit":"180b726bc020aaa534f65f69283f30b9bb04abeb"}
+exit=0
+{"build_number":"9","build_url":"http://localhost:8080/job/physio-portal-pipeline/9/","git_commit":"180b726bc020aaa534f65f69283f30b9bb04abeb","image_tag":"localhost:5000/physio-portal:1.0.0-b9-180b726bc020","image_id":"sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5","registry_digests":["physio-portal@sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5","localhost:5000/physio-portal@sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5"],"container_name":"physio-portal-cd-test","container_id":"692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b","app_env":"test","host_port":8087,"container_port":8080,"volume":"physio-portal-cd-test-data","health":"UP","homepage_http":200,"providers_http":200,"url":"http://localhost:8087/","deployed_at":"2026-10-03T16:43:30.9282943+05:30"}
+docker logs --tail 40 physio-portal-cd-test
+
+ :: Spring Boot ::                (v4.0.8)
+
+2026-10-03T11:13:22.729Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : Starting PhysioPortalApplication v1.0.0 using Java 21.0.12.1 with PID 1 (/app/app.jar started by ? in /app)
+2026-10-03T11:13:22.735Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : The following 1 profile is active: "test"
+2026-10-03T11:13:23.823Z  INFO 1 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-10-03T11:13:23.868Z  INFO 1 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 35 ms. Found 4 JPA repository interfaces.
+2026-10-03T11:13:24.718Z  INFO 1 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-10-03T11:13:24.743Z  INFO 1 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-10-03T11:13:24.743Z  INFO 1 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+2026-10-03T11:13:24.771Z  INFO 1 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1953 ms
+2026-10-03T11:13:25.233Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-10-03T11:13:25.299Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.24.Final
+2026-10-03T11:13:25.732Z  INFO 1 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-10-03T11:13:25.757Z  INFO 1 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-10-03T11:13:25.941Z  INFO 1 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/physio user=SA
+2026-10-03T11:13:25.944Z  INFO 1 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-10-03T11:13:25.990Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:h2:file:./data/physio]
+	Database driver: H2 JDBC Driver
+	Database dialect: H2Dialect
+	Database version: 2.4.240
+	Default catalog/schema: PHYSIO/PUBLIC
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: 100
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-10-03T11:13:27.327Z  INFO 1 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-10-03T11:13:27.450Z  INFO 1 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-10-03T11:13:27.578Z  INFO 1 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-10-03T11:13:28.586Z  INFO 1 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+2026-10-03T11:13:28.792Z  INFO 1 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-10-03T11:13:29.306Z  INFO 1 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-10-03T11:13:29.416Z  INFO 1 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-10-03T11:13:29.423Z  INFO 1 --- [physio-portal] [           main] c.k.physio.PhysioPortalApplication       : Started PhysioPortalApplication in 7.387 seconds (process running for 8.265)
+2026-10-03T11:13:29.730Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-10-03T11:13:29.730Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-10-03T11:13:29.732Z  INFO 1 --- [physio-portal] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+exit=0

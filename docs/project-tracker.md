@@ -19,7 +19,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 09 | Selenium | ✅ | Five actual Chrome WebDriver cases passed twice, 34 backend tests passed; HTML/XML, fixture cleanup, failure screenshot and exit 1 verified; Task 9 guide/evidence published |
 | 10 | Continuous Testing | ✅ | Jenkins #4 deliberate Selenium FAILURE skipped Deploy; old deployment unchanged/UP; correction #5 and merged #6 passed 39 tests and deployed; reports, screenshots and PR #5 saved |
 | 11 | Docker | ✅ | 34-test JAR; Docker image `physio-portal:1.0.0`; versioned image/container IDs, 8086→8080 mapping, logs, stop/start/restart/rm, final healthy container and screenshot verified in [Task 11 guide](task-11-docker.md). |
-| 12 | Docker CD | 🟡 | Feature Jenkins #8 passed 39 tests, pushed commit-tagged image to local registry and deployed healthy 8087 container; reviewed merge and final develop replacement run pending. See [Task 12 guide](task-12-docker-cd.md). |
+| 12 | Docker CD | ✅ | PR #7 COMMENT self-reviewed and merged; develop Jenkins #9 passed 39 tests, pushed versioned image, removed prior owned container and deployed a new healthy 8087 container. See [Task 12 guide](task-12-docker-cd.md). |
 | 13 | Ansible | ⬜ | Not started |
 | 14 | Provisioning/Reliability | ⬜ | Not started |
 | 15 | Final Validation | ⬜ | Not started |
@@ -27,13 +27,13 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | Area | Current verified state |
 |---|---|
 | Application | Full patient MVP verified; healthy Task 10 merged build #6 on localhost:8082 and earlier demo on 8081; embedded Tomcat, separate persistent databases, live/archive JAR hashes matched |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#5 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes the Jenkins Selenium gate and evidence |
-| Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; physio-portal-pipeline #4 deliberate browser FAILURE with Deploy skipped; #5 corrected SUCCESS and #6 merged SUCCESS, each passing run with 39 tests and healthy deployment; earlier #1–#3 evidence retained |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#7 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 12 Docker CD |
+| Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Task 11 local image/lifecycle verified on 8086; Task 12 feature Jenkins #8 pushed registry image and deployed healthy 8087 container, with final develop replacement still pending |
+| Docker | Task 11 local image/lifecycle verified on 8086; Task 12 Jenkins #9 pushed `1.0.0-b9-180b726bc020` to loopback registry, removed build #8 container, deployed new container on 8087 and verified health UP |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–11 complete; Task 12 guide records feature Jenkins build #7 failure, corrected #8 registry push/deployment, IDs, logs and screenshot; final merge/run pending |
-| Evidence | Tasks 3–7 retained; Task 8 pipeline/deployment evidence; Task 9 local proof; Task 10 Jenkins #4 failure, #5 correction and #6 merged run, 39-test JUnit, failed/success HTML/XML, deployment hash/health, PR/review and screenshots; Task 11 JAR/test result, Docker lifecycle transcript, and live container screenshot |
+| Documentation | Tasks 1–12 complete; Task 12 guide records feature #7 failure, corrected #8 and merged #9, registry digest, container replacement, health, logs and screenshot |
+| Evidence | Tasks 3–11 retained; Task 12 Jenkins #8/#9 consoles, API/tests, six stage logs per successful build, deployment metadata, before/after checks, registry digest, PR review/merge and live container screenshot |
 
 ## Task 1 evidence checklist
 
@@ -112,4 +112,12 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Task 11 guide](task-11-docker.md), [command log](evidence/T11_docker_lifecycle.txt), and real [container-served page screenshot](../screenshots/T11_docker_running.png) saved
 - ✅ [PR #6](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/6) received COMMENT self-review and merged at `fb372c14a8c16925a47e787163e2d766964afade`; local `develop` synchronized
 
-Tasks 1–11 are ✅. Task 12 is 🟡 pending reviewed merge and a final develop build that replaces the first Jenkins container. Tasks 13–15 are ⬜. No Ansible run is claimed yet.
+## Task 12 verification gate
+
+- ✅ [PR #7](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7#pullrequestreview-5400448994) and merged at `180b726bc020aaa534f65f69283f30b9bb04abeb`; Jenkins SCM restored to `develop`
+- ✅ Feature build #8 and merged [develop build #9](http://localhost:8080/job/physio-portal-pipeline/9/) completed the 39-test gate and Docker Build → Tag → Push → Stop → Run → Health sequence
+- ✅ Registry contains `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` at digest `sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5`
+- ✅ Build #8 container was stopped and removed; build #9 container `692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b` runs on `127.0.0.1:8087`, health UP and home/providers HTTP 200
+- ✅ Jenkins archive JAR and container JAR hashes match; console, stage logs, metadata, before/after checks and screenshot saved in [Task 12 guide](task-12-docker-cd.md)
+
+Tasks 1–12 are ✅. Tasks 13–15 are ⬜. No Ansible run is claimed yet.

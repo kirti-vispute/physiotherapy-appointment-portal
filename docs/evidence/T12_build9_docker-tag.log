@@ -1,0 +1,7 @@
+﻿Task 12 Docker tag at 2026-10-03T16:43:07.7264636+05:30
+commit=180b726bc020aaa534f65f69283f30b9bb04abeb build=9 image=localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+docker tag physio-portal:1.0.0-b9-180b726bc020 localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+exit=0
+docker image inspect localhost:5000/physio-portal:1.0.0-b9-180b726bc020 --format image_id={{.Id}}
+image_id=sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5
+exit=0

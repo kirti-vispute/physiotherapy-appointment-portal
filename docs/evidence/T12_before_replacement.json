@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-03T16:39:39.4881523+05:30",
+  "container_id": "618b9216e9346bac9a3da3a8c4c637697d4c159b7fb89fa367ba69c3938487bf",
+  "image_id": "sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a",
+  "source_commit": "7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf",
+  "jenkins_build": "8",
+  "running": true,
+  "health": "UP"
+}

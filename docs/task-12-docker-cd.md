@@ -4,7 +4,7 @@
 
 **Date:** 3 October 2026
 
-**Status:** Feature-branch Jenkins build #8 verified; reviewed merge and final `develop` run pending
+**Status:** ✅ Complete — feature build #8 and merged `develop` build #9 verified
 
 ## Deployment path
 
@@ -58,6 +58,23 @@ The [independent check](evidence/T12_independent_build8.json) compares registry 
 
 **Screenshot required?** Yes. **What is visible?** The real providers page served by the Task 12 container at the mapped 8087 host port, with two fictional providers. It is a headless Chrome capture of the live site, not a Docker or Jenkins UI screenshot. The command log and JSON evidence above prove the Jenkins build, registry push, IDs, and mapping. **Command location/type:** PowerShell at project root, Chrome headless with `--window-size=1440,900`, `--screenshot=<project>/screenshots/T12_docker_deployment.png`, and URL `http://127.0.0.1:8087/physiotherapists`. **Expected and actual result:** the healthy portal page. **Suggested filename used:** `T12_docker_deployment.png`.
 
-## Remaining verification
+## Reviewed merge and final `develop` deployment
 
-Review and merge the Task 12 branch, restore Jenkins SCM to `develop`, then run the merged commit through the same 39-test gate. That run must actually stop/remove build #8's owned container and start a new container tagged with the merge commit. Record the final registry digest, new container ID, health and review/merge evidence before marking Task 12 complete.
+[PR #7](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7) received an honest [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7#pullrequestreview-5400448994) and was merged at `180b726bc020aaa534f65f69283f30b9bb04abeb`. This was a single-contributor review, not independent approval. Jenkins SCM was restored to `*/develop`; the [saved job configuration](evidence/T12_job_develop.xml) records it.
+
+[Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) checked out that exact merge commit. Its [console](evidence/T12_console_build9_success.txt) shows all stages in order and `SUCCESS`; the [test result](evidence/T12_build9_tests.json) records **39 passes, zero failures, zero skips**. The versioned registry image was pushed before Jenkins stopped and removed build #8's owned container, then pulled and ran a new container. This is the observed commit → passing tests → registry → fresh container path, without a manual application `docker run` between the Jenkins stages.
+
+| Field | Observed final value |
+|---|---|
+| Registry image | `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` |
+| Registry digest / image ID | `sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5` |
+| New container | `physio-portal-cd-test`, ID `692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b` |
+| Previous container | Build #8 ID `618b9216e9346bac9a3da3a8c4c637697d4c159b7fb89fa367ba69c3938487bf`, stopped and removed |
+| Network and data | Host `127.0.0.1:8087` → container `8080/tcp`; volume `physio-portal-cd-test-data` reused |
+| Source label | `180b726bc020aaa534f65f69283f30b9bb04abeb` |
+| Health/pages | `UP`; home HTTP 200; providers HTTP 200 |
+| Artifact identity | Jenkins JAR and `/app/app.jar` SHA256 both `f856abda697babe7851295e108b62b892839ef1251a6b253380cb0a96eb9ecc5` |
+
+The [before state](evidence/T12_before_replacement.json) identifies the healthy old container. The [stop log](evidence/T12_build9_docker-stop.log) shows its ownership labels, `docker stop`, and `docker rm`. The [independent after check](evidence/T12_independent_build9.json) verifies the old ID is absent, the new ID is running with the merge commit label, the versioned registry tag/digest exists, and the live pages, health, port, volume and JAR match the Jenkins archive. The actual [push log](evidence/T12_build9_docker-push.log), [deployment metadata](evidence/T12_build9_deployment.json), [Jenkins API result](evidence/T12_build9_api.json), and [build](evidence/T12_build9_docker-build.log), [tag](evidence/T12_build9_docker-tag.log), [run](evidence/T12_build9_docker-run.log), and [health/logs](evidence/T12_build9_docker-health.log) complete the per-stage record.
+
+The screenshot above was captured during feature build #8 and shows the real app served on 8087. The build #9 console and archived records establish the final replacement and image identity. A deliberately failed health check was not run in Task 12; the helper fails the pipeline when its health checks do not pass. Bad-release recovery belongs to Task 14.

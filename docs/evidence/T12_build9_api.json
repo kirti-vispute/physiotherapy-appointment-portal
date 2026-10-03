@@ -1,0 +1,237 @@
+{
+  "_class": "org.jenkinsci.plugins.workflow.job.WorkflowRun",
+  "actions": [
+    {
+      "_class": "hudson.model.ParametersAction",
+      "parameters": [
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "APP_ENV",
+          "value": "test"
+        },
+        {
+          "_class": "hudson.model.StringParameterValue",
+          "name": "DOCKER_PORT",
+          "value": "8087"
+        }
+      ]
+    },
+    {
+      "_class": "hudson.model.CauseAction"
+    },
+    {
+      "_class": "hudson.plugins.git.util.BuildData"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.libs.LibrariesAction"
+    },
+    {},
+    {
+      "_class": "hudson.tasks.junit.TestResultAction"
+    },
+    {},
+    {},
+    {},
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.displayurlapi.actions.RunDisplayAction"
+    },
+    {
+      "_class": "org.jenkinsci.plugins.pipeline.modeldefinition.actions.RestartDeclarativePipelineAction"
+    },
+    {},
+    {
+      "_class": "org.jenkinsci.plugins.workflow.job.views.FlowGraphAction"
+    },
+    {},
+    {}
+  ],
+  "artifacts": [
+    {
+      "relativePath": "target/docker-build.log"
+    },
+    {
+      "relativePath": "target/docker-deployment.json"
+    },
+    {
+      "relativePath": "target/docker-health.log"
+    },
+    {
+      "relativePath": "target/docker-push.log"
+    },
+    {
+      "relativePath": "target/docker-run.log"
+    },
+    {
+      "relativePath": "target/docker-stop.log"
+    },
+    {
+      "relativePath": "target/docker-tag.log"
+    },
+    {
+      "relativePath": "target/failsafe-reports/TEST-com.kirtivispute.physio.selenium.PortalSeleniumIT.xml"
+    },
+    {
+      "relativePath": "target/physio-portal-1.0.0.jar"
+    },
+    {
+      "relativePath": "target/selenium-app/application-error.log"
+    },
+    {
+      "relativePath": "target/selenium-app/application.log"
+    },
+    {
+      "relativePath": "target/selenium-app/run.json"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL01-registration.png"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL01-registration.properties"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL02-available-slot.png"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL02-available-slot.properties"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL03-booking.png"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL03-booking.properties"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL04-cancellation.png"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL04-cancellation.properties"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL05-status.png"
+    },
+    {
+      "relativePath": "target/selenium-evidence/SEL05-status.properties"
+    },
+    {
+      "relativePath": "target/selenium-report/css/apache-maven-fluido-2.0.0-M9.min.css"
+    },
+    {
+      "relativePath": "target/selenium-report/css/print.css"
+    },
+    {
+      "relativePath": "target/selenium-report/css/site.css"
+    },
+    {
+      "relativePath": "target/selenium-report/fonts/glyphicons-halflings-regular.eot"
+    },
+    {
+      "relativePath": "target/selenium-report/fonts/glyphicons-halflings-regular.svg"
+    },
+    {
+      "relativePath": "target/selenium-report/fonts/glyphicons-halflings-regular.ttf"
+    },
+    {
+      "relativePath": "target/selenium-report/fonts/glyphicons-halflings-regular.woff"
+    },
+    {
+      "relativePath": "target/selenium-report/images/accessories-text-editor.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/add.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/apache-maven-project-2.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/application-certificate.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/contact-new.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/document-properties.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/drive-harddisk.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/fix.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/icon_error_sml.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/icon_help_sml.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/icon_info_sml.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/icon_success_sml.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/icon_warning_sml.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/image-x-generic.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/internet-web-browser.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/logos/build-by-maven-black.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/logos/build-by-maven-white.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/logos/maven-feather.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/network-server.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/package-x-generic.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/profiles/pre-release.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/profiles/retired.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/profiles/sandbox.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/remove.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/rss.png"
+    },
+    {
+      "relativePath": "target/selenium-report/images/update.gif"
+    },
+    {
+      "relativePath": "target/selenium-report/images/window-new.png"
+    },
+    {
+      "relativePath": "target/selenium-report/img/glyphicons-halflings-white.png"
+    },
+    {
+      "relativePath": "target/selenium-report/img/glyphicons-halflings.png"
+    },
+    {
+      "relativePath": "target/selenium-report/js/apache-maven-fluido-2.0.0-M9.min.js"
+    },
+    {
+      "relativePath": "target/selenium-report/selenium.html"
+    }
+  ],
+  "building": false,
+  "duration": 207458,
+  "number": 9,
+  "result": "SUCCESS",
+  "url": "http://localhost:8080/job/physio-portal-pipeline/9/"
+}

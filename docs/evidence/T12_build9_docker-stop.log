@@ -1,0 +1,18 @@
+﻿Task 12 Docker stop at 2026-10-03T16:43:13.4298741+05:30
+commit=180b726bc020aaa534f65f69283f30b9bb04abeb build=9 image=localhost:5000/physio-portal:1.0.0-b9-180b726bc020
+docker ps -a --filter name=^/physio-portal-cd-test$ --format {{.ID}}
+618b9216e934
+exit=0
+docker inspect physio-portal-cd-test --format {{json .Config.Labels}}
+{"app.env":"test","jenkins.build":"8","managed-by":"jenkins","org.opencontainers.image.created":"2026-09-27T10:25:52.887617+00:00","org.opencontainers.image.description":"The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n","org.opencontainers.image.title":"ubuntu","org.opencontainers.image.version":"26.04","project":"physio-portal-cd","source.commit":"7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf"}
+exit=0
+docker inspect physio-portal-cd-test --format {{.State.Running}}
+true
+exit=0
+docker stop physio-portal-cd-test
+physio-portal-cd-test
+exit=0
+docker rm physio-portal-cd-test
+physio-portal-cd-test
+exit=0
+Removed previous owned container 618b9216e934
