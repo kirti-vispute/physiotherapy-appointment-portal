@@ -1,0 +1,73 @@
+---
+- name: Prepare Ubuntu for the physiotherapy portal container
+  hosts: physio_targets
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Require the documented Ubuntu target
+      ansible.builtin.assert:
+        that:
+          - ansible_distribution == 'Ubuntu'
+          - ansible_distribution_major_version | int >= 24
+        fail_msg: This lab playbook targets Ubuntu 24.04 or newer.
+
+    - name: Install target prerequisites
+      ansible.builtin.apt:
+        name:
+          - ca-certificates
+          - curl
+          - docker.io
+          - git
+          - python3
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Enable and start the Docker Engine
+      ansible.builtin.systemd_service:
+        name: docker
+        enabled: true
+        state: started
+
+    - name: Create the application group
+      ansible.builtin.group:
+        name: "{{ portal_group }}"
+        gid: "{{ portal_gid }}"
+        system: true
+        state: present
+
+    - name: Create the non-login application account
+      ansible.builtin.user:
+        name: "{{ portal_user }}"
+        uid: "{{ portal_uid }}"
+        group: "{{ portal_group }}"
+        system: true
+        create_home: false
+        shell: /usr/sbin/nologin
+        state: present
+
+    - name: Create the application configuration directory
+      ansible.builtin.file:
+        path: "{{ portal_directory }}"
+        state: directory
+        owner: "{{ portal_user }}"
+        group: "{{ portal_group }}"
+        mode: '0750'
+
+    - name: Write the non-secret container deployment settings
+      ansible.builtin.template:
+        src: deployment.env.j2
+        dest: "{{ portal_directory }}/deployment.env"
+        owner: root
+        group: "{{ portal_group }}"
+        mode: '0640'
+
+    - name: Verify that the Linux Docker Engine responds
+      ansible.builtin.command: docker version
+      register: docker_version_result
+      changed_when: false
+
+    - name: Show the configured Docker version
+      ansible.builtin.debug:
+        msg: "{{ docker_version_result.stdout_lines | select('search', 'Version:') | list }}"

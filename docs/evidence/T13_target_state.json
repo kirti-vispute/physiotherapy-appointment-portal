@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-10-03T17:04:12.4430475+05:30",
+  "target": "Ubuntu-24.04 WSL",
+  "ansible_run": "T13_ansible_first_run.txt",
+  "docker_active": "active",
+  "docker_enabled": "enabled",
+  "docker_server_version": "29.1.3",
+  "service_user": "uid=10001(physio) gid=10001(physio) groups=10001(physio)",
+  "config_directory": "750 physio:physio /opt/physio-portal",
+  "deployment_env": "640 root:physio /opt/physio-portal/deployment.env",
+  "registry_http": "200"
+}

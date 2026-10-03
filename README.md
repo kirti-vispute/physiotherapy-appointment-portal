@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–12 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. Task 10 proved a failing Selenium case skipped deployment and a corrected run passed all **39 tests**. Task 11 built the versioned Docker image and demonstrated its lifecycle on **[localhost:8086](http://localhost:8086/)**. Task 12 merged [Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) passed 39 tests, pushed a commit-tagged image to the local registry, replaced the old container, and serves a healthy portal at **[localhost:8087](http://localhost:8087/)**. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–13 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. Task 10 proved a failing Selenium case skipped deployment and a corrected run passed all **39 tests**. Task 11 built the versioned Docker image and demonstrated its lifecycle on **[localhost:8086](http://localhost:8086/)**. Task 12 merged [Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) passed 39 tests, pushed a commit-tagged image to the local registry, replaced the old container, and serves a healthy portal at **[localhost:8087](http://localhost:8087/)**. Task 13 configured Ubuntu WSL with Ansible; its first run ended `ok=10 changed=5 failed=0`. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -53,7 +53,7 @@ scripts/deploy-local.ps1   Owned local Windows demo deployment
 .gitignore                Local/build files excluded from Git
 ```
 
-`Dockerfile` is verified for Task 11; `ansible/` will be added in its assigned task. Empty placeholder files are not used as proof of implementation.
+`Dockerfile` is verified for Task 11; `ansible/` contains the verified Task 13 inventory, variables, template, playbook and run guide. Empty placeholder files are not used as proof of implementation.
 
 ## Local setup and running
 
@@ -114,7 +114,7 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 ## Ansible configuration and reliability
 
-**Planned for Tasks 13–14; no playbook has run yet.** Ansible from WSL Ubuntu will configure the documented Linux target, application folders/files, and container deployment, then verify health. A second run will demonstrate idempotency. A bad-release simulation and rollback to a known good version will be documented with actual logs. Docker Desktop on Windows is a host prerequisite, not something the Linux playbook claims to install. Exact commands will live in `ansible/README.md` after the playbook exists.
+**Task 13 verified:** Ubuntu 24.04 WSL runs Ansible against itself via a local connection. The [playbook and guide](ansible/README.md) specify prerequisites, install/start its own Linux Docker Engine, create the non-login `physio` account and `/opt/physio-portal`, and render a non-secret deployment file with a pinned image and port 8089. The first run ended `ok=10 changed=5 failed=0`; Docker is active/enabled and the registry manifest is reachable. Task 14 will deploy the container, repeat the playbook for idempotency, check health and demonstrate rollback. No Ubuntu application container or rollback is claimed yet.
 
 ## Project workflow and evidence
 
@@ -161,6 +161,8 @@ Task 9 also preserves the five [journey screenshots](docs/task-09-selenium.md), 
 ![Task 11 portal served from Docker](screenshots/T11_docker_running.png)
 
 ![Task 12 portal served from Jenkins-deployed Docker container](screenshots/T12_docker_deployment.png)
+
+![Task 13 Ansible first-run output](screenshots/T13_ansible_execution.png)
 
 ## Contributors
 
