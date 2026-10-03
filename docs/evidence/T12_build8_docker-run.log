@@ -1,0 +1,19 @@
+﻿Task 12 Docker run at 2026-10-03T16:23:22.3742435+05:30
+commit=7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf build=8 image=localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+docker ps -a --filter name=^/physio-portal-cd-test$ --format {{.ID}}
+exit=0
+docker pull localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+1.0.0-b8-7abc4c2fbe53: Pulling from physio-portal
+Digest: sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a
+Status: Image is up to date for localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+exit=0
+docker volume create physio-portal-cd-test-data
+physio-portal-cd-test-data
+exit=0
+docker run -d --name physio-portal-cd-test --label project=physio-portal-cd --label managed-by=jenkins --label source.commit=7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf --label jenkins.build=8 --label app.env=test -e SPRING_PROFILES_ACTIVE=test -p 127.0.0.1:8087:8080 --mount type=volume,source=physio-portal-cd-test-data,target=/app/data localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+618b9216e9346bac9a3da3a8c4c637697d4c159b7fb89fa367ba69c3938487bf
+exit=0
+docker ps --filter name=^/physio-portal-cd-test$ --format id={{.ID}} image={{.Image}} status={{.Status}} ports={{.Ports}}
+id=618b9216e934 image=localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53 status=Up Less than a second ports=127.0.0.1:8087->8080/tcp
+exit=0

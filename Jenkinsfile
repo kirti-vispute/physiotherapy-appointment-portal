@@ -13,8 +13,8 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     }
     parameters {
-        choice(name: 'APP_ENV', choices: ['demo', 'test'], description: 'Spring profile and separate deployment/database directory')
-        choice(name: 'PORT', choices: ['8081', '8082'], description: 'Local application port; Jenkins uses 8080')
+        choice(name: 'APP_ENV', choices: ['test', 'demo'], description: 'Spring profile and separate Docker data volume')
+        choice(name: 'DOCKER_PORT', choices: ['8087', '8088'], description: 'Local host port mapped to container port 8080')
     }
     stages {
         stage('Checkout') {
@@ -70,16 +70,33 @@ pipeline {
                 echo 'Published five-journey Selenium HTML and XML results.'
             }
         }
-        stage('Deploy') {
+        stage('Docker Build') {
             steps {
-                powershell '& "$env:WORKSPACE/scripts/deploy-local.ps1"'
-                archiveArtifacts artifacts: 'target/deployment.json,target/deploy-*.log', fingerprint: true
+                powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action build'
             }
+        }
+        stage('Docker Tag') {
+            steps { powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action tag' }
+        }
+        stage('Docker Push') {
+            steps { powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action push' }
+        }
+        stage('Stop Previous Container') {
+            steps { powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action stop' }
+        }
+        stage('Run New Container') {
+            steps { powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action run' }
+        }
+        stage('Health Check') {
+            steps { powershell '& "$env:WORKSPACE/scripts/docker-cd.ps1" -Action health' }
         }
     }
     post {
-        always { powershell '& "$env:WORKSPACE/scripts/selenium-app.ps1" -Action stop' }
-        success { echo "Application deployed: http://localhost:${params.PORT}/ (APP_ENV=${params.APP_ENV})" }
+        always {
+            powershell '& "$env:WORKSPACE/scripts/selenium-app.ps1" -Action stop'
+            archiveArtifacts artifacts: 'target/docker-deployment.json,target/docker-*.log', allowEmptyArchive: true, fingerprint: true
+        }
+        success { echo "Container deployed: http://localhost:${params.DOCKER_PORT ?: '8087'}/ (APP_ENV=${params.APP_ENV})" }
         failure { echo 'Pipeline failed. Inspect the stage and console; no successful deployment is claimed.' }
     }
 }

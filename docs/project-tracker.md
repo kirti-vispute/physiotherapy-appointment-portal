@@ -19,7 +19,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 09 | Selenium | ✅ | Five actual Chrome WebDriver cases passed twice, 34 backend tests passed; HTML/XML, fixture cleanup, failure screenshot and exit 1 verified; Task 9 guide/evidence published |
 | 10 | Continuous Testing | ✅ | Jenkins #4 deliberate Selenium FAILURE skipped Deploy; old deployment unchanged/UP; correction #5 and merged #6 passed 39 tests and deployed; reports, screenshots and PR #5 saved |
 | 11 | Docker | ✅ | 34-test JAR; Docker image `physio-portal:1.0.0`; versioned image/container IDs, 8086→8080 mapping, logs, stop/start/restart/rm, final healthy container and screenshot verified in [Task 11 guide](task-11-docker.md). |
-| 12 | Docker CD | ⬜ | Not started |
+| 12 | Docker CD | 🟡 | Feature Jenkins #8 passed 39 tests, pushed commit-tagged image to local registry and deployed healthy 8087 container; reviewed merge and final develop replacement run pending. See [Task 12 guide](task-12-docker-cd.md). |
 | 13 | Ansible | ⬜ | Not started |
 | 14 | Provisioning/Reliability | ⬜ | Not started |
 | 15 | Final Validation | ⬜ | Not started |
@@ -30,9 +30,9 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#5 reviewed/merged; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes the Jenkins Selenium gate and evidence |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; physio-portal-pipeline #4 deliberate browser FAILURE with Deploy skipped; #5 corrected SUCCESS and #6 merged SUCCESS, each passing run with 39 tests and healthy deployment; earlier #1–#3 evidence retained |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Docker Desktop Linux engine 29.7.2 recovered; `physio-portal:1.0.0` built and full lifecycle shown; final local container on 8086 has health UP |
+| Docker | Task 11 local image/lifecycle verified on 8086; Task 12 feature Jenkins #8 pushed registry image and deployed healthy 8087 container, with final develop replacement still pending |
 | Ansible | Not checked or configured |
-| Documentation | Tasks 1–11 complete; Docker guide includes actual command transcript, IDs, mapping, logs, health, startup recovery, and screenshot |
+| Documentation | Tasks 1–11 complete; Task 12 guide records feature Jenkins build #7 failure, corrected #8 registry push/deployment, IDs, logs and screenshot; final merge/run pending |
 | Evidence | Tasks 3–7 retained; Task 8 pipeline/deployment evidence; Task 9 local proof; Task 10 Jenkins #4 failure, #5 correction and #6 merged run, 39-test JUnit, failed/success HTML/XML, deployment hash/health, PR/review and screenshots; Task 11 JAR/test result, Docker lifecycle transcript, and live container screenshot |
 
 ## Task 1 evidence checklist
@@ -112,4 +112,4 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Task 11 guide](task-11-docker.md), [command log](evidence/T11_docker_lifecycle.txt), and real [container-served page screenshot](../screenshots/T11_docker_running.png) saved
 - ✅ [PR #6](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/6) received COMMENT self-review and merged at `fb372c14a8c16925a47e787163e2d766964afade`; local `develop` synchronized
 
-Tasks 1–11 are ✅. Tasks 12–15 are ⬜. Next: Task 12 Jenkins and Docker continuous deployment; no registry push or Ansible run is claimed yet.
+Tasks 1–11 are ✅. Task 12 is 🟡 pending reviewed merge and a final develop build that replaces the first Jenkins container. Tasks 13–15 are ⬜. No Ansible run is claimed yet.

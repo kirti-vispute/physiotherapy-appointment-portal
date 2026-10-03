@@ -1,0 +1,5 @@
+﻿Task 12 Docker stop at 2026-10-03T16:23:19.5412940+05:30
+commit=7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf build=8 image=localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+docker ps -a --filter name=^/physio-portal-cd-test$ --format {{.ID}}
+exit=0
+No previous physio-portal-cd-test container to stop.

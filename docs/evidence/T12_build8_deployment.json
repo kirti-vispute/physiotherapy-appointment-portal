@@ -1,0 +1,22 @@
+﻿{
+    "build_number":  "8",
+    "build_url":  "http://localhost:8080/job/physio-portal-pipeline/8/",
+    "git_commit":  "7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf",
+    "image_tag":  "localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53",
+    "image_id":  "sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a",
+    "registry_digests":  [
+                             "physio-portal@sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a",
+                             "localhost:5000/physio-portal@sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a"
+                         ],
+    "container_name":  "physio-portal-cd-test",
+    "container_id":  "618b9216e9346bac9a3da3a8c4c637697d4c159b7fb89fa367ba69c3938487bf",
+    "app_env":  "test",
+    "host_port":  8087,
+    "container_port":  8080,
+    "volume":  "physio-portal-cd-test-data",
+    "health":  "UP",
+    "homepage_http":  200,
+    "providers_http":  200,
+    "url":  "http://localhost:8087/",
+    "deployed_at":  "2026-10-03T16:23:39.7189440+05:30"
+}

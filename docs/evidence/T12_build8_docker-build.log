@@ -1,0 +1,54 @@
+﻿Task 12 Docker build at 2026-10-03T16:22:57.0201576+05:30
+commit=7abc4c2fbe539e1dbfa8f5d4f759734b570dbedf build=8 image=localhost:5000/physio-portal:1.0.0-b8-7abc4c2fbe53
+docker buildx version
+github.com/docker/buildx v0.36.1-desktop.1 83d819cf8237b52ef45a2a9857eeb83a7b10977f
+exit=0
+docker build --pull -t physio-portal:1.0.0-b8-7abc4c2fbe53 .
+#0 building with "default" instance using docker driver
+System.Management.Automation.RemoteException
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 387B 0.0s done
+#1 DONE 0.1s
+System.Management.Automation.RemoteException
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:21-jre
+#2 DONE 2.7s
+System.Management.Automation.RemoteException
+#3 [internal] load .dockerignore
+#3 transferring context: 87B 0.0s done
+#3 DONE 0.0s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 ...
+System.Management.Automation.RemoteException
+#5 [1/4] FROM docker.io/library/eclipse-temurin:21-jre@sha256:cff19e6215689161eb6162c11b86b0c60ddf802164f2eaf48d570f8fb79a36c5
+#5 resolve docker.io/library/eclipse-temurin:21-jre@sha256:cff19e6215689161eb6162c11b86b0c60ddf802164f2eaf48d570f8fb79a36c5 0.1s done
+#5 DONE 0.1s
+System.Management.Automation.RemoteException
+#4 [internal] load build context
+#4 transferring context: 65.10MB 3.4s done
+#4 DONE 3.4s
+System.Management.Automation.RemoteException
+#6 [2/4] WORKDIR /app
+#6 CACHED
+System.Management.Automation.RemoteException
+#7 [3/4] RUN mkdir -p /app/data && chown -R 10001:10001 /app
+#7 CACHED
+System.Management.Automation.RemoteException
+#8 [4/4] COPY --chown=10001:10001 target/physio-portal-1.0.0.jar /app/app.jar
+#8 DONE 0.1s
+System.Management.Automation.RemoteException
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 2.4s done
+#9 exporting manifest sha256:713b1fc88aab5e94a824236afb954fe503b58b4a843b1a3ea0e82ac4b2e492be 0.0s done
+#9 exporting config sha256:afa9601df18dd921ca3a8cbf083d6d8a74b6a2f809738c8a814da6f6968939bd 0.0s done
+#9 exporting attestation manifest sha256:073411804b392b3ba7e33c03b1583301628fdd82b1de7fe3499027046521d09d 0.0s done
+#9 exporting manifest list sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a 0.0s done
+#9 naming to docker.io/library/physio-portal:1.0.0-b8-7abc4c2fbe53 done
+#9 unpacking to docker.io/library/physio-portal:1.0.0-b8-7abc4c2fbe53
+#9 unpacking to docker.io/library/physio-portal:1.0.0-b8-7abc4c2fbe53 0.5s done
+#9 DONE 3.1s
+exit=0
+docker image inspect physio-portal:1.0.0-b8-7abc4c2fbe53 --format image_id={{.Id}}
+image_id=sha256:99d581fdce45bbd845698c0e104c949e8991c787d013d9bc6347b42923ed054a
+exit=0
