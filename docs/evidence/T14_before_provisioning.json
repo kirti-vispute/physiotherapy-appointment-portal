@@ -1,0 +1,9 @@
+{
+  "checked_at": "2026-10-03T20:46:14.7221578+05:30",
+  "target": "Ubuntu-24.04 WSL",
+  "container_present": false,
+  "image_present": false,
+  "planned_image": "localhost:5000/physio-portal:1.0.0-b9-180b726bc020",
+  "planned_host_port": 8089,
+  "registry_http": "200"
+}

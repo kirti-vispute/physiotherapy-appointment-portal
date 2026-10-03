@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-03T20:52:19.5758421+05:30",
+  "container_id": "35ce9cc9dd2f774d87f5aa41491d64318718b263a745ba59f41c340d229faccb",
+  "image_id": "sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5",
+  "image_tag": "localhost:5000/physio-portal:1.0.0-b9-180b726bc020",
+  "running": true,
+  "application_port": 8080,
+  "host_port": 8089,
+  "volume": "physio-portal-ansible-data",
+  "health": "UP",
+  "home_http": 200,
+  "providers_http": 200
+}

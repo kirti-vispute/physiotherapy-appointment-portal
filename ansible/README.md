@@ -3,13 +3,13 @@
 **Owner:** Kirti Vispute (23102C0078)
 
 **Date:** 3 October 2026
-**Status:** ✅ First configuration run verified; deployment and second run are Task 14
+**Status:** ✅ First configuration run verified; [Task 14](../docs/task-14-provisioning.md) subsequently deployed, repeated and recovered the container
 
 [PR #8](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8) received an honest [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8#pullrequestreview-5401355533) and was merged into `develop` at `4f1c1858bd61e397ba005634136c08295b0d6634`. This is a single-contributor review, not independent approval. The merged playbook blob matches the tested feature version.
 
 ## Objective and target
 
-Ansible prepares Ubuntu 24.04 in WSL for the physiotherapy portal container. This Ubuntu distribution is both the Ansible control node and the managed node, using a local connection. It has its own Linux Docker Engine, separate from the Docker Desktop engine that Jenkins uses on Windows. Task 13 configures the machine and application settings. Task 14 will deploy a container, repeat the playbook, check health, and demonstrate recovery.
+Ansible prepares Ubuntu 24.04 in WSL for the physiotherapy portal container. This Ubuntu distribution is both the Ansible control node and the managed node, using a local connection. It has its own Linux Docker Engine, separate from the Docker Desktop engine that Jenkins uses on Windows. Task 13 configured the machine and application settings; [Task 14](../docs/task-14-provisioning.md) deployed a container, repeated the playbook, checked health, and demonstrated recovery.
 
 ## Configuration specification
 
@@ -24,10 +24,10 @@ Ansible prepares Ubuntu 24.04 in WSL for the physiotherapy portal container. Thi
 | Environment file | `/opt/physio-portal/deployment.env`, `root:physio`, mode `0640` | Rendered with no secrets and verified |
 | Docker configuration | Pinned image, container name, volume, environment, bind address and ports | Set in the Ansible variables and environment template; no Docker Desktop daemon settings changed |
 | Docker service | Ubuntu `docker.service` enabled and running | `enabled`, `active`; server version 29.1.3 |
-| Application container | `physio-portal-ansible` on the Ubuntu engine | Planned for Task 14; not started in Task 13 |
+| Application container | `physio-portal-ansible` on the Ubuntu engine | Not started during Task 13; deployed and verified in Task 14 |
 | Ports | Registry `127.0.0.1:5000`; future app `127.0.0.1:8089` → container `8080` | Registry HTTP 200 and pinned manifest verified; app port reserved |
 
-Ansible uses `root` for local lab package and system configuration. The non-login `physio` account matches the Docker image's runtime UID 10001 and is not added to the host Docker group. The H2 data will use named volume `physio-portal-ansible-data` when Task 14 deploys the container. The environment file pins image `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` and contains no credentials or patient data.
+Ansible uses `root` for local lab package and system configuration. The non-login `physio` account matches the Docker image's runtime UID 10001 and is not added to the host Docker group. Task 14 deployed H2 data in named volume `physio-portal-ansible-data`. The environment file pins image `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` and contains no credentials or patient data.
 
 ## Files and task explanations
 
@@ -44,7 +44,7 @@ Ansible uses `root` for local lab package and system configuration. The non-logi
 | Write deployment settings | Writes the environment file only when its content or permissions differ. |
 | Verify and show Docker version | Confirms the daemon responds without recording a change. |
 
-The playbook describes the desired state rather than issuing unconditional shell changes. A second run is reserved for Task 14's idempotency evidence.
+The playbook describes the desired state rather than issuing unconditional shell changes. Task 14's [second full run](../docs/evidence/T14_provision_second.txt) later reported `changed=0 failed=0`.
 
 ## First execution: exact commands and results
 
@@ -90,10 +90,10 @@ flowchart LR
     A --> P[Packages, physio account, folder and deployment.env]
     A --> D[Ubuntu Docker Engine service]
     W -->|Pinned image manifest on port 5000| U
-    D -. Task 14 deployment .-> C[Future application container on 8089]
+    D -->|Task 14 deployment| C[Application container on 8089]
 ```
 
-The solid arrows and configured resources were verified in Task 13. The dotted arrow is planned Task 14 deployment.
+The configuration arrows were verified in Task 13; the container deployment arrow was verified in Task 14.
 
 ![Task 13 saved Ansible first-run output](../screenshots/T13_ansible_execution.png)
 
@@ -106,4 +106,4 @@ The solid arrows and configured resources were verified in Task 13. The dotted a
 - ✅ Every playbook task explained
 - ✅ First execution completed with `failed=0`
 - ✅ Execution log, independent checks, registry manifest and screenshot saved
-- ⬜ Task 14: second run, container deployment, health check, bad release and rollback
+- ✅ [Task 14](../docs/task-14-provisioning.md): second run, container deployment, health check, bad configuration and rollback verified later
