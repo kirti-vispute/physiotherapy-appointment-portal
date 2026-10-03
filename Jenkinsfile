@@ -16,6 +16,9 @@ pipeline {
         choice(name: 'APP_ENV', choices: ['test', 'demo'], description: 'Spring profile and separate Docker data volume')
         choice(name: 'DOCKER_PORT', choices: ['8087', '8088'], description: 'Local host port mapped to container port 8080')
     }
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
     stages {
         stage('Checkout') {
             steps {

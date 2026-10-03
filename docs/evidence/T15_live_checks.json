@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-10-03T21:43:50.1935411+05:30",
+  "source": "PowerShell Invoke-RestMethod and Invoke-WebRequest against live localhost services",
+  "results": [
+    {
+      "port": 8082,
+      "health": "UP",
+      "homeHttp": 200,
+      "providersHttp": 200
+    },
+    {
+      "port": 8087,
+      "health": "UP",
+      "homeHttp": 200,
+      "providersHttp": 200
+    },
+    {
+      "port": 8089,
+      "health": "UP",
+      "homeHttp": 200,
+      "providersHttp": 200
+    }
+  ]
+}
