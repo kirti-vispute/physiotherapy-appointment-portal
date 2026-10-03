@@ -1,0 +1,55 @@
+---
+- name: Deploy and verify the physiotherapy portal
+  hosts: physio_targets
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Pull the pinned versioned image from the local registry
+      community.docker.docker_image:
+        name: "{{ portal_image }}"
+        source: pull
+
+    - name: Keep the application database in a named volume
+      community.docker.docker_volume:
+        name: "{{ portal_volume_name }}"
+        state: present
+
+    - name: Start the owned application container
+      community.docker.docker_container:
+        name: "{{ portal_container_name }}"
+        image: "{{ portal_image }}"
+        state: started
+        restart_policy: unless-stopped
+        pull: false
+        published_ports:
+          - "{{ portal_bind_address }}:{{ portal_host_port }}:{{ portal_container_port }}"
+        volumes:
+          - "{{ portal_volume_name }}:/app/data"
+        env:
+          SPRING_PROFILES_ACTIVE: "{{ portal_environment }}"
+          PORT: "{{ portal_application_port | string }}"
+        labels:
+          project: physio-portal-ansible
+          managed-by: ansible
+          release.image: "{{ portal_image }}"
+
+    - name: Wait for the application health endpoint
+      ansible.builtin.uri:
+        url: "http://{{ portal_bind_address }}:{{ portal_host_port }}/actuator/health"
+        status_code: 200
+        return_content: true
+      register: portal_health
+      until: portal_health.status | default(0) == 200 and portal_health.json is defined and portal_health.json.status == 'UP'
+      retries: "{{ portal_health_retries }}"
+      delay: "{{ portal_health_delay }}"
+
+    - name: Verify the homepage
+      ansible.builtin.uri:
+        url: "http://{{ portal_bind_address }}:{{ portal_host_port }}/"
+        status_code: 200
+
+    - name: Verify the physiotherapist page
+      ansible.builtin.uri:
+        url: "http://{{ portal_bind_address }}:{{ portal_host_port }}/physiotherapists"
+        status_code: 200

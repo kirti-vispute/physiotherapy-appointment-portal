@@ -21,19 +21,19 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 11 | Docker | ✅ | 34-test JAR; Docker image `physio-portal:1.0.0`; versioned image/container IDs, 8086→8080 mapping, logs, stop/start/restart/rm, final healthy container and screenshot verified in [Task 11 guide](task-11-docker.md). |
 | 12 | Docker CD | ✅ | PR #7 COMMENT self-reviewed and merged; develop Jenkins #9 passed 39 tests, pushed versioned image, removed prior owned container and deployed a new healthy 8087 container. See [Task 12 guide](task-12-docker-cd.md). |
 | 13 | Ansible | ✅ | Ubuntu 24.04 WSL configured by Ansible; first run `ok=10 changed=5 failed=0`, Docker/account/files/registry verified; PR #8 COMMENT self-reviewed and merged. See [Task 13 guide](../ansible/README.md). |
-| 14 | Provisioning/Reliability | ⬜ | Not started |
+| 14 | Provisioning/Reliability | ✅ | Ansible full runs `changed=4` then `changed=0`; Ubuntu container on 8089 healthy; bad port produced `failed=1`, known good rollback restored HTTP 200 and retained database volume. See [Task 14 guide](task-14-provisioning.md). |
 | 15 | Final Validation | ⬜ | Not started |
 
 | Area | Current verified state |
 |---|---|
-| Application | Full patient MVP verified; healthy Task 10 merged build #6 on localhost:8082 and earlier demo on 8081; embedded Tomcat, separate persistent databases, live/archive JAR hashes matched |
+| Application | Full patient MVP verified; Jenkins deployment on 8082 and Task 12 Docker CD on 8087 retained; Task 14 Ubuntu WSL container on 8089 restored to health UP after bad-port simulation, with separate persistent database volume |
 | GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#8 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 13 Ansible configuration |
 | Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Task 11 local image/lifecycle verified on 8086; Task 12 Jenkins #9 pushed `1.0.0-b9-180b726bc020` to loopback registry, removed build #8 container, deployed new container on 8087 and verified health UP |
-| Ansible | Ubuntu 24.04 WSL control/target configured; inventory, variables, template and playbook verified; first run `ok=10 changed=5 failed=0`; Ubuntu Docker Engine active/enabled, registry manifest reachable. Task 14 container deployment and second run remain. |
-| Documentation | Tasks 1–13 complete; Task 13 guide specifies packages, users, folders, files, ports, services and each Ansible task with exact commands and results |
-| Evidence | Tasks 3–12 retained; Task 13 first-run log, independent target-state check, registry manifest and screenshot saved |
+| Docker | Task 11 local lifecycle verified on 8086; Task 12 Jenkins versioned image and healthy 8087 deployment retained; Task 14 Ubuntu engine pulled the same pinned image, deployed on 8089 and preserved its named volume through recovery |
+| Ansible | Ubuntu WSL first configuration run `changed=5`; Task 14 site playbook first deployment `changed=4`, second run `changed=0`; bad port failed health and rollback restored HTTP 200 |
+| Documentation | Tasks 1–14 complete; Task 14 guide explains provisioning, WSL lifetime, exact commands, idempotency, failure and recovery |
+| Evidence | Tasks 3–13 retained; Task 14 four Ansible logs, before/good/bad/recovered state checks, and three real screenshots saved |
 
 ## Task 1 evidence checklist
 
@@ -129,4 +129,14 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Task 13 guide](../ansible/README.md) explains every task, Windows/WSL commands, expected/actual results, errors and [screenshot](../screenshots/T13_ansible_execution.png)
 - ✅ [PR #8](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/8#pullrequestreview-5401355533) and merged at `4f1c1858bd61e397ba005634136c08295b0d6634`; tested playbook blob matches merged source
 
-Tasks 1–13 are ✅. Tasks 14–15 are ⬜. The Ubuntu application container, second Ansible run, health check and rollback remain Task 14 work.
+## Task 14 verification gate
+
+- ✅ Clean Ubuntu application target had no image/container; [before state](evidence/T14_before_provisioning.json) saved
+- ✅ [First full playbook](evidence/T14_provision_first.txt) `ok=16 changed=4 failed=0` pulled the pinned image, created a volume and started the container; health/home/providers passed
+- ✅ [Second full playbook](evidence/T14_provision_second.txt) `ok=16 changed=0 failed=0`, demonstrating idempotency without unnecessary container replacement
+- ✅ Local WSL keeper made the separate Ubuntu engine available after commands; Windows verified the healthy app on port 8089
+- ✅ [Bad configuration](evidence/T14_bad_release.txt) changed `PORT` to 8099 while mapping to 8080; health gate failed with exit 2 and `failed=1`; [state check](evidence/T14_bad_release_state.json) showed the good image and volume intact
+- ✅ [Rollback](evidence/T14_rollback.txt) restored the known good port and container; [recovery check](evidence/T14_recovered_state.json) verified bad container removal, retained H2 volume/database file, health UP and three HTTP 200 responses
+- ✅ [Task 14 guide](task-14-provisioning.md) and idempotency, health and rollback screenshots saved
+
+Tasks 1–14 are ✅. Task 15 is ⬜ pending final requirement audit and viva sequence.

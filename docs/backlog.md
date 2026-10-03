@@ -22,7 +22,7 @@ Priority: **P0** is required for submission. The sequence is controlled by depen
 | PB-11 | Build versioned Docker image and demonstrate lifecycle commands | P0 | US-10 | 11 | 3 | ✅ Image, IDs, mapping, logs, lifecycle, health and screenshot verified |
 | PB-12 | Publish image and deploy new container from passing Jenkins pipeline | P0 | US-10 | 12 | 3 | ✅ Merged develop #9 passed 39 tests, pushed versioned image and replaced the healthy container; PR #7 merged |
 | PB-13 | Specify configuration and create Ansible inventory/playbook | P0 | US-11 | 13 | 3 | ✅ First Ubuntu WSL run `ok=10 changed=5 failed=0`; Docker, account, folder, config and evidence verified |
-| PB-14 | Provision target, prove idempotency, health, rollback, and recovery | P0 | US-11 | 14 | 3 | ⬜ |
+| PB-14 | Provision target, prove idempotency, health, rollback, and recovery | P0 | US-11 | 14 | 3 | ✅ First full run `changed=4`; second `changed=0`; bad port failed health, rollback restored HTTP 200 |
 | PB-15 | Audit every requirement and prepare final documentation and viva sequence | P0 | All | 15 | 4 | ⬜ |
 
 ## Backlog update rule

@@ -12,3 +12,6 @@ portal_volume_name: physio-portal-ansible-data
 portal_bind_address: 127.0.0.1
 portal_host_port: 8089
 portal_container_port: 8080
+portal_application_port: 8080
+portal_health_retries: 30
+portal_health_delay: 3

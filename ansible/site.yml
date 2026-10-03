@@ -1,0 +1,4 @@
+---
+# Task 14: prepare the Ubuntu node, then deploy and verify the pinned container.
+- import_playbook: playbook.yml
+- import_playbook: deploy.yml

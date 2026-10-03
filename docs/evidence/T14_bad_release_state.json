@@ -1,0 +1,15 @@
+{
+  "checked_at": "2026-10-03T20:54:17.3891278+05:30",
+  "previous_good_container_id": "35ce9cc9dd2f774d87f5aa41491d64318718b263a745ba59f41c340d229faccb",
+  "bad_container_id": "aeb872bb5cae9ef21886867ea7a24430fdc68e80c001bb8850e5634ff8583978",
+  "container_changed": true,
+  "image_id": "sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5",
+  "known_good_image_unchanged": true,
+  "volume": "physio-portal-ansible-data",
+  "volume_unchanged": true,
+  "container_port_env": "PORT=8099",
+  "direct_container_ip": "172.17.0.2",
+  "direct_container_health_http": 200,
+  "mapped_host_health": "connection failed",
+  "ansible_exit_code": 2
+}

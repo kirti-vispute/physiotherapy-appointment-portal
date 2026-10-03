@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–13 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. Task 10 proved a failing Selenium case skipped deployment and a corrected run passed all **39 tests**. Task 11 built the versioned Docker image and demonstrated its lifecycle on **[localhost:8086](http://localhost:8086/)**. Task 12 merged [Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) passed 39 tests, pushed a commit-tagged image to the local registry, replaced the old container, and serves a healthy portal at **[localhost:8087](http://localhost:8087/)**. Task 13 configured Ubuntu WSL with Ansible; its first run ended `ok=10 changed=5 failed=0`. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** Tasks 1–14 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. Task 10 proved a failing Selenium case skipped deployment and a corrected run passed all **39 tests**. Task 11 built the versioned Docker image and demonstrated its lifecycle on **[localhost:8086](http://localhost:8086/)**. Task 12 merged [Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) passed 39 tests, pushed a commit-tagged image to the local registry, replaced the old container, and serves a healthy portal at **[localhost:8087](http://localhost:8087/)**. Tasks 13–14 configured Ubuntu WSL with Ansible, deployed the image on **[localhost:8089](http://localhost:8089/)**, proved a zero-change second run and recovered from a simulated bad port. See the [project tracker](docs/project-tracker.md).
 
 ## MVP features
 
@@ -114,7 +114,9 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 ## Ansible configuration and reliability
 
-**Task 13 verified:** Ubuntu 24.04 WSL runs Ansible against itself via a local connection. The [playbook and guide](ansible/README.md) specify prerequisites, install/start its own Linux Docker Engine, create the non-login `physio` account and `/opt/physio-portal`, and render a non-secret deployment file with a pinned image and port 8089. The first run ended `ok=10 changed=5 failed=0`; Docker is active/enabled and the registry manifest is reachable. Task 14 will deploy the container, repeat the playbook for idempotency, check health and demonstrate rollback. No Ubuntu application container or rollback is claimed yet.
+**Task 13 verified:** Ubuntu 24.04 WSL runs Ansible against itself via a local connection. The [configuration guide](ansible/README.md) specifies prerequisites, starts its own Linux Docker Engine, creates the non-login `physio` account and `/opt/physio-portal`, and renders a non-secret deployment file. The first configuration run ended `ok=10 changed=5 failed=0`.
+
+**Task 14 verified:** The [site playbook](ansible/site.yml) deployed the pinned image from the local registry to the Ubuntu Docker Engine on host port 8089. Its first full run ended `ok=16 changed=4 failed=0`; the second ended `ok=16 changed=0 failed=0`. A deliberately wrong application port made Ansible's health gate fail; rerunning the known good configuration replaced the bad container, preserved the database volume and returned health `UP`/HTTP 200. The [Task 14 guide](docs/task-14-provisioning.md) contains commands, logs, IDs and screenshots. Run the [WSL target helper](scripts/start-ansible-target.ps1) after Windows reboot to keep this separate local engine active during a demo.
 
 ## Project workflow and evidence
 
@@ -163,6 +165,12 @@ Task 9 also preserves the five [journey screenshots](docs/task-09-selenium.md), 
 ![Task 12 portal served from Jenkins-deployed Docker container](screenshots/T12_docker_deployment.png)
 
 ![Task 13 Ansible first-run output](screenshots/T13_ansible_execution.png)
+
+![Task 14 zero-change second Ansible run](screenshots/T14_ansible_idempotency.png)
+
+![Task 14 recovered health endpoint](screenshots/T14_health_check.png)
+
+![Task 14 bad-release recovery](screenshots/T14_rollback.png)
 
 ## Contributors
 

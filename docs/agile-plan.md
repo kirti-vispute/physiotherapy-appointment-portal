@@ -24,7 +24,7 @@ All tasks have one owner. `Done` requires the listed acceptance evidence; a docu
 | 11 | Docker | Build image and demonstrate container lifecycle | Kirti | ✅ Done | 06, 10 | Dockerfile, versioned image, command log | Image/container IDs, mapping, logs, start/stop/restart/remove and final health shown |
 | 12 | Docker CD | Publish image and deploy automatically | Kirti | ✅ Done | 10, 11 | Registry image and Jenkins deployment | Merged #9 passed 39 tests, pushed versioned image, removed old container, ran new healthy 8087 container; PR #7 merged |
 | 13 | Ansible | Specify target and configure it with playbook | Kirti | ✅ Done | 11, 12 | Inventory, variables, playbook, first log | Ubuntu WSL first execution `ok=10 changed=5 failed=0`; Docker/account/folder/config and evidence verified |
-| 14 | Provisioning/Reliability | Repeat run, health, bad release, rollback | Kirti | ⬜ To do | 13 | Two runs and recovery evidence | Second run avoids unnecessary changes; restored app returns HTTP 200 |
+| 14 | Provisioning/Reliability | Repeat run, health, bad release, rollback | Kirti | ✅ Done | 13 | Two runs and recovery evidence | Second run `changed=0 failed=0`; bad port failed health; rollback restored HTTP 200 |
 | 15 | Final Validation | Audit deliverables and rehearse viva | Kirti | ⬜ To do | 01–14 | Final report, evidence index, demo sequence | Every line checked; missing evidence is reported, never invented |
 
 ## Sprint plan

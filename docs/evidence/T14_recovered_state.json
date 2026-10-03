@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-10-03T20:55:58.6017242+05:30",
+  "recovered_container_id": "e10fff6ab63f7f84e50bbc3a8077624858f018e2d068b757a4bdff785ae10a56",
+  "bad_container_removed": true,
+  "image_tag": "localhost:5000/physio-portal:1.0.0-b9-180b726bc020",
+  "image_id": "sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5",
+  "known_good_image_restored": true,
+  "volume": "physio-portal-ansible-data",
+  "volume_preserved": true,
+  "database_file": "present",
+  "container_port_env": "PORT=8080",
+  "health": "UP",
+  "health_http": 200,
+  "home_http": 200,
+  "providers_http": 200
+}
