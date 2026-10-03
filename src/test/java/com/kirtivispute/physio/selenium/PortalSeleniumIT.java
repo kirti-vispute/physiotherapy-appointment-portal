@@ -11,8 +11,7 @@ class PortalSeleniumIT extends SeleniumSupport {
     @Test @DisplayName("SEL01 — Register a patient and sign in")
     void registration() throws Exception {
         register(); login();
-        // Task 10 deliberate failing assertion; the correction commit restores patientName.
-        assertEquals("TASK10_INTENTIONALLY_WRONG_NAME", visible(testId("signed-in-patient")).getText());
+        assertEquals(patientName, visible(testId("signed-in-patient")).getText());
         saveEvidence("SEL01-registration", "PASS");
     }
 
