@@ -6,6 +6,8 @@
 
 Task 11 stops after the local image and lifecycle demonstration. Registry publication and Jenkins deployment belong to Task 12.
 
+The work was committed on `feature/docker-lifecycle`, [PR #6](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/6) received an honest [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/6#pullrequestreview-5400225177), and it merged into `develop` at `fb372c14a8c16925a47e787163e2d766964afade`. The local `develop` branch was synchronized with the remote.
+
 ## Runtime layout
 
 | Item | Value |

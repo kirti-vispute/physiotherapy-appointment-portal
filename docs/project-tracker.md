@@ -110,5 +110,6 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ Exact `stop`, `start`, `restart`, second `stop`, and `rm` commands succeeded; health returned UP after both restarts and removal was verified
 - ✅ Final container `b3ec7ce3aac79450fee7c7267e57a656d1125f705857be3890da47ca4eef99e1` runs from the same image/volume; home/providers HTTP 200, health UP and H2 file retained
 - ✅ [Task 11 guide](task-11-docker.md), [command log](evidence/T11_docker_lifecycle.txt), and real [container-served page screenshot](../screenshots/T11_docker_running.png) saved
+- ✅ [PR #6](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/6) received COMMENT self-review and merged at `fb372c14a8c16925a47e787163e2d766964afade`; local `develop` synchronized
 
 Tasks 1–11 are ✅. Tasks 12–15 are ⬜. Next: Task 12 Jenkins and Docker continuous deployment; no registry push or Ansible run is claimed yet.
