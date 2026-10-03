@@ -1,0 +1,503 @@
+Started by user admin
+Checking out git https://github.com/kirti-vispute/physiotherapy-appointment-portal.git into C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline@script\fa359a5bba214a2331e106f6007faec35490eeb807dc3a0eea3e13d9930d7d6b to read Jenkinsfile
+The recommended git tool is: NONE
+No credentials specified
+ > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline@script\fa359a5bba214a2331e106f6007faec35490eeb807dc3a0eea3e13d9930d7d6b\.git # timeout=10
+Fetching changes from the remote Git repository
+ > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/kirti-vispute/physiotherapy-appointment-portal.git # timeout=10
+Fetching upstream changes from https://github.com/kirti-vispute/physiotherapy-appointment-portal.git
+ > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+ > git --version # 'git version 2.53.0.windows.2'
+ > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/kirti-vispute/physiotherapy-appointment-portal.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/feature/jenkins-selenium-gate^{commit}" # timeout=10
+Checking out Revision 67b5d20f884620c0e5c62d5b33bbdec09c2de8be (refs/remotes/origin/feature/jenkins-selenium-gate)
+ > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+ > C:\Program Files\Git\cmd\git.exe checkout -f 67b5d20f884620c0e5c62d5b33bbdec09c2de8be # timeout=10
+Commit message: "ci: run Selenium before deploy with deliberate failing assertion"
+First time build. Skipping changelog.
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline
+[Pipeline] {
+[Pipeline] timestamps
+[Pipeline] {
+[Pipeline] timeout
+[2026-10-03T09:06:24.770Z] Timeout set to expire in 20 min
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] checkout
+[2026-10-03T09:06:26.385Z] The recommended git tool is: NONE
+[2026-10-03T09:06:26.386Z] No credentials specified
+[2026-10-03T09:06:26.389Z]  > C:\Program Files\Git\cmd\git.exe rev-parse --resolve-git-dir C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\.git # timeout=10
+[2026-10-03T09:06:26.525Z] Fetching changes from the remote Git repository
+[2026-10-03T09:06:26.547Z]  > C:\Program Files\Git\cmd\git.exe config remote.origin.url https://github.com/kirti-vispute/physiotherapy-appointment-portal.git # timeout=10
+[2026-10-03T09:06:26.681Z] Fetching upstream changes from https://github.com/kirti-vispute/physiotherapy-appointment-portal.git
+[2026-10-03T09:06:26.682Z]  > C:\Program Files\Git\cmd\git.exe --version # timeout=10
+[2026-10-03T09:06:26.859Z]  > git --version # 'git version 2.53.0.windows.2'
+[2026-10-03T09:06:26.859Z]  > C:\Program Files\Git\cmd\git.exe fetch --tags --force --progress -- https://github.com/kirti-vispute/physiotherapy-appointment-portal.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+[2026-10-03T09:06:28.703Z]  > C:\Program Files\Git\cmd\git.exe rev-parse "refs/remotes/origin/feature/jenkins-selenium-gate^{commit}" # timeout=10
+[2026-10-03T09:06:28.857Z] Checking out Revision 67b5d20f884620c0e5c62d5b33bbdec09c2de8be (refs/remotes/origin/feature/jenkins-selenium-gate)
+[2026-10-03T09:06:28.858Z]  > C:\Program Files\Git\cmd\git.exe config core.sparsecheckout # timeout=10
+[2026-10-03T09:06:28.989Z]  > C:\Program Files\Git\cmd\git.exe checkout -f 67b5d20f884620c0e5c62d5b33bbdec09c2de8be # timeout=10
+[2026-10-03T09:06:29.475Z] Commit message: "ci: run Selenium before deploy with deliberate failing assertion"
+[Pipeline] bat
+[2026-10-03T09:06:30.193Z] 67b5d20f884620c0e5c62d5b33bbdec09c2de8be
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+[2026-10-03T09:06:34.386Z] [INFO] Scanning for projects...
+[2026-10-03T09:06:34.386Z] [INFO] 
+[2026-10-03T09:06:34.386Z] [INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[2026-10-03T09:06:34.386Z] [INFO] Building physio-portal 1.0.0
+[2026-10-03T09:06:34.639Z] [INFO]   from pom.xml
+[2026-10-03T09:06:34.639Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-10-03T09:06:38.839Z] [INFO] 
+[2026-10-03T09:06:38.839Z] [INFO] --- clean:3.5.0:clean (default-clean) @ physio-portal ---
+[2026-10-03T09:06:38.839Z] [INFO] Deleting C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target
+[2026-10-03T09:06:38.839Z] [INFO] 
+[2026-10-03T09:06:38.839Z] [INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[2026-10-03T09:06:39.404Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-10-03T09:06:39.404Z] [INFO] Copying 10 resources from src\main\resources to target\classes
+[2026-10-03T09:06:39.404Z] [INFO] 
+[2026-10-03T09:06:39.404Z] [INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[2026-10-03T09:06:40.333Z] [INFO] Recompiling the module because of changed source code.
+[2026-10-03T09:06:40.334Z] [INFO] Compiling 29 source files with javac [debug parameters release 21] to target\classes
+[2026-10-03T09:06:46.898Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:06:46.898Z] [INFO] BUILD SUCCESS
+[2026-10-03T09:06:46.898Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:06:46.898Z] [INFO] Total time:  12.228 s
+[2026-10-03T09:06:46.898Z] [INFO] Finished at: 2026-10-03T14:36:46+05:30
+[2026-10-03T09:06:46.898Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit Test)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+[2026-10-03T09:06:51.391Z] [INFO] Scanning for projects...
+[2026-10-03T09:06:51.656Z] [INFO] 
+[2026-10-03T09:06:51.656Z] [INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[2026-10-03T09:06:51.656Z] [INFO] Building physio-portal 1.0.0
+[2026-10-03T09:06:51.656Z] [INFO]   from pom.xml
+[2026-10-03T09:06:51.656Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-10-03T09:06:55.850Z] [INFO] 
+[2026-10-03T09:06:55.850Z] [INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[2026-10-03T09:06:55.851Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-10-03T09:06:55.851Z] [INFO] Copying 10 resources from src\main\resources to target\classes
+[2026-10-03T09:06:55.851Z] [INFO] 
+[2026-10-03T09:06:55.851Z] [INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[2026-10-03T09:06:56.428Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-10-03T09:06:56.428Z] [INFO] 
+[2026-10-03T09:06:56.428Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ physio-portal ---
+[2026-10-03T09:06:56.692Z] [INFO] Copying 1 resource from src\test\resources to target\test-classes
+[2026-10-03T09:06:56.692Z] [INFO] 
+[2026-10-03T09:06:56.692Z] [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ physio-portal ---
+[2026-10-03T09:06:56.692Z] [INFO] Recompiling the module because of changed source code.
+[2026-10-03T09:06:56.692Z] [INFO] Compiling 6 source files with javac [debug parameters release 21] to target\test-classes
+[2026-10-03T09:07:04.818Z] [INFO] 
+[2026-10-03T09:07:04.818Z] [INFO] --- surefire:3.5.6:test (default-test) @ physio-portal ---
+[2026-10-03T09:07:05.402Z] [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[2026-10-03T09:07:05.668Z] [INFO] 
+[2026-10-03T09:07:05.668Z] [INFO] -------------------------------------------------------
+[2026-10-03T09:07:05.668Z] [INFO]  T E S T S
+[2026-10-03T09:07:05.668Z] [INFO] -------------------------------------------------------
+[2026-10-03T09:07:08.183Z] [INFO] Running com.kirtivispute.physio.appointment.PortalIntegrationTest
+[2026-10-03T09:07:08.751Z] 14:37:08.494 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.appointment.PortalIntegrationTest
+[2026-10-03T09:07:09.017Z] 14:37:08.671 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.appointment.PortalIntegrationTest
+[2026-10-03T09:07:09.601Z] 
+[2026-10-03T09:07:09.601Z]   .   ____          _            __ _ _
+[2026-10-03T09:07:09.601Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-10-03T09:07:09.601Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-10-03T09:07:09.601Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-10-03T09:07:09.601Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-10-03T09:07:09.601Z]  =========|_|==============|___/=/_/_/_/
+[2026-10-03T09:07:09.601Z] 
+[2026-10-03T09:07:09.601Z]  :: Spring Boot ::                (v4.0.8)
+[2026-10-03T09:07:09.601Z] 
+[2026-10-03T09:07:09.867Z] 2026-10-03T14:37:09.676+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : Starting PortalIntegrationTest using Java 21.0.11 with PID 17336 (started by KIRTI$ in C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline)
+[2026-10-03T09:07:09.867Z] 2026-10-03T14:37:09.681+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : No active profile set, falling back to 1 default profile: "default"
+[2026-10-03T09:07:13.170Z] 2026-10-03T14:37:12.854+05:30  INFO 17336 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2026-10-03T09:07:13.430Z] 2026-10-03T14:37:13.145+05:30  INFO 17336 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 242 ms. Found 4 JPA repository interfaces.
+[2026-10-03T09:07:15.978Z] 2026-10-03T14:37:15.827+05:30  INFO 17336 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+[2026-10-03T09:07:15.978Z] 2026-10-03T14:37:15.890+05:30  INFO 17336 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2026-10-03T09:07:15.978Z] 2026-10-03T14:37:15.892+05:30  INFO 17336 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+[2026-10-03T09:07:16.560Z] 2026-10-03T14:37:16.226+05:30  INFO 17336 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 6468 ms
+[2026-10-03T09:07:17.491Z] 2026-10-03T14:37:17.286+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+[2026-10-03T09:07:17.756Z] 2026-10-03T14:37:17.664+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.24.Final
+[2026-10-03T09:07:20.305Z] 2026-10-03T14:37:19.973+05:30  INFO 17336 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2026-10-03T09:07:20.305Z] 2026-10-03T14:37:20.169+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+[2026-10-03T09:07:21.250Z] 2026-10-03T14:37:20.994+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:portal-tests user=SA
+[2026-10-03T09:07:21.250Z] 2026-10-03T14:37:21.001+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+[2026-10-03T09:07:21.518Z] 2026-10-03T14:37:21.296+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+[2026-10-03T09:07:21.518Z] 	Database JDBC URL [jdbc:h2:mem:portal-tests]
+[2026-10-03T09:07:21.518Z] 	Database driver: H2 JDBC Driver
+[2026-10-03T09:07:21.518Z] 	Database dialect: H2Dialect
+[2026-10-03T09:07:21.518Z] 	Database version: 2.4.240
+[2026-10-03T09:07:21.518Z] 	Default catalog/schema: PORTAL-TESTS/PUBLIC
+[2026-10-03T09:07:21.518Z] 	Autocommit mode: undefined/unknown
+[2026-10-03T09:07:21.518Z] 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+[2026-10-03T09:07:21.518Z] 	JDBC fetch size: 100
+[2026-10-03T09:07:21.518Z] 	Pool: DataSourceConnectionProvider
+[2026-10-03T09:07:21.518Z] 	Minimum pool size: undefined/unknown
+[2026-10-03T09:07:21.518Z] 	Maximum pool size: undefined/unknown
+[2026-10-03T09:07:25.730Z] 2026-10-03T14:37:25.674+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2026-10-03T09:07:26.310Z] 2026-10-03T14:37:25.959+05:30  INFO 17336 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2026-10-03T09:07:26.575Z] 2026-10-03T14:37:26.285+05:30  INFO 17336 --- [physio-portal] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+[2026-10-03T09:07:30.783Z] 2026-10-03T14:37:30.549+05:30  INFO 17336 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+[2026-10-03T09:07:31.350Z] 2026-10-03T14:37:31.281+05:30  INFO 17336 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+[2026-10-03T09:07:33.262Z] 2026-10-03T14:37:32.909+05:30  INFO 17336 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+[2026-10-03T09:07:33.527Z] 2026-10-03T14:37:33.203+05:30  INFO 17336 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 54360 (http) with context path '/'
+[2026-10-03T09:07:33.527Z] 2026-10-03T14:37:33.231+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.appointment.PortalIntegrationTest  : Started PortalIntegrationTest in 24.415 seconds (process running for 27.054)
+[2026-10-03T09:07:33.792Z] Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+[2026-10-03T09:07:34.059Z] WARNING: A Java agent has been loaded dynamically (C:\Windows\system32\config\systemprofile\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar)
+[2026-10-03T09:07:34.059Z] WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+[2026-10-03T09:07:34.059Z] WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+[2026-10-03T09:07:34.059Z] WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[2026-10-03T09:07:34.311Z] Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[2026-10-03T09:07:36.856Z] 2026-10-03T14:37:36.597+05:30  INFO 17336 --- [physio-portal] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-10-03T09:07:36.856Z] 2026-10-03T14:37:36.598+05:30  INFO 17336 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2026-10-03T09:07:36.856Z] 2026-10-03T14:37:36.602+05:30  INFO 17336 --- [physio-portal] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+[2026-10-03T09:07:54.947Z] [INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.50 s -- in com.kirtivispute.physio.appointment.PortalIntegrationTest
+[2026-10-03T09:07:54.947Z] [INFO] Running com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.184+05:30  INFO 17336 --- [physio-portal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.237+05:30  INFO 17336 --- [physio-portal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.243+05:30  INFO 17336 --- [physio-portal] [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.kirtivispute.physio.patient.RegistrationIntegrationTest]: RegistrationIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.247+05:30  INFO 17336 --- [physio-portal] [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.kirtivispute.physio.PhysioPortalApplication for test class com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[2026-10-03T09:07:54.947Z] 
+[2026-10-03T09:07:54.947Z]   .   ____          _            __ _ _
+[2026-10-03T09:07:54.947Z]  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+[2026-10-03T09:07:54.947Z] ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+[2026-10-03T09:07:54.947Z]  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+[2026-10-03T09:07:54.947Z]   '  |____| .__|_| |_|_| |_\__, | / / / /
+[2026-10-03T09:07:54.947Z]  =========|_|==============|___/=/_/_/_/
+[2026-10-03T09:07:54.947Z] 
+[2026-10-03T09:07:54.947Z]  :: Spring Boot ::                (v4.0.8)
+[2026-10-03T09:07:54.947Z] 
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.372+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Starting RegistrationIntegrationTest using Java 21.0.11 with PID 17336 (started by KIRTI$ in C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline)
+[2026-10-03T09:07:54.947Z] 2026-10-03T14:37:54.372+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : No active profile set, falling back to 1 default profile: "default"
+[2026-10-03T09:07:55.209Z] 2026-10-03T14:37:55.052+05:30  INFO 17336 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2026-10-03T09:07:55.465Z] 2026-10-03T14:37:55.104+05:30  INFO 17336 --- [physio-portal] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 4 JPA repository interfaces.
+[2026-10-03T09:07:55.465Z] 2026-10-03T14:37:55.415+05:30  INFO 17336 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 0 (http)
+[2026-10-03T09:07:55.465Z] 2026-10-03T14:37:55.419+05:30  INFO 17336 --- [physio-portal] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+[2026-10-03T09:07:55.465Z] 2026-10-03T14:37:55.420+05:30  INFO 17336 --- [physio-portal] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.24]
+[2026-10-03T09:07:55.733Z] 2026-10-03T14:37:55.582+05:30  INFO 17336 --- [physio-portal] [           main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1205 ms
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.732+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.803+05:30  INFO 17336 --- [physio-portal] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.806+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.811+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:registration-tests user=SA
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.812+05:30  INFO 17336 --- [physio-portal] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+[2026-10-03T09:07:55.987Z] 2026-10-03T14:37:55.813+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+[2026-10-03T09:07:55.987Z] 	Database JDBC URL [jdbc:h2:mem:registration-tests]
+[2026-10-03T09:07:55.987Z] 	Database driver: H2 JDBC Driver
+[2026-10-03T09:07:55.987Z] 	Database dialect: H2Dialect
+[2026-10-03T09:07:55.987Z] 	Database version: 2.4.240
+[2026-10-03T09:07:55.987Z] 	Default catalog/schema: REGISTRATION-TESTS/PUBLIC
+[2026-10-03T09:07:55.987Z] 	Autocommit mode: undefined/unknown
+[2026-10-03T09:07:55.987Z] 	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+[2026-10-03T09:07:55.987Z] 	JDBC fetch size: 100
+[2026-10-03T09:07:55.987Z] 	Pool: DataSourceConnectionProvider
+[2026-10-03T09:07:55.987Z] 	Minimum pool size: undefined/unknown
+[2026-10-03T09:07:55.987Z] 	Maximum pool size: undefined/unknown
+[2026-10-03T09:07:56.253Z] 2026-10-03T14:37:55.960+05:30  INFO 17336 --- [physio-portal] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2026-10-03T09:07:56.253Z] 2026-10-03T14:37:55.983+05:30  INFO 17336 --- [physio-portal] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2026-10-03T09:07:56.513Z] 2026-10-03T14:37:56.305+05:30  INFO 17336 --- [physio-portal] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name patientDetails
+[2026-10-03T09:07:56.516Z] 2026-10-03T14:37:56.389+05:30  INFO 17336 --- [physio-portal] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.780+05:30  INFO 17336 --- [physio-portal] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.816+05:30  INFO 17336 --- [physio-portal] [           main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 57231 (http) with context path '/'
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.822+05:30  INFO 17336 --- [physio-portal] [           main] c.k.p.p.RegistrationIntegrationTest      : Started RegistrationIntegrationTest in 2.557 seconds (process running for 50.645)
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.850+05:30  INFO 17336 --- [physio-portal] [o-auto-2-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.851+05:30  INFO 17336 --- [physio-portal] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+[2026-10-03T09:07:57.091Z] 2026-10-03T14:37:56.854+05:30  INFO 17336 --- [physio-portal] [o-auto-2-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+[2026-10-03T09:07:58.998Z] 2026-10-03T14:37:58.859+05:30  WARN 17336 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+[2026-10-03T09:07:58.998Z] 2026-10-03T14:37:58.860+05:30  WARN 17336 --- [physio-portal] [           main] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 4 */ 'asha@example.test' )"; SQL statement:
+[2026-10-03T09:07:58.998Z] insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+[2026-10-03T09:08:00.928Z] 2026-10-03T14:38:00.452+05:30  WARN 17336 --- [physio-portal] [o-auto-2-exec-7] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 23505, SQLState: 23505
+[2026-10-03T09:08:00.928Z] 2026-10-03T14:38:00.453+05:30  WARN 17336 --- [physio-portal] [o-auto-2-exec-7] org.hibernate.orm.jdbc.error             : Unique index or primary key violation: "PUBLIC.UK_PATIENT_EMAIL INDEX PUBLIC.UK_PATIENT_EMAIL_INDEX_7 ON PUBLIC.PATIENTS(EMAIL NULLS FIRST) VALUES ( /* 9 */ 'race@example.test' )"; SQL statement:
+[2026-10-03T09:08:00.928Z] insert into patients (created_at,email,full_name,password_hash,id) values (?,?,?,?,default) [23505-240]
+[2026-10-03T09:08:00.928Z] [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.292 s -- in com.kirtivispute.physio.patient.RegistrationIntegrationTest
+[2026-10-03T09:08:01.505Z] [INFO] 
+[2026-10-03T09:08:01.505Z] [INFO] Results:
+[2026-10-03T09:08:01.505Z] [INFO] 
+[2026-10-03T09:08:01.505Z] [INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0
+[2026-10-03T09:08:01.505Z] [INFO] 
+[2026-10-03T09:08:01.505Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:08:01.505Z] [INFO] BUILD SUCCESS
+[2026-10-03T09:08:01.505Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:08:01.505Z] [INFO] Total time:  01:10 min
+[2026-10-03T09:08:01.505Z] [INFO] Finished at: 2026-10-03T14:38:01+05:30
+[2026-10-03T09:08:01.505Z] [INFO] ------------------------------------------------------------------------
+Post stage
+[Pipeline] junit
+[2026-10-03T09:08:01.615Z] Recording test results
+[2026-10-03T09:08:01.654Z] [Checks API] No suitable checks publisher found.
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Package)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+[2026-10-03T09:08:05.928Z] [INFO] Scanning for projects...
+[2026-10-03T09:08:06.180Z] [INFO] 
+[2026-10-03T09:08:06.180Z] [INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[2026-10-03T09:08:06.180Z] [INFO] Building physio-portal 1.0.0
+[2026-10-03T09:08:06.180Z] [INFO]   from pom.xml
+[2026-10-03T09:08:06.180Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-10-03T09:08:09.454Z] [INFO] 
+[2026-10-03T09:08:09.454Z] [INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[2026-10-03T09:08:09.718Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-10-03T09:08:09.984Z] [INFO] Copying 10 resources from src\main\resources to target\classes
+[2026-10-03T09:08:09.984Z] [INFO] 
+[2026-10-03T09:08:09.984Z] [INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[2026-10-03T09:08:10.568Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-10-03T09:08:10.568Z] [INFO] 
+[2026-10-03T09:08:10.568Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ physio-portal ---
+[2026-10-03T09:08:10.568Z] [INFO] Copying 1 resource from src\test\resources to target\test-classes
+[2026-10-03T09:08:10.568Z] [INFO] 
+[2026-10-03T09:08:10.568Z] [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ physio-portal ---
+[2026-10-03T09:08:10.827Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-10-03T09:08:10.827Z] [INFO] 
+[2026-10-03T09:08:10.827Z] [INFO] --- surefire:3.5.6:test (default-test) @ physio-portal ---
+[2026-10-03T09:08:11.392Z] [INFO] Tests are skipped.
+[2026-10-03T09:08:11.392Z] [INFO] 
+[2026-10-03T09:08:11.392Z] [INFO] --- jar:3.4.2:jar (default-jar) @ physio-portal ---
+[2026-10-03T09:08:12.342Z] [INFO] Building jar: C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\physio-portal-1.0.0.jar
+[2026-10-03T09:08:12.609Z] [INFO] 
+[2026-10-03T09:08:12.609Z] [INFO] --- spring-boot:4.0.8:repackage (repackage) @ physio-portal ---
+[2026-10-03T09:08:15.118Z] [INFO] Replacing main artifact C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\physio-portal-1.0.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[2026-10-03T09:08:15.118Z] [INFO] The original artifact has been renamed to C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\physio-portal-1.0.0.jar.original
+[2026-10-03T09:08:15.118Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:08:15.118Z] [INFO] BUILD SUCCESS
+[2026-10-03T09:08:15.118Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:08:15.118Z] [INFO] Total time:  9.362 s
+[2026-10-03T09:08:15.118Z] [INFO] Finished at: 2026-10-03T14:38:14+05:30
+[2026-10-03T09:08:15.118Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] archiveArtifacts
+[2026-10-03T09:08:15.180Z] Archiving artifacts
+[2026-10-03T09:08:15.254Z] Recording fingerprints
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Start Application)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] powershell
+[2026-10-03T09:08:54.745Z] Selenium test app ready: http://127.0.0.1:8091/ (PID 23112, source 67b5d20f884620c0e5c62d5b33bbdec09c2de8be)
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Selenium Tests)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] bat
+[2026-10-03T09:09:00.167Z] [INFO] Scanning for projects...
+[2026-10-03T09:09:01.098Z] [INFO] 
+[2026-10-03T09:09:01.098Z] [INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[2026-10-03T09:09:01.098Z] [INFO] Building physio-portal 1.0.0
+[2026-10-03T09:09:01.098Z] [INFO]   from pom.xml
+[2026-10-03T09:09:01.098Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-10-03T09:09:09.229Z] [INFO] 
+[2026-10-03T09:09:09.229Z] [INFO] --- resources:3.3.1:resources (default-resources) @ physio-portal ---
+[2026-10-03T09:09:09.229Z] [INFO] Copying 1 resource from src\main\resources to target\classes
+[2026-10-03T09:09:09.229Z] [INFO] Copying 10 resources from src\main\resources to target\classes
+[2026-10-03T09:09:09.229Z] [INFO] 
+[2026-10-03T09:09:09.229Z] [INFO] --- compiler:3.14.1:compile (default-compile) @ physio-portal ---
+[2026-10-03T09:09:09.808Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-10-03T09:09:09.808Z] [INFO] 
+[2026-10-03T09:09:09.808Z] [INFO] --- resources:3.3.1:testResources (default-testResources) @ physio-portal ---
+[2026-10-03T09:09:09.808Z] [INFO] Copying 1 resource from src\test\resources to target\test-classes
+[2026-10-03T09:09:09.808Z] [INFO] 
+[2026-10-03T09:09:09.808Z] [INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ physio-portal ---
+[2026-10-03T09:09:10.075Z] [INFO] Nothing to compile - all classes are up to date.
+[2026-10-03T09:09:10.075Z] [INFO] 
+[2026-10-03T09:09:10.075Z] [INFO] --- surefire:3.5.6:test (default-test) @ physio-portal ---
+[2026-10-03T09:09:10.656Z] [INFO] Tests are skipped.
+[2026-10-03T09:09:10.656Z] [INFO] 
+[2026-10-03T09:09:10.656Z] [INFO] --- jar:3.4.2:jar (default-jar) @ physio-portal ---
+[2026-10-03T09:09:12.051Z] [INFO] 
+[2026-10-03T09:09:12.051Z] [INFO] --- spring-boot:4.0.8:repackage (repackage) @ physio-portal ---
+[2026-10-03T09:09:12.979Z] [INFO] Replacing main artifact C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\physio-portal-1.0.0.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[2026-10-03T09:09:12.979Z] [INFO] The original artifact has been renamed to C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\physio-portal-1.0.0.jar.original
+[2026-10-03T09:09:12.979Z] [INFO] 
+[2026-10-03T09:09:12.979Z] [INFO] --- failsafe:3.5.6:integration-test (default) @ physio-portal ---
+[2026-10-03T09:09:13.232Z] [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[2026-10-03T09:09:13.232Z] [WARNING] System property [selenium.baseUrl] overwritten by user properties from Maven session
+[2026-10-03T09:09:13.497Z] [INFO] 
+[2026-10-03T09:09:13.497Z] [INFO] -------------------------------------------------------
+[2026-10-03T09:09:13.497Z] [INFO]  T E S T S
+[2026-10-03T09:09:13.497Z] [INFO] -------------------------------------------------------
+[2026-10-03T09:09:15.384Z] [INFO] Running com.kirtivispute.physio.selenium.PortalSeleniumIT
+[2026-10-03T09:09:30.290Z] Oct 03, 2026 2:39:29 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[2026-10-03T09:09:30.290Z] WARNING: Unable to find an exact match for CDP version 154, returning the closest version; found: 153; Please update to a Selenium version that supports CDP version 154
+[2026-10-03T09:09:38.432Z] Oct 03, 2026 2:39:37 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[2026-10-03T09:09:38.432Z] WARNING: Unable to find an exact match for CDP version 154, returning the closest version; found: 153; Please update to a Selenium version that supports CDP version 154
+[2026-10-03T09:09:45.003Z] Oct 03, 2026 2:39:44 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[2026-10-03T09:09:45.003Z] WARNING: Unable to find an exact match for CDP version 154, returning the closest version; found: 153; Please update to a Selenium version that supports CDP version 154
+[2026-10-03T09:09:55.013Z] Oct 03, 2026 2:39:53 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[2026-10-03T09:09:55.013Z] WARNING: Unable to find an exact match for CDP version 154, returning the closest version; found: 153; Please update to a Selenium version that supports CDP version 154
+[2026-10-03T09:10:00.307Z] Oct 03, 2026 2:39:59 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+[2026-10-03T09:10:00.307Z] WARNING: Unable to find an exact match for CDP version 154, returning the closest version; found: 153; Please update to a Selenium version that supports CDP version 154
+[2026-10-03T09:10:02.232Z] [ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 46.52 s <<< FAILURE! -- in com.kirtivispute.physio.selenium.PortalSeleniumIT
+[2026-10-03T09:10:02.232Z] [ERROR] com.kirtivispute.physio.selenium.PortalSeleniumIT.registration -- Time elapsed: 20.64 s <<< FAILURE!
+[2026-10-03T09:10:02.232Z] org.opentest4j.AssertionFailedError: expected: <TASK10_INTENTIONALLY_WRONG_NAME> but was: <Selenium Demo registration>
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:158)
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:139)
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:201)
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:184)
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:179)
+[2026-10-03T09:10:02.232Z] 	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1188)
+[2026-10-03T09:10:02.232Z] 	at com.kirtivispute.physio.selenium.PortalSeleniumIT.registration(PortalSeleniumIT.java:15)
+[2026-10-03T09:10:02.232Z] 
+[2026-10-03T09:10:02.232Z] [INFO] 
+[2026-10-03T09:10:02.232Z] [INFO] Results:
+[2026-10-03T09:10:02.232Z] [INFO] 
+[2026-10-03T09:10:02.232Z] [ERROR] Failures: 
+[2026-10-03T09:10:02.232Z] [ERROR]   PortalSeleniumIT.registration:15 expected: <TASK10_INTENTIONALLY_WRONG_NAME> but was: <Selenium Demo registration>
+[2026-10-03T09:10:02.232Z] [INFO] 
+[2026-10-03T09:10:02.232Z] [ERROR] Tests run: 5, Failures: 1, Errors: 0, Skipped: 0
+[2026-10-03T09:10:02.232Z] [INFO] 
+[2026-10-03T09:10:02.232Z] [INFO] 
+[2026-10-03T09:10:02.232Z] [INFO] --- failsafe:3.5.6:verify (default) @ physio-portal ---
+[2026-10-03T09:10:02.500Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:10:02.500Z] [INFO] BUILD FAILURE
+[2026-10-03T09:10:02.500Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:10:02.500Z] [INFO] Total time:  01:02 min
+[2026-10-03T09:10:02.500Z] [INFO] Finished at: 2026-10-03T14:40:02+05:30
+[2026-10-03T09:10:02.500Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:10:02.500Z] [ERROR] Failed to execute goal org.apache.maven.plugins:maven-failsafe-plugin:3.5.6:verify (default) on project physio-portal: There are test failures.
+[2026-10-03T09:10:02.500Z] [ERROR] 
+[2026-10-03T09:10:02.500Z] [ERROR] See C:\ProgramData\Jenkins\.jenkins\workspace\physio-portal-pipeline\target\failsafe-reports for the individual test results.
+[2026-10-03T09:10:02.500Z] [ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[2026-10-03T09:10:02.500Z] [ERROR] -> [Help 1]
+[2026-10-03T09:10:02.500Z] [ERROR] 
+[2026-10-03T09:10:02.500Z] [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[2026-10-03T09:10:02.500Z] [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[2026-10-03T09:10:02.500Z] [ERROR] 
+[2026-10-03T09:10:02.500Z] [ERROR] For more information about the errors and possible solutions, please read the following articles:
+[2026-10-03T09:10:02.500Z] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Post stage
+[Pipeline] script
+[Pipeline] {
+[Pipeline] fileExists
+[Pipeline] fileExists
+[Pipeline] bat
+[2026-10-03T09:10:06.626Z] [INFO] Scanning for projects...
+[2026-10-03T09:10:06.626Z] [INFO] 
+[2026-10-03T09:10:06.626Z] [INFO] -------------------< com.kirtivispute:physio-portal >-------------------
+[2026-10-03T09:10:06.626Z] [INFO] Building physio-portal 1.0.0
+[2026-10-03T09:10:06.626Z] [INFO]   from pom.xml
+[2026-10-03T09:10:06.626Z] [INFO] --------------------------------[ jar ]---------------------------------
+[2026-10-03T09:10:06.626Z] [INFO] 
+[2026-10-03T09:10:06.626Z] [INFO] --- surefire-report:3.5.6:failsafe-report-only (default-cli) @ physio-portal ---
+[2026-10-03T09:10:21.527Z] [WARNING] Unable to find a URL to the parent project. The parent menu will NOT be added.
+[2026-10-03T09:10:21.527Z] [INFO] Rendering content with org.apache.maven.skins:maven-fluido-skin:jar:2.0.0-M9 skin
+[2026-10-03T09:10:21.527Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:10:21.527Z] [INFO] BUILD SUCCESS
+[2026-10-03T09:10:21.527Z] [INFO] ------------------------------------------------------------------------
+[2026-10-03T09:10:21.527Z] [INFO] Total time:  14.874 s
+[2026-10-03T09:10:21.527Z] [INFO] Finished at: 2026-10-03T14:40:20+05:30
+[2026-10-03T09:10:21.527Z] [INFO] ------------------------------------------------------------------------
+[Pipeline] echo
+[2026-10-03T09:10:21.616Z] Failure report generation exit: 0
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] junit
+[2026-10-03T09:10:21.818Z] Recording test results
+[2026-10-03T09:10:21.884Z] [Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+[2026-10-03T09:10:21.966Z] Archiving artifacts
+[2026-10-03T09:10:22.142Z] Recording fingerprints
+[Pipeline] script
+[Pipeline] {
+[Pipeline] archiveArtifacts
+[2026-10-03T09:10:22.748Z] Archiving artifacts
+[2026-10-03T09:10:23.143Z] Recording fingerprints
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Publish Test Report)
+Stage "Publish Test Report" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+Stage "Deploy" skipped due to earlier failure(s)
+[Pipeline] getContext
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] powershell
+[2026-10-03T09:10:28.375Z] Stopped owned Selenium test app for build 4 on port 8091
+[Pipeline] echo
+[2026-10-03T09:10:28.478Z] Pipeline failed. Inspect the stage and console; no successful deployment is claimed.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // timestamps
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 1
+Finished: FAILURE

@@ -1,0 +1,12 @@
+{
+  "captured_at": "2026-10-03T14:41:04.8981387+05:30",
+  "failed_build": 4,
+  "old_deployment_build": "3",
+  "old_source": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "old_pid": 23396,
+  "old_sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+  "unchanged": true,
+  "listener_pid": 23396,
+  "health": "UP",
+  "temporary_test_port_stopped": true
+}

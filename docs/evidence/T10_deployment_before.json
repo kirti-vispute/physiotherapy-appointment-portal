@@ -1,0 +1,10 @@
+{
+  "captured_at": "2026-10-03T14:37:11.1640123+05:30",
+  "build_number": "3",
+  "git_commit": "7f973000a94840c7a91d17e7ce68218df607f3f1",
+  "pid": 23396,
+  "listener_pid": 23396,
+  "sha256": "4561B7F4BDBCF84BC7ECABCE92ADFD254851197A78BFACCB291041292B708D09",
+  "health": "UP",
+  "deployment_metadata_path": "C:\\ProgramData\\Jenkins\\physio-portal-demo\\test-8082\\deployment.json"
+}
