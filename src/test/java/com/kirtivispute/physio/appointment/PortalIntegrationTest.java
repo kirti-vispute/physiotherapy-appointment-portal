@@ -114,10 +114,11 @@ class PortalIntegrationTest {
     @Test void anonymousUsersCanBrowseButCannotManageAppointments() throws Exception {
         var session = new BrowserSession();
         assertThat(session.get("/physiotherapists").statusCode()).isEqualTo(200);
-        var illustration = session.get("/images/movement-session.svg");
+        var illustration = session.client.send(HttpRequest.newBuilder(URI.create("http://localhost:" + port + "/images/movement-session.png")).GET().build(),
+                HttpResponse.BodyHandlers.ofByteArray());
         assertThat(illustration.statusCode()).isEqualTo(200);
-        assertThat(illustration.headers().firstValue("Content-Type")).hasValueSatisfying(type -> assertThat(type).contains("image/svg+xml"));
-        assertThat(illustration.body()).contains("<svg", "Guided movement session");
+        assertThat(illustration.headers().firstValue("Content-Type")).hasValueSatisfying(type -> assertThat(type).contains("image/png"));
+        assertThat(illustration.body()).startsWith((byte) 0x89, (byte) 0x50, (byte) 0x4e, (byte) 0x47, (byte) 0x0d, (byte) 0x0a, (byte) 0x1a, (byte) 0x0a);
         assertThat(session.get("/api/physiotherapists").body()).contains("Dr Test One", "Dr Test Two");
         assertThat(session.get("/api/appointments").statusCode()).isEqualTo(401);
         assertThat(session.mutate("POST", "/api/appointments", "{\"slotId\":" + future.getId() + "}").statusCode()).isEqualTo(401);
