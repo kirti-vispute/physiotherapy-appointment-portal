@@ -1,0 +1,9 @@
+{
+  "source": "Jenkins JUnit testReport API for build 11",
+  "passCount": 39,
+  "failCount": 0,
+  "skipCount": 0,
+  "durationSeconds": 86.188,
+  "consoleBackendTests": 34,
+  "consoleBrowserTests": 5
+}

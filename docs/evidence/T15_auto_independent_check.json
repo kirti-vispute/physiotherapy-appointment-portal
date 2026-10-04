@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-04T14:19:14.9049827+05:30",
+  "note": "Docker Desktop was restarted after a Windows reboot; the existing build 11 container was started without replacement before this live check",
+  "containerName": "physio-portal-cd-test",
+  "containerId": "5c44b13e851edb85a263f7c372dd9d5e9be18c8b9121f12aecbbeef756c6b78e",
+  "running": true,
+  "imageId": "sha256:2365960bf8ceb76d46de77c55a97c67d3b1e1a09e489136923b1ae986a1c5f3d",
+  "commitLabel": "58c86345b231f122746a592accf40876f683fdd8",
+  "jenkinsBuildLabel": "11",
+  "hostPort": "8087",
+  "hostIp": "127.0.0.1",
+  "volume": "physio-portal-cd-test-data",
+  "oldBuild9ContainerAbsent": true,
+  "registryManifestFound": true,
+  "health": "UP",
+  "homeHttp": 200,
+  "providersHttp": 200
+}

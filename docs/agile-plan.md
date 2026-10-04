@@ -2,7 +2,7 @@
 
 **Project:** Selenium Testing for a Physiotherapy Appointment Portal  
 **Owner for all tasks:** Kirti Vispute (23102C0078)  
-**Updated:** 3 October 2026
+**Updated:** 4 October 2026
 **Method:** A single-owner, sequential Kanban board grouped into short milestone sprints. Status represents verified progress, not elapsed time.
 
 ## 15-task Kanban board
@@ -25,7 +25,7 @@ All tasks have one owner. `Done` requires the listed acceptance evidence; a docu
 | 12 | Docker CD | Publish image and deploy automatically | Kirti | ✅ Done | 10, 11 | Registry image and Jenkins deployment | Merged #9 passed 39 tests, pushed versioned image, removed old container, ran new healthy 8087 container; PR #7 merged |
 | 13 | Ansible | Specify target and configure it with playbook | Kirti | ✅ Done | 11, 12 | Inventory, variables, playbook, first log | Ubuntu WSL first execution `ok=10 changed=5 failed=0`; Docker/account/folder/config and evidence verified |
 | 14 | Provisioning/Reliability | Repeat run, health, bad release, rollback | Kirti | ✅ Done | 13 | Two runs and recovery evidence | Second run `changed=0 failed=0`; bad port failed health; rollback restored HTTP 200 |
-| 15 | Final Validation | Audit deliverables and rehearse viva | Kirti | ⬜ To do | 01–14 | Final report, evidence index, demo sequence | Every line checked; missing evidence is reported, never invented |
+| 15 | Final Validation | Audit deliverables and prepare viva | Kirti | ✅ Done | 01–14 | Final report, audit, evidence index, diagrams and demo sequence | All 15 task rows mapped to evidence; local 34+5 pass, SCM-triggered Pipeline #11 passes 39 and deploys healthy container; limitations recorded honestly |
 
 ## Sprint plan
 

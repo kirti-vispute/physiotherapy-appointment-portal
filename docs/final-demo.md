@@ -4,7 +4,7 @@
 **Presenter:** Kirti Vispute (23102C0078)  
 **Environment:** one Windows 11 computer, GitHub Free, local Jenkins, local Docker Desktop registry, Ubuntu WSL with Ansible. No paid cloud account is required.
 
-This is a **rehearsal script**, not a claim that the future viva actions have already happened. The saved [Task 7](task-07-jenkins-ci.md), [Task 12](task-12-docker-cd.md), and [Task 14](task-14-provisioning.md) evidence can be shown if a live build is too slow. Explain clearly that `physio-portal-ci` polls GitHub automatically, while `physio-portal-pipeline` currently requires a manual **Build with Parameters**. A manual pipeline build must not be described as an automatic trigger.
+This is a **rehearsal script**, not a claim that the future viva actions have already happened. The saved [Task 7](task-07-jenkins-ci.md), [Task 12](task-12-docker-cd.md), [Task 14](task-14-provisioning.md), and [automatic Task 15 build #11](evidence/T15_auto_build11.json) evidence can be shown if a live build is too slow. Both Jenkins jobs now poll `develop`; the Pipeline's [active schedule](evidence/T15_trigger_config.json) and [SCM-caused successful build](evidence/T15_auto_console.txt) were verified. Build #10 was manually started only to activate the new trigger and then timed out; it is not the automatic proof.
 
 ## Before presenting
 
@@ -44,7 +44,7 @@ git log --oneline --decorate -n 8
 
 ## 4. Show Jenkins
 
-**Browser:** open [local Jenkins](http://localhost:8080/), sign in, then show `physio-portal-ci` and `physio-portal-pipeline`. **Expected:** Task 7 freestyle CI has Poll SCM; the Pipeline job reads the committed `Jenkinsfile`. Show [historical CI auto-trigger](../screenshots/T07_scm_trigger.jpg) and [pipeline stages](../screenshots/T08_pipeline_stages.jpg) if no new build has begun yet. A login page means the presenter must sign in before using the private job pages.
+**Browser:** open [local Jenkins](http://localhost:8080/), sign in, then show `physio-portal-ci` and `physio-portal-pipeline`. **Expected:** both jobs have Poll SCM; the Pipeline reads the committed `Jenkinsfile` and its schedule is `H/2 * * * *`. Show [historical CI auto-trigger](../screenshots/T07_scm_trigger.jpg) and [Task 15 automatic build #11](evidence/T15_auto_build11.json) if no new build has begun yet. A login page means the presenter must sign in before using the private job pages.
 
 ## 5. Make a small code change
 
@@ -80,7 +80,7 @@ If the PR reports a conflict, follow the [Git guide](git-workflow.md); do not fo
 
 ## 7. Show Jenkins starting automatically
 
-**Browser:** after the `develop` merge, open `physio-portal-ci` → **Git Polling Log** and the next build. Poll SCM uses `H/2 * * * *`; wait for its schedule and queue. **Expected:** a new build cause says **Started by an SCM change** and the checked-out commit matches the new `develop` merge. [Task 7's recorded automatic build #2](evidence/T07_build_scm.json) is backup. Do not click Build Now to claim this automatic trigger. If nothing starts, inspect Polling Log and the branch/repository settings in [Task 7](task-07-jenkins-ci.md).
+**Browser:** after the `develop` merge, open `physio-portal-ci` and `physio-portal-pipeline` → **Git Polling Log** and their next builds. Poll SCM uses `H/2 * * * *`; wait for the schedule and queue. **Expected:** each triggered build's cause says **Started by an SCM change** and the Pipeline checkout matches the new `develop` merge. [Task 7's automatic CI build #2](evidence/T07_build_scm.json) and [Task 15's automatic full Pipeline build #11](evidence/T15_auto_build11.json) are backups. Do not click Build Now to claim an automatic trigger. If nothing starts, inspect Polling Log and the branch/repository settings in [Task 7](task-07-jenkins-ci.md).
 
 ## 8. Show Maven building
 
@@ -88,7 +88,7 @@ If the PR reports a conflict, follow the [Git guide](git-workflow.md); do not fo
 
 ## 9. Run the Selenium deployment pipeline
 
-**Jenkins:** open `physio-portal-pipeline` → **Build with Parameters** → `APP_ENV=test`, `DOCKER_PORT=8087` → Build. This is a **manual start** of the deployment pipeline. It checks out the newly merged `develop` commit, starts a temporary test app on port 8091, and runs five Chrome browser journeys after the backend build. **Expected:** `Selenium Tests` and `Publish Test Report` stages appear. This separation is necessary because the saved Pipeline job has no SCM trigger; see the [actual configuration](evidence/T12_job_develop.xml).
+**Jenkins:** open the automatically started `physio-portal-pipeline` build for the new merge. Its default parameters are `APP_ENV=test` and `DOCKER_PORT=8087`; verify them in the build details. It checks out the new `develop` commit, starts a temporary test app on port 8091, and runs five Chrome browser journeys after the backend build. **Expected:** `Selenium Tests` and `Publish Test Report` stages appear. If a live poll is delayed, show the [real build #11 console](evidence/T15_auto_console.txt) and active [trigger configuration](evidence/T15_trigger_config.json); a manually clicked backup run is labeled manual.
 
 ## 10. Show tests passing
 
@@ -157,4 +157,4 @@ Invoke-RestMethod http://127.0.0.1:8089/actuator/health
 
 ## Closing explanation
 
-Explain the two quality gates: Selenium failure stopped deployment in Task 10, and Ansible health failure exposed a bad configuration in Task 14. Show the [final audit](final-audit.md). The presenter can truthfully say the **freestyle CI build is automatically triggered after a `develop` change**, while the **Docker deployment pipeline is manually started with parameters**. A fully automatic trigger for that second job is future work.
+Explain the two quality gates: Selenium failure stopped deployment in Task 10, and Ansible health failure exposed a bad configuration in Task 14. Show the [final audit](final-audit.md). The presenter can truthfully say **both the freestyle CI and the Docker deployment Pipeline poll `develop`**, and [build #11](evidence/T15_auto_build11.json) proves the full Pipeline ran after an SCM change, passed 39 tests, pushed its image, replaced the container, and passed health. Note that local Docker Desktop and Ubuntu WSL services may need starting again after reboot.

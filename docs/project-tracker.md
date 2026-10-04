@@ -2,7 +2,7 @@
 
 **Project:** Selenium Testing for a Physiotherapy Appointment Portal  
 **Owner:** Kirti Vispute (23102C0078)  
-**Updated:** 3 October 2026
+**Updated:** 4 October 2026
 
 Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence · ❌ Needs correction
 
@@ -22,18 +22,18 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 12 | Docker CD | ✅ | PR #7 COMMENT self-reviewed and merged; develop Jenkins #9 passed 39 tests, pushed versioned image, removed prior owned container and deployed a new healthy 8087 container. See [Task 12 guide](task-12-docker-cd.md). |
 | 13 | Ansible | ✅ | Ubuntu 24.04 WSL configured by Ansible; first run `ok=10 changed=5 failed=0`, Docker/account/files/registry verified; PR #8 COMMENT self-reviewed and merged. See [Task 13 guide](../ansible/README.md). |
 | 14 | Provisioning/Reliability | ✅ | Ansible full runs `changed=4` then `changed=0`; Ubuntu container on 8089 healthy; bad port produced `failed=1`, known good rollback restored HTTP 200 and retained database volume. See [Task 14 guide](task-14-provisioning.md). |
-| 15 | Final Validation | ⬜ | Not started |
+| 15 | Final Validation | ✅ | [Final report](final-report.md), [15-task audit](final-audit.md), [evidence index](final-evidence-index.md), [seven diagrams](final-diagrams.md), [16-part viva guide](final-demo.md), final 34+5 local pass and SCM-triggered Jenkins #11 SUCCESS with 39 tests and healthy deployment |
 
 | Area | Current verified state |
 |---|---|
-| Application | Full patient MVP verified; Jenkins deployment on 8082 and Task 12 Docker CD on 8087 retained; Task 14 Ubuntu WSL container on 8089 restored to health UP after bad-port simulation, with separate persistent database volume |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#9 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 14 Ansible provisioning |
-| Jenkins | Windows service 2.568.1 running on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 12 feature #8 and merged develop #9 SUCCESS with 39 tests, versioned registry pushes and healthy Docker deployment |
+| Application | Full patient MVP verified; after Docker Desktop recovery on 4 October, the same build #11 container on 8087 returned health UP and home/providers HTTP 200; earlier 8082 and 8089 checks are timestamped, and local services may stop after reboot |
+| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#10 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 15 final validation |
+| Jenkins | Windows service 2.568.1 on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 15 Pipeline #10 timed out, then SCM-caused #11 SUCCESS passed 39 tests, pushed a versioned registry image, replaced the container and passed health |
 | Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Task 11 local lifecycle verified on 8086; Task 12 Jenkins versioned image and healthy 8087 deployment retained; Task 14 Ubuntu engine pulled the same pinned image, deployed on 8089 and preserved its named volume through recovery |
+| Docker | Task 11 local lifecycle verified on 8086; SCM-caused Jenkins #11 image `1.0.0-b11-58c86345b231` and container `5c44b13e...` verified on 8087; Task 14 Ubuntu engine retains the separately pinned build #9 image/volume on 8089 |
 | Ansible | Ubuntu WSL first configuration run `changed=5`; Task 14 site playbook first deployment `changed=4`, second run `changed=0`; bad port failed health and rollback restored HTTP 200 |
-| Documentation | Tasks 1–14 complete; Task 14 guide explains provisioning, WSL lifetime, exact commands, idempotency, failure and recovery |
-| Evidence | Tasks 3–13 retained; Task 14 four Ansible logs, before/good/bad/recovered state checks, and three real screenshots saved |
+| Documentation | All 15 tasks complete; final report covers 38 required topics, audit covers every task, seven diagrams and 16-part viva sequence are linked |
+| Evidence | Tasks 1–14 retained; Task 15 local Maven/HTTP, PR #10, trigger configuration, timed-out #10, successful SCM-caused #11, test/deployment metadata and independent post-reboot check saved |
 
 ## Task 1 evidence checklist
 
@@ -117,7 +117,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [PR #7](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/7#pullrequestreview-5400448994) and merged at `180b726bc020aaa534f65f69283f30b9bb04abeb`; Jenkins SCM restored to `develop`
 - ✅ Feature build #8 and merged [develop build #9](http://localhost:8080/job/physio-portal-pipeline/9/) completed the 39-test gate and Docker Build → Tag → Push → Stop → Run → Health sequence
 - ✅ Registry contains `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` at digest `sha256:3977b8ccbc1706b2eb00425f4589ad0a720752d492c02b4f37ea410b63d5f9e5`
-- ✅ Build #8 container was stopped and removed; build #9 container `692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b` runs on `127.0.0.1:8087`, health UP and home/providers HTTP 200
+- ✅ Build #8 container was stopped and removed; build #9 container `692075d7910a1de97cf251331e3cd549019972bec26e1fa867fbf248532e472b` ran on `127.0.0.1:8087` with health UP and home/providers HTTP 200, then Task 15 build #11 replaced it
 - ✅ Jenkins archive JAR and container JAR hashes match; console, stage logs, metadata, before/after checks and screenshot saved in [Task 12 guide](task-12-docker-cd.md)
 
 ## Task 13 verification gate
@@ -140,4 +140,14 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Task 14 guide](task-14-provisioning.md) and idempotency, health and rollback screenshots saved
 - ✅ [PR #9](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/9#pullrequestreview-5401462270) and merged at `955e6b93c740fd1fc550b9c33f89e78fa7b0ef3e`; local `develop` synchronized
 
-Tasks 1–14 are ✅. Task 15 is ⬜ pending final requirement audit and viva sequence.
+## Task 15 verification gate
+
+- ✅ [Final report](final-report.md) covers all 38 documentation topics; [audit](final-audit.md) maps every task to deliverables, evidence and status
+- ✅ [Evidence index](final-evidence-index.md) specifies screenshot need, exact view/command and expected result for all 15 tasks; [seven diagrams](final-diagrams.md) match the implementation
+- ✅ [Viva sequence](final-demo.md) gives all 16 actions with commands, expected outcomes, and fallback evidence
+- ✅ [Final local Maven run](evidence/T15_final_maven_verify.txt) passed 34 backend plus five Selenium cases; [live HTTP check](evidence/T15_live_checks.json) recorded 8082/8087/8089 health UP and page HTTP 200 on 3 October
+- ✅ [PR #10](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/10) received [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/10#pullrequestreview-5401701041) and merged at `8aadb3679fa9afc8d429dabd3fc02a54cb8588cc`
+- ✅ Jenkins [Poll SCM configuration](evidence/T15_trigger_config.json) active; manual activation [#10](evidence/T15_activation_build.json) timed out and did not deploy, then [SCM-caused #11](evidence/T15_auto_build11.json) completed SUCCESS with [39 passing tests](evidence/T15_auto_tests.json), versioned image push, new container and health gate
+- ✅ [Independent check](evidence/T15_auto_independent_check.json) after Docker Desktop reboot recovery matched build #11's image/commit/container/volume, verified registry manifest and old build #9 container removal, and returned health UP and HTTP 200
+
+Tasks 1–15 are ✅. The future viva presentation itself remains to be performed by the student using the verified sequence.

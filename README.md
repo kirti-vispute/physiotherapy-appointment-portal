@@ -7,7 +7,7 @@
 
 A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
 
-**Current verified state:** Tasks 1–14 are complete. The patient MVP works through the browser/API with 34 passing integration tests. Git history includes reviewed PRs, a real conflict and the [v1.0.0 MVP release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0). Jenkins CI checkout/tests/archive and an actual SCM trigger are verified. Task 10 proved a failing Selenium case skipped deployment and a corrected run passed all **39 tests**. Task 11 built the versioned Docker image and demonstrated its lifecycle on **[localhost:8086](http://localhost:8086/)**. Task 12 merged [Jenkins build #9](http://localhost:8080/job/physio-portal-pipeline/9/) passed 39 tests, pushed a commit-tagged image to the local registry, replaced the old container, and serves a healthy portal at **[localhost:8087](http://localhost:8087/)**. Tasks 13–14 configured Ubuntu WSL with Ansible, deployed the image on **[localhost:8089](http://localhost:8089/)**, proved a zero-change second run and recovered from a simulated bad port. See the [project tracker](docs/project-tracker.md).
+**Current verified state:** All 15 tasks have evidence. The patient MVP, real Git conflict, reviewed PRs, and [v1.0.0 release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) are documented. The final local run passed **34 backend plus five Selenium tests**. After a `develop` push, [Jenkins Pipeline build #11](http://localhost:8080/job/physio-portal-pipeline/11/) started **automatically from an SCM change**, passed all **39 tests**, pushed a commit-tagged image to the free local registry, replaced the previous Docker container, and passed health. Tasks 13–14 used Ansible on a separate Ubuntu WSL engine to prove zero-change idempotency and recovery from a bad port. The [final report](docs/final-report.md), [audit](docs/final-audit.md), [evidence index](docs/final-evidence-index.md), and [16-part viva guide](docs/final-demo.md) are ready. Local services may need restarting after reboot.
 
 ## MVP features
 
@@ -108,9 +108,11 @@ The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature
 
 ## Docker deployment
 
-**Task 11 verified.** The root [Dockerfile](Dockerfile) packages the tested executable JAR as a Java 21 image tagged `physio-portal:1.0.0`. Docker `build`, `images`, `run`, `ps`, `logs`, `stop`, `start`, `restart`, and `rm` were executed. The final container maps `127.0.0.1:8086` → `8080/tcp`, keeps H2 data in a named volume, and returns HTTP 200/health `UP`. The [Task 11 guide](docs/task-11-docker.md) records exact commands, image/container IDs, logs, health, startup recovery, and screenshot.
+**Task 11 verified.** The root [Dockerfile](Dockerfile) packages the tested executable JAR as a Java 21 image tagged `physio-portal:1.0.0`. Docker `build`, `images`, `run`, `ps`, `logs`, `stop`, `start`, `restart`, and `rm` were executed. The verification container mapped `127.0.0.1:8086` → `8080/tcp`, kept H2 data in a named volume, and returned HTTP 200/health `UP` when tested. It may be stopped after reboot. The [Task 11 guide](docs/task-11-docker.md) records exact commands, image/container IDs, logs, health, startup recovery, and screenshot.
 
 **Task 12 verified.** [Jenkinsfile](Jenkinsfile) runs Docker Build → Tag → Push → Stop Previous Container → Run New Container → Health Check after the 39-test gate. A loopback local registry receives the versioned image. Merged [build #9](http://localhost:8080/job/physio-portal-pipeline/9/) pushed `localhost:5000/physio-portal:1.0.0-b9-180b726bc020`, removed build #8's owned container, and deployed a new healthy container on 8087. The [Task 12 guide](docs/task-12-docker-cd.md) records the PR, stage logs, IDs, digest, JAR hash, screenshot and initial failed/corrected run.
+
+**Task 15 verified:** the Pipeline now polls `develop` every two minutes. [Build #11](http://localhost:8080/job/physio-portal-pipeline/11/) was caused by an SCM change, passed 34 backend and five Selenium tests, pushed `localhost:5000/physio-portal:1.0.0-b11-58c86345b231`, replaced build #9's container, and passed health. Its [console](docs/evidence/T15_auto_console.txt), [tests](docs/evidence/T15_auto_tests.json), and [independent check](docs/evidence/T15_auto_independent_check.json) are saved. Activation build #10 timed out and did not deploy; the [audit](docs/final-audit.md) records it honestly.
 
 ## Ansible configuration and reliability
 
@@ -130,7 +132,7 @@ Requirements → planning → architecture → feature branches/PRs → Maven/Je
 
 Task 4 also includes [branch evidence](screenshots/T04_branches.jpg) and [initial commit evidence](screenshots/T04_commits.jpg). These capture the initial publication before the subsequent evidence documentation commit.
 
-Additional images will be added only after the corresponding GitHub, Jenkins, Selenium, Docker, or Ansible step has actually been demonstrated. The screenshot checklist and final audit will link to them.
+The [final evidence index](docs/final-evidence-index.md) names the exact view and command behind each screenshot or log.
 
 ![Task 5 registration success](screenshots/T05_registration_success.jpg)
 

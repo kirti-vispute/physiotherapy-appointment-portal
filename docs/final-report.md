@@ -2,14 +2,14 @@
 
 **Title:** Selenium Testing for a Physiotherapy Appointment Portal  
 **Student:** Kirti Vispute (23102C0078)  
-**Date:** 3 October 2026  
+**Date:** 4 October 2026
 **Repository:** [kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)
 
 This report is an entry point to the versioned source, executed checks, diagrams, and saved evidence. The [line-by-line audit](final-audit.md), [evidence index](final-evidence-index.md), and [16-part viva sequence](final-demo.md) make each claim inspectable.
 
 ## 1. Abstract
 
-This project builds a small patient portal for finding a physiotherapist and booking, tracking, and cancelling an appointment. Its DevOps path uses GitHub, Maven/JUnit, Selenium, Jenkins, Docker, a local registry, Ansible, health checks, and a demonstrated recovery. The final local check ran **34 backend and 5 browser cases with zero failures**; local deployments on ports 8082, 8087, and 8089 all returned health `UP` and HTTP 200 for the home and provider pages. [Raw final output](evidence/T15_final_maven_verify.txt) and [live checks](evidence/T15_live_checks.json) support these results.
+This project builds a small patient portal for finding a physiotherapist and booking, tracking, and cancelling an appointment. Its DevOps path uses GitHub, Maven/JUnit, Selenium, Jenkins, Docker, a local registry, Ansible, health checks, and a demonstrated recovery. The final local run passed **34 backend and 5 browser cases**; local deployments on ports 8082, 8087, and 8089 returned health `UP` and HTTP 200 at the recorded time. An automatic [Jenkins build #11](evidence/T15_auto_build11.json) then passed all 39 tests, pushed a versioned image, replaced the container, and passed health. [Raw Maven output](evidence/T15_final_maven_verify.txt), [HTTP checks](evidence/T15_live_checks.json), and [build #11 console](evidence/T15_auto_console.txt) support these results.
 
 ## 2. Introduction
 
@@ -77,7 +77,7 @@ The [Git guide](git-workflow.md) records meaningful commits, status/add/commit/p
 
 ## 18. GitHub repository
 
-The [public repository](https://github.com/kirti-vispute/physiotherapy-appointment-portal) has `main` and `develop`, issue/PR templates, source, deployment configuration, docs, and screenshots. PRs #1–#9 have review and merge records in the [tracker](project-tracker.md); single-contributor COMMENT self-reviews are not independent peer approval.
+The [public repository](https://github.com/kirti-vispute/physiotherapy-appointment-portal) has `main` and `develop`, issue/PR templates, source, deployment configuration, docs, and screenshots. PRs #1–#10 have review and merge records in the [tracker](project-tracker.md); single-contributor COMMENT self-reviews are not independent peer approval.
 
 ## 19. Branching strategy
 
@@ -93,7 +93,7 @@ The [Task 7 guide](task-07-jenkins-ci.md) records the existing local Windows Jen
 
 ## 22. Jenkins pipeline
 
-The versioned [Jenkinsfile](../Jenkinsfile) is parameterized by `APP_ENV` and `DOCKER_PORT`. [Task 8](task-08-pipeline-deployment.md) verified five initial stages; [Tasks 10](task-10-continuous-testing.md) and [12](task-12-docker-cd.md) extended them with Selenium and Docker stages. The saved Task 12 pipeline job had no automatic SCM trigger; its verified build #9 was started manually. The separate Task 7 freestyle job demonstrated automatic Poll SCM.
+The versioned [Jenkinsfile](../Jenkinsfile) is parameterized by `APP_ENV` and `DOCKER_PORT`. [Task 8](task-08-pipeline-deployment.md) verified five initial stages; [Tasks 10](task-10-continuous-testing.md) and [12](task-12-docker-cd.md) extended them with Selenium and Docker stages. Task 15 added Poll SCM (`H/2 * * * *`) to the Pipeline, [validated](evidence/T15_trigger_config.json) its active configuration, and proved that a later `develop` push started [build #11](evidence/T15_auto_build11.json) automatically. The Task 7 freestyle job also retains its own Poll SCM trigger.
 
 ## 23. Selenium test plan
 
@@ -113,7 +113,7 @@ The root [Dockerfile](../Dockerfile) packages the tested Java 21 JAR; app config
 
 ## 27. Jenkins–Docker deployment
 
-[Task 12 build #9](task-12-docker-cd.md) passed 39 tests, pushed tag `1.0.0-b9-180b726bc020` to the loopback registry, removed the old owned container, and started a healthy new one at port 8087. Saved logs identify each stage and the image digest.
+[Task 12 build #9](task-12-docker-cd.md) first demonstrated the 39-test Docker path with a manual Pipeline start. Task 15's [SCM-caused build #11](evidence/T15_auto_build11.json) repeated it automatically: 39 passing tests, tag `1.0.0-b11-58c86345b231` pushed to the loopback registry, old owned container removed, and new healthy container on 8087. Its [deployment metadata](evidence/T15_auto_deployment.json) and [independent check](evidence/T15_auto_independent_check.json) record the image, commit, port, volume, registry, and HTTP results.
 
 ## 28. Ansible configuration management
 
@@ -141,7 +141,7 @@ The [evidence index](final-evidence-index.md) identifies the exact view, command
 
 ## 34. Results
 
-The final [Maven run](evidence/T15_final_maven_verify.txt) ended `BUILD SUCCESS`: 34 JUnit integration tests plus five browser tests, zero failures/errors/skips. The [live check](evidence/T15_live_checks.json) confirmed three local deployments at the stated time. Earlier Jenkins build #9 and registry/container evidence remain in [Task 12](task-12-docker-cd.md). A fresh Jenkins API query during this audit returned HTTP 403, so no new Jenkins build result is claimed.
+The final [local Maven run](evidence/T15_final_maven_verify.txt) ended `BUILD SUCCESS`: 34 JUnit integration tests plus five browser tests, zero failures/errors/skips. A [timestamped HTTP check](evidence/T15_live_checks.json) confirmed three local deployments. Initial unauthenticated Jenkins API access returned HTTP 403; the previously authorized local setup credential allowed a read-only result check. Activation build [#10](evidence/T15_activation_build.json) timed out and skipped deployment. The following automatic [build #11](evidence/T15_auto_build11.json) ended `SUCCESS`, with [39 JUnit passes](evidence/T15_auto_tests.json) and a healthy versioned Docker deployment. After Docker Desktop's transient socket startup issue recurred following reboot, the [documented safe recovery](evidence/T15_docker_recovery.md) restored the engine; [live post-reboot checks](evidence/T15_auto_independent_check.json) verified the same container and data volume, health `UP`, and HTTP 200.
 
 ## 35. Challenges
 
@@ -153,8 +153,8 @@ The [Task 8 launcher](task-08-pipeline-deployment.md) detached the local Java pr
 
 ## 37. Conclusion
 
-The frozen patient MVP and the required local DevOps demonstrations have verifiable source, execution logs, screenshots, and final checks. The separate CI trigger and Docker deployment pipeline should be shown honestly as two Jenkins jobs during a viva. The [audit](final-audit.md) records the remaining presentation limitation rather than presenting a manual pipeline start as automatic.
+The frozen patient MVP and required local DevOps demonstrations have verifiable source, execution logs, screenshots, and final checks. The full Pipeline now starts automatically after a `develop` change and gates a versioned Docker replacement on passing tests and health. The [audit](final-audit.md) records the aborted activation run alongside the successful automatic run, and the [viva script](final-demo.md) distinguishes recorded evidence from actions to perform on presentation day.
 
 ## 38. Future scope
 
-Possible future work includes a clinician-facing schedule, email reminders, HTTPS for a public environment, external database backups, and an automatic trigger on the Docker deployment pipeline. These are outside the approved MVP and are not claimed as implemented.
+Possible future work includes a clinician-facing schedule, email reminders, HTTPS for a public environment, external database backups, and a more reliable Docker Desktop startup or service strategy after reboot. These are outside the approved MVP and are not claimed as implemented.
