@@ -5,7 +5,7 @@ The visual update follows the approved patient portal scope. It changes presenta
 ## Design
 
 - **Theme:** deep navy for text and footer, teal for primary actions, soft mint for supporting surfaces, and a warm cream accent in the home hero.
-- **Physiotherapy context:** an original local SVG shows a guided arm movement session. The same illustration supports the home and account pages; provider cards use small clinician icons, and the slot page uses a clock icon beside practical booking information.
+- **Physiotherapy context:** a local transparent PNG shows a seated patient and a standing physiotherapist with distinct, naturally positioned limbs. The same illustration supports the home and account pages; provider cards use small clinician icons, and the slot page uses a clock icon beside practical booking information.
 - **Patient flow:** the home page explains three steps; provider cards show specialty and description; slots show duration and IST time zone before booking; account and appointment pages share the same navigation and action styles.
 - **Accessibility:** semantic headings and landmarks, a skip link, text alternatives, visible keyboard focus, responsive layouts, and reduced-motion support.
 - **Cost:** the illustration, icons, CSS, and system fonts are stored locally. No paid service, image license, remote font, or external runtime asset is required.
@@ -35,10 +35,12 @@ The two displayed physiotherapists and their schedules remain fictional demo dat
 - [Physiotherapists, mobile](../screenshots/UI_providers_mobile.png)
 - [Available appointments, mobile](../screenshots/UI_slots_mobile.png)
 - [Registration, mobile](../screenshots/UI_registration_mobile.png)
+- [Sign-in, tablet](../screenshots/UI_login_tablet.png)
+- [Sign-in, desktop](../screenshots/UI_login_desktop.png)
 
 These screenshots were captured from a temporary local instance using fictional data. The prior T03–T15 screenshots remain dated proof of their original tasks.
 
-## Local verification on 4 October 2026
+## Initial local verification on 4 October 2026
 
 - `mvn -B -ntp clean package`: 34 backend tests, zero failures/errors/skips, BUILD SUCCESS. [Full log](evidence/UI_backend_build.txt).
 - The temporary preview on port 8092 returned HTTP 200 for home, providers, registration, sign-in, and the SVG asset, with health `UP`.
@@ -52,3 +54,13 @@ These screenshots were captured from a temporary local instance using fictional 
 The merge automatically triggered Jenkins freestyle CI #21 and Pipeline #13; both finished SUCCESS. [Pipeline #13 evidence](evidence/UI_pipeline13.json) records all 39 tests passing, the versioned local registry image, container replacement, and health gate. The [independent Docker check](evidence/UI_deployment_check.json) matched the running container, image, and source commit to this build.
 
 The [live HTTP check](evidence/UI_live_checks.json) verified the updated home, providers, sign-in, registration, and SVG at [the local portal](http://127.0.0.1:8087/), with HTTP 200 and health `UP`. Later documentation commits can create new build numbers through the same polling pipeline.
+
+## Illustration correction
+
+User feedback identified unclear arm and leg positions in the original vector illustration. The replacement `src/main/resources/static/images/movement-session.png` was created with the built-in image-generation tool and stored in the repository. The prompt requested a seated patient with supported thighs, bent knees and feet on the floor, alongside a standing physiotherapist with separate limbs, natural joints and hands; transparent background, navy/teal/mint palette, no touching or overlapping limbs, and no text.
+
+Home, sign-in, and registration now share this corrected asset. The public-image test checks the PNG content type and binary signature. Previous build #13 evidence remains historical and describes the original SVG deployment.
+
+The home-page badge was removed so it cannot cover the clinician's feet. The mobile illustration container now keeps the complete scene visible. Updated screenshots include the sign-in error view at 744 pixels and the home page at 390 pixels, where page width and viewport width both measured 390 pixels.
+
+Local checks on 4 October 2026 passed: 34 backend tests ([build log](evidence/UI_illustration_backend.txt)) and five Selenium journeys against the final preview ([browser log](evidence/UI_illustration_selenium.txt)), with zero failures, errors, or skips.
