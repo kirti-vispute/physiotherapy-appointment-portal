@@ -153,3 +153,7 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 Tasks 1–15 are ✅. The future viva presentation itself remains to be performed by the student using the verified sequence.
 
 **Later UI refinement:** [Design and verification addendum](ui-refresh.md) records the refreshed patient pages, locally created physiotherapy illustration, 34 passing backend tests, five passing Selenium journeys, and responsive screenshots. It stays within the T1–T15 scope.
+
+- ✅ [PR #11](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/11), COMMENT self-review, and merge `06794732fb80601490a932ad52bfcff65f35f4d6`
+- ✅ Automatic Jenkins CI #21 and [Pipeline #13](evidence/UI_pipeline13.json) SUCCESS, all 39 tests passing, image published and deployed
+- ✅ [Independent container match](evidence/UI_deployment_check.json), [live updated pages](evidence/UI_live_checks.json), HTTP 200 and health UP

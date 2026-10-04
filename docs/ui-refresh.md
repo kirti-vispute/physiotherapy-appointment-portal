@@ -44,3 +44,11 @@ These screenshots were captured from a temporary local instance using fictional 
 - The temporary preview on port 8092 returned HTTP 200 for home, providers, registration, sign-in, and the SVG asset, with health `UP`.
 - `mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://127.0.0.1:8092' failsafe:integration-test failsafe:verify`: five Selenium journeys, zero failures/errors/skips, BUILD SUCCESS. The preview JAR was kept unchanged while these goals ran. [Full log](evidence/UI_selenium_browser.txt).
 - Browser emulation at 390 CSS pixels found `document.documentElement.scrollWidth == innerWidth == 390` on home, providers, slots, and registration. The images show the actual phone-width layout.
+
+## Reviewed merge and deployed result
+
+[PR #11](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/11) received a [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/11#pullrequestreview-5405388424) and merged into `develop` at `06794732fb80601490a932ad52bfcff65f35f4d6`. This is a single-contributor review record.
+
+The merge automatically triggered Jenkins freestyle CI #21 and Pipeline #13; both finished SUCCESS. [Pipeline #13 evidence](evidence/UI_pipeline13.json) records all 39 tests passing, the versioned local registry image, container replacement, and health gate. The [independent Docker check](evidence/UI_deployment_check.json) matched the running container, image, and source commit to this build.
+
+The [live HTTP check](evidence/UI_live_checks.json) verified the updated home, providers, sign-in, registration, and SVG at [the local portal](http://127.0.0.1:8087/), with HTTP 200 and health `UP`. Later documentation commits can create new build numbers through the same polling pipeline.

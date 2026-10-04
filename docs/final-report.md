@@ -9,6 +9,8 @@ This report is an entry point to the versioned source, executed checks, diagrams
 
 The later [patient-interface refinement](ui-refresh.md) adds a professional visual theme and physiotherapy illustration within the same approved MVP scope. Its screenshots and fresh 34-backend/5-browser local checks supplement, rather than replace, the original T1–T15 evidence.
 
+The refinement was reviewed and merged through PR #11. [Automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Independent container verification](evidence/UI_deployment_check.json) matched the source and image; [live checks](evidence/UI_live_checks.json) confirmed the updated pages and health UP.
+
 ## 1. Abstract
 
 This project builds a small patient portal for finding a physiotherapist and booking, tracking, and cancelling an appointment. Its DevOps path uses GitHub, Maven/JUnit, Selenium, Jenkins, Docker, a local registry, Ansible, health checks, and a demonstrated recovery. The final local run passed **34 backend and 5 browser cases**; local deployments on ports 8082, 8087, and 8089 returned health `UP` and HTTP 200 at the recorded time. An automatic [Jenkins build #11](evidence/T15_auto_build11.json) then passed all 39 tests, pushed a versioned image, replaced the container, and passed health. [Raw Maven output](evidence/T15_final_maven_verify.txt), [HTTP checks](evidence/T15_live_checks.json), and [build #11 console](evidence/T15_auto_console.txt) support these results.
@@ -79,7 +81,7 @@ The [Git guide](git-workflow.md) records meaningful commits, status/add/commit/p
 
 ## 18. GitHub repository
 
-The [public repository](https://github.com/kirti-vispute/physiotherapy-appointment-portal) has `main` and `develop`, issue/PR templates, source, deployment configuration, docs, and screenshots. PRs #1–#10 have review and merge records in the [tracker](project-tracker.md); single-contributor COMMENT self-reviews are not independent peer approval.
+The [public repository](https://github.com/kirti-vispute/physiotherapy-appointment-portal) has `main` and `develop`, issue/PR templates, source, deployment configuration, docs, and screenshots. PRs #1–#11 have review and merge records in the [tracker](project-tracker.md); single-contributor COMMENT self-reviews are not independent peer approval.
 
 ## 19. Branching strategy
 

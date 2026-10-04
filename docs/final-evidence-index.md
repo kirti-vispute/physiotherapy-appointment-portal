@@ -23,3 +23,5 @@ Run shell commands in **PowerShell at the repository root** unless a row names J
 For the Task 14 two log screenshots, the [guide](task-14-provisioning.md#screenshots-and-evidence-checklist) explicitly identifies them as browser renderings of real saved output. During a viva, show the original full logs as well. Jenkins requires sign-in for a fresh API/job check; Task 15's [authenticated build #11 evidence](evidence/T15_auto_build11.json) records the actual successful SCM-triggered run. The live 8087 check was repeated after restoring Docker Desktop from a post-reboot transient socket error and starting the same existing container.
 
 **Presentation update after T1–T15:** [UI refinement notes](ui-refresh.md) link current desktop/mobile screenshots and [34-test backend](evidence/UI_backend_build.txt) plus [five-case Selenium](evidence/UI_selenium_browser.txt) local logs. Original task screenshots remain historical evidence.
+
+The new design's [automatic Pipeline #13](evidence/UI_pipeline13.json), [independent container check](evidence/UI_deployment_check.json), and [live page/health check](evidence/UI_live_checks.json) record its verified deployment after PR #11.

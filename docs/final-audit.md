@@ -36,4 +36,4 @@ The viva script is prepared but the student's future presentation has not occurr
 
 ## Post-audit patient interface refinement
 
-The approved T1–T15 scope and original evidence remain intact. The [UI refinement addendum](ui-refresh.md) records the later visual changes, the public SVG access correction, fresh 34-backend/5-Selenium local passes, and phone-width screenshots. The existing Jenkins and Docker pipeline is the deployment gate for the new commit.
+The approved T1–T15 scope and original evidence remain intact. The [UI refinement addendum](ui-refresh.md) records the later visual changes, the public SVG access correction, fresh 34-backend/5-Selenium local passes, and phone-width screenshots. After reviewed PR #11 merged, [automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Docker verification](evidence/UI_deployment_check.json) matched the build, and [live checks](evidence/UI_live_checks.json) returned HTTP 200 and health UP.

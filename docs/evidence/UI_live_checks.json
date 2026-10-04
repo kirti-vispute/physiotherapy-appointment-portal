@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-10-04T19:16:34.5736496+05:30",
+  "base_url": "http://127.0.0.1:8087",
+  "health": "UP",
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "new_theme": true
+    },
+    {
+      "path": "/physiotherapists",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "new_theme": true
+    },
+    {
+      "path": "/login",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "new_theme": true
+    },
+    {
+      "path": "/register",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "new_theme": true
+    },
+    {
+      "path": "/images/movement-session.svg",
+      "status": 200,
+      "content_type": "image/svg+xml",
+      "new_theme": true
+    }
+  ]
+}

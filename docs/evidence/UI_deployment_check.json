@@ -1,0 +1,35 @@
+{
+  "checked_at": "2026-10-04T19:17:21.1360510+05:30",
+  "container_name": "/physio-portal-cd-test",
+  "container_id": "6d128155c0d7a1aa08a241e28bcff8344a95c60125a047913589d1b1eeeca30f",
+  "image_id": "sha256:1020c384f57e4b9f0985ee3c774fa30d39e5c322e737677b9a8e9cc774238787",
+  "image_tag": "localhost:5000/physio-portal:1.0.0-b13-06794732fb80",
+  "status": "running",
+  "labels": {
+    "app.env": "test",
+    "jenkins.build": "13",
+    "managed-by": "jenkins",
+    "org.opencontainers.image.created": "2026-09-27T15:55:52.887617+05:30",
+    "org.opencontainers.image.description": "The Ubuntu container image maintained by Canonical\n\nUbuntu is a Debian-based Linux operating system that runs from the desktop to the cloud, to all your internet connected things.\nIt is the world's most popular operating system across public clouds and OpenStack clouds.\nIt is the number one platform for containers; from Docker to Kubernetes to LXD, Ubuntu can run your containers at scale.\nFast, secure and simple, Ubuntu powers millions of PCs worldwide.\n",
+    "org.opencontainers.image.title": "ubuntu",
+    "org.opencontainers.image.version": "26.04",
+    "project": "physio-portal-cd",
+    "source.commit": "06794732fb80601490a932ad52bfcff65f35f4d6"
+  },
+  "ports": {
+    "8080/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "8087"
+      }
+    ]
+  },
+  "volumes": [
+    {
+      "Type": "volume",
+      "Name": "physio-portal-cd-test-data",
+      "Destination": "/app/data"
+    }
+  ],
+  "matches_build13": true
+}
