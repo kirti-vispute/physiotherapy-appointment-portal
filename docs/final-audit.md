@@ -37,3 +37,5 @@ The viva script is prepared but the student's future presentation has not occurr
 ## Post-audit patient interface refinement
 
 The approved T1–T15 scope and original evidence remain intact. The [UI refinement addendum](ui-refresh.md) records the later visual changes, the public SVG access correction, fresh 34-backend/5-Selenium local passes, and phone-width screenshots. After reviewed PR #11 merged, [automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Docker verification](evidence/UI_deployment_check.json) matched the build, and [live checks](evidence/UI_live_checks.json) returned HTTP 200 and health UP.
+
+User feedback subsequently prompted a replacement illustration with distinct natural limbs and complete mobile framing. Reviewed PR #12 merged this correction; [automatic Pipeline #15](evidence/UI_illustration_pipeline15.json) passed all 39 tests and deployed it. The [live asset and container check](evidence/UI_illustration_live.json) matched the source commit and PNG SHA-256, with health UP.

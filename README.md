@@ -24,7 +24,7 @@ The [approved scope](docs/problem-definition.md) excludes payments, medical reco
 
 ## Current patient interface
 
-The portal uses a navy and teal design with an original physiotherapy illustration, clear provider and appointment cards, and responsive account pages. The [UI refinement notes](docs/ui-refresh.md) include desktop and phone-width screenshots, accessibility choices, and the checks rerun after this presentation update. All visual assets are local and free.
+The portal uses a navy and teal design with a local physiotherapy illustration, clear provider and appointment cards, and responsive account pages. The [UI refinement notes](docs/ui-refresh.md) include desktop and phone-width screenshots, accessibility choices, and the checks rerun after this presentation update. All visual assets are local and free.
 
 [PR #11](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/11) delivered this design. Automatic [Pipeline #13](docs/evidence/UI_pipeline13.json) passed all 39 tests and deployed it at [127.0.0.1:8087](http://127.0.0.1:8087/); the [live check](docs/evidence/UI_live_checks.json) returned HTTP 200 and health UP.
 

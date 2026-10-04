@@ -25,3 +25,5 @@ For the Task 14 two log screenshots, the [guide](task-14-provisioning.md#screens
 **Presentation update after T1–T15:** [UI refinement notes](ui-refresh.md) link current desktop/mobile screenshots and [34-test backend](evidence/UI_backend_build.txt) plus [five-case Selenium](evidence/UI_selenium_browser.txt) local logs. Original task screenshots remain historical evidence.
 
 The new design's [automatic Pipeline #13](evidence/UI_pipeline13.json), [independent container check](evidence/UI_deployment_check.json), and [live page/health check](evidence/UI_live_checks.json) record its verified deployment after PR #11.
+
+**Illustration correction:** user feedback on hands and legs was addressed in PR #12. Updated sign-in and home screenshots are linked in the [UI notes](ui-refresh.md#illustration-correction). [Automatic Pipeline #15](evidence/UI_illustration_pipeline15.json) passed 39 tests; [live verification](evidence/UI_illustration_live.json) confirms the corrected PNG and healthy deployment.
