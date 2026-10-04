@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-04T22:15:34.2661226+05:30",
+  "base_url": "http://127.0.0.1:8087",
+  "health": "UP",
+  "container": {
+    "image": "localhost:5000/physio-portal:1.0.0-b18-4f48cf65f434",
+    "source": "4f48cf65f4340d99fcd1b50b64171b2dedfc5424",
+    "matches_pipeline18": true,
+    "id": "b2f73229fb3db7878fb4a321b05746f7362cc8a4e3144827e8fedee426cfe461",
+    "status": "running"
+  },
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "corrected_image": true
+    },
+    {
+      "path": "/login?error",
+      "status": 200,
+      "corrected_image": true
+    },
+    {
+      "path": "/register",
+      "status": 200,
+      "corrected_image": true
+    }
+  ],
+  "image": {
+    "sha256": "66B06804EF27E085F17E658E96476CCC0615972C4E958B4E621B8F8709174A8E",
+    "matches_repository": true,
+    "path": "/images/movement-session.png"
+  }
+}

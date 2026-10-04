@@ -1,0 +1,13 @@
+{
+  "number": 17,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/17/",
+  "result": "ABORTED",
+  "duration_ms": 3672206,
+  "commits": [
+    "4f48cf65f4340d99fcd1b50b64171b2dedfc5424"
+  ],
+  "cause": [
+    "Started by an SCM change"
+  ],
+  "observation": "Timed out in Start Application before Selenium and Docker deployment; previous live container remained."
+}
