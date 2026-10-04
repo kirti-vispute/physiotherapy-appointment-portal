@@ -1,0 +1,22 @@
+{
+  "number": 20,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/20/",
+  "result": "FAILURE",
+  "commits": [
+    "949b5e8e1fd5c9fb5fa1600e7cdcd52d69ffa813"
+  ],
+  "tests": {
+    "passed": 35,
+    "failed": 4,
+    "skipped": 0
+  },
+  "cause": "Four Selenium journeys failed with ElementClickInterceptedException when selecting the original doctor farther down the expanded directory during smooth scrolling.",
+  "deployment_stages_skipped": [
+    "Stage \"Docker Build\" skipped due to earlier failure(s)\r",
+    "Stage \"Docker Tag\" skipped due to earlier failure(s)\r",
+    "Stage \"Docker Push\" skipped due to earlier failure(s)\r",
+    "Stage \"Stop Previous Container\" skipped due to earlier failure(s)\r",
+    "Stage \"Run New Container\" skipped due to earlier failure(s)\r",
+    "Stage \"Health Check\" skipped due to earlier failure(s)\r"
+  ]
+}

@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.RegisterExtension;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -91,7 +92,10 @@ abstract class SeleniumSupport {
         assertTrue(providers.size() >= 2, "At least two fictional providers must be visible");
         WebElement provider = providers.stream().filter(card -> card.findElement(By.tagName("h2")).getText().equals(providerName))
                 .findFirst().orElseThrow(() -> new AssertionError("Fixture provider is not displayed"));
-        provider.findElement(testId("view-slots")).click();
+        WebElement slotsLink = provider.findElement(testId("view-slots"));
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({behavior: 'instant', block: 'center'});", slotsLink);
+        wait.until(ExpectedConditions.elementToBeClickable(slotsLink)).click();
         List<WebElement> slots = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(testId("slot-card")));
         slotsUrl = driver.getCurrentUrl();
         slotId = slots.getFirst().getDomAttribute("data-slot-id");
