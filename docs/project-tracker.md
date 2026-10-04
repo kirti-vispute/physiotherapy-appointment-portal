@@ -151,3 +151,5 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 - ✅ [Independent check](evidence/T15_auto_independent_check.json) after Docker Desktop reboot recovery matched build #11's image/commit/container/volume, verified registry manifest and old build #9 container removal, and returned health UP and HTTP 200
 
 Tasks 1–15 are ✅. The future viva presentation itself remains to be performed by the student using the verified sequence.
+
+**Later UI refinement:** [Design and verification addendum](ui-refresh.md) records the refreshed patient pages, locally created physiotherapy illustration, 34 passing backend tests, five passing Selenium journeys, and responsive screenshots. It stays within the T1–T15 scope.

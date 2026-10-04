@@ -2,14 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Request could not be completed | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+    <title>Request could not be completed | PhysioWell</title><link rel="stylesheet" th:href="@{/css/portal.css}">
 </head>
 <body>
-<header><a th:href="@{/}">Physiotherapy Appointment Portal</a></header>
-<main><section class="card">
+<header th:replace="~{fragments :: header}"></header>
+<main id="main-content"><section class="card detail-card">
+    <span class="eyebrow">Something went wrong</span>
     <h1>We could not complete that request</h1>
     <p class="error" role="alert" th:text="${#strings.isEmpty(message) ? 'Please refresh the page and try again.' : message}" data-testid="request-error"></p>
     <a class="button" th:href="@{/physiotherapists}">View available appointments</a>
 </section></main>
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>

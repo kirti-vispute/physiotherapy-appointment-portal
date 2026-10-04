@@ -39,7 +39,7 @@ public class SecurityConfiguration {
                                  HttpSessionSecurityContextRepository contexts) throws Exception {
         http.authenticationManager(authentication)
                 .authorizeHttpRequests(rules -> rules
-                        .requestMatchers("/", "/register", "/login", "/css/**", "/error", "/actuator/health", "/actuator/health/**",
+                        .requestMatchers("/", "/register", "/login", "/css/**", "/images/**", "/error", "/actuator/health", "/actuator/health/**",
                                 "/physiotherapists", "/physiotherapists/*/slots", "/api/physiotherapists", "/api/physiotherapists/*/slots",
                                 "/api/auth/register", "/api/auth/login", "/api/auth/csrf").permitAll()
                         .anyRequest().authenticated())

@@ -55,7 +55,7 @@ git status --short --branch
 git switch -c feature/viva-home-copy
 ```
 
-**Editor:** in `src/main/resources/templates/index.html`, change only the homepage heading `Your next step towards better movement` to `Plan your next step towards better movement`. Do not alter `data-testid` attributes, paths, or booking logic. **Expected:** `git diff -- src/main/resources/templates/index.html` shows a one-line text change. The current Selenium suite does not assert this heading, but the CI result is the authority. If the branch name already exists, choose a new descriptive `feature/<name>` branch from clean `develop`.
+**Editor:** in `src/main/resources/templates/index.html`, change only the section heading `Your next step is easy to plan` to `Your next step is simpler to plan`. Do not alter `data-testid` attributes, paths, or booking logic. **Expected:** `git diff -- src/main/resources/templates/index.html` shows a one-line text change. The current Selenium suite does not assert this heading, but the CI result is the authority. If the branch name already exists, choose a new descriptive `feature/<name>` branch from clean `develop`.
 
 ## 6. Push to GitHub and merge the PR
 

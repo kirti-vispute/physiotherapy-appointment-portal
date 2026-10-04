@@ -1,18 +1,30 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <body>
-<header th:fragment="header">
-    <nav aria-label="Main navigation">
-        <a th:href="@{/}">Physiotherapy Appointment Portal</a>
-        <a th:href="@{/physiotherapists}">Physiotherapists</a>
-        <a th:if="${currentPatient != null}" th:href="@{/appointments}" data-testid="my-appointments">My appointments</a>
-        <span th:if="${currentPatient != null}" th:text="${currentPatient.fullName}" data-testid="signed-in-patient"></span>
-        <form th:if="${currentPatient != null}" th:action="@{/logout}" method="post">
-            <button type="submit" class="nav-button" data-testid="logout">Sign out</button>
-        </form>
-        <a th:if="${currentPatient == null}" th:href="@{/login}" data-testid="login-link">Sign in</a>
-        <a th:if="${currentPatient == null}" th:href="@{/register}">Create account</a>
+<header th:fragment="header" class="site-header">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <nav class="nav-inner" aria-label="Main navigation">
+        <a class="brand" th:href="@{/}" aria-label="PhysioWell home">
+            <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="7" r="3" fill="currentColor"/><path d="M16 12v8m-7-5 7-3 7 3M16 20l-6 8m6-8 6 8" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span>PhysioWell<small>Appointment portal</small></span>
+        </a>
+        <div class="nav-links">
+            <a th:href="@{/physiotherapists}">Find a physiotherapist</a>
+            <a th:if="${currentPatient != null}" th:href="@{/appointments}" data-testid="my-appointments">My appointments</a>
+            <span class="patient-name" th:if="${currentPatient != null}" th:text="${currentPatient.fullName}" data-testid="signed-in-patient"></span>
+            <form th:if="${currentPatient != null}" th:action="@{/logout}" method="post">
+                <button type="submit" class="nav-button" data-testid="logout">Sign out</button>
+            </form>
+            <a th:if="${currentPatient == null}" th:href="@{/login}" data-testid="login-link">Sign in</a>
+            <a th:if="${currentPatient == null}" class="nav-cta" th:href="@{/register}">Create account</a>
+        </div>
     </nav>
 </header>
+<footer th:fragment="footer" class="site-footer">
+    <div class="footer-inner">
+        <p><strong>PhysioWell</strong>Move forward, one appointment at a time.</p>
+        <p>Fictional providers and schedules for a local student demonstration.<br><a th:href="@{/physiotherapists}">Explore physiotherapists</a></p>
+    </div>
+</footer>
 </body>
 </html>

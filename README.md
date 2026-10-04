@@ -22,6 +22,10 @@ A small clinic can lose track of appointment requests made by phone or message. 
 
 The [approved scope](docs/problem-definition.md) excludes payments, medical records, clinician accounts, and a complex administration dashboard.
 
+## Current patient interface
+
+The portal uses a navy and teal design with an original physiotherapy illustration, clear provider and appointment cards, and responsive account pages. The [UI refinement notes](docs/ui-refresh.md) include desktop and phone-width screenshots, accessibility choices, and the checks rerun after this presentation update. All visual assets are local and free.
+
 ## Architecture and stack
 
 ```text

@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Create an account | Physio Portal</title>
+    <title>Create an account | PhysioWell</title>
     <link rel="stylesheet" th:href="@{/css/portal.css}">
 </head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<main>
+<main id="main-content" class="auth-layout">
     <section class="card form-card">
+        <span class="eyebrow">Join PhysioWell</span>
         <h1>Create your patient account</h1>
-        <p>Keep your physiotherapy appointments in one place.</p>
+        <p>Keep your physiotherapy appointments in one easy place.</p>
         <p th:if="${registered}" class="success" role="status" data-testid="registration-success">Your account has been created. <a th:href="@{/login}">Sign in to book an appointment</a>.</p>
         <form method="post" th:action="@{/register}" th:object="${registration}">
             <label for="fullName">Full name</label>
@@ -26,8 +27,15 @@
             <span id="password-error" class="error" th:errors="*{password}" data-testid="password-error"></span>
             <button class="button" type="submit" data-testid="register-submit">Create account</button>
         </form>
-        <p><a th:href="@{/}">Back to home</a></p>
+        <p class="form-footer">Already have an account? <a th:href="@{/login}">Sign in</a></p>
     </section>
+    <aside class="auth-aside">
+        <img th:src="@{/images/movement-session.svg}" src="/images/movement-session.svg" alt="">
+        <span class="eyebrow">Plan with confidence</span>
+        <h2>Your care, organised around you.</h2>
+        <p>Explore physiotherapists, find an open time, and return whenever you need to check your appointment.</p>
+    </aside>
 </main>
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>
