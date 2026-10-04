@@ -1,0 +1,98 @@
+{
+  "checked_at": "2026-10-04T22:26:27.2519131+05:30",
+  "base_url": "http://127.0.0.1:8092",
+  "provider_count": 15,
+  "available_slot_count": 90.0,
+  "providers": [
+    {
+      "id": 10,
+      "name": "Dr Aditya Kulkarni",
+      "specialty": "Shoulder rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 11,
+      "name": "Dr Ananya Desai",
+      "specialty": "Women's health physiotherapy",
+      "available_slots": 6
+    },
+    {
+      "id": 6,
+      "name": "Dr Arjun Nair",
+      "specialty": "Geriatric mobility",
+      "available_slots": 6
+    },
+    {
+      "id": 1,
+      "name": "Dr Asha Kulkarni",
+      "specialty": "Musculoskeletal rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 15,
+      "name": "Dr Ishita Verma",
+      "specialty": "Hip and knee rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 8,
+      "name": "Dr Kabir Mehta",
+      "specialty": "Spine and posture care",
+      "available_slots": 6
+    },
+    {
+      "id": 13,
+      "name": "Dr Kavya Reddy",
+      "specialty": "Occupational rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 5,
+      "name": "Dr Meera Joshi",
+      "specialty": "Paediatric physiotherapy",
+      "available_slots": 6
+    },
+    {
+      "id": 3,
+      "name": "Dr Neha Shah",
+      "specialty": "Neurological rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 14,
+      "name": "Dr Nikhil Bansal",
+      "specialty": "Chronic pain rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 9,
+      "name": "Dr Priya Rao",
+      "specialty": "Hand and wrist rehabilitation",
+      "available_slots": 6
+    },
+    {
+      "id": 12,
+      "name": "Dr Rahul Menon",
+      "specialty": "Balance and gait training",
+      "available_slots": 6
+    },
+    {
+      "id": 2,
+      "name": "Dr Rohan Deshmukh",
+      "specialty": "Sports physiotherapy",
+      "available_slots": 6
+    },
+    {
+      "id": 7,
+      "name": "Dr Sneha Iyer",
+      "specialty": "Cardiorespiratory physiotherapy",
+      "available_slots": 6
+    },
+    {
+      "id": 4,
+      "name": "Dr Vikram Patil",
+      "specialty": "Post-operative rehabilitation",
+      "available_slots": 6
+    }
+  ]
+}

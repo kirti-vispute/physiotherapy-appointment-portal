@@ -293,12 +293,24 @@ class PortalIntegrationTest {
 
     @Test void seedDataIsRepeatableWithoutDuplicateOrReopenedSlots() {
         slots.deleteAll(); providers.deleteAll();
+        var existingAsha = providers.saveAndFlush(new Physiotherapist("Dr Asha Kulkarni", "Musculoskeletal rehabilitation", "Existing demo provider"));
+        var existingRohan = providers.saveAndFlush(new Physiotherapist("Dr Rohan Deshmukh", "Sports physiotherapy", "Existing demo provider"));
+        ZoneId clinic = ZoneId.of("Asia/Kolkata");
+        Instant start = LocalDate.now(clock.withZone(clinic)).plusDays(1).atTime(9, 0).atZone(clinic).toInstant();
+        Slot closed = new Slot(existingAsha, start, start.plusSeconds(45 * 60));
+        closed.setAvailable(false); slots.saveAndFlush(closed);
         DemoData seed = new DemoData(providers, slots, clock);
         seed.run(null);
-        assertThat(providers.count()).isEqualTo(2); assertThat(slots.count()).isEqualTo(12);
-        Slot closed = slots.findAll().getFirst(); closed.setAvailable(false); slots.saveAndFlush(closed);
+        assertThat(providers.count()).isEqualTo(15); assertThat(slots.count()).isEqualTo(90);
+        assertThat(providers.findByFullName("Dr Asha Kulkarni").orElseThrow().getId()).isEqualTo(existingAsha.getId());
+        assertThat(providers.findByFullName("Dr Rohan Deshmukh").orElseThrow().getId()).isEqualTo(existingRohan.getId());
+        assertThat(slots.findById(closed.getId()).orElseThrow().isAvailable()).isFalse();
+        var seededSlots = slots.findAll();
+        for (var doctor : providers.findAll()) {
+            assertThat(seededSlots.stream().filter(slot -> slot.getPhysiotherapist().getId().equals(doctor.getId()))).hasSize(6);
+        }
         seed.run(null);
-        assertThat(providers.count()).isEqualTo(2); assertThat(slots.count()).isEqualTo(12);
+        assertThat(providers.count()).isEqualTo(15); assertThat(slots.count()).isEqualTo(90);
         assertThat(slots.findById(closed.getId()).orElseThrow().isAvailable()).isFalse();
     }
 }
