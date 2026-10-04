@@ -10,7 +10,7 @@ The visual update follows the approved patient portal scope. It changes presenta
 - **Accessibility:** semantic headings and landmarks, a skip link, text alternatives, visible keyboard focus, responsive layouts, and reduced-motion support.
 - **Cost:** the illustration, icons, CSS, and system fonts are stored locally. No paid service, image license, remote font, or external runtime asset is required.
 
-The two displayed physiotherapists and their schedules remain fictional demo data. The illustration is conceptual and makes no clinical outcome claim.
+The displayed physiotherapists and their schedules remain fictional demo data. The illustration is conceptual and makes no clinical outcome claim.
 
 ## What was rechecked
 
