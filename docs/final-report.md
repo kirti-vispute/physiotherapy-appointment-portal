@@ -7,6 +7,8 @@
 
 This report is an entry point to the versioned source, executed checks, diagrams, and saved evidence. The [line-by-line audit](final-audit.md), [evidence index](final-evidence-index.md), and [16-part viva sequence](final-demo.md) make each claim inspectable.
 
+The later [patient-interface refinement](ui-refresh.md) adds a professional visual theme and physiotherapy illustration within the same approved MVP scope. Its screenshots and fresh 34-backend/5-browser local checks supplement, rather than replace, the original T1–T15 evidence.
+
 ## 1. Abstract
 
 This project builds a small patient portal for finding a physiotherapist and booking, tracking, and cancelling an appointment. Its DevOps path uses GitHub, Maven/JUnit, Selenium, Jenkins, Docker, a local registry, Ansible, health checks, and a demonstrated recovery. The final local run passed **34 backend and 5 browser cases**; local deployments on ports 8082, 8087, and 8089 returned health `UP` and HTTP 200 at the recorded time. An automatic [Jenkins build #11](evidence/T15_auto_build11.json) then passed all 39 tests, pushed a versioned image, replaced the container, and passed health. [Raw Maven output](evidence/T15_final_maven_verify.txt), [HTTP checks](evidence/T15_live_checks.json), and [build #11 console](evidence/T15_auto_console.txt) support these results.

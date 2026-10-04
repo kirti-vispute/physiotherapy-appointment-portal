@@ -33,3 +33,7 @@
 ## Limits of the evidence
 
 The viva script is prepared but the student's future presentation has not occurred. Localhost services may stop after a Windows reboot; the report gives their startup checks. Build #10 remains an honest aborted run, while build #11 provides the successful automatic full-pipeline proof. No paid cloud deployment or independent human review is claimed.
+
+## Post-audit patient interface refinement
+
+The approved T1–T15 scope and original evidence remain intact. The [UI refinement addendum](ui-refresh.md) records the later visual changes, the public SVG access correction, fresh 34-backend/5-Selenium local passes, and phone-width screenshots. The existing Jenkins and Docker pipeline is the deployment gate for the new commit.

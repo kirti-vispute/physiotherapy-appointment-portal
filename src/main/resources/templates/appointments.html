@@ -2,20 +2,21 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My appointments | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+    <title>My appointments | PhysioWell</title><link rel="stylesheet" th:href="@{/css/portal.css}">
 </head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<main>
-    <h1>My appointments</h1>
-    <p th:if="${#lists.isEmpty(appointments)}" class="card" data-testid="appointments-empty">You have no appointments yet. <a th:href="@{/physiotherapists}">Find a physiotherapist</a>.</p>
+<main id="main-content">
+    <div class="page-intro"><span class="eyebrow">Your care calendar</span><h1>My appointments</h1><p class="lead">See your upcoming and past sessions in one place.</p></div>
+    <p th:if="${#lists.isEmpty(appointments)}" class="card empty-state" data-testid="appointments-empty">You have no appointments yet. <a th:href="@{/physiotherapists}">Find a physiotherapist</a>.</p>
     <article class="card appointment-card" th:each="appointment : ${appointments}" data-testid="appointment-card" th:attr="data-appointment-id=${appointment.id}">
         <span class="badge" th:text="${appointment.status}" data-testid="appointment-status"></span>
         <h2 th:text="${appointment.physiotherapistName}"></h2>
         <p th:text="${appointment.startLabel}"></p>
         <a th:href="@{/appointments/{id}(id=${appointment.id})}" data-testid="view-appointment" th:text="'View appointment #' + ${appointment.id}"></a>
     </article>
-    <a class="button" th:href="@{/physiotherapists}">Book another appointment</a>
+    <a class="button button-arrow" th:href="@{/physiotherapists}">Book another appointment</a>
 </main>
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>

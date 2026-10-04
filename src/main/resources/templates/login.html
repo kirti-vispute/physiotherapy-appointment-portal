@@ -2,11 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign in | Physio Portal</title><link rel="stylesheet" th:href="@{/css/portal.css}">
+    <title>Sign in | PhysioWell</title><link rel="stylesheet" th:href="@{/css/portal.css}">
 </head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<main><section class="card form-card">
+<main id="main-content" class="auth-layout"><section class="card form-card">
+    <span class="eyebrow">Patient sign in</span>
     <h1>Welcome back</h1>
     <p>Sign in to book and manage your appointments.</p>
     <p th:if="${param.error}" class="error" role="alert" data-testid="login-error">Invalid email or password.</p>
@@ -18,7 +19,15 @@
         <input id="password" name="password" type="password" autocomplete="current-password" required maxlength="128">
         <button class="button" type="submit" data-testid="login-submit">Sign in</button>
     </form>
-    <p>New here? <a th:href="@{/register}">Create an account</a></p>
-</section></main>
+    <p class="form-footer">New here? <a th:href="@{/register}">Create an account</a></p>
+</section>
+    <aside class="auth-aside">
+        <img th:src="@{/images/movement-session.svg}" src="/images/movement-session.svg" alt="">
+        <span class="eyebrow">Keep moving forward</span>
+        <h2>Appointments at a glance.</h2>
+        <p>Sign in to see your bookings, check their status, or choose another available time.</p>
+    </aside>
+</main>
+<footer th:replace="~{fragments :: footer}"></footer>
 </body>
 </html>
