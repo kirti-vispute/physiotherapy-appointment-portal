@@ -5,7 +5,7 @@ The visual update follows the approved patient portal scope. It changes presenta
 ## Design
 
 - **Theme:** deep navy for text and footer, teal for primary actions, soft mint for supporting surfaces, and a warm cream accent in the home hero.
-- **Physiotherapy context:** a local transparent PNG shows a seated patient and a standing physiotherapist with distinct, naturally positioned limbs. The same illustration supports the home and account pages; provider cards use small clinician icons, and the slot page uses a clock icon beside practical booking information.
+- **Physiotherapy context:** a local transparent PNG shows a patient seated on a treatment table and a physiotherapist in teal scrubs and a white coat guiding a shoulder assessment. An exercise ball and resistance band add rehabilitation context. The same illustration supports the home and account pages; provider cards use small clinician icons, and the slot page uses a clock icon beside practical booking information.
 - **Patient flow:** the home page explains three steps; provider cards show specialty and description; slots show duration and IST time zone before booking; account and appointment pages share the same navigation and action styles.
 - **Accessibility:** semantic headings and landmarks, a skip link, text alternatives, visible keyboard focus, responsive layouts, and reduced-motion support.
 - **Cost:** the illustration, icons, CSS, and system fonts are stored locally. No paid service, image license, remote font, or external runtime asset is required.
@@ -66,3 +66,11 @@ The home-page badge was removed so it cannot cover the clinician's feet. The mob
 Local checks on 4 October 2026 passed: 34 backend tests ([build log](evidence/UI_illustration_backend.txt)) and five Selenium journeys against the final preview ([browser log](evidence/UI_illustration_selenium.txt)), with zero failures, errors, or skips.
 
 [PR #12](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/12) received a [COMMENT self-review](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/12#pullrequestreview-5406606689) and merged at `ef9a997ba600015fc89c9859b35cc10de23ebccf`. Automatic [Pipeline #15](evidence/UI_illustration_pipeline15.json) finished SUCCESS with all 39 tests passing and deployed the corrected image to port 8087. The [live verification](evidence/UI_illustration_live.json) matched the running container to the build, checked all three page references, confirmed the live PNG SHA-256 equals the repository asset, and returned health `UP`.
+
+## Clearer physiotherapy setting
+
+Further user feedback requested a more recognizable patient and clinician. The built-in image-generation tool edited the local illustration to show a patient seated on a padded physiotherapy treatment table, a clinician wearing teal scrubs and a white coat with a blank ID badge, and a guided shoulder mobility assessment. An exercise ball and rolled resistance band supply rehabilitation context. Natural limbs, complete feet, transparency, and the existing palette were retained. This remains a conceptual illustration, with no treatment instructions or outcome claim.
+
+Final prompt summary: edit the existing illustration into a professional physiotherapy appointment with a treatment table, clinical clothing, gentle elbow support during shoulder assessment, natural hands and legs, full-body framing, transparent background, and no text or logos. The result is saved at `src/main/resources/static/images/movement-session.png` and used on home, sign-in, and registration. The home text alternative now describes the assessment. Earlier build and asset hashes document previous versions.
+
+Local packaging with `mvn -B -ntp -DskipTests package` succeeded. Desktop and 744-pixel sign-in screenshots show the clinical setting clearly, and the 390-pixel mobile home screenshot includes the full scene with no horizontal overflow. The existing full test gate runs in Jenkins after merge.
