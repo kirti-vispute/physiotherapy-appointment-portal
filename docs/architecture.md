@@ -129,4 +129,4 @@ erDiagram
 - Booking/status APIs derive patient identity from the session; form/API validation rejects malformed values before persistence.
 - Missing or foreign appointment identifiers return the same non-revealing `404` response.
 - Expected conflicts return clear messages and HTTP `409`; missing/invalid CSRF gives `403` and anonymous protected API access gives `401`.
-- `/actuator/health` is the only operational endpoint planned for public health checks; additional actuator details remain restricted.
+- `/actuator/health` is the only exposed Actuator endpoint, configured for public health checks; additional Actuator endpoints remain unexposed.

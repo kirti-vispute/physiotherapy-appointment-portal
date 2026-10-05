@@ -1,8 +1,10 @@
 # Final requirement audit — 15 tasks
 
-**Project:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Student:** Kirti Vispute (23102C0078)  
-**Audit basis:** original assignment, committed source, task guides, saved machine output, GitHub PRs, and final local checks on 3–4 October 2026. A ✅ means the listed assignment deliverables have evidence; it does not imply public production readiness. The [evidence index](final-evidence-index.md) gives the exact screenshot views and commands.
+**Project:** Selenium Testing for a Physiotherapy Appointment Portal
+
+**Student:** Kirti Vispute (23102C0078)
+
+**Audit basis:** original assignment, committed source, task guides, saved machine output, GitHub PRs, and original final local checks on 3–4 October 2026, with UI/seed addenda through 5 October below. A ✅ means the listed assignment deliverables have evidence; it does not imply public production readiness. The [evidence index](final-evidence-index.md) gives the exact screenshot views and commands.
 
 | Task | Requirement checked line by line | Deliverable | Evidence | Status |
 |---|---|---|---|---|
