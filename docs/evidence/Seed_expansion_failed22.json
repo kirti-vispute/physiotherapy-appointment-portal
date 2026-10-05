@@ -1,0 +1,14 @@
+{
+  "number": 22,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/22/",
+  "result": "FAILURE",
+  "commits": [
+    "c35ebd01b2744aa6c346c7cce9c702cd80137e14"
+  ],
+  "tests": {
+    "failed": 0,
+    "skipped": 0,
+    "passed": 39
+  },
+  "observation": "All 39 tests passed. Docker Build failed because the Docker Desktop Linux engine pipe was absent. Replacement stages were skipped."
+}

@@ -41,3 +41,9 @@ The approved T1–T15 scope and original evidence remain intact. The [UI refinem
 User feedback subsequently prompted a replacement illustration with distinct natural limbs and complete mobile framing. Reviewed PR #12 merged this correction; [automatic Pipeline #15](evidence/UI_illustration_pipeline15.json) passed all 39 tests and deployed it. The [live asset and container check](evidence/UI_illustration_live.json) matched the source commit and PNG SHA-256, with health UP.
 
 PR #13 made the patient and clinician more recognizable through a treatment table, clinical clothing, guided shoulder assessment and rehabilitation equipment. The automatic [build #17](evidence/UI_clinical_scene_aborted17.json) timed out before deployment. Manually triggered [retry #18](evidence/UI_clinical_scene_pipeline18.json) passed all 39 tests and deployed the new scene; [live checks](evidence/UI_clinical_scene_live.json) matched the PNG hash and container source, with health UP.
+
+## Expanded demo directory
+
+The [seed-data addendum](seed-data.md) records 13 additional fictional physiotherapists, bringing the total to 15 with varied specialties. PR #14 added the providers; PR #15 corrected Selenium scrolling for the longer directory. It retains build #20's four browser errors, build #21's timeout, and build #22's Docker engine failure after 39 passing tests, plus the documented recovery.
+
+Manually triggered [Pipeline #23](evidence/Seed_expansion_pipeline23.json) completed SUCCESS with all 39 tests passing and a healthy container replacement. The [5 October live check](evidence/Seed_expansion_live.json) verified 15 providers and cards, 13 additions, 90 available slots, preservation of original provider IDs, and matching source/image labels. Original T1–T15 records remain evidence of their earlier versions.

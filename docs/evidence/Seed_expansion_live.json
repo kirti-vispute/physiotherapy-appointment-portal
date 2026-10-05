@@ -1,0 +1,124 @@
+{
+  "checked_at": "2026-10-05T12:18:37.0069163+05:30",
+  "base_url": "http://127.0.0.1:8087",
+  "health": "UP",
+  "provider_count": 15,
+  "added_provider_count": 13,
+  "directory_cards": 15,
+  "original_provider_ids_preserved": true,
+  "available_slot_count": 90.0,
+  "providers": [
+    {
+      "id": 10,
+      "name": "Dr Aditya Kulkarni",
+      "specialty": "Shoulder rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 11,
+      "name": "Dr Ananya Desai",
+      "specialty": "Women's health physiotherapy",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 6,
+      "name": "Dr Arjun Nair",
+      "specialty": "Geriatric mobility",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 1,
+      "name": "Dr Asha Kulkarni",
+      "specialty": "Musculoskeletal rehabilitation",
+      "added": false,
+      "available_slots": 6
+    },
+    {
+      "id": 15,
+      "name": "Dr Ishita Verma",
+      "specialty": "Hip and knee rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 8,
+      "name": "Dr Kabir Mehta",
+      "specialty": "Spine and posture care",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 13,
+      "name": "Dr Kavya Reddy",
+      "specialty": "Occupational rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 5,
+      "name": "Dr Meera Joshi",
+      "specialty": "Paediatric physiotherapy",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 3,
+      "name": "Dr Neha Shah",
+      "specialty": "Neurological rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 14,
+      "name": "Dr Nikhil Bansal",
+      "specialty": "Chronic pain rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 9,
+      "name": "Dr Priya Rao",
+      "specialty": "Hand and wrist rehabilitation",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 12,
+      "name": "Dr Rahul Menon",
+      "specialty": "Balance and gait training",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 2,
+      "name": "Dr Rohan Deshmukh",
+      "specialty": "Sports physiotherapy",
+      "added": false,
+      "available_slots": 6
+    },
+    {
+      "id": 7,
+      "name": "Dr Sneha Iyer",
+      "specialty": "Cardiorespiratory physiotherapy",
+      "added": true,
+      "available_slots": 6
+    },
+    {
+      "id": 4,
+      "name": "Dr Vikram Patil",
+      "specialty": "Post-operative rehabilitation",
+      "added": true,
+      "available_slots": 6
+    }
+  ],
+  "container": {
+    "id": "4f2e2a20ebdb9d4ebeab91755cfe43a572fb34a289ffe81bc3356e02973cd3e4",
+    "matches_build": true,
+    "source": "c35ebd01b2744aa6c346c7cce9c702cd80137e14",
+    "status": "running",
+    "image": "localhost:5000/physio-portal:1.0.0-b23-c35ebd01b274"
+  }
+}

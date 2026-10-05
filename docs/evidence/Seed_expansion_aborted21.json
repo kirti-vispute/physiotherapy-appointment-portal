@@ -1,0 +1,24 @@
+{
+  "number": 21,
+  "url": "http://localhost:8080/job/physio-portal-pipeline/21/",
+  "result": "ABORTED",
+  "duration_ms": 46715653,
+  "commits": [
+    "c35ebd01b2744aa6c346c7cce9c702cd80137e14"
+  ],
+  "observed_progress": [
+    "[2026-10-04T17:10:47.648Z] [INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 43.81 s -- in com.kirtivispute.physio.appointment.PortalIntegrationTest\r",
+    "[2026-10-04T17:10:48.792Z] [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.056 s -- in com.kirtivispute.physio.patient.RegistrationIntegrationTest\r",
+    "[2026-10-04T17:10:49.721Z] [INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0\r",
+    "[2026-10-05T06:07:21.564Z] Cancelling nested steps due to timeout\r",
+    "Stage \"Start Application\" skipped due to earlier failure(s)\r",
+    "Stage \"Selenium Tests\" skipped due to earlier failure(s)\r",
+    "Stage \"Publish Test Report\" skipped due to earlier failure(s)\r",
+    "Stage \"Docker Build\" skipped due to earlier failure(s)\r",
+    "Stage \"Docker Tag\" skipped due to earlier failure(s)\r",
+    "Stage \"Docker Push\" skipped due to earlier failure(s)\r",
+    "Stage \"Stop Previous Container\" skipped due to earlier failure(s)\r",
+    "Stage \"Run New Container\" skipped due to earlier failure(s)\r",
+    "Stage \"Health Check\" skipped due to earlier failure(s)\r"
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "source": "C:\\Users\\kirti\\AppData\\Local\\Docker\\run",
+    "backup": "C:\\Users\\kirti\\AppData\\Local\\Docker\\run.seed-backup-20261005-121126"
+  },
+  {
+    "source": "C:\\Users\\kirti\\AppData\\Local\\docker-secrets-engine",
+    "backup": "C:\\Users\\kirti\\AppData\\Local\\docker-secrets-engine.seed-backup-20261005-121126"
+  }
+]

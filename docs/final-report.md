@@ -9,6 +9,8 @@ This report is an entry point to the versioned source, executed checks, diagrams
 
 The later [patient-interface refinement](ui-refresh.md) adds a professional visual theme and physiotherapy illustration within the same approved MVP scope. Its screenshots and fresh 34-backend/5-browser local checks supplement, rather than replace, the original T1–T15 evidence.
 
+The [expanded demo directory](seed-data.md) adds 13 fictional physiotherapists, giving 15 in total. [Pipeline #23](evidence/Seed_expansion_pipeline23.json) passed all 39 tests and deployed the update after Docker recovery; [live verification](evidence/Seed_expansion_live.json) confirmed 15 doctor cards, 90 available slots, retained original doctor IDs and health UP.
+
 The refinement was reviewed and merged through PR #11. [Automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Independent container verification](evidence/UI_deployment_check.json) matched the source and image; [live checks](evidence/UI_live_checks.json) confirmed the updated pages and health UP.
 
 ## 1. Abstract
