@@ -1,8 +1,10 @@
 # Project state tracker
 
-**Project:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Owner:** Kirti Vispute (23102C0078)  
-**Updated:** 4 October 2026
+**Project:** Selenium Testing for a Physiotherapy Appointment Portal
+
+**Owner:** Kirti Vispute (23102C0078)
+
+**Updated:** 5 October 2026
 
 Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence · ❌ Needs correction
 
@@ -24,16 +26,20 @@ Status key: ⬜ Not started · 🟡 In progress · ✅ Completed with evidence �
 | 14 | Provisioning/Reliability | ✅ | Ansible full runs `changed=4` then `changed=0`; Ubuntu container on 8089 healthy; bad port produced `failed=1`, known good rollback restored HTTP 200 and retained database volume. See [Task 14 guide](task-14-provisioning.md). |
 | 15 | Final Validation | ✅ | [Final report](final-report.md), [15-task audit](final-audit.md), [evidence index](final-evidence-index.md), [seven diagrams](final-diagrams.md), [16-part viva guide](final-demo.md), final 34+5 local pass and SCM-triggered Jenkins #11 SUCCESS with 39 tests and healthy deployment |
 
+## Current state after later updates
+
+The table above preserves the original task milestones. This summary includes the later UI and seed changes; all service results are dated checks, not a promise that local services remain running after reboot.
+
 | Area | Current verified state |
 |---|---|
-| Application | Full patient MVP verified; after Docker Desktop recovery on 4 October, the same build #11 container on 8087 returned health UP and home/providers HTTP 200; earlier 8082 and 8089 checks are timestamped, and local services may stop after reboot |
-| GitHub | `origin`: https://github.com/kirti-vispute/physiotherapy-appointment-portal.git; PRs #1–#10 reviewed/merged with honest COMMENT self-reviews; v1.0.0 remains release f629e23; `main` retains Task 6 baseline, `develop` includes Task 15 final validation |
-| Jenkins | Windows service 2.568.1 on 8080; Task 7 CI/SCM polling verified; #4 deliberate browser FAILURE skipped Deploy; Task 15 Pipeline #10 timed out, then SCM-caused #11 SUCCESS passed 39 tests, pushed a versioned registry image, replaced the container and passed health |
-| Selenium | Selenium 4.49.0 / Chrome 154; five local cases passed twice; Jenkins ran five against a fresh 8091 app, published reports on failure/success, and blocked Deploy on the deliberately failing assertion |
-| Docker | Task 11 local lifecycle verified on 8086; SCM-caused Jenkins #11 image `1.0.0-b11-58c86345b231` and container `5c44b13e...` verified on 8087; Task 14 Ubuntu engine retains the separately pinned build #9 image/volume on 8089 |
-| Ansible | Ubuntu WSL first configuration run `changed=5`; Task 14 site playbook first deployment `changed=4`, second run `changed=0`; bad port failed health and rollback restored HTTP 200 |
-| Documentation | All 15 tasks complete; final report covers 38 required topics, audit covers every task, seven diagrams and 16-part viva sequence are linked |
-| Evidence | Tasks 1–14 retained; Task 15 local Maven/HTTP, PR #10, trigger configuration, timed-out #10, successful SCM-caused #11, test/deployment metadata and independent post-reboot check saved |
+| Application | Patient MVP, professional theme and corrected clinical illustration; 15 fictional providers. [5 October check](evidence/Seed_expansion_live.json): 15 cards, 90 available slots, original IDs preserved, home/providers healthy on 8087 |
+| GitHub | PRs #1–#15 merged with COMMENT self-reviews; latest source/docs on `develop`; `main` retains Task 6 baseline and immutable v1.0.0 |
+| Jenkins | Local 2.568.1 on 8080; both jobs poll `develop`. Original SCM-caused #11 proves automatic delivery; manual [#23](evidence/Seed_expansion_pipeline23.json) passed 39 tests and deployed the latest application |
+| Selenium | Five journeys using Selenium 4.49.0; PR #15 fixed scrolling for the longer directory; build #23 passed all five plus 34 backend cases |
+| Docker | Jenkins build #23 source `c35ebd01b2744aa6c346c7cce9c702cd80137e14` matched live image/container labels and persisted volume on 8087. Ubuntu engine separately pins build #9 on 8089 |
+| Ansible | Original configuration changed five tasks; full deployment changed four then zero; bad port failed health and good configuration recovered with volume retained |
+| Documentation | All 15 task records, 38-topic final report, seven diagrams, 16-part viva guide and [documentation index](README.md) |
+| Evidence | Original T1–T15 retained; [UI revisions](ui-refresh.md) and [seed expansion](seed-data.md) retain later successes, failed/aborted runs and recovery |
 
 ## Task 1 evidence checklist
 

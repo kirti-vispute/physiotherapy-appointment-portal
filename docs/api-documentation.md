@@ -2,7 +2,9 @@
 
 **Status:** All browser and JSON routes listed below are implemented and verified through Tasks 5–6. Responses shown in the contract are examples; actual identifiers and outputs are saved in `docs/evidence/T06_local_http.txt`.
 
-All JSON requests use `Content-Type: application/json`. Patient-specific endpoints require a signed-in session cookie. Every state-changing request requires CSRF, including registration, login, and logout. Forms insert the token automatically; API callers fetch `GET /api/auth/csrf` and send its `token` in `X-CSRF-TOKEN` while retaining the same session cookie. Fetch a new token after login/logout. Errors use `{"error":"CODE","message":"Readable explanation"}` with an optional field-message map. Instants in JSON use ISO 8601 UTC (`Z`); pages display `Asia/Kolkata` (IST).
+Requests with JSON bodies use `Content-Type: application/json`. Patient-specific endpoints require a signed-in session cookie. Every state-changing request requires CSRF, including registration, login, and logout. Forms insert the token automatically; API callers fetch `GET /api/auth/csrf` and send its `token` in `X-CSRF-TOKEN` while retaining the same session cookie. Fetch a new token after login/logout. Errors use `{"error":"CODE","message":"Readable explanation"}` with an optional field-message map. Instants in JSON use ISO 8601 UTC (`Z`); pages display `Asia/Kolkata` (IST).
+
+Current demo data includes [15 fictional providers](seed-data.md). Response IDs are illustrative; register the example patient account on the database in use. Use 8087 for the existing Jenkins container or 8083 for the manual app in the [setup guide](local-setup.md).
 
 ## Browser pages
 
@@ -30,8 +32,8 @@ All JSON requests use `Content-Type: application/json`. Patient-specific endpoin
 | `POST /api/auth/login` | Start session | `{"email":"asha@example.test","password":"example123"}` | `200` with patient summary and session cookie | `400` missing fields; `401` invalid credentials |
 | `POST /api/auth/logout` | End session | Empty body, CSRF header/cookie | `204` empty; also safe when already signed out | `403` absent/invalid CSRF |
 | `GET /api/physiotherapists` | List providers | None | `200` array of `{id,fullName,specialty,description}` | `500` unexpected server fault |
-| `GET /api/physiotherapists/{id}/slots` | List future open slots | Path `id` | `200` array of `{id,physiotherapistId,startAt,endAt}` | `404` unknown provider |
-| `POST /api/appointments` | Book slot for current patient | `{"slotId":10}` | `201` with `{id,slotId,physiotherapistId,status,bookedAt}` and `Location` | `400` invalid data; `401` no session; `404` unknown slot; `409` occupied/past slot |
+| `GET /api/physiotherapists/{id}/slots` | List future open slots | Path `id` | `200` array of slot summaries; complete fields below | `404` unknown provider |
+| `POST /api/appointments` | Book slot for current patient | `{"slotId":10}` | `201` with appointment summary (complete fields below) and `Location` | `400` invalid data; `401` no session; `404` unknown slot; `409` occupied/past slot |
 | `GET /api/appointments` | List current patient's appointments | None | `200` array of appointment summaries | `401` no session |
 | `GET /api/appointments/{id}` | Get own confirmation/status | Path `id` | `200` with appointment summary | `401` no session; `404` missing or foreign appointment |
 | `PATCH /api/appointments/{id}/cancel` | Cancel own future confirmed appointment | Path `id`, empty body | `200` with updated `status:CANCELLED` | `401` no session; `404` missing/foreign; `409` past or ineligible appointment |
@@ -50,10 +52,10 @@ All JSON requests use `Content-Type: application/json`. Patient-specific endpoin
 
 ### API client example
 
-**Terminal:** PowerShell, any directory, while the app runs on 8081. Use a previously registered fictional account; its password below is demo test data. Tokens/cookies are held in memory and not displayed.
+**Terminal:** PowerShell, any directory, while the Jenkins container runs on 8087 (change the URL to 8083 for the manual app). First register the fictional example account on that database; its password below is demo test data. Tokens/cookies are held in memory and not displayed.
 
 ```powershell
-$portalUrl='http://localhost:8081'
+$portalUrl='http://127.0.0.1:8087'
 $portalSession=[Microsoft.PowerShell.Commands.WebRequestSession]::new()
 $csrf=Invoke-RestMethod "$portalUrl/api/auth/csrf" -WebSession $portalSession
 $login=@{email='asha.task6@example.test';password='example123'} | ConvertTo-Json

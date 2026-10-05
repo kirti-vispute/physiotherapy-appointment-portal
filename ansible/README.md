@@ -25,9 +25,11 @@ Ansible prepares Ubuntu 24.04 in WSL for the physiotherapy portal container. Thi
 | Docker configuration | Pinned image, container name, volume, environment, bind address and ports | Set in the Ansible variables and environment template; no Docker Desktop daemon settings changed |
 | Docker service | Ubuntu `docker.service` enabled and running | `enabled`, `active`; server version 29.1.3 |
 | Application container | `physio-portal-ansible` on the Ubuntu engine | Not started during Task 13; deployed and verified in Task 14 |
-| Ports | Registry `127.0.0.1:5000`; future app `127.0.0.1:8089` → container `8080` | Registry HTTP 200 and pinned manifest verified; app port reserved |
+| Ports | Registry `127.0.0.1:5000`; app `127.0.0.1:8089` → container `8080` | Registry HTTP 200 and pinned manifest verified; app port reserved |
 
 Ansible uses `root` for local lab package and system configuration. The non-login `physio` account matches the Docker image's runtime UID 10001 and is not added to the host Docker group. Task 14 deployed H2 data in named volume `physio-portal-ansible-data`. The environment file pins image `localhost:5000/physio-portal:1.0.0-b9-180b726bc020` and contains no credentials or patient data.
+
+**Version boundary:** this separate Ubuntu reliability demo remains pinned to build #9. It does not automatically follow later `develop` UI or 15-provider seed changes. The latest Jenkins deployment is on 8087; see the [current setup](../docs/local-setup.md). Historical Task 13/14 results below describe their tested versions.
 
 ## Files and task explanations
 

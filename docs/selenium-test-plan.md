@@ -1,12 +1,16 @@
 # Task 9 — Selenium Test Plan
 
-**Owner:** Kirti Vispute (23102C0078)  
-**Date:** 3 October 2026  
+**Owner:** Kirti Vispute (23102C0078)
+
+**Date:** 3 October 2026
+
 **Scope:** Five critical journeys from US-01 and US-04–US-07. Backend validation, ownership, races and time boundaries retain the 34 integration tests verified in Task 6. Jenkins integration and the deliberate deployment-blocking failure belong to Task 10.
+
+**Current update, 5 October 2026:** the directory now contains 15 providers. PR #15 makes the fixture provider link visible using an instant scroll before the native WebDriver click. [Pipeline #23](evidence/Seed_expansion_pipeline23.json) passed all 39 tests. Original results below remain dated Task 9 evidence.
 
 ## Common prerequisites and test data
 
-- Healthy local fictional-data portal at `http://localhost:8082`, with Dr Asha Kulkarni and Dr Rohan Deshmukh and at least one future free slot for Dr Asha Kulkarni.
+- Healthy fictional-data portal, with the original Dr Asha Kulkarni and Dr Rohan Deshmukh among the 15 providers and at least one future free slot for Dr Asha Kulkarni. Supply `-Dselenium.baseUrl=http://localhost:8083` for the manual app or `http://127.0.0.1:8087` for the Jenkins container. The profile default remains 8082; Jenkins overrides it to the temporary 8091 app.
 - Java 21, Maven, installed Chrome, and driver download access on the first run. Selenium Manager resolves a matching driver; each test starts a fresh temporary browser profile.
 - Versioned fixture: `src/test/resources/selenium/test-data.properties`. Name prefix **Selenium Demo**, email domain **example.test**, password **FictionalTest123!** (a public dummy test value), provider **Dr Asha Kulkarni**, clinic zone **Asia/Kolkata**.
 - Registration/booking/status cases generate `<method>.<UUID>@example.test`, so repeat runs do not conflict with existing accounts. No real patient information is used. Actual generated emails, IDs, browser/driver versions and URLs are saved in `target/selenium-evidence/*.properties`; passwords are omitted.
@@ -15,9 +19,12 @@
 
 ## SEL01 — User registration
 
-**Method:** `PortalSeleniumIT.registration`  
-**Objective:** Register a new patient and demonstrate that the created account can sign in.  
-**Preconditions:** Healthy portal; fresh signed-out browser; generated email not previously used.  
+**Method:** `PortalSeleniumIT.registration`
+
+**Objective:** Register a new patient and demonstrate that the created account can sign in.
+
+**Preconditions:** Healthy portal; fresh signed-out browser; generated email not previously used.
+
 **Test data:** Name `Selenium Demo registration`, unique `registration.<UUID>@example.test`, dummy password above.
 
 **Steps:**
@@ -28,36 +35,48 @@
 4. Open `/login`; sign in with that exact account; wait for `signed-in-patient`.
 5. Assert the displayed patient name and capture the authenticated page.
 
-**Expected:** A success message and successful sign-in for the new account.  
-**Actual result:** Created the unique fictional account, observed the success notice, and signed in with the same credentials; displayed patient name matched. Both the initial run and focused rerun passed on 3 October 2026.  
-**Pass/fail:** ✅ PASS  
+**Expected:** A success message and successful sign-in for the new account.
+
+**Actual result:** Created the unique fictional account, observed the success notice, and signed in with the same credentials; displayed patient name matched. Both the initial run and focused rerun passed on 3 October 2026.
+
+**Pass/fail:** ✅ PASS
+
 **Evidence:** `SEL01-registration.png` and matching metadata; Failsafe case `registration`.
 
 ## SEL02 — View available slot
 
-**Method:** `PortalSeleniumIT.availableSlot`  
-**Objective:** View a selected physiotherapist's future open appointment while signed out.  
-**Preconditions:** Fresh browser; two seeded providers; a future open slot.  
+**Method:** `PortalSeleniumIT.availableSlot`
+
+**Objective:** View a selected physiotherapist's future open appointment while signed out.
+
+**Preconditions:** Fresh browser; at least two seeded providers (15 in the current demo); a future open slot.
+
 **Test data:** Dr Asha Kulkarni; first displayed available slot (dynamic ID), displayed time parsed in Asia/Kolkata.
 
 **Steps:**
 
 1. Open `/physiotherapists`; wait for provider cards and assert at least two.
-2. Find Dr Asha Kulkarni by the fixture name; click that card's `view-slots`.
+2. Find Dr Asha Kulkarni by the fixture name; scroll that card's `view-slots` into view instantly, wait until clickable and click using WebDriver.
 3. Wait for slot cards; record the first card's slot ID and date/time.
 4. Assert an IST label and a start instant later than the current time.
 5. Assert no signed-in patient and the selected row's **Sign in to book** action; capture the page.
 
-**Expected:** A future available slot for the chosen provider, with IST time and a sign-in prompt.  
-**Actual result:** Two providers were visible; the selected provider offered a future IST slot with a sign-in prompt in the signed-out browser. Both the initial run and focused rerun passed on 3 October 2026.  
-**Pass/fail:** ✅ PASS  
+**Expected:** A future available slot for the chosen provider, with IST time and a sign-in prompt.
+
+**Actual result:** Two providers were visible; the selected provider offered a future IST slot with a sign-in prompt in the signed-out browser. Both the initial run and focused rerun passed on 3 October 2026.
+
+**Pass/fail:** ✅ PASS
+
 **Evidence:** `SEL02-available-slot.png`, metadata and Failsafe case `availableSlot`.
 
 ## SEL03 — Book appointment
 
-**Method:** `PortalSeleniumIT.booking`  
-**Objective:** Book an available slot and confirm that it disappears from availability.  
-**Preconditions:** Fresh browser; newly registered patient; future free slot.  
+**Method:** `PortalSeleniumIT.booking`
+
+**Objective:** Book an available slot and confirm that it disappears from availability.
+
+**Preconditions:** Fresh browser; newly registered patient; future free slot.
+
 **Test data:** `Selenium Demo booking`, `booking.<UUID>@example.test`; dynamic selected slot and returned appointment ID.
 
 **Steps:**
@@ -69,16 +88,22 @@
 5. Capture confirmation, reopen availability and assert that the selected slot ID is absent.
 6. Teardown cancels the fixture booking and asserts **CANCELLED** before quitting.
 
-**Expected:** One confirmed appointment with correct details; its slot is removed from the open list and released by teardown.  
-**Actual result:** Received a numeric CONFIRMED appointment with matching provider/time and notice; its slot disappeared from availability; teardown cancelled the fixture. Both the initial run and focused rerun passed on 3 October 2026.  
-**Pass/fail:** ✅ PASS  
+**Expected:** One confirmed appointment with correct details; its slot is removed from the open list and released by teardown.
+
+**Actual result:** Received a numeric CONFIRMED appointment with matching provider/time and notice; its slot disappeared from availability; teardown cancelled the fixture. Both the initial run and focused rerun passed on 3 October 2026.
+
+**Pass/fail:** ✅ PASS
+
 **Evidence:** `SEL03-booking.png`, metadata and Failsafe case `booking`.
 
 ## SEL04 — Cancel appointment
 
-**Method:** `PortalSeleniumIT.cancellation`  
-**Objective:** Cancel a future booking and verify the same slot returns to availability.  
-**Preconditions:** Fresh browser; unique signed-in patient with a new future confirmed fixture booking.  
+**Method:** `PortalSeleniumIT.cancellation`
+
+**Objective:** Cancel a future booking and verify the same slot returns to availability.
+
+**Preconditions:** Fresh browser; unique signed-in patient with a new future confirmed fixture booking.
+
 **Test data:** `Selenium Demo cancellation`, `cancellation.<UUID>@example.test`; dynamic slot/appointment IDs.
 
 **Steps:**
@@ -90,16 +115,22 @@
 5. Assert the exact selected slot ID is visible again with the original time.
 6. Teardown verifies cancelled state and quits.
 
-**Expected:** Cancelled appointment, no cancel control, and the original slot available again.  
-**Actual result:** Status changed to CANCELLED, the cancel control disappeared, and the exact selected slot/time returned to availability. Both the initial run and focused rerun passed on 3 October 2026.  
-**Pass/fail:** ✅ PASS  
+**Expected:** Cancelled appointment, no cancel control, and the original slot available again.
+
+**Actual result:** Status changed to CANCELLED, the cancel control disappeared, and the exact selected slot/time returned to availability. Both the initial run and focused rerun passed on 3 October 2026.
+
+**Pass/fail:** ✅ PASS
+
 **Evidence:** `SEL04-cancellation.png`, metadata and Failsafe case `cancellation`.
 
 ## SEL05 — Appointment status/confirmation
 
-**Method:** `PortalSeleniumIT.appointmentStatus`  
-**Objective:** Confirm the booking remains in the patient's own list after signing out/in, with consistent details.  
-**Preconditions:** Fresh browser; new account and future confirmed fixture booking.  
+**Method:** `PortalSeleniumIT.appointmentStatus`
+
+**Objective:** Confirm the booking remains in the patient's own list after signing out/in, with consistent details.
+
+**Preconditions:** Fresh browser; new account and future confirmed fixture booking.
+
 **Test data:** `Selenium Demo appointmentStatus`, `appointmentstatus.<UUID>@example.test`; exact returned appointment ID/provider/time.
 
 **Steps:**
@@ -111,9 +142,12 @@
 5. Capture the list; open the detail link and reassert the same ID, status and time.
 6. Teardown cancels the fixture booking and closes the browser.
 
-**Expected:** The same own confirmed appointment is visible after reauthentication; list/detail data agree.  
-**Actual result:** After signing out/in, the own appointment list and detail page showed the same ID, CONFIRMED status and slot time; teardown cancelled the fixture. Both the initial run and focused rerun passed on 3 October 2026.  
-**Pass/fail:** ✅ PASS  
+**Expected:** The same own confirmed appointment is visible after reauthentication; list/detail data agree.
+
+**Actual result:** After signing out/in, the own appointment list and detail page showed the same ID, CONFIRMED status and slot time; teardown cancelled the fixture. Both the initial run and focused rerun passed on 3 October 2026.
+
+**Pass/fail:** ✅ PASS
+
 **Evidence:** `SEL05-status.png`, metadata and Failsafe case `appointmentStatus`.
 
 ## Failure screenshot mechanism and diagnostic

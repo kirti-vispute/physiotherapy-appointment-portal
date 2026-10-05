@@ -1,0 +1,54 @@
+{
+  "reviewed_at": "2026-10-05T12:46:58.096860+05:30",
+  "scope": "Tracked Markdown, current guide consistency with source/configuration, task/report coverage; external URLs and live services are not revalidated by this link check.",
+  "markdown_documents": 35,
+  "relative_file_links_checked": 640,
+  "heading_links_checked": 14,
+  "external_links_skipped": 105,
+  "link_errors": [],
+  "coverage_checks": {
+    "final_report_38_topics": true,
+    "final_demo_16_steps": true,
+    "final_diagrams_7_sections": true,
+    "tracker_15_task_rows": true,
+    "index_15_task_rows": true,
+    "seed_source_15_providers": true,
+    "no_tracked_runtime_data_environment_or_key_files": true,
+    "all_13_current_pipeline_stages_documented": true,
+    "versions_match_pom": true,
+    "documented_environment_defaults_match_config": true,
+    "eleven_user_stories": true,
+    "all_controller_routes_documented": true,
+    "api_response_fields_documented": true
+  },
+  "source_versions": {
+    "java": "21",
+    "spring_boot": "4.0.8",
+    "selenium": "4.49.0",
+    "artifact": "1.0.0"
+  },
+  "configuration_defaults": {
+    "DEMO_SEED_ENABLED": "true",
+    "PORT": "8080",
+    "DB_URL": "jdbc:h2:file:./data/physio;DB_CLOSE_ON_EXIT=FALSE"
+  },
+  "controller_routes_checked": 19,
+  "current_pipeline_stages": [
+    "Checkout",
+    "Build",
+    "Unit Test",
+    "Package",
+    "Start Application",
+    "Selenium Tests",
+    "Publish Test Report",
+    "Docker Build",
+    "Docker Tag",
+    "Docker Push",
+    "Stop Previous Container",
+    "Run New Container",
+    "Health Check"
+  ],
+  "application_test_basis": "Saved manually triggered Jenkins build #23: 34 backend + 5 Selenium passes; documentation-only changes do not rerun application tests.",
+  "application_evidence": "Seed_expansion_pipeline23.json; Seed_expansion_live.json",
+  "limitations": "Original task screenshots/logs are dated records; main is the Task 6 baseline, develop is current; localhost services require startup; Ubuntu Ansible image stays pinned to build #9."
+}

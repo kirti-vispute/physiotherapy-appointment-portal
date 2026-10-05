@@ -1,8 +1,15 @@
 # Final project report
 
-**Title:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Student:** Kirti Vispute (23102C0078)  
-**Date:** 4 October 2026
+**Title:** Selenium Testing for a Physiotherapy Appointment Portal
+
+**Student:** Kirti Vispute (23102C0078)
+
+**Original report:** 4 October 2026
+
+**Updated:** 5 October 2026; later UI and seed verification is recorded below.
+
+**Latest branch:** [develop](https://github.com/kirti-vispute/physiotherapy-appointment-portal/tree/develop); `main` retains the Task 6 release baseline.
+
 **Repository:** [kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)
 
 This report is an entry point to the versioned source, executed checks, diagrams, and saved evidence. The [line-by-line audit](final-audit.md), [evidence index](final-evidence-index.md), and [16-part viva sequence](final-demo.md) make each claim inspectable.
@@ -11,7 +18,7 @@ The later [patient-interface refinement](ui-refresh.md) adds a professional visu
 
 The [expanded demo directory](seed-data.md) adds 13 fictional physiotherapists, giving 15 in total. [Pipeline #23](evidence/Seed_expansion_pipeline23.json) passed all 39 tests and deployed the update after Docker recovery; [live verification](evidence/Seed_expansion_live.json) confirmed 15 doctor cards, 90 available slots, retained original doctor IDs and health UP.
 
-The refinement was reviewed and merged through PR #11. [Automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Independent container verification](evidence/UI_deployment_check.json) matched the source and image; [live checks](evidence/UI_live_checks.json) confirmed the updated pages and health UP.
+The initial theme refinement was reviewed and merged through PR #11. Later PRs #12–#13 corrected the anatomy, framing and clinical scene; their actual checks and deployments are recorded in the [UI addendum](ui-refresh.md). [Automatic Pipeline #13](evidence/UI_pipeline13.json) passed 39 tests and deployed the new image. [Independent container verification](evidence/UI_deployment_check.json) matched the source and image; [live checks](evidence/UI_live_checks.json) confirmed the updated pages and health UP.
 
 ## 1. Abstract
 

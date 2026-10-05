@@ -1,7 +1,9 @@
 # Final viva and live demonstration sequence
 
-**Project:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Presenter:** Kirti Vispute (23102C0078)  
+**Project:** Selenium Testing for a Physiotherapy Appointment Portal
+
+**Presenter:** Kirti Vispute (23102C0078)
+
 **Environment:** one Windows 11 computer, GitHub Free, local Jenkins, local Docker Desktop registry, Ubuntu WSL with Ansible. No paid cloud account is required.
 
 This is a **rehearsal script**, not a claim that the future viva actions have already happened. The saved [Task 7](task-07-jenkins-ci.md), [Task 12](task-12-docker-cd.md), [Task 14](task-14-provisioning.md), and [automatic Task 15 build #11](evidence/T15_auto_build11.json) evidence can be shown if a live build is too slow. Both Jenkins jobs now poll `develop`; the Pipeline's [active schedule](evidence/T15_trigger_config.json) and [SCM-caused successful build](evidence/T15_auto_console.txt) were verified. Build #10 was manually started only to activate the new trigger and then timed out; it is not the automatic proof.
@@ -24,11 +26,11 @@ The workspace's Git ownership workaround is documented in [Task 4](git-workflow.
 
 ## 1. Show the GitHub repository
 
-**Browser:** open [the public repository](https://github.com/kirti-vispute/physiotherapy-appointment-portal). Show `README.md`, `src/`, `docs/`, `Jenkinsfile`, `Dockerfile`, `ansible/`, and `screenshots/`. **Expected:** the URL and files are visible; the current integration branch is `develop`. [Task 4 screenshot](../screenshots/T04_repository.jpg) is historical backup.
+**Browser:** open [the latest project on develop](https://github.com/kirti-vispute/physiotherapy-appointment-portal/tree/develop). Show `README.md`, `src/`, `docs/`, `Jenkinsfile`, `Dockerfile`, `ansible/`, and `screenshots/`. **Expected:** the URL and files are visible; the current integration branch is `develop`. The default `main` view preserves the earlier Task 6 baseline. [Task 4 screenshot](../screenshots/T04_repository.jpg) is historical backup.
 
 ## 2. Show the application
 
-**Browser:** open [localhost:8087](http://localhost:8087/) and `/physiotherapists`. Use fictional data to register, sign in, choose a future free slot, book it, inspect status, and cancel it. **Expected:** visible confirmation/status and the released slot. If no future slot appears, check the fictional seed setup in [Task 6](task-06-mvp.md); do not insert real patient data. Use the [Task 6 screenshots](task-06-mvp.md) as backup.
+**Browser:** open [localhost:8087](http://localhost:8087/) and `/physiotherapists`. Use fictional data to register, sign in, choose a future free slot, book it, inspect status, and cancel it. **Expected:** visible confirmation/status and the released slot. If no future slot appears, check the current fictional [seed setup](seed-data.md); do not insert real patient data. Use the [Task 6 screenshots](task-06-mvp.md) as backup.
 
 ## 3. Show branches and a reviewed PR
 
@@ -52,10 +54,10 @@ git log --oneline --decorate -n 8
 
 ```powershell
 git status --short --branch
-git switch -c feature/viva-home-copy
+git switch -c codex/viva-home-copy
 ```
 
-**Editor:** in `src/main/resources/templates/index.html`, change only the section heading `Your next step is easy to plan` to `Your next step is simpler to plan`. Do not alter `data-testid` attributes, paths, or booking logic. **Expected:** `git diff -- src/main/resources/templates/index.html` shows a one-line text change. The current Selenium suite does not assert this heading, but the CI result is the authority. If the branch name already exists, choose a new descriptive `feature/<name>` branch from clean `develop`.
+**Editor:** in `src/main/resources/templates/index.html`, change only the section heading `Your next step is easy to plan` to `Your next step is simpler to plan`. Do not alter `data-testid` attributes, paths, or booking logic. **Expected:** `git diff -- src/main/resources/templates/index.html` shows a one-line text change. The current Selenium suite does not assert this heading, but the CI result is the authority. If the branch name already exists, choose a new descriptive `codex/<name>` branch from clean `develop`.
 
 ## 6. Push to GitHub and merge the PR
 
@@ -64,11 +66,11 @@ git switch -c feature/viva-home-copy
 ```powershell
 git diff --check
 git add src/main/resources/templates/index.html
-git commit -m "docs: refine homepage welcome text"
-git push -u origin feature/viva-home-copy
+git commit -m "fix: refine homepage guidance"
+git push -u origin codex/viva-home-copy
 ```
 
-**Browser:** open GitHub, create a PR **from `feature/viva-home-copy` into `develop`**, describe the one-line change and tests, inspect the diff, record a COMMENT review, and merge when it is ready. **Expected:** a new merge commit appears on `develop`; [Task 5](task-05-registration.md) demonstrates the same branch/PR/review path. The automatic CI job watches `develop`, so a feature-branch push alone does not prove its trigger. Then sync locally:
+**Browser:** open GitHub, create a PR **from `codex/viva-home-copy` into `develop`**, describe the one-line change and tests, inspect the diff, record a COMMENT review, and merge when it is ready. **Expected:** a new merge commit appears on `develop`; [Task 5](task-05-registration.md) demonstrates the same branch/PR/review path. The automatic CI job watches `develop`, so a feature-branch push alone does not prove its trigger. Then sync locally:
 
 ```powershell
 git switch develop

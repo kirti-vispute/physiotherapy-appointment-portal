@@ -1,187 +1,162 @@
 # Physiotherapy Appointment Portal
 
-**DevOps project:** Selenium Testing for a Physiotherapy Appointment Portal  
+**DevOps project:** Selenium Testing for a Physiotherapy Appointment Portal
+
 **Student/contributor:** Kirti Vispute (23102C0078)
 
-## Project at a glance
+A patient portal for finding a physiotherapist, choosing an available session, booking it, checking status, and cancelling an eligible appointment. It also demonstrates planning, Git collaboration, Jenkins CI/CD, automated testing, Docker, Ansible, health checks and recovery.
 
-A small clinic can lose track of appointment requests made by phone or message. This project proposes a patient portal for finding a physiotherapist, choosing a free slot, booking it, checking confirmation/status, and cancelling an eligible booking. It also demonstrates planning, Git collaboration, Jenkins CI, Selenium testing, Docker deployment, Ansible configuration, health checks, and rollback.
+**Latest version:** use [`develop`](https://github.com/kirti-vispute/physiotherapy-appointment-portal/tree/develop) for the current website and documentation. GitHub's default `main` view and the immutable [v1.0.0 release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) preserve the earlier Task 6 release baseline.
 
-**Current verified state:** All 15 tasks have evidence. The patient MVP, real Git conflict, reviewed PRs, and [v1.0.0 release](https://github.com/kirti-vispute/physiotherapy-appointment-portal/releases/tag/v1.0.0) are documented. The final local run passed **34 backend plus five Selenium tests**. After a `develop` push, [Jenkins Pipeline build #11](http://localhost:8080/job/physio-portal-pipeline/11/) started **automatically from an SCM change**, passed all **39 tests**, pushed a commit-tagged image to the free local registry, replaced the previous Docker container, and passed health. Tasks 13–14 used Ansible on a separate Ubuntu WSL engine to prove zero-change idempotency and recovery from a bad port. The [final report](docs/final-report.md), [audit](docs/final-audit.md), [evidence index](docs/final-evidence-index.md), and [16-part viva guide](docs/final-demo.md) are ready. Local services may need restarting after reboot.
+**Latest application verification, 5 October 2026:** manually triggered [Pipeline #23](docs/evidence/Seed_expansion_pipeline23.json) passed **34 backend + 5 Selenium tests** and deployed the update. The [independent live check](docs/evidence/Seed_expansion_live.json) confirmed **15 fictional physiotherapists**, 90 available slots at that time, matching source/image labels, and health `UP` at [127.0.0.1:8087](http://127.0.0.1:8087/). Local services may need restarting after reboot. The earlier [SCM-triggered build #11](docs/evidence/T15_auto_build11.json) proves automatic delivery after a `develop` change.
 
-## MVP features
+## Features and scope
 
-| Feature | Current state |
+| Feature | Implementation |
 |---|---|
-| Homepage and health check | Verified locally in Task 3 |
-| Patient registration | Verified UI/API in Task 5; salted password hashes, validation, and duplicate-email protection |
-| Patient sign-in/out | Verified sessions, rotation, CSRF, and logout in Task 6 |
-| Physiotherapist and open-slot views | Two fictional providers; future available slots displayed in IST |
-| Booking, confirmation, status, cancellation | Verified through UI/API with owner-only access and cancellation before start |
-| Validation and duplicate-booking protection | 34 passing tests include concurrent booking, ownership, invalid/stale data, repeat cancellation, CSRF |
+| Accounts | Registration, validation, unique email, salted password hashes, sign-in/out, session rotation and CSRF |
+| Directory | 15 fictional providers with varied specialties; original provider IDs preserved |
+| Availability | Future unbooked slots displayed in IST; six 45-minute slots per provider across the next three days on startup |
+| Appointments | Booking, confirmation, own status/list, cancellation before start and released availability |
+| Protection | Owner-only records, concurrent booking protection, friendly validation/conflict errors |
+| Interface | Responsive navy/teal theme, local clinical illustration, provider and appointment cards |
+| Delivery | Backend/browser gates, versioned images, local registry, persistent volumes and health checks |
 
-The [approved scope](docs/problem-definition.md) excludes payments, medical records, clinician accounts, and a complex administration dashboard.
+A fresh database has 90 seeded slots. Existing appointments, occupied slots and older history are retained; availability depends on bookings and the current time. Startup adds the next three days without duplicating an existing provider/start-time pair. Clean checkouts contain no patient accounts; register a fictional account. See [seed data](docs/seed-data.md).
 
-## Current patient interface
+The [approved scope](docs/problem-definition.md) excludes payments, medical records, clinician accounts and a complex administration dashboard. All T1–T15 tasks have evidence in the [tracker](docs/project-tracker.md) and [final audit](docs/final-audit.md).
 
-The portal uses a navy and teal design with a local physiotherapy illustration, clear provider and appointment cards, and responsive account pages. The [UI refinement notes](docs/ui-refresh.md) include desktop and phone-width screenshots, accessibility choices, and the checks rerun after this presentation update. All visual assets are local and free.
+## Quick start
 
-[PR #11](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/11) delivered this design. Automatic [Pipeline #13](docs/evidence/UI_pipeline13.json) passed all 39 tests and deployed it at [127.0.0.1:8087](http://127.0.0.1:8087/); the [live check](docs/evidence/UI_live_checks.json) returned HTTP 200 and health UP.
-
-## Architecture and stack
-
-```text
-Browser (Thymeleaf pages)
-  → Spring MVC controllers and REST API
-  → application services and JPA repositories
-  → H2 file database
-
-GitHub → Jenkins → Maven/JUnit → Selenium → versioned Docker image
-         → registry → container → health check / rollback
-Ansible configures the documented Linux target.
-```
-
-The app uses Java 21, Spring Boot 4.0.8, Maven, Thymeleaf, H2, and embedded Tomcat. Delivery uses Git/GitHub, Jenkins, Selenium, Docker Desktop, and Ansible from WSL Ubuntu. The detailed [SRS](docs/srs.md), [architecture diagrams and data model](docs/architecture.md), and [API contract](docs/api-documentation.md) distinguish implemented routes from planned ones. No external Tomcat or Nginx instance is required.
-
-## Repository layout
-
-```text
-.github/                  Issue and pull-request templates
-docs/                     Scope, planning, architecture, API, setup, tracker
-screenshots/              Real demonstration images
-src/main/java/            Spring Boot application source
-src/main/resources/       Configuration and Thymeleaf pages
-src/test/java/            JUnit integration and Selenium browser tests
-src/test/resources/       Fictional Selenium fixture
-pom.xml                   Maven build definition
-Jenkinsfile               Parameterized build/test/package/deploy pipeline
-scripts/deploy-local.ps1   Owned local Windows demo deployment
-.gitignore                Local/build files excluded from Git
-```
-
-`Dockerfile` is verified for Task 11; `ansible/` contains the verified Task 13 inventory, variables, template, playbook and run guide. Empty placeholder files are not used as proof of implementation.
-
-## Local setup and running
-
-**Terminal:** PowerShell on Windows 11. **Location:** Project root. Java 21 and Maven 3.6.3+ are required. The exact path, commands, expected outputs, and troubleshooting notes are in the [local setup guide](docs/local-setup.md).
+**Prerequisites:** Git, JDK 21 and Maven 3.6.3 or later. These commands use PowerShell. Clone from a folder where you want the project:
 
 ```powershell
-mvn clean package
+git clone --branch develop https://github.com/kirti-vispute/physiotherapy-appointment-portal.git
+Set-Location -LiteralPath 'physiotherapy-appointment-portal'
+mvn -B -ntp clean package
 $env:PORT='8083'
 java -jar target/physio-portal-1.0.0.jar
 ```
 
-The build creates the `1.0.0` executable JAR; the second command chooses port 8083 because Jenkins uses 8080 and Task 8 deployments use 8081/8082; the third starts a separate manual app. Expected: Maven `BUILD SUCCESS` and Spring Boot startup on 8083. Open `http://localhost:8083/`, register a fictional account, sign in, and book a slot. If Maven cannot download dependencies, check Maven Central connectivity. If the port is occupied, choose another free `PORT` in the same terminal. Press `Ctrl+C` to stop this manual app. The live Task 8 portal is already available at [localhost:8082](http://localhost:8082/) without starting a manual copy.
+Expected: 34 backend tests pass, `BUILD SUCCESS` and startup on 8083. Keep this terminal open and visit [localhost:8083](http://localhost:8083/). Register, sign in, book a future free session, inspect status and cancel. Press `Ctrl+C` to stop the manual app. A fresh clone is independent of the existing Jenkins deployment on 8087.
 
-The H2 file `data/physio.mv.db` retains patient/appointment data across restarts. `DEMO_SEED_ENABLED` defaults to `true`: startup seeds 15 fictional physiotherapists with varied specialties and six 45-minute slots each (09:00 and 11:00 IST across the next three days, 90 slots on a fresh database). Existing providers and slot availability are preserved; repeated startup does not duplicate rows or reopen occupied slots. Older slots remain as history. An unbooked slot must start in the future to appear. Set `$env:DEMO_SEED_ENABLED='false'` to disable seeding. Clean checkouts contain no patient accounts or passwords; create one through the UI. All mutation routes require CSRF; API session/token instructions are in the [API guide](docs/api-documentation.md).
-
-The [expanded demo directory notes](docs/seed-data.md) list the 13 added physiotherapists and explain startup behavior and verification.
-
-In a **second PowerShell terminal, from any location**, run:
+In a second PowerShell terminal, from any folder:
 
 ```powershell
 Invoke-WebRequest -Uri 'http://localhost:8083/' -UseBasicParsing | Select-Object StatusCode
 Invoke-RestMethod -Uri 'http://localhost:8083/actuator/health'
 ```
 
-These check the manually started homepage and health. Expected: HTTP 200 and `status: UP`. If the connection is refused, check that the manual application is running and the port matches. Task 3 historically verified these endpoints on 8081; Task 8 verified and retained the Jenkins deployment on 8082.
+Expected: HTTP 200 and `status: UP`. Check `PATH` if Java/Maven is missing, Maven Central access if dependencies cannot download, or choose a free `PORT` if occupied. Full setup, ports, restart steps and deployment prerequisites are in the [local setup guide](docs/local-setup.md).
+
+## Configuration and persistence
+
+| Variable | Default | Purpose |
+|---|---|---|
+| `PORT` | `8080` | Application HTTP port; quick start overrides to 8083 |
+| `DB_URL` | `jdbc:h2:file:./data/physio;DB_CLOSE_ON_EXIT=FALSE` | Persistent database relative to the application's working directory |
+| `DEMO_SEED_ENABLED` | `true` | Add fictional providers and upcoming slots; set `false` to disable |
+
+The manual app retains `data/physio.mv.db`. Docker uses a named volume for `/app/data`; Jenkins test uses `physio-portal-cd-test-data`. Keep the same database path/volume on restart. Databases, build output and `.env` files are excluded from Git. Mutations require CSRF; the [API contract](docs/api-documentation.md) covers cookies, tokens, routes, response fields and errors.
 
 ## Testing
 
-**Terminal:** PowerShell at the project root. Run `mvn clean verify` to execute JUnit integration tests and package the app. Expected: `Tests run: 34, Failures: 0, Errors: 0, Skipped: 0` and `BUILD SUCCESS`. This result was observed in Task 6: 14 registration cases and 20 appointment/security cases. Tests use isolated H2 memory databases and a fixed clock for appointment time boundaries; the running app uses `data/physio.mv.db`. If a test fails, inspect `target/surefire-reports` before committing. See the [MVP implementation, Git conflict, and release guide](docs/task-06-mvp.md).
-
-**Task 9 verified:** Selenium 4.49.0 uses real Chrome WebDriver, explicit waits and assertions for registration, open-slot view, booking, cancellation and status. The initial run passed **34 backend + 5 browser tests**; a focused repeat passed **5/5**. An isolated intentional failure produced a screenshot and Maven exit 1. Each booking fixture is cancelled through the UI during teardown.
-
-[PR #4](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/4) was self-reviewed with a COMMENT review and merged into `develop`.
+At the project root, run the backend tests:
 
 ```powershell
-mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8082' verify
+mvn -B -ntp clean verify
 ```
 
-Expected: 34 Surefire and five Failsafe cases pass, followed by BUILD SUCCESS. The app must be running with a future free fixture slot. Default `mvn test` continues to run only backend tests; the Selenium profile is opt-in. See the [five-case test plan](docs/selenium-test-plan.md), [execution guide](docs/task-09-selenium.md), [preserved HTML report](docs/evidence/T09_report/selenium.html), or [local report preview](http://localhost:8084/selenium.html). Task 10 added the verified Jenkins browser deployment gate; see the [continuous testing guide](docs/task-10-continuous-testing.md).
+Expected: 34 passes, zero failures/errors/skips and `BUILD SUCCESS`. Tests use isolated H2 memory databases and a fixed clock for appointment boundaries. Results: `target/surefire-reports`.
 
-## Git and collaboration
+For the five browser journeys, install Chrome and allow Selenium Manager's first driver download. First build and start the manual app as above. In a second terminal at the project root, run browser tests without repackaging the JAR that is running:
 
-The [Git workflow](docs/git-workflow.md) defines `main`, `develop`, and `feature/<short-name>`, meaningful commit messages, PR review, conflict demonstration, and tagging. Both baseline branches have been pushed and verified. Never force-push or commit credentials or the H2 data directory.
+```powershell
+mvn -B -ntp -Pselenium '-Dselenium.baseUrl=http://localhost:8083' test-compile failsafe:integration-test failsafe:verify
+mvn -B -ntp -Pselenium surefire-report:failsafe-report-only
+```
 
-**GitHub repository URL:** [kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)
+Expected: five browser passes and `target/selenium-report/selenium.html`. Journeys cover registration, available slots, booking, cancellation and status. They use unique fictional accounts and cancel confirmed fixture bookings during teardown; accounts and cancelled history remain. Dr Asha Kulkarni must have a future free slot. The profile's legacy default is 8082, so explicitly supply your running application's URL. See the [test plan](docs/selenium-test-plan.md) and [saved report](docs/evidence/T09_report/selenium.html).
 
-## Jenkins CI and pipeline
+Jenkins runs all 39 tests against a temporary app on 8091 and blocks Docker deployment when a gate fails. [Task 10](docs/task-10-continuous-testing.md) preserves the deliberate failure and correction; [seed expansion](docs/seed-data.md) records the longer-directory scrolling fix and build #23 success.
 
-**Task 7 verified:** Jenkins 2.568.1 runs locally at `http://localhost:8080/`. The freestyle job [physio-portal-ci](http://localhost:8080/job/physio-portal-ci/) checks out public GitHub `develop`, runs `mvn clean test` then `mvn package`, publishes 34 JUnit tests, and archives/fingerprints `physio-portal-1.0.0.jar`. Manual build #1 and automatic SCM-triggered build #2 both succeeded. Poll SCM uses `H/2 * * * *`, avoiding a public webhook tunnel. The [Jenkins guide](docs/task-07-jenkins-ci.md) records exact tools/plugins/settings, commands, build/trigger evidence, and installation limitations. The existing unrelated Jenkins job was preserved.
+## Architecture and technology
 
-**Task 8 verified:** [Jenkinsfile](Jenkinsfile) runs Checkout → Build → Unit Test → Package → Deploy. [PR #3](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/3) was self-reviewed and merged into `develop`. Corrected pipeline #2 (`demo`/8081) and final #3 (`test`/8082) passed all 34 tests, archived the JAR/logs/metadata, and deployed with embedded Tomcat. The [live portal](http://localhost:8082/) returned HTTP 200 and health UP after build completion; archived/live JAR hashes match. The initial Windows wrapper hang, correction, exact commands/configuration, parameters and evidence are in the [Task 8 guide](docs/task-08-pipeline-deployment.md). Both demo processes remain running; redeploy after reboot. Task 9 local Selenium execution and Task 10 Jenkins integration/deployment gating are verified.
+```text
+Browser (Thymeleaf) → Spring MVC / REST → services → JPA repositories → H2
+GitHub develop → Jenkins → Maven/JUnit → Selenium → Docker image
+              → local registry → container replacement → health check
+Ansible → separate Ubuntu WSL Docker Engine → pinned demonstration image
+```
 
-**Task 10 verified:** [PR #5](https://github.com/kirti-vispute/physiotherapy-appointment-portal/pull/5) added Start Application → Selenium Tests → Publish Test Report before Deploy. Jenkins [failure #4](http://localhost:8080/job/physio-portal-pipeline/4/) ran a deliberately wrong assertion, archived its browser report/screenshot and skipped deployment; the existing portal stayed healthy. Correction [build #5](http://localhost:8080/job/physio-portal-pipeline/5/) passed 34 backend plus five browser tests and deployed successfully. Final `develop` build #6 confirmed the merged gate. The [Task 10 guide](docs/task-10-continuous-testing.md) has the exact commits, commands, results and screenshots.
+| Area | Technology |
+|---|---|
+| Application | Java 21, Spring Boot 4.0.8, embedded Tomcat 11, Thymeleaf |
+| Security/data | Spring Security, Spring Data JPA, H2 file database |
+| Build/tests | Maven, JUnit, Selenium 4.49.0, Chrome |
+| CI/CD | Git/GitHub, local Jenkins 2.568.1, PowerShell |
+| Containers | Docker Desktop Linux engine, loopback registry on 5000 |
+| Configuration | Ansible on Ubuntu 24.04 WSL with its own Docker Engine |
 
-## Docker deployment
+See the [SRS](docs/srs.md), [architecture/data model](docs/architecture.md) and [seven diagrams](docs/final-diagrams.md). No separate Tomcat or Nginx installation is needed. Images and fonts are local. The documented demonstration uses free tools and local services, with no paid cloud deployment.
 
-**Task 11 verified.** The root [Dockerfile](Dockerfile) packages the tested executable JAR as a Java 21 image tagged `physio-portal:1.0.0`. Docker `build`, `images`, `run`, `ps`, `logs`, `stop`, `start`, `restart`, and `rm` were executed. The verification container mapped `127.0.0.1:8086` → `8080/tcp`, kept H2 data in a named volume, and returned HTTP 200/health `UP` when tested. It may be stopped after reboot. The [Task 11 guide](docs/task-11-docker.md) records exact commands, image/container IDs, logs, health, startup recovery, and screenshot.
+## Jenkins and deployment
 
-**Task 12 verified.** [Jenkinsfile](Jenkinsfile) runs Docker Build → Tag → Push → Stop Previous Container → Run New Container → Health Check after the 39-test gate. A loopback local registry receives the versioned image. Merged [build #9](http://localhost:8080/job/physio-portal-pipeline/9/) pushed `localhost:5000/physio-portal:1.0.0-b9-180b726bc020`, removed build #8's owned container, and deployed a new healthy container on 8087. The [Task 12 guide](docs/task-12-docker-cd.md) records the PR, stage logs, IDs, digest, JAR hash, screenshot and initial failed/corrected run.
+[Jenkins on localhost:8080](http://localhost:8080/) requires the existing operator account. `physio-portal-ci` builds/tests/packages `develop`; `physio-portal-pipeline` reads the committed [Jenkinsfile](Jenkinsfile). Both poll SCM (`H/2 * * * *`). The Windows Pipeline agent uses tools `JDK21` and `Maven3`, installed Chrome, a running Docker Desktop engine and local registry.
 
-**Task 15 verified:** the Pipeline now polls `develop` every two minutes. [Build #11](http://localhost:8080/job/physio-portal-pipeline/11/) was caused by an SCM change, passed 34 backend and five Selenium tests, pushed `localhost:5000/physio-portal:1.0.0-b11-58c86345b231`, replaced build #9's container, and passed health. Its [console](docs/evidence/T15_auto_console.txt), [tests](docs/evidence/T15_auto_tests.json), and [independent check](docs/evidence/T15_auto_independent_check.json) are saved. Activation build #10 timed out and did not deploy; the [audit](docs/final-audit.md) records it honestly.
+Current stages:
 
-## Ansible configuration and reliability
+```text
+Checkout → Build → Unit Test → Package → Start Application
+→ Selenium Tests → Publish Test Report → Docker Build → Docker Tag
+→ Docker Push → Stop Previous Container → Run New Container → Health Check
+```
 
-**Task 13 verified:** Ubuntu 24.04 WSL runs Ansible against itself via a local connection. The [configuration guide](ansible/README.md) specifies prerequisites, starts its own Linux Docker Engine, creates the non-login `physio` account and `/opt/physio-portal`, and renders a non-secret deployment file. The first configuration run ended `ok=10 changed=5 failed=0`.
+Parameters: `APP_ENV=test/demo`, `DOCKER_PORT=8087/8088`; defaults: `test`/8087. Images include version, build and commit identifiers. Test container `physio-portal-cd-test` maps `127.0.0.1:8087` to container port 8080. Windows scripts contain installation paths specific to the demonstrated computer; a fresh machine needs the [deployment prerequisites](docs/local-setup.md#jenkins-and-docker-prerequisites).
 
-**Task 14 verified:** The [site playbook](ansible/site.yml) deployed the pinned image from the local registry to the Ubuntu Docker Engine on host port 8089. Its first full run ended `ok=16 changed=4 failed=0`; the second ended `ok=16 changed=0 failed=0`. A deliberately wrong application port made Ansible's health gate fail; rerunning the known good configuration replaced the bad container, preserved the database volume and returned health `UP`/HTTP 200. The [Task 14 guide](docs/task-14-provisioning.md) contains commands, logs, IDs and screenshots. Run the [WSL target helper](scripts/start-ansible-target.ps1) after Windows reboot to keep this separate local engine active during a demo.
+[Task 7](docs/task-07-jenkins-ci.md) records initial CI; [Task 8](docs/task-08-pipeline-deployment.md) records the original five-stage JAR pipeline; [Task 10](docs/task-10-continuous-testing.md) adds the browser gate; [Task 12](docs/task-12-docker-cd.md) adds Docker CD. These are dated records of successive versions.
 
-## Project workflow and evidence
+Ansible deploys the pinned build #9 image to a **separate Ubuntu engine** on 8089. That reliability demonstration does not track the latest UI or seed changes. Its first full run changed four tasks; the repeat changed zero. A bad port failed health, and reapplying good settings recovered the container while retaining its volume. See [Ansible setup](ansible/README.md) and [Task 14 recovery](docs/task-14-provisioning.md).
 
-Requirements → planning → architecture → feature branches/PRs → Maven/Jenkins → Selenium gate → Docker image/registry → deployment → Ansible configuration → health check → feedback/rollback. The [agile plan](docs/agile-plan.md) has the lifecycle diagram, backlog, sprints, and Definition of Done. The [tracker](docs/project-tracker.md) records the status and evidence for all 15 tasks.
+## Repository layout
 
-### Screenshots
+```text
+.github/                  Issue and pull-request templates
+docs/                     Requirements, guides, final report and saved evidence
+screenshots/              Actual task and interface screenshots
+src/main/java/            Controllers, services, entities, repositories and seeds
+src/main/resources/       Settings, Thymeleaf pages, CSS and local images
+src/test/java/            Backend integration and browser tests
+src/test/resources/       Fictional browser fixture
+scripts/                  Deployment, browser-test and WSL helpers
+ansible/                  Inventory, variables, templates and playbooks
+pom.xml                   Build and opt-in Selenium profile
+Jenkinsfile                Current CI/CD pipeline
+Dockerfile                Java 21 application image
+.gitignore                Local data, build output and environment exclusions
+```
 
-![Task 3 local application](screenshots/T03_local_application.png)
+## Documentation and evidence
 
-![Task 4 initial GitHub publication](screenshots/T04_repository.jpg)
+Start with the [documentation index](docs/README.md) for all guides and T1–T15 records.
 
-Task 4 also includes [branch evidence](screenshots/T04_branches.jpg) and [initial commit evidence](screenshots/T04_commits.jpg). These capture the initial publication before the subsequent evidence documentation commit.
+| Need | Document |
+|---|---|
+| Planning | [Scope](docs/problem-definition.md), [stories](docs/user-stories.md), [backlog](docs/backlog.md), [agile plan](docs/agile-plan.md) |
+| Setup/troubleshooting | [Local setup](docs/local-setup.md) |
+| API/authentication | [API contract](docs/api-documentation.md) |
+| Current interface/doctors | [UI notes](docs/ui-refresh.md), [seed directory](docs/seed-data.md) |
+| Completion/evidence | [Tracker](docs/project-tracker.md), [audit](docs/final-audit.md), [evidence index](docs/final-evidence-index.md) |
+| Submission/viva | [38-topic report](docs/final-report.md), [16-part demo](docs/final-demo.md) |
 
-The [final evidence index](docs/final-evidence-index.md) names the exact view and command behind each screenshot or log.
+![Patient homepage](screenshots/UI_home_desktop.png)
 
-![Task 5 registration success](screenshots/T05_registration_success.jpg)
+![Physiotherapist directory](screenshots/UI_providers_desktop.png)
 
-[Task 5 duplicate-email message](screenshots/T05_registration_duplicate.jpg)
+Screenshots are dated evidence. [UI notes](docs/ui-refresh.md) record successive image corrections and viewport checks; [seed notes](docs/seed-data.md) record the subsequent 15-provider directory. The [evidence index](docs/final-evidence-index.md) retains all original task screenshots/logs.
 
-Task 5 GitHub evidence: [pull request](screenshots/T05_pull_request.jpg), [self-review](screenshots/T05_review.jpg), and [merged PR](screenshots/T05_merge.jpg). Commands, test results, actual SHAs, and screenshot instructions are in the [Task 5 guide](docs/task-05-registration.md).
+## Contribution workflow
 
-![Task 6 booking confirmation](screenshots/T06_booking_confirmation.jpg)
+Branch from `develop` using `feature/<short-name>` or `codex/<short-name>`, make focused commits, record actual checks, open a PR into `develop`, review/merge and synchronize locally. See [Git workflow](docs/git-workflow.md). Recorded reviews are single-contributor COMMENT self-reviews; independent approval is not claimed. Never force-push or commit credentials, databases or real patient data. Release promotion to `main` is a separate milestone.
 
-![Task 6 cancellation](screenshots/T06_cancellation.jpg)
-
-Task 6 also records [providers](screenshots/T06_physiotherapists.jpg), [slots](screenshots/T06_available_slots.jpg), [own appointment status](screenshots/T06_appointment_status.jpg), [released slot](screenshots/T06_slot_released.jpg), [sign-out](screenshots/T06_sign_out.jpg), [merged PR](screenshots/T06_merge.jpg), [self-review](screenshots/T06_review.jpg), and [release tag](screenshots/T06_release_tag.jpg). The [Task 6 guide](docs/task-06-mvp.md) links the real Git conflict, test results, and release evidence. The verification app was stopped after the restart check.
-
-![Task 7 successful automatic SCM build](screenshots/T07_scm_trigger.jpg)
-
-Task 7 also records [34 passing Jenkins tests](screenshots/T07_test_results.jpg), [artifact fingerprint](screenshots/T07_artifact.jpg), [polling change detection](screenshots/T07_polling.jpg), [configured tools](screenshots/T07_tools.jpg), and actual console/API evidence in the [Task 7 guide](docs/task-07-jenkins-ci.md).
-
-![Task 8 successful parameterized pipeline](screenshots/T08_pipeline_stages.jpg)
-
-Task 8 also records [actual parameters](screenshots/T08_parameters.jpg), [SCM configuration](screenshots/T08_job_config.jpg), [successful final build](screenshots/T08_pipeline_success.jpg), [deployed home](screenshots/T08_deployed_application.jpg), and [deployed providers](screenshots/T08_deployed_providers.jpg).
-
-![Task 9 five passing Selenium journeys](screenshots/T09_selenium_report.jpg)
-
-Task 9 also preserves the five [journey screenshots](docs/task-09-selenium.md), [failure capture](screenshots/T09_failure_capture.png), XML results and actual execution logs.
-
-![Task 10 failed Jenkins browser gate](screenshots/T10_failed_pipeline.png)
-
-![Task 10 corrected Jenkins rerun](screenshots/T10_successful_rerun.png)
-
-![Task 11 portal served from Docker](screenshots/T11_docker_running.png)
-
-![Task 12 portal served from Jenkins-deployed Docker container](screenshots/T12_docker_deployment.png)
-
-![Task 13 Ansible first-run output](screenshots/T13_ansible_execution.png)
-
-![Task 14 zero-change second Ansible run](screenshots/T14_ansible_idempotency.png)
-
-![Task 14 recovered health endpoint](screenshots/T14_health_check.png)
-
-![Task 14 bad-release recovery](screenshots/T14_rollback.png)
-
-## Contributors
-
-- **Kirti Vispute**, student and project owner, roll number 23102C0078.
+**Contributor:** Kirti Vispute, project owner, roll number 23102C0078.

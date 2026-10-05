@@ -1,8 +1,11 @@
 # Task 4 — Git and GitHub Workflow
 
-**Repository:** Physiotherapy Appointment Portal  
-**Owner:** Kirti Vispute (23102C0078)  
-**Verified remote URL:** [https://github.com/kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)  
+**Repository:** Physiotherapy Appointment Portal
+
+**Owner:** Kirti Vispute (23102C0078)
+
+**Verified remote URL:** [https://github.com/kirti-vispute/physiotherapy-appointment-portal](https://github.com/kirti-vispute/physiotherapy-appointment-portal)
+
 **Git remote:** `origin`, using the HTTPS `.git` URL.
 
 ## Actual local initialization record
@@ -19,7 +22,9 @@ Git reported a repository ownership difference because the sandbox account creat
 | `develop` | Integration branch | Merge reviewed feature PRs after checks pass |
 | `feature/<short-name>` | One focused change, e.g. `feature/user-registration` | Branch from `develop`; open PR into `develop`; delete after merge if safe |
 
-Planned feature names include `feature/user-registration`, `feature/appointment-booking`, and `feature/selenium-tests`. A branch name records work; it does not count as a completed feature until code, review, and evidence exist.
+**Current version:** [`develop`](https://github.com/kirti-vispute/physiotherapy-appointment-portal/tree/develop) contains T1–T15, the current interface and 15-provider directory. The default `main` view retains the Task 6 baseline. Clone with `git clone --branch develop https://github.com/kirti-vispute/physiotherapy-appointment-portal.git` for the latest project. Promotion to `main` is a separate release milestone; `v1.0.0` remains immutable. Later assisted changes use `codex/<short-name>` branches from `develop`, reviewed and merged into `develop` under the same rules.
+
+Original feature names include `feature/user-registration`, `feature/appointment-booking`, and `feature/selenium-tests`. A branch name records work; it does not count as a completed feature until code, review, and evidence exist.
 
 ```mermaid
 gitGraph

@@ -1,9 +1,12 @@
 # Task 3 — Software Requirements Summary
 
-**Project:** Selenium Testing for a Physiotherapy Appointment Portal  
-**Scope:** [Approved Task 1 MVP](problem-definition.md)  
-**Stories:** [Task 2 user stories](user-stories.md)  
-**Status:** Functional patient MVP implemented and verified through Tasks 5–6. Delivery, Selenium, CI/CD, provisioning, and reliability requirements retain their later task gates.
+**Project:** Selenium Testing for a Physiotherapy Appointment Portal
+
+**Scope:** [Approved Task 1 MVP](problem-definition.md)
+
+**Stories:** [Task 2 user stories](user-stories.md)
+
+**Status:** Patient MVP and delivery, Selenium, CI/CD, provisioning and reliability requirements verified through T1–T15. See the [final audit](final-audit.md); the [seed addendum](seed-data.md) records the current 15-provider directory.
 
 ## Purpose and system boundary
 
@@ -42,7 +45,7 @@ The portal lets a registered patient find an open physiotherapy slot, book it, s
 | NFR-03 | Give clear form errors and stable `data-testid` or ID selectors | Manual review and Selenium tests |
 | NFR-04 | Build with Java 21/Maven and run as one executable JAR | `mvn clean package`, JAR startup |
 | NFR-05 | Make server port and database path configurable | Environment override test; documented defaults |
-| NFR-06 | Preserve local H2 data across application restart when using a persistent path | Restart and record check in later task |
+| NFR-06 | Preserve local H2 data across application restart when using a persistent path | Task 6 restart check and Tasks 12/14 named-volume deployment/recovery evidence |
 | NFR-07 | Pass five browser journeys locally and in Jenkins before container deployment | Test reports and gated pipeline |
 | NFR-08 | Permit health checks and versioned rollback without real patient data | Actuator HTTP response and deployment evidence |
 
@@ -62,12 +65,12 @@ The portal lets a registered patient find an open physiotherapy slot, book it, s
 
 - Windows 11 is the host; WSL Ubuntu may host Linux CI/Ansible tooling. Docker Desktop is a separate Windows prerequisite.
 - Java 21, Maven, Spring Boot 4, Thymeleaf, H2, Selenium/JUnit, GitHub, Jenkins, Docker, and Ansible are the agreed technologies.
-- Time is displayed in `Asia/Kolkata`; exact persistence type and formatting will be fixed in the entity implementation.
+- Time is stored as Java `Instant`, returned as ISO 8601 UTC in JSON and displayed in `Asia/Kolkata` (IST) on pages.
 - A booking is confirmed immediately. There is no therapist approval queue or admin dashboard.
 - Seeded physiotherapists and slots are fictional. The portal stores no treatment notes, records, or payments.
 - A cancelled appointment remains as history while its slot can be booked again.
-- Task 3 implements only a runnable skeleton and health check. FR-01–FR-08 are design commitments for Tasks 5 and 6.
+- Task 3 originally supplied the runnable skeleton and health check; Tasks 5 and 6 subsequently implemented FR-01–FR-08. The original minimum of two seeded providers is exceeded by the current 15-provider directory.
 
 ## Acceptance and traceability
 
-Task 3 is complete when this SRS, the use-case and architecture diagrams, data model, API contract, technology choices, and exact local setup exist, and the skeleton builds and answers its home and health endpoints. Feature-level acceptance remains scheduled for Tasks 5 and 6.
+Task 3 is complete when this SRS, the use-case and architecture diagrams, data model, API contract, technology choices, and exact local setup exist, and the skeleton builds and answers its home and health endpoints. Those criteria and Tasks 5–6 feature acceptance were met. Browser journeys, CI/CD, provisioning and recovery were subsequently verified in Tasks 7–15. The [tracker](project-tracker.md) maps task evidence; later [UI](ui-refresh.md) and [seed](seed-data.md) updates retain the approved scope.
